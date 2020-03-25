@@ -1,0 +1,9 @@
+dmenu.font              : InconsolataLGC Nerd Font Mono:size=8
+dmenu.background        : base00
+dmenu.foreground        : base05
+dmenu.selbackground     : base0D
+dmenu.selforeground     : base06
+dmenu.highbackground    : base00
+dmenu.highforeground    : base0A
+dmenu.highselbackground : base0D
+dmenu.highselforeground : base00

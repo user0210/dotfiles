@@ -1,0 +1,319 @@
+# i3 config file (v4)
+
+#    ##  ####                              #### ##        
+#   ░░  #░░░ #                            ░##░ ░░   ##### 
+#    ##░    ░#  #####   ######  #######  ###### ## ##░░░##
+#   ░##   ###  ##░░░## ##░░░░##░░##░░░##░░░##░ ░##░##  ░##
+#   ░##  ░░░ #░##  ░░ ░##   ░## ░##  ░##  ░##  ░##░░######
+#   ░## #   ░#░##   ##░##   ░## ░##  ░##  ░##  ░## ░░░░░##
+#   ░##░ #### ░░##### ░░######  ###  ░##  ░##  ░##  ##### 
+#   ░░  ░░░░   ░░░░░   ░░░░░░  ░░░   ░░   ░░   ░░  ░░░░░  
+#
+
+#########################################################
+##### >> Initialization << ##############################
+#########################################################
+
+workspace 1 output default
+
+##### autostart
+exec --no-startup-id exec compton --config /home/philipp/.config/compton/compton-i3.conf
+exec --no-startup-id exec hsetroot -solid "#101010"
+exec_always --no-startup-id exec $HOME/bin/polylaunch
+exec_always --no-startup-id exec /home/philipp/bin/i3listen.py & 
+# nagbar-platzhalter
+# exec --no-startup-id exec i3-nagbar -t warning -m 'polybar placeholder'
+
+##### variablen
+set $mod   Mod1
+set $super bindsym Mod1
+set $exe   exec --no-startup-id exec
+set $fyra  exec --no-startup-id exec i3fyra
+
+set $dirl  h
+set $dird  j
+set $diru  k
+set $dirr  l
+
+#########################################################
+##### >> settings << ####################################
+#########################################################
+
+show_marks no
+floating_modifier Mod1
+hide_edge_borders both
+focus_follows_mouse no
+workspace_auto_back_and_forth no
+
+font pango:Fixedsys Excelsior 9
+
+# with titlebar:
+for_window [class="^.*"] border normal 1
+# without titelbar:
+# for_window [class="^.*"] border pixel 1
+
+##### colors
+
+set $base00 #002b36 
+set $base01 #073642 
+set $base02 #586e75 
+set $base03 #657b83 
+set $base04 #839496 
+set $base05 #93a1a1 
+set $base06 #eee8d5 
+set $base07 #fdf6e3 
+set $base08 #dc322f 
+set $base09 #cb4b16 
+set $base0A #b58900 
+set $base0B #859900 
+set $base0C #2aa198 
+set $base0D #268bd2 
+set $base0E #6c71c4 
+set $base0F #d33682 
+
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base04 $base05 $base03 $base01
+client.unfocused        $base01 $base04 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
+#########################################################
+##### >> Panic << #######################################
+#########################################################
+
+$super+Shift+c	kill
+$super+Shift+q	reload
+$super+Shift+r	$exe /home/philipp/bin/restarter
+$super+Shift+e	exec --no-startup-id i3-msg exit
+
+#########################################################
+##### >> programms << ###################################
+#########################################################
+
+##### terminals
+#$super+Mod1+Return exec --no-startup-id i3-sensible-terminal
+$super+Shift+Return		$exe i3run -i scratchterm -s -e 'st -n scratchterm -T scratchterm'
+$super+Return	$exe st -n floatterm -e fish
+#$super+Shift+Return	$exe i3run -i aterm -e 'st -n aterm -T aterm -e fish'
+$super+Control+Return	$exe st -n tiledterm -e fish
+
+##### Program launching
+$super+f $exe i3run -i ranger -e 'st -n ranger -T ranger -e ranger'
+$super+i $exe i3run -c Luakit -e 'luakit'
+$super+t $exe /home/philipp/bin/themeselector
+
+$super+r $exe rofi -show run -display-run ">>>" -theme bmenu
+
+#########################################################
+##### >> move/size/focus << #############################
+#########################################################
+
+##### Kornhe resize....
+## group A, enter size mode with direction:
+#bindsym Mod1+Control+Left    exec --no-startup-id i3Kornhe size left
+#bindsym Mod1+Control+Down    exec --no-startup-id i3Kornhe size down
+#bindsym Mod1+Control+Up      exec --no-startup-id i3Kornhe size up
+#bindsym Mod1+Control+Right   exec --no-startup-id i3Kornhe size right
+#
+## group B, enter move mode with direction:
+## by using speed 0 (-p 0), this will only enter the mode without
+## moving the window.
+#bindsym Mod1+Left      exec --no-startup-id i3Kornhe move -p 0 left
+#bindsym Mod1+Down      exec --no-startup-id i3Kornhe move -p 0 down
+#bindsym Mod1+Up        exec --no-startup-id i3Kornhe move -p 0 up
+#bindsym Mod1+Right     exec --no-startup-id i3Kornhe move -p 0 right
+#
+#mode "sizemode" {
+#  # group 1 only send direction speed 30:
+#  bindsym Left          exec --no-startup-id i3Kornhe -p 30 left
+#  bindsym Down          exec --no-startup-id i3Kornhe -p 30 down
+#  bindsym Up            exec --no-startup-id i3Kornhe -p 30 up
+#  bindsym Right         exec --no-startup-id i3Kornhe -p 30 right
+#  
+#  # group 2 only send direction speed 5:
+#  bindsym Shift+Left    exec --no-startup-id i3Kornhe -p 5 left
+#  bindsym Shift+Down    exec --no-startup-id i3Kornhe -p 5 down
+#  bindsym Shift+Up      exec --no-startup-id i3Kornhe -p 5 up
+#  bindsym Shift+Right   exec --no-startup-id i3Kornhe -p 5 right
+#
+#  # group 3 change size direction:
+#  bindsym Mod1+Left     exec --no-startup-id i3Kornhe size left
+#  bindsym Mod1+Down     exec --no-startup-id i3Kornhe size down
+#  bindsym Mod1+Up       exec --no-startup-id i3Kornhe size up
+#  bindsym Mod1+Right    exec --no-startup-id i3Kornhe size right
+#
+#  # group 4 enter move mode:
+#  bindsym m exec --no-startup-id i3Kornhe move -p 0 left
+#
+#  # group 5 move to absolute position 1-9:
+#  bindsym 1 exec --no-startup-id i3Kornhe 1
+#  bindsym 2 exec --no-startup-id i3Kornhe 2
+#  bindsym 3 exec --no-startup-id i3Kornhe 3
+#  bindsym 4 exec --no-startup-id i3Kornhe 4
+#  bindsym 5 exec --no-startup-id i3Kornhe 5
+#  bindsym 6 exec --no-startup-id i3Kornhe 6
+#  bindsym 7 exec --no-startup-id i3Kornhe 7
+#  bindsym 8 exec --no-startup-id i3Kornhe 8
+#  bindsym 9 exec --no-startup-id i3Kornhe 9
+#
+#  # group 6 exit the mode
+#  bindsym Escape exec --no-startup-id i3Kornhe x
+#}
+
+##### i3 resize, move, focus....
+$super+Control+h resize shrink width	10 px or 5 ppt
+$super+Control+j resize grow height	10 px or 5 ppt
+$super+Control+k resize shrink height	10 px or 5 ppt
+$super+Control+l resize grow width	10 px or 5 ppt
+
+$super+Shift+h move left	
+$super+Shift+j move down	
+$super+Shift+k move up	
+$super+Shift+l move right	
+
+$super+h focus left	
+$super+j focus down	
+$super+k focus up	
+$super+l focus right	
+
+##### fyra.. container focus
+$super+p	 		$exe i3viswiz l
+$super+odiaeresis		$exe i3viswiz d
+$super+udiaeresis		$exe i3viswiz u
+$super+adiaeresis		$exe i3viswiz r
+##### fyra.. move window to container / fyra-magic
+$super+Control+p		$fyra -m l
+$super+Control+odiaeresis	$fyra -m d
+$super+Control+udiaeresis	$fyra -m u
+$super+Control+adiaeresis	$fyra -m r
+##### fyra.. direct container move
+$super+Shift+p			$fyra -m A
+$super+Shift+udiaeresis		$fyra -m B
+$super+Shift+odiaeresis		$fyra -m C
+$super+Shift+adiaeresis		$fyra -m D
+##### fyra..tab move
+$super+Shift+m			$exe i3flip n
+$super+Shift+n			$exe i3flip p
+
+##### toggle focus between floating and tiling containers
+$super+space focus mode_toggle
+
+#########################################################
+##### >> rules << #######################################
+#########################################################
+
+for_window [workspace="1"] floating enabled
+# for_window [class="^.*"] floating enabled
+
+for_window [instance="tiledterm"] floating disabled
+
+# for_window [instance="ranger"] focus; $fyra -m D
+# for_window [instance="aterm"] $fyra -m A
+# for_window [class="Luakit"] focus; $fyra -m C
+# for_window [instance="tiledterm"] floating disabled
+
+#########################################################
+##### >> layout << ######################################
+#########################################################
+
+# default layout:
+set $layout 'AB=-370 BD=250 AC=130'
+# autoload layout:
+$exe i3fyra -l $layout
+
+# layout manipulation:
+$super+o	$exe i3fyra -l $layout
+$super+g	layout toggle tabbed stacking splith splitv
+
+$super+b	split h
+$super+v	split v
+
+$super+F11      fullscreen toggle
+
+$super+F10	$exe polybar-msg cmd toggle
+
+# i3fyra -a = autolayout (floating toggle)
+$super+Shift+space $fyra -a
+
+#########################################################
+##### >> workspace << ###################################
+#########################################################
+
+$super+1 workspace 1
+$super+2 workspace 2
+$super+3 workspace 3
+
+$super+Shift+1 move container to workspace 1
+$super+Shift+2 move container to workspace 2
+$super+Shift+3 move container to workspace 3
+
+#########################################################
+##### >> Bar << #########################################
+#########################################################
+
+#bar {
+#  status_command i3status
+#}
+
+#########################################################
+##### >> disabled or replaced defaults << ###############
+#########################################################
+
+# floating_modifier $mod
+# focus_follows_mouse yes
+#
+# bindsym $mod+Return exec i3-sensible-terminal
+#
+# bindsym $mod+d exec dmenu_run
+#
+# bindsym $mod+h split h
+#
+# bindsym $mod+v split v
+#
+# bindsym $mod+f fullscreen toggle
+#
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+#
+# bindsym $mod+a focus parent
+#
+# bindsym $mod+Shift+space floating toggle
+#
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# bindsym $mod+l focus up
+# bindsym $mod+semicolon focus right
+#
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+#
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+semicolon move right
+#
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
+#
+# mode "resize" {
+#         bindsym j resize shrink width 10 px or 10 ppt
+#         bindsym k resize grow height 10 px or 10 ppt
+#         bindsym l resize shrink height 10 px or 10 ppt
+#         bindsym semicolon resize grow width 10 px or 10 ppt
+#         bindsym Left resize shrink width 10 px or 10 ppt
+#         bindsym Down resize grow height 10 px or 10 ppt
+#         bindsym Up resize shrink height 10 px or 10 ppt
+#         bindsym Right resize grow width 10 px or 10 ppt
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
+# bindsym $mod+r mode "resize"
+
+# syntax:ssHash

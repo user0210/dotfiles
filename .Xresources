@@ -1,0 +1,58 @@
+! __  __
+! \ \/ /_ __ ___  ___  ___  _   _ _ __ ___ ___  ___
+!  \  /| '__/ _ \/ __|/ _ \| | | | '__/ __/ _ \/ __|
+!  /  \| | |  __/\__ \ (_) | |_| | | | (_|  __/\__ \
+! /_/\_\_|  \___||___/\___/ \__,_|_|  \___\___||___/
+! 
+
+!-------------------------------------------------------------------
+! ---------- suckless theme ----------------------------------------
+!-------------------------------------------------------------------
+
+##### main Xres-colors
+#include ".xfiles/mondo-colors"
+#include ".xfiles/colors"
+
+##### suckless colors
+#include ".xfiles/dwm-color"
+#include ".xfiles/dmenu-color"
+
+!-------------------------------------------------------------------
+! ---------- usefull stuff -----------------------------------------
+!-------------------------------------------------------------------
+!
+! .Xresources syntax:
+!
+! include file (OBS! quotes are important):
+! #include "PATH_RELATIVE_TO_XRESOURCES"
+!
+! define variable:
+! #define  VARNAME VALUE
+!
+! custom resource:
+! name.class.type: value/variable
+!
+!-------------------------------------------------------------------
+!
+! commandline commands:
+!
+! load xresources:
+! ~/.xinitrc:
+! [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+!
+! merge new changes:
+! xrdb -merge ~/.Xresources
+!
+! replace .Xresources
+! xrdb -load ~/.Xresources
+!
+! list current settings in .Xresources:
+! xrdb -query
+!
+! list installed fonts:
+! fc-list | grep FONTNAME
+!
+! instant font test:
+! printf '\e]710;%s\007' "xft:FONT"
+!
+! :antialias=false <- if it works for you, its good

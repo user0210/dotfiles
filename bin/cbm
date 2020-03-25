@@ -1,0 +1,11 @@
+#!/bin/bash
+export CM_HISTLENGTH=5
+
+case "$1" in
+	s)
+		clipmenu ;;
+	d)
+		clipdel -d ".*" \
+		&& notify-send "Clipboard Content deleted" -u low \
+		|| notify-send "Errors occurred while Clean Up"	;;
+esac

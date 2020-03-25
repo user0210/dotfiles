@@ -1,0 +1,6 @@
+[Added Associations]
+application/x-desktop=nvim.desktop;
+text/plain=nvim.desktop;
+
+[Default Applications]
+inode/directory=ranger.desktop

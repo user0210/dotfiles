@@ -1,0 +1,38 @@
+!! Theme:    atelier-cave-light
+!! Author:   philipp
+!! Created:  2020-03-23
+base00	efecf4
+base01	e2dfe7
+base02	8b8792
+base03	7e7887
+base04	655f6d
+base05	585260
+base06	26232a
+base07	19171c
+base08	be4678
+base09	aa573c
+base0A	a06e3b
+base0B	2a9292
+base0C	398bc6
+base0D	576ddb
+base0E	955ae7
+base0F	bf40bf
+
+shell	atelier-cave-light
+
+!! base00	# ----
+!! base01	# ---
+!! base02	# --
+!! base03	# -
+!! base04	# +
+!! base05	# ++
+!! base06	# +++
+!! base07	# ++++
+!! base08	# red
+!! base09	# orange
+!! base0A	# yellow
+!! base0B	# green
+!! base0C	# aqua/cyan
+!! base0D	# blue
+!! base0E	# purple
+!! base0F	# brown    

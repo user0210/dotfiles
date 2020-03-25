@@ -1,0 +1,38 @@
+!! Theme:    tomorrow
+!! Author:   philipp
+!! Created:  2020-03-23
+base00	ffffff
+base01	e0e0e0
+base02	d6d6d6
+base03	8e908c
+base04	969896
+base05	4d4d4c
+base06	282a2e
+base07	1d1f21
+base08	c82829
+base09	f5871f
+base0A	eab700
+base0B	718c00
+base0C	3e999f
+base0D	4271ae
+base0E	8959a8
+base0F	a3685a
+
+shell	tomorrow
+
+!! base00	# ----
+!! base01	# ---
+!! base02	# --
+!! base03	# -
+!! base04	# +
+!! base05	# ++
+!! base06	# +++
+!! base07	# ++++
+!! base08	# red
+!! base09	# orange
+!! base0A	# yellow
+!! base0B	# green
+!! base0C	# aqua/cyan
+!! base0D	# blue
+!! base0E	# purple
+!! base0F	# brown    

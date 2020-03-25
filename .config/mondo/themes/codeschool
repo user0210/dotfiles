@@ -1,0 +1,38 @@
+!! Theme:    codeschool
+!! Author:   philipp
+!! Created:  2020-03-23
+base00	232c31
+base01	1c3657
+base02	2a343a
+base03	3f4944
+base04	84898c
+base05	9ea7a6
+base06	a7cfa3
+base07	b5d8f6
+base08	2a5491
+base09	43820d
+base0A	a03b1e
+base0B	237986
+base0C	b02f30
+base0D	484d79
+base0E	c59820
+base0F	c98344
+
+shell	codeschool
+
+!! base00	# ----
+!! base01	# ---
+!! base02	# --
+!! base03	# -
+!! base04	# +
+!! base05	# ++
+!! base06	# +++
+!! base07	# ++++
+!! base08	# red
+!! base09	# orange
+!! base0A	# yellow
+!! base0B	# green
+!! base0C	# aqua/cyan
+!! base0D	# blue
+!! base0E	# purple
+!! base0F	# brown    

@@ -1,0 +1,38 @@
+!! Theme:    outrun-dark
+!! Author:   philipp
+!! Created:  2020-03-23
+base00	00002A
+base01	20204A
+base02	30305A
+base03	50507A
+base04	B0B0DA
+base05	D0D0FA
+base06	E0E0FF
+base07	F5F5FF
+base08	FF4242
+base09	FC8D28
+base0A	F3E877
+base0B	59F176
+base0C	0EF0F0
+base0D	66B0FF
+base0E	F10596
+base0F	F003EF
+
+shell	outrun-dark
+
+!! base00	# ----
+!! base01	# ---
+!! base02	# --
+!! base03	# -
+!! base04	# +
+!! base05	# ++
+!! base06	# +++
+!! base07	# ++++
+!! base08	# red
+!! base09	# orange
+!! base0A	# yellow
+!! base0B	# green
+!! base0C	# aqua/cyan
+!! base0D	# blue
+!! base0E	# purple
+!! base0F	# brown    

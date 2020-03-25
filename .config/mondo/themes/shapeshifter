@@ -1,0 +1,38 @@
+!! Theme:    shapeshifter
+!! Author:   philipp
+!! Created:  2020-03-23
+base00	f9f9f9
+base01	e0e0e0
+base02	ababab
+base03	555555
+base04	343434
+base05	102015
+base06	040404
+base07	000000
+base08	e92f2f
+base09	e09448
+base0A	dddd13
+base0B	0ed839
+base0C	23edda
+base0D	3b48e3
+base0E	f996e2
+base0F	69542d
+
+shell	shapeshifter
+
+!! base00	# ----
+!! base01	# ---
+!! base02	# --
+!! base03	# -
+!! base04	# +
+!! base05	# ++
+!! base06	# +++
+!! base07	# ++++
+!! base08	# red
+!! base09	# orange
+!! base0A	# yellow
+!! base0B	# green
+!! base0C	# aqua/cyan
+!! base0D	# blue
+!! base0E	# purple
+!! base0F	# brown    

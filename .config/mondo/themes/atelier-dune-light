@@ -1,0 +1,38 @@
+!! Theme:    atelier-dune-light
+!! Author:   philipp
+!! Created:  2020-03-23
+base00	fefbec
+base01	e8e4cf
+base02	a6a28c
+base03	999580
+base04	7d7a68
+base05	6e6b5e
+base06	292824
+base07	20201d
+base08	d73737
+base09	b65611
+base0A	ae9513
+base0B	60ac39
+base0C	1fad83
+base0D	6684e1
+base0E	b854d4
+base0F	d43552
+
+shell	atelier-dune-light
+
+!! base00	# ----
+!! base01	# ---
+!! base02	# --
+!! base03	# -
+!! base04	# +
+!! base05	# ++
+!! base06	# +++
+!! base07	# ++++
+!! base08	# red
+!! base09	# orange
+!! base0A	# yellow
+!! base0B	# green
+!! base0C	# aqua/cyan
+!! base0D	# blue
+!! base0E	# purple
+!! base0F	# brown    

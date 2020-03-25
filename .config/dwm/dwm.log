@@ -1,0 +1,68 @@
+erresc: unknown str ESC]10
+erresc: unknown str ESC]11
+erresc: unknown str ESC]12
+erresc: unknown str ESC]10
+erresc: unknown str ESC]11
+erresc: unknown str ESC]12
+[1060:1060:0325/131822.961420:ERROR:edid_parser.cc(102)] Too short EDID data: manufacturer id
+[1081:1081:0325/131823.121271:ERROR:sandbox_linux.cc(374)] InitializeSandbox() called with multiple threads in process gpu-process.
+[1060:1116:0325/131823.228652:ERROR:rewards_service_impl.cc(206)] Failed to read file: /home/philipp/.config/BraveSoftware/Brave-Browser/Default/ledger_state
+[1099:1099:0325/131823.275469:ERROR:ledger_impl.cc(102)] Failed to initialize wallet
+[1060:1159:0325/131823.492503:ERROR:object_proxy.cc(632)] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[1060:1159:0325/131823.492791:ERROR:object_proxy.cc(632)] Failed to call method: org.freedesktop.UPower.GetDisplayDevice: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[1060:1159:0325/131823.493052:ERROR:object_proxy.cc(632)] Failed to call method: org.freedesktop.UPower.EnumerateDevices: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[1144:1:0325/131824.985759:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1144:1:0325/131825.438894:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1144:1:0325/131827.607994:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1299:1:0325/131828.095314:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1299:1:0325/131828.100662:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1299:1:0325/131828.111955:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1299:1:0325/131828.116906:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1060:1060:0325/131923.203083:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+[1060:1060:0325/131946.406908:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+[1060:1060:0325/132031.607028:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+erresc: unknown str ESC]10
+erresc: unknown str ESC]11
+erresc: unknown str ESC]12
+erresc: unknown str ESC]10
+erresc: unknown str ESC]11
+erresc: unknown str ESC]12
+[1060:1060:0325/132225.153695:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+[1060:1060:0325/132330.743229:ERROR:CONSOLE(1)] "[Shields]: Can't request shields panel data. Error: No tab url specified", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/out/brave_extension_background.bundle.js (1)
+[1060:1060:0325/132330.743377:ERROR:CONSOLE(1)] "[Shields]: Can't request shields panel data. Error: No tab url specified", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/out/brave_extension_background.bundle.js (1)
+[1060:1060:0325/132330.768733:ERROR:CONSOLE(0)] "Unchecked runtime.lastError: Cannot access contents of url "chrome://newtab/". Extension manifest must request permission to access this host.", source: chrome-extension://mnojpmjdmbbfmejpflffifhffcmidifd/_generated_background_page.html (0)
+[1850:1:0325/132333.822079:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1850:1:0325/132333.823082:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1850:1:0325/132333.824758:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1850:1:0325/132333.826153:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1850:1:0325/132334.456759:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1850:1:0325/132354.079882:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1850:1:0325/132354.081620:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1850:1:0325/132401.559930:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[1850:1:0325/132401.561515:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2239:2239:0325/133715.017259:ERROR:edid_parser.cc(102)] Too short EDID data: manufacturer id
+[2261:2261:0325/133715.103932:ERROR:sandbox_linux.cc(374)] InitializeSandbox() called with multiple threads in process gpu-process.
+[2239:2247:0325/133715.348441:ERROR:rewards_service_impl.cc(206)] Failed to read file: /home/philipp/.config/BraveSoftware/Brave-Browser/Default/ledger_state
+[2269:2269:0325/133715.413525:ERROR:ledger_impl.cc(102)] Failed to initialize wallet
+[2239:2362:0325/133715.429252:ERROR:object_proxy.cc(632)] Failed to call method: org.freedesktop.DBus.Properties.Get: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[2239:2362:0325/133715.429539:ERROR:object_proxy.cc(632)] Failed to call method: org.freedesktop.UPower.GetDisplayDevice: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[2239:2362:0325/133715.429800:ERROR:object_proxy.cc(632)] Failed to call method: org.freedesktop.UPower.EnumerateDevices: object_path= /org/freedesktop/UPower: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.UPower was not provided by any .service files
+[2323:1:0325/133716.167996:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2323:1:0325/133716.169215:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2323:1:0325/133716.170980:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2323:1:0325/133716.172617:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2323:1:0325/133717.633352:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2448:1:0325/133719.670828:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2448:1:0325/133720.137177:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2448:1:0325/133722.378206:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2603:1:0325/133724.243354:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2603:1:0325/133724.244122:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2603:1:0325/133724.251197:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2603:1:0325/133724.251877:ERROR:child_process_sandbox_support_impl_linux.cc(79)] FontService unique font name matching request did not receive a response.
+[2239:2239:0325/133815.100202:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+[2239:2239:0325/133841.544327:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+[2239:2239:0325/133927.579350:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+[2239:2239:0325/134341.619023:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+[2239:2239:0325/145006.682714:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+[2239:2239:0325/145656.688695:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.
+[2239:2239:0325/150656.696634:ERROR:gcm_channel_status_request.cc(145)] GCM channel request failed.

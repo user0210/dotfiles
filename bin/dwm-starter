@@ -1,0 +1,32 @@
+#!/bin/bash
+
+
+##### statusbar
+internetav &
+dwmblocks &
+
+##### background
+hsetroot -solid "#101010" &
+
+##### polkit authentication agent (erst installieren)
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+##### networkmanager-status-applet
+nm-applet &
+
+##### hide cursor
+xbanish &
+
+
+##### dwm (while loop for autorestart..)
+while true; do
+    # Log stderror to a file 
+    dwm 2> ~/.config/dwm/dwm.log
+    # No error logging
+    #dwm >/dev/null 2>&1
+done
+
+#until dwm \
+#2> ~/.config/dwm/dwm.log; do
+#	sleep 1
+#done
