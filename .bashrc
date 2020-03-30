@@ -10,10 +10,33 @@
 [[ $- != *i* ]] && return
 # Prompt look
 PS1='[\u@\h \W]\$ '
-# history
-export HISTCONTROL=erasedups:ignorespace
-#? check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+
+##### history
+export HISTCONTROL=ignoredups:erasedups:ignorespace
+# append history entries..
+shopt -s histappend
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+##### Base16 Shell
+if xhost >& /dev/null ; then
+	BASE16_SHELL="$HOME/.config/base16-shell/"
+	[ -n "$PS1" ] && \
+    	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+	        eval "$("$BASE16_SHELL/profile_helper.sh")"
+else echo "Display invalid" ; fi
+
+##### start with tmux only in X.. (before aliases..)
+if [[ $DISPLAY ]]; then
+    if [[ -z "$TMUX" ]] ;then
+        ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+        if [[ -z "$ID" ]] ;then # if not available create a new one
+            tmux new-session
+        else
+            tmux attach-session -t "$ID" # if available attach to it
+        fi
+    fi
+fi
 
 ##### Aliases
 alias nm='nmtui'
@@ -31,23 +54,3 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-##### Base16 Shell
-if xhost >& /dev/null ; then
-	BASE16_SHELL="$HOME/.config/base16-shell/"
-	[ -n "$PS1" ] && \
-    	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-	        eval "$("$BASE16_SHELL/profile_helper.sh")"
-else echo "Display invalid" ; fi
-
-##### start with tmux
-if [[ $DISPLAY ]]; then
-  if which tmux >/dev/null 2>&1; then
-      # if no session is started, start a new session
-      test -z ${TMUX} && tmux
-  
-      # when quitting tmux, try to attach
-      while test -z ${TMUX}; do
-          tmux attach || break
-      done
-  fi
-fi

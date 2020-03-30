@@ -4,10 +4,6 @@ theme=$(ls "/home/philipp/.config/mondo/themes" | grep "^[^._]" | dmenu -p "them
 mondo -a $theme
 
 
-##### dwm-xrdb hack.... not refreshing in mondo...
-xsetroot -name "fsignal:1"
-
-
 ##### reload st-windows
 externalpipe_buffer.sh st_reloadsignal
 
@@ -15,13 +11,9 @@ externalpipe_buffer.sh st_reloadsignal
 ##### tmux-base16-source
 # just if it doesnt wait until it escapes (C-[)
 #for i in {1..10}; do tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
-
 tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['
 tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-z
 tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-c
-
-#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE /home/philipp/.xfiles/shell-color Enter
-
 tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ~/.bashrc; fg &> /dev/null; echo -n" C-m
 
 neovim-reload.py
@@ -35,7 +27,8 @@ sed -i "s/gtk-theme-name=.*/gtk-theme-name=$theme/g" /home/philipp/.config/gtk-3
 sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=$theme/g" /home/philipp/.config/gtk-3.0/settings.ini
 
 
-##### rescale windows to fix glitches
+###### dwm-xrdb hack.... not refreshing in mondo... + rescale windows to fix glitches
+xsetroot -name "fsignal:1"
 xsetroot -name "fsignal:2"
 xsetroot -name "fsignal:3"
 

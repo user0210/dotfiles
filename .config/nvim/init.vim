@@ -1,5 +1,4 @@
 
-
 """"" functions
 function! Invertfg()
     :let &background = ( &background == "light"? "dark" : "light" )
@@ -15,18 +14,20 @@ map <F2> :NERDTreeToggle<CR>
 """"" settings
 let mapleader=","
 set number relativenumber
+set mouse=a
 "set paste
 
 
 """"" plugins
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-sensible'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'lilydjwg/colorizer'
+Plug 'unblevable/quick-scope'
 "Plug 'lervag/vimtex'
 "Plug 'mhinz/vim-signify'
 "Plug 'tpope/vim-fugitive'
@@ -42,7 +43,9 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
+""""" quick-scope-settings
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """"" airline stuff
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 autocmd VimEnter * hi Normal ctermbg=none
