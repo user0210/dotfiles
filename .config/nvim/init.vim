@@ -1,3 +1,11 @@
+" _   _         __     ___
+"| \ | | ___  __\ \   / (_)_ __ ___
+"|  \| |/ _ \/ _ \ \ / /| | '_ ` _ \
+"| |\  |  __/ (_) \ V / | | | | | | |
+"|_| \_|\___|\___/ \_/  |_|_| |_| |_|
+"
+"
+
 
 """"" functions
 function! Invertfg()
@@ -6,16 +14,12 @@ function! Invertfg()
 endfunction
 
 
-""""" keymap
-map <F1> :call Invertfg()<CR>
-map <F2> :NERDTreeToggle<CR>
-
-
 """"" settings
 let mapleader=","
 set number relativenumber
 set mouse=a
 "set paste
+"set t_Co=256
 
 
 """"" plugins
@@ -34,7 +38,10 @@ Plug 'unblevable/quick-scope'
 "Plug 'scrooloose/syntastic'
 call plug#end()
 
-"set t_Co=256
+
+""""" keymap
+map <F1> :call Invertfg()<CR>
+map <F2> :NERDTreeToggle<CR>
 
 
 """"" setting from base16-shell
