@@ -6,6 +6,8 @@
 # /_/\_\_|_| |_|_|\__|_|  \___|
 # 
 
+export QT_QPA_PLATFORMTHEME=gtk2
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources

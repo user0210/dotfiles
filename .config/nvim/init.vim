@@ -25,6 +25,7 @@ set mouse=a
 """"" plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-sensible'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
@@ -56,5 +57,5 @@ endif
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """"" airline stuff
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 autocmd VimEnter * hi Normal ctermbg=none
