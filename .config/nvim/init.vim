@@ -36,6 +36,8 @@ Plug 'unblevable/quick-scope'
 "Plug 'mhinz/vim-signify'
 "Plug 'tpope/vim-fugitive'
 "Plug 'scrooloose/syntastic'
+"always the last plugin to load...
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 

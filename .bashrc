@@ -26,18 +26,6 @@ if xhost >& /dev/null ; then
 	        eval "$("$BASE16_SHELL/profile_helper.sh")"
 else echo "Display invalid" ; fi
 
-##### start with tmux only in X.. (before aliases..)
-if [[ $DISPLAY ]]; then
-    if [[ -z "$TMUX" ]] ;then
-        ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
-        if [[ -z "$ID" ]] ;then # if not available create a new one
-            tmux new-session
-        else
-            tmux attach-session -t "$ID" # if available attach to it
-        fi
-    fi
-fi
-
 ##### Aliases
 alias nm='nmtui'
 alias mem='sudo ps_mem'
