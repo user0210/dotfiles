@@ -10,8 +10,9 @@ externalpipe_buffer.sh st_reloadsignal
 
 ##### tmux-base16-source
 # just if it doesnt wait until it escapes (C-[)
-#for i in {1..10}; do tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
-tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['
+for i in {1..10}; do tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
+#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['
+
 tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-z
 tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-c
 tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ~/.bashrc; fg &> /dev/null; echo -n" C-m
@@ -20,17 +21,21 @@ neovim-reload.py
 
 
 ##### change gtk-theme
-theme=$(mondo get shell)
-sed -i "s/gtk-theme-name=\".[^]]*\"/gtk-theme-name=\"$theme\"/g" /home/philipp/.gtkrc-2.0
-sed -i "s/gtk-icon-theme-name=\".[^]]*\"/gtk-icon-theme-name=\"$theme\"/g" /home/philipp/.gtkrc-2.0
-sed -i "s/gtk-theme-name=.*/gtk-theme-name=$theme/g" /home/philipp/.config/gtk-3.0/settings.ini
-sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=$theme/g" /home/philipp/.config/gtk-3.0/settings.ini
+name=$(mondo get shell)
+sed -i "s/gtk-theme-name=\".[^]]*\"/gtk-theme-name=\"$name\"/g" /home/philipp/.gtkrc-2.0
+sed -i "s/gtk-icon-theme-name=\".[^]]*\"/gtk-icon-theme-name=\"$name\"/g" /home/philipp/.gtkrc-2.0
+sed -i "s/gtk-theme-name=.*/gtk-theme-name=$name/g" /home/philipp/.config/gtk-3.0/settings.ini
+sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=$name/g" /home/philipp/.config/gtk-3.0/settings.ini
 
+
+##### change background-color
+color=$(mondo get base02)
+sed -i "s/hsetroot.*/hsetroot -solid \"#$color\" \&/g" /home/philipp/bin/dwm-starter
+hsetroot -solid "#$color"
 
 ###### dwm-xrdb hack.... not refreshing in mondo... + rescale windows to fix glitches
 xsetroot -name "fsignal:1"
 xsetroot -name "fsignal:2"
-xsetroot -name "fsignal:3"
 
 
 ##### restart nm-applet icon
