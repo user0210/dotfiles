@@ -1,0 +1,6 @@
+[user]
+	email = scheibe.philipp@gmail.com
+	name = philor1
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3

@@ -16,6 +16,7 @@ endfunction
 
 """"" settings
 let mapleader=","
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
 set number relativenumber
 set mouse=a
 "set paste

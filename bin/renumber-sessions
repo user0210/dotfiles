@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+sessions=$(tmux ls | grep '^[0-9]\+:' | cut -f1 -d':' | sort)
+
+new=1
+for old in $sessions
+do
+  tmux rename -t $old $new
+  ((new++))
+done
+
+# test if the session has windows
+is_closed(){ 
+    n=$(tmux ls 2> /dev/null | wc -l)
+    [[ $n -eq 0 ]]
+}
+
+# the session is now either closed or detatched
+if is_closed ; then
+    killall st
+fi
