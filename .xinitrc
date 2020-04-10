@@ -6,6 +6,7 @@
 # /_/\_\_|_| |_|_|\__|_|  \___|
 # 
 
+export DISPLAY=":0"
 export QT_QPA_PLATFORMTHEME=gtk2
 
 userresources=$HOME/.Xresources

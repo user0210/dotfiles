@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sessions=$(tmux ls | grep '^[0-9]\+:' | cut -f1 -d':' | sort)
+sessions=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | cut -f1 -d':' | sort)
 
 new=1
 for old in $sessions
@@ -10,12 +10,16 @@ do
 done
 
 # test if the session has windows
-is_closed(){ 
+is_closed(){
+    s=$(tmux ls 2> /dev/null | grep "scratchpad" | wc -l)
     n=$(tmux ls 2> /dev/null | wc -l)
+    if [[ "$s" != "0" ]]; then
+        ((n=n-1))
+    fi
     [[ $n -eq 0 ]]
 }
 
 # the session is now either closed or detatched
 if is_closed ; then
-    killall st
+    killall stmux
 fi

@@ -6,7 +6,7 @@ internetav &
 dwmblocks &
 
 ##### background
-hsetroot -solid "#43454f" &
+hsetroot -solid "#504945" &
 
 ##### polkit authentication agent (erst installieren)
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

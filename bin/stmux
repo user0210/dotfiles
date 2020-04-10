@@ -1,0 +1,5 @@
+#!/bin/bash
+
+##### wrapper for zsh-tmux in order to kill it better...
+
+zsh
