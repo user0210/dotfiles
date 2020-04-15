@@ -1,8 +1,4 @@
 #!/bin/bash
 
 ##### wrapper for zsh-tmux-scratchpad...
-SCRATCH=$(tmux ls 2> /dev/null | grep "scratchpad" | wc -l)
-if [[ "$SCRATCH" == "0" ]]; then
-    tmux new-session -s scratchpad
-fi
-tmux attach -t scratchpad
+ZDOTDIR=/home/philipp/.config/zsh/scratchpad zsh

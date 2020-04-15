@@ -1,5 +1,4 @@
 #!/bin/bash
 
 ##### wrapper for zsh-tmux in order to kill it better...
-
-zsh
+ZDOTDIR=/home/philipp/.config/zsh/stmux zsh
