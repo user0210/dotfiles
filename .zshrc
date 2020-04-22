@@ -11,13 +11,12 @@
 
 setopt interactive_comments
 
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 # history
 HISTFILE=~/.bash_history
-HISTSIZE=5000
+HISTSIZE=8000
 SAVEHIST=5000
 setopt HIST_IGNORE_SPACE
 
@@ -27,6 +26,7 @@ bindkey -v
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/philipp/.zshrc'
+zstyle ':completion:*' menu select
 autoload -Uz compinit
 compinit
 
@@ -84,7 +84,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
 alias pacinstall="pacman -Slq | fzf -m --preview \"cat <(pacman -Si {1}) <(pacman -Fl {1} | awk '{print \$2}')\" | xargs -ro sudo pacman -S"
 alias yayinstall="yay -Slq | fzf -m --preview \"yay -Si {1}\"| xargs -ro yay -S"
 alias yaydelete="yay -Qeq | fzf -m --preview \"yay -Qi {1}\" | xargs -ro yay -Rns"
-
+alias svim="sudoedit"
 
 ##### Color output
 # enable color support of ls and also add handy aliases

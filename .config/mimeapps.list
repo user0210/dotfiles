@@ -1,6 +1,9 @@
 [Added Associations]
 application/x-desktop=nvim.desktop;
 text/plain=nvim.desktop;
+application/zip=xarchiver.desktop;
+image/jpeg=org.pwmt.zathura.desktop;
 
 [Default Applications]
-inode/directory=ranger.desktop
+inode/directory=pcmanfm.desktop
+application/zip=xarchiver.desktop

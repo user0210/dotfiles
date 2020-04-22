@@ -6,6 +6,7 @@ case "$1" in
 		clipmenu ;;
 	d)
 		clipdel -d ".*" \
+		&& systemctl --user restart clipmenud \
 		&& notify-send "Clipboard Content deleted" -u low \
 		|| notify-send "Errors occurred while Clean Up"	;;
 esac

@@ -8,6 +8,7 @@
 
 export DISPLAY=":0"
 export QT_QPA_PLATFORMTHEME=gtk2
+export DESKTOP_SESSION=gnome
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap

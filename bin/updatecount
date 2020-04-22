@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sleep 10
+checkupdates | wc -l > /tmp/updates && chmod 666 /home/philipp/.cache/updates && pkill -SIGRTMIN+12 dwmblocks

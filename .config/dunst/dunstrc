@@ -1,2 +1,6 @@
 [global]
-    font = InconsolataLGC Nerd Font 8
+#	font = InconsolataLGC Nerd Font 8
+	font = TerminessTTF Nerd Font 9
+	frame_width = 1
+	frame_color = "#aaaaaa"
+	separator_color = frame

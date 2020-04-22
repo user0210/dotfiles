@@ -1,5 +1,9 @@
 source /home/philipp/.bashrc
 
+####################################################
+##### tmux autostart
+####################################################
+
 ##### start with tmux only in X.. (before aliases..)
 if [[ $DISPLAY ]]; then
     if [[ -z "$TMUX" ]] ;then

@@ -1,0 +1,399 @@
+###########################################################
+##### usefull
+###########################################################
+
+##### nützlich um Crash nach Updates zu vermeiden...
+mkinitcpio -p linux
+
+##### find Files with Pacman
+sudo pacman -Fy
+pacman -F filename
+
+##### systemd-boot refind
+sudo bootctl update #update systemd-boot
+bootctl list
+
+sudo pacman -S refind-efi
+refind-install #update refind
+diff refind.conf refind.conf-sample
+
+###########################################################
+##### Arch setup
+###########################################################
+
+##### partitionen einrichten, bootmanager vorbereiten (arch entfernen)
+##### booten (erste option)
+
+loadkeys de
+loadkeys de-latin1-nodeadkeys
+
+lsblk	## find Linux, Mount and Swap Partition
+mount /dev/sdaLINUX /mnt
+swapon /dev/sdaSWAP
+mkdir /mnt/boot
+mount /dev/sdaEFI /mnt/boot
+
+vim /etc/pacman.d/mirrorlist ## German Up
+
+pacstrap /mnt base base-devel linux linux-firmware neovim man-db man-pages bash-completion intel-ucode
+pacman --root /mnt -S dhcpcd ## or networkmanager for Internet
+
+genfstab -Up /mnt > /mnt/etc/fstab
+
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc
+
+echo PHIL-LIN-PAD > /etc/hostname
+
+nvim /etc/local.gen
+     en_US.UTF-8 UTF-8
+     de_DE.UTF-8 UTF-8
+locale-gen
+
+nvim /etc/locale.conf
+     LANG=en_US.UTF-8
+
+nvim /etc/vconsole.conf
+     KEYMAP=de-latin1-nodeadkeys
+
+nvim /etc/hosts
+	127.0.0.1	localhost
+	::1 localhost      
+	127.0.1.1	PHIL-LIN-PAD.localdomain	PHIL-LIN-PAD
+
+passwd
+
+bootctl install
+
+pacman -S efibootmgr
+     ##change Boot Order (dont forget USB)
+
+exit
+umount -R /mnt
+poweroff
+
+
+##### bootpartition setup
+
+##boot to OSX, edit EFI: arch.conf, refind_linux.conf, systemd.png......
+##also :fstab,systemd-services,....
+
+##### Network Setup
+
+## for cable only!!
+systemctl enable dhcpcd
+## for WiFi and both
+pacman -S networkmanager
+systemctl enable NetworkManager
+
+
+##### Benutzer einrichten
+
+useradd -m philipp
+passwd philipp
+Usermode -aG wheel,audio,video,optical,storage,power,network philipp
+
+EDITOR=nvim visudo
+     ## uncomment %wheel ALL=(ALL) ALL
+
+## add bin to path in /etc/profile after "export PATH"
+     export PATH="$HOME/bin:${PATH}"
+
+##### add Partitions
+
+sudo mkdir /mnt/Windows
+sudo mkdir /mnt/Daten
+sudo Pacman -S ntfs-3g
+## edit /etc/fstab
+
+
+###########################################################
+##### Desktop Installation
+###########################################################
+
+##### suckless stuff
+sudo pacman -S git libx11 libxft libxinerama dmenu
+mkdir github
+
+git clone https://git.suckless.org/dwm,st,dmenu
+git clone https://git.suckless.org/st
+git clone https://git.suckless.org/dmenu
+git clone https://github.com/efexos/dwmblocks
+
+## bei allen:
+git remote add myorigin https://github.com/philor1/####.git
+git remote -v
+git fetch myorigin
+git branch -v -a
+
+## checkout!!!, make, sudo make install, replace bin-files with softlinks to git-folders:
+ln -s /home/philipp/github/dwm/dwm /usr/local/bin/dwm
+ln -s /home/philipp/github/st/st /usr/local/bin/st
+ln -s /home/philipp/github/dmenu/dmenu /home/philipp/bin/dmenu
+
+
+##### X11
+sudo pacman -S xorg-server xorg-apps xorg-xinit
+
+nvim etc/X11/xorg.conf.d/20-keyboard.conf
+Section "InputClass"
+	Identifier "keyboard"
+	MatchIsKeyboard "yes"
+	Option "XkbLayout" "de"
+	Option "XkbVariant" "nodeadkeys"
+EndSection
+
+##### dotfiles
+## in .bashrc
+alias dotfiles='/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
+mkdir dotfiles... cd...
+git clone --bare https://github.com/philor1/dotfiles-x230t.git $HOME/github/dotfiles
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
+
+
+##### configs....
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+
+
+###########################################################
+##### settings
+###########################################################
+
+##### tab-click touchpad
+/usr/share/X11/xorg.conf.d/40-libinput.conf
+.
+.
+Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+	Option "Tapping" "True"
+	Option "TappingDrag" "True"
+	Driver "libinput"
+EndSection
+
+##### for 3g
+sudo pacman -S modemmanager
+systemctl enable ModemManager
+
+##### root-gtk-theme
+ln -s /home/philipp/.gtkrc-2.0 /etc/gtk-2.0/gtkrc
+ln -s /home/philipp/.config/gtk-3.0/settings.ini /etc/gtk-3.0/settings.ini
+sudo ln -s /home/philipp/.themes /root/.themes
+sudo ln -s /home/philipp/.icons /root/.icons
+
+##### qt-gkt
+sudo pacman -S qt5-styleplugins dconf-editor
+export DESKTOP_SESSION=gnome ---> .xinitrc
+dconf-editor: org > gnome > desktop > interface --> icon-theme
+
+###########################################################
+##### programs
+###########################################################
+
+git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
+## remove yay folder....
+
+yay:mondo-generator xbanish brave thinkpad-scripts
+	timeshift systemd-cron  systemd-boot-pacman-hook
+pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop
+	xdg-utils perl-file-mimeinfo
+
+"""
+ln -s ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
+
+You can use PERL-FILE-MIMEINFO in the extra repository to manage mimetypes.
+Example to open all .pdf files in apvlv:
+/usr/bin/vendor_perl/mimeopen -d $file.pdf
+and then, at the prompt, enter the application: apvlv.
+
+"""
+
+##### pcmanfm
+pacman -S pcmanfm-gtk3 gvfs xarchiver
+terminal --> st -e stmux
+
+# mkdir .Trash-1000
+# chown philipp .Trash-1000
+# einträge in fstab ergänzen
+
+##### thinkpad-scripts
+yay thinkpad-scripts
+sudo pacman -S xf86-input-wacom onboard acpid
+systemctl enable acpid
+/etc/systemd/system/setkeycodes.service
+	[Unit]
+	Description=Assign each hardware button to a free keycode on boot
+	
+	[Service]
+	Type=oneshot
+	ExecStart=/usr/bin/setkeycodes 0x67 184 0x6c 185 0x68 186 0x66 187
+	
+	[Install]
+	WantedBy=multi-user.target
+systemctl enable setkeycodes
+
+##### neovim
+sudo pacman -S python-pynvim
+yay neovim-symlinks neovim-remote
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+##### zsh
+sudo pacman -S zsh zsh-completions
+yay spaceship-prompt
+
+##### tmux
+sudo pacman -S tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+yay urlview
+## install plugins in tpm
+
+
+##### ranger
+sudo pacman -S ranger atool mediainfo w3m poppler highlight
+yay ueberzug
+ranger --copy-config=all
+## change setting... ueberzug....
+
+
+##### neofetch
+sudo pacman -S neofetch
+/etc/systemd/system/ttylogin.service
+	[Unit]
+	Description=Update /etc/issue with neofetch
+	Before=getty@tty1.service getty@tty2.service getty@rrt3.service getty@tty4.service getty@tty5.service getty@tty6.service
+	
+	[Service]
+	Type=oneshot
+	ExecStart=/bin/bash -c 'sudo -u nobody neofetch | tee /etc/issue'
+	
+	[Install]
+	WantedBy=multi-user.target
+systemctl enable ttylogin
+
+##### clipmenu
+/home/philipp/.config/systemd/user/clipmenud.service
+	[Unit]
+	Description=Clipmenu daemon
+	
+	[Service]
+	ExecStart=/usr/bin/clipmenud
+	Restart=always
+	RestartSec=500ms
+	Environment=DISPLAY=:0
+	
+	MemoryDenyWriteExecute=yes
+	NoNewPrivileges=yes
+	ProtectControlGroups=yes
+	ProtectKernelTunables=yes
+	RestrictAddressFamilies=
+	RestrictRealtime=yes
+	
+	[Install]
+	WantedBy=default.target
+systemctl --user enable clipmenud
+
+##### tmux systemd-daemon
+/home/philipp/.config/systemd/user/tmux.service
+	[Unit]
+	Description=Start tmux in detached session
+	
+	[Service]
+	Type=forking
+	ExecStart=/usr/bin/tmux new-session -s 1 -d
+	ExecStop=/usr/bin/tmux kill-session -t 1
+	Restart=always
+	
+	[Install]
+	WantedBy=default.target
+#systemctl --user enable tmux  ##ACHTUNG wird nicht aktualisiert durch themeselect....
+
+##### bluetooth
+sudo alsactl store
+sudo pacman -S  bluez bluez-utils pulseaudio-alsa pulseaudio-bluetooth
+systemctl enable bluetooth
+
+##### LTS
+
+sudo pacman -S linux-lts linux-lts-headers
+(sudo pacman -S linux-headers)
+(depmod -ae)???
+
+##### Arch-X230 settings...
+svim /etc/mkinitcpio.conf
+    MODULES=(i915)
+sudo mkinitcpio -p linux
+sudo mkinitcpio -p linux-lts
+
+##### enable hibernation
+svim /etc/mkinitcpio.conf
+HOOKS=(base udev autodetect modconf block filesystems keyboard resume fsck)
+sudo mkinitcpio -p linux
+sudo mkinitcpio -p linux-lts
+
+##### TLP
+sudo pacman -S tlp tlp-rdw acpi_call-dkms #acpi_call-dkms for LTS acpi_call for non-LTS-kernel
+systemctl enable tlp.service
+systemctl enable NetworkManager-dispatcher.service
+systemctl mask systemd-rfkill.service
+systemctl mask systemd-rfkill.socket
+(depmod -ae)???
+
+##### thinkfan
+sudo pacman -S lm_sensors
+yay thinkfan
+sudo sensors-detect
+sudo modprobe thinkpad_acpi
+systemctl enable thinkfan
+/etc/thinkfan.conf
+    tp_fan /proc/acpi/ibm/fan
+    hwmon /sys/class/thermal/thermal_zone0/temp
+    
+    (0, 0,  60)
+    (1, 53, 65)
+    (2, 55, 66)
+    (3, 57, 68)
+    (4, 61, 70)
+    (5, 64, 71)
+    (7, 68, 32767)
+
+##### SSD-TRIM
+sudo systemctl enable fstrim.timer
+
+##### dwmblocks USB
+cd /etc/udev/rules.d
+sudo touch 40-android.rules
+sudo vim 40-android.rules
+paste the following in android rules: (!wq for save in vim)
+########################################################################################################
+ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+15 dwmblocks"
+ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+15 dwmblocks"
+########################################################################################################
+
+sudo touch 40-usb.rules
+sudo vim 40-usb.rules
+paste the following in usb rules:
+##################################################################################################################
+ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ATTR{removable}=="1", RUN{program}+="/bin/pkill -SIGRTMIN+14 dwmblocks"
+ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="block", RUN{program}+="/bin/pkill -SIGRTMIN+14 dwmblocks"
+##################################################################################################################
+
+sudo udevadm control --reload
+
+##### pacman-hook for dwmblocks-updatecounter
+vim /etc/pacman.d/hooks/50-updatecount.hook
+    [Trigger]
+    Operation = Install
+    Operation = Upgrade
+    Operation = Remove
+    Type = Package
+    Target = *
+    
+    [Action]
+    Description = Reset Update-counter in dwmblocks
+    When = PostTransaction
+    Exec = /usr/bin/bash -c "sudo /usr/bin/checkupdates | wc -l > /home/philipp/.cache/updates && pkill -SIGRTMIN+12 dwmblocks"

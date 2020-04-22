@@ -1,6 +1,6 @@
-dwm.col_alt:	base02
+dwm.col_alt:	base0E
 dwm.col_bg:	base00
 dwm.col_fg:	base05
-dwm.col_inact:	base03
-dwm.col_act:	base04
+dwm.col_inact:	base01
+dwm.col_act:	base02
 dwm.col_sel:	base0D
