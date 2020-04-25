@@ -6,7 +6,7 @@ dwmblocks &
 updatecount &
 
 ##### background
-hsetroot -solid "#8d938d" &
+hsetroot -solid "#504945" &
 
 ##### polkit authentication agent (erst installieren)
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

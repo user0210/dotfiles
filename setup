@@ -2,6 +2,9 @@
 ##### usefull
 ###########################################################
 
+##### nach UDEV und KERNEL events achten...
+udevadm monitor --property
+
 ##### nützlich um Crash nach Updates zu vermeiden...
 mkinitcpio -p linux
 
@@ -199,7 +202,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 
 yay:mondo-generator xbanish brave thinkpad-scripts
 	timeshift systemd-cron  systemd-boot-pacman-hook
-pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop
+pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip
 	xdg-utils perl-file-mimeinfo
 
 """
@@ -331,9 +334,13 @@ sudo mkinitcpio -p linux-lts
 
 ##### enable hibernation
 svim /etc/mkinitcpio.conf
-HOOKS=(base udev autodetect modconf block filesystems keyboard resume fsck)
+    HOOKS=(base udev autodetect modconf block filesystems keyboard resume fsck)
 sudo mkinitcpio -p linux
 sudo mkinitcpio -p linux-lts
+
+/etc/udev/rules.d/99-lowbat.rules
+    # Suspend the system when battery level drops to 5% or lower
+    SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", RUN+="/usr/bin/systemctl hibernate"
 
 ##### TLP
 sudo pacman -S tlp tlp-rdw acpi_call-dkms #acpi_call-dkms for LTS acpi_call for non-LTS-kernel
@@ -397,3 +404,32 @@ vim /etc/pacman.d/hooks/50-updatecount.hook
     Description = Reset Update-counter in dwmblocks
     When = PostTransaction
     Exec = /usr/bin/bash -c "sudo /usr/bin/checkupdates | wc -l > /home/philipp/.cache/updates && pkill -SIGRTMIN+12 dwmblocks"
+
+##### mlocate
+svim /etc/updatedb.conf
+    PRUNEPATHS=".......... /timeshift"
+
+##### mps-youtube
+sudo pacman -S mpv
+yay mps-youtube-git
+
+(https://github.com/mps-youtube/mps-youtube/issues/1063)
+1.Go to https://console.cloud.google.com, create a project, then enable Youtube Data Api V3 and create credential and get the API_KEY for public use.
+2.Then remove the cache rm ~/.config/mps-youtube/cache_py*
+3.Set the new api key: mpsyt set api_key YOUR_KEY_HERE
+4.Quit mpsyt (if there are any opened mpsyt instances"
+5.Open it again and use it normally (it worked for me after following these steps)
+--> API: AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
+
+##### cava-visualizer
+yay cava
+((cd .config/cava.... wget https://raw.githubusercontent.com/karlstav/cava/master/example_files/config))
+
+vim config -->change
+    ; method = ncurses
+to
+    method = noncurses
+
+##### onboard
+change systray-setting to "non-auto..."
+sudo ln -s /home/philipp/.config/onboard/Base16.colors /usr/share/onboard/themes/Base16.colors
