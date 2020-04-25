@@ -41,6 +41,7 @@ alias pacinstall="pacman -Slq | fzf -m --preview \"cat <(pacman -Si {1}) <(pacma
 alias yayinstall="yay -Slq | fzf -m --preview \"yay -Si {1}\"| xargs -ro yay -S"
 alias yaydelete="yay -Qeq | fzf -m --preview \"yay -Qi {1}\" | xargs -ro yay -Rns"
 alias svim="sudoedit"
+alias bluetoothctl='audiosel pulse && bluetoothctl'
 
 
 ##### Color output

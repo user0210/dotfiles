@@ -203,7 +203,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 yay:mondo-generator xbanish brave thinkpad-scripts
 	timeshift systemd-cron  systemd-boot-pacman-hook
 pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip
-	xdg-utils perl-file-mimeinfo
+	xdg-utils perl-file-mimeinfo playerctl
 
 """
 ln -s ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
@@ -433,3 +433,7 @@ to
 ##### onboard
 change systray-setting to "non-auto..."
 sudo ln -s /home/philipp/.config/onboard/Base16.colors /usr/share/onboard/themes/Base16.colors
+
+##### dunst
+#falls git softlinks nicht wiederherstellt...
+ln -s /home/philipp/.config/dunst/settings /home/philipp/.config/mondo/generator/dunst/_mondo-template

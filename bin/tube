@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#rm ~/.config/mps-youtube/cache_py* 
+#mpsyt set api_key AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
+
+audiosel pulse
+
+if [ -t 0 ] ; then
+    mpsyt "$@"
+else
+    st -e mpsyt "$@" &
+    st -e cava &
+fi
