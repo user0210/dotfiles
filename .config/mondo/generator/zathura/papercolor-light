@@ -1,0 +1,57 @@
+####################################################################
+##### settings
+####################################################################
+
+map i recolor
+map b toggle_statusbar
+
+set sandbox none
+set selection-clipboard clipboard
+set adjust-open best-fit
+
+set font "TerminessTTF Nerd Font 12"
+
+####################################################################
+##### colors
+####################################################################
+
+set notification-error-bg       "#eeeeee" # bg
+set notification-error-fg       "#bcbcbc" # bright:red
+set notification-warning-bg     "#eeeeee" # bg
+set notification-warning-fg     "#d70087" # bright:yellow
+set notification-bg             "#eeeeee" # bg
+set notification-fg             "#8700af" # bright:green
+
+set completion-bg               "#008700" # bg2
+set completion-fg               "#005f87" # fg
+set completion-group-bg         "#af0000" # bg1
+set completion-group-fg         "#0087af" # gray
+set completion-highlight-bg     "#d75f00" # bright:blue
+set completion-highlight-fg     "#008700" # bg2
+
+# Define the color in index mode
+set index-bg                    "#008700" # bg2
+set index-fg                    "#005f87" # fg
+set index-active-bg             "#d75f00" # bright:blue
+set index-active-fg             "#008700" # bg2
+
+set inputbar-bg                 "#eeeeee" # bg
+set inputbar-fg                 "#005f87" # fg
+
+set statusbar-bg                "#008700" # bg2
+set statusbar-fg                "#005f87" # fg
+
+set highlight-color             "#d70087" # bright:yellow
+set highlight-active-color      "#d70000" # bright:orange
+
+set default-bg                  "#eeeeee" # bg
+set default-fg                  "#005f87" # fg
+set render-loading              true
+set render-loading-bg           "#eeeeee" # bg
+set render-loading-fg           "#005f87" # fg
+
+# Recolor book content's color
+set recolor-lightcolor          "#eeeeee" # bg
+set recolor-darkcolor           "#005f87" # fg
+set recolor                     true
+set recolor-keephue             true          # keep original color

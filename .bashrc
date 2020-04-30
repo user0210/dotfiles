@@ -10,6 +10,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# HDPI
+#export GDK_SCALE=2
+#export GDK_DPI_SCALE=0.8
+
 # Prompt look
 PS1="\[\e[37m\][\[\e[m\]\w\[\e[37m\]]\[\e[m\]\[\e[31m\]\\$\[\e[m\] "
 #PS1='[\u@\h \W]\$ '

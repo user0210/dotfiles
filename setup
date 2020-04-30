@@ -197,6 +197,8 @@ dconf-editor: org > gnome > desktop > interface --> icon-theme
 ##### programs
 ###########################################################
 
+(cmatrix)
+
 git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 ## remove yay folder....
 
@@ -437,3 +439,22 @@ sudo ln -s /home/philipp/.config/onboard/Base16.colors /usr/share/onboard/themes
 ##### dunst
 #falls git softlinks nicht wiederherstellt...
 ln -s /home/philipp/.config/dunst/settings /home/philipp/.config/mondo/generator/dunst/_mondo-template
+
+##### fonts
+yay ttf-symbola
+
+##### coc-nvim
+sudo pacman -S nodejs npm (clang)
+sudo npm install -g neovim
+sudo npm i -g bash-language-server
+:CocConfig
+    {
+        "languageserver": {
+          "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+          }
+        }
+    }

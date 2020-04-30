@@ -3,7 +3,9 @@ application/x-desktop=nvim.desktop;
 text/plain=nvim.desktop;
 application/zip=xarchiver.desktop;
 image/jpeg=org.pwmt.zathura.desktop;
+application/pdf=org.pwmt.zathura.desktop;
 
 [Default Applications]
 inode/directory=pcmanfm.desktop
 application/zip=xarchiver.desktop
+application/pdf=org.pwmt.zathura.desktop

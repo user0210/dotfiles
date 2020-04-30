@@ -1,0 +1,57 @@
+####################################################################
+##### settings
+####################################################################
+
+map i recolor
+map b toggle_statusbar
+
+set sandbox none
+set selection-clipboard clipboard
+set adjust-open best-fit
+
+set font "TerminessTTF Nerd Font 12"
+
+####################################################################
+##### colors
+####################################################################
+
+set notification-error-bg       "#%%base00%%" # bg
+set notification-error-fg       "#%%base08%%" # bright:red
+set notification-warning-bg     "#%%base00%%" # bg
+set notification-warning-fg     "#%%base0A%%" # bright:yellow
+set notification-bg             "#%%base00%%" # bg
+set notification-fg             "#%%base0B%%" # bright:green
+
+set completion-bg               "#%%base02%%" # bg2
+set completion-fg               "#%%base06%%" # fg
+set completion-group-bg         "#%%base01%%" # bg1
+set completion-group-fg         "#%%base04%%" # gray
+set completion-highlight-bg     "#%%base0D%%" # bright:blue
+set completion-highlight-fg     "#%%base02%%" # bg2
+
+# Define the color in index mode
+set index-bg                    "#%%base02%%" # bg2
+set index-fg                    "#%%base06%%" # fg
+set index-active-bg             "#%%base0D%%" # bright:blue
+set index-active-fg             "#%%base02%%" # bg2
+
+set inputbar-bg                 "#%%base00%%" # bg
+set inputbar-fg                 "#%%base06%%" # fg
+
+set statusbar-bg                "#%%base02%%" # bg2
+set statusbar-fg                "#%%base06%%" # fg
+
+set highlight-color             "#%%base0A%%" # bright:yellow
+set highlight-active-color      "#%%base09%%" # bright:orange
+
+set default-bg                  "#%%base00%%" # bg
+set default-fg                  "#%%base06%%" # fg
+set render-loading              true
+set render-loading-bg           "#%%base00%%" # bg
+set render-loading-fg           "#%%base06%%" # fg
+
+# Recolor book content's color
+set recolor-lightcolor          "#%%base00%%" # bg
+set recolor-darkcolor           "#%%base06%%" # fg
+set recolor                     true
+set recolor-keephue             true          # keep original color

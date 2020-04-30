@@ -1,9 +1,13 @@
 #!/bin/bash
 
-#rm ~/.config/mps-youtube/cache_py* 
-#mpsyt set api_key AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
 
 audiosel pulse
+
+##### debugger ############################################
+#youtube-dl --rm-cache-dir
+#rm ~/.config/mps-youtube/cache_py* 
+#mpsyt set api_key AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
+############################################################
 
 if [ -t 0 ] ; then
     mpsyt "$@"
