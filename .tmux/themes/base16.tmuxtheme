@@ -61,4 +61,4 @@ set -g window-status-activity-style default # fg and bg are flipped here due to 
 
 # Pane settings
 set -g pane-border-status bottom
-set -g pane-border-format "[#P]" 
+set -g pane-border-format "#[bold][#P]" 

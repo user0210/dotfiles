@@ -20,6 +20,13 @@ sudo pacman -S refind-efi
 refind-install #update refind
 diff refind.conf refind.conf-sample
 
+##### default application setup
+sudo pacman -S perl-file-mimeinfo
+-->Example to open all .jpg files in sxiv:
+    /usr/bin/vendor_perl/mimeopen -d $file.jpg
+        -->sxiv
+(new defaults are now also in /home/philipp/.local/share/applications/mimeapps.list)
+
 ###########################################################
 ##### Arch setup
 ###########################################################
@@ -204,7 +211,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 
 yay:mondo-generator xbanish brave thinkpad-scripts
 	timeshift systemd-cron  systemd-boot-pacman-hook
-pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip
+pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
 	xdg-utils perl-file-mimeinfo playerctl
 
 """
@@ -243,7 +250,7 @@ systemctl enable setkeycodes
 
 ##### neovim
 sudo pacman -S python-pynvim
-yay neovim-symlinks neovim-remote
+yay neovim-symlinks neovim-remote #only for vimtex !!!!
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -423,6 +430,12 @@ yay mps-youtube-git
 5.Open it again and use it normally (it worked for me after following these steps)
 --> API: AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
 
+##### gtk-youtube-viewer
+yay gtk-youtube-viewer
+--> open
+vim ~/.config/youtube-viewer/api.json
+--> API: AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
+
 ##### cava-visualizer
 yay cava
 ((cd .config/cava.... wget https://raw.githubusercontent.com/karlstav/cava/master/example_files/config))
@@ -458,3 +471,6 @@ sudo npm i -g bash-language-server
           }
         }
     }
+
+##### archivierungsprogramme
+sudo pacman -S zip unzip 

@@ -12,7 +12,7 @@
     notification_height = 19
     word_wrap = yes
     icon_position = left
-    max_icon_size = 18
+    max_icon_size = 17
     dmenu = /usr/local/bin/dmenu -p dunst:
     browser = /usr/bin/brave
 
@@ -22,23 +22,23 @@
     history = mod4+shift+d
 
 [urgency_low]
-    background = "#ebf8ff"
-    foreground = "#8a8a0f"
-    frame_color = "#ebf8ff"
+    background = "#c1e4f6"
+    foreground = "#1f292e"
+    frame_color = "#c1e4f6"
     timeout = 6
-    icon = /home/philipp/.icons/atelier-lakeside-light/actions/scalable/gtk-yes.svg
+    icon = /home/philipp/.xfiles/icons/low.svg
 [urgency_normal]
-    background = "#568c3b"
-    foreground = "#ebf8ff"
-    frame_color = "#568c3b"
+    background = "#c1e4f6"
+    foreground = "#568c3b"
+    frame_color = "#c1e4f6"
     timeout = 6
-    icon = /home/philipp/.icons/atelier-lakeside-light/emblems/scalable/emblem-default.svg
+    icon = /home/philipp/.xfiles/icons/normal.svg
 [urgency_critical]
     background = "#d22d72"
     foreground = "#ebf8ff"
     frame_color = "#d22d72"
     timeout = 0
-    icon = /home/philipp/.icons/atelier-lakeside-light/emblems/scalable/emblem-important-black.svg
+    icon = /home/philipp/.xfiles/icons/critical.svg
 
 
 #########################################################################

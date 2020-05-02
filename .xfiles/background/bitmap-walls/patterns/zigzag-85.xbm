@@ -1,0 +1,4 @@
+#define zigzag-85_width 3
+#define zigzag-85_height 3
+static char zigzag-85_bits[] = {
+  0x00, 0x03, 0x02, };

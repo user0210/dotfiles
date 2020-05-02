@@ -12,7 +12,7 @@
     notification_height = 19
     word_wrap = yes
     icon_position = left
-    max_icon_size = 18
+    max_icon_size = 17
     dmenu = /usr/local/bin/dmenu -p dunst:
     browser = /usr/bin/brave
 
@@ -22,23 +22,23 @@
     history = mod4+shift+d
 
 [urgency_low]
-    background = "#FFFFFF"
-    foreground = "#ABA800"
-    frame_color = "#FFFFFF"
+    background = "#E0E0E0"
+    foreground = "#151515"
+    frame_color = "#E0E0E0"
     timeout = 6
-    icon = /home/philipp/.icons/summerfruit-light/actions/scalable/gtk-yes.svg
+    icon = /home/philipp/.xfiles/icons/low.svg
 [urgency_normal]
-    background = "#00C918"
-    foreground = "#FFFFFF"
-    frame_color = "#00C918"
+    background = "#E0E0E0"
+    foreground = "#00C918"
+    frame_color = "#E0E0E0"
     timeout = 6
-    icon = /home/philipp/.icons/summerfruit-light/emblems/scalable/emblem-default.svg
+    icon = /home/philipp/.xfiles/icons/normal.svg
 [urgency_critical]
     background = "#FF0086"
     foreground = "#FFFFFF"
     frame_color = "#FF0086"
     timeout = 0
-    icon = /home/philipp/.icons/summerfruit-light/emblems/scalable/emblem-important-black.svg
+    icon = /home/philipp/.xfiles/icons/critical.svg
 
 
 #########################################################################

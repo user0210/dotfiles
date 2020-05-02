@@ -7,8 +7,10 @@
 "
 
 
-""""" plugins
+""""""" plugins
+""""""""""""""""""""""""""""""""""
 call plug#begin('~/.local/share/nvim/plugged')
+
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
@@ -22,27 +24,35 @@ Plug 'unblevable/quick-scope'
 Plug 'lervag/vimtex'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'mbbill/undotree'
+
+"gitgutter alternative...
 "Plug 'mhinz/vim-signify'
-"Plug 'tpope/vim-fugitive'
+
 "always the last plugin to load...
 Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 
-""""" functions
+""""""" functions
+""""""""""""""""""""""""""""""""""
 function! Invertfg()
     :let &background = ( &background == "light"? "dark" : "light" )
     :hi Normal ctermbg=none
 endfunction
 
 
-""""" keymap
+""""""" keymap
+""""""""""""""""""""""""""""""""""
 map <F1> :call Invertfg()<CR>
 map <F2> :NERDTreeToggle<CR>
 let mapleader=" "
 
 
-""""" settings
+""""""" settings
+""""""""""""""""""""""""""""""""""
 set number relativenumber
 set mouse=a
 set tabstop=4 softtabstop=4
@@ -55,7 +65,9 @@ set smartcase
 set noswapfile
 set undodir=~/.config/nvim/undodir
 set undofile
-set colorcolumn=80
+"set colorcolumn=80
+set cursorline
+set cursorcolumn
 
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
@@ -64,27 +76,36 @@ autocmd VimLeave * call system("xsel -ib", getreg('+'))
 "set clipboard=unnamedplus
 
 
-""""" settings base16-shell
+""""""" PLUGIN base16-shell
+""""""""""""""""""""""""""""""""""
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
 
-""""" settings quick-scope
+
+""""""" PLUGIN quick-scope
+""""""""""""""""""""""""""""""""""
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-""""" settings vimtex
+
+""""""" PLUGIN vimtex
+""""""""""""""""""""""""""""""""""
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_progname = 'nvr'
 
-""""" settings airline
+
+""""""" PLUGIN airline
+""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 autocmd VimEnter * hi Normal ctermbg=none
 
-""""" settings COC-NVIM 
+
+""""""" PLUGIN coc-nvim
+""""""""""""""""""""""""""""""""""
 set hidden
 set nobackup
 set nowritebackup
