@@ -457,7 +457,7 @@ ln -s /home/philipp/.config/dunst/settings /home/philipp/.config/mondo/generator
 yay ttf-symbola
 
 ##### coc-nvim
-sudo pacman -S nodejs npm (clang)
+sudo pacman -S nodejs npm python-pylint (clang)
 sudo npm install -g neovim
 sudo npm i -g bash-language-server
 :CocConfig
