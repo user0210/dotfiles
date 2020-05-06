@@ -82,6 +82,7 @@ if xhost >& /dev/null ; then
 fi
 
 ##### Aliases
+alias bs='tmux detach && bash && clear'
 alias nm='nmtui'
 alias mem='sudo ps_mem'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'

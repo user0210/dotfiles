@@ -16,7 +16,7 @@
   "COLUMNS": "date user views rating",
   "DDIR": "/home/philipp/Downloads/mps",
   "OVERWRITE": true,
-  "SHOW_VIDEO": false,
+  "SHOW_VIDEO": true,
   "SEARCH_MUSIC": false,
   "WINDOW_POS": "",
   "WINDOW_SIZE": "",

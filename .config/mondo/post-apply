@@ -35,11 +35,30 @@ externalpipe_buffer.sh st_reloadsignal
 #tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE "fg > /dev/null 2>&1" C-m
 
 # ZSH
-for i in {1..10}; do tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
-tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-z
-tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-c
-sleep 0.2
-tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ~/.zshrc && fg > /dev/null 2>&1" C-m
+#for i in {1..10}; do tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
+#tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-z # or "#{session_name}:#{window_index}.#{pane_index}"
+#tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-c
+#sleep 0.2
+#tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ~/.zshrc && fg > /dev/null 2>&1" C-m
+
+sessions=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | cut -f1 -d':')
+for sess in $sessions
+do
+    for i in {1..10}; do tmux send-keys -t $sess: 'C-['; done
+    tmux send-keys -t $sess: C-z
+    tmux send-keys -t $sess: C-c
+    sleep 0.2
+    tmux send-keys -t $sess: " source ~/.zshrc && fg > /dev/null 2>&1" C-m
+done
+scratch=$(tmux ls 2> /dev/null | grep "scratchpad" | wc -l)
+if [[ "$scratch" != "0" ]]; then
+    for i in {1..10}; do tmux send-keys -t scratchpad: 'C-['; done
+    tmux send-keys -t scratchpad: C-z
+    tmux send-keys -t scratchpad: C-c
+    sleep 0.2
+    tmux send-keys -t scratchpad: " source ~/.zshrc && fg > /dev/null 2>&1" C-m
+fi
+
 neovim-reload.py
 
 
