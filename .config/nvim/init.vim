@@ -65,9 +65,10 @@ set smartcase
 set noswapfile
 set undodir=~/.config/nvim/undodir
 set undofile
-"set colorcolumn=80
+
 set cursorline
 set cursorcolumn
+nnoremap <Leader>t :set cursorline! cursorcolumn!<CR>
 
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
@@ -83,7 +84,8 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-
+highlight LineNr ctermbg=0 ctermfg=4
+highlight CursorLineNr ctermfg=9
 """"""" PLUGIN quick-scope
 """"""""""""""""""""""""""""""""""
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

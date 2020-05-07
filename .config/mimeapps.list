@@ -3,6 +3,10 @@ application/x-desktop=nvim.desktop;
 text/plain=nvim.desktop;
 application/zip=xarchiver.desktop;
 application/pdf=org.pwmt.zathura.desktop;
+image/x-xbitmap=nvim.desktop;
+image/png=nvim.desktop;
+image/bmp=nvim.desktop;
+image/jpeg=nvim.desktop;
 
 [Default Applications]
 inode/directory=pcmanfm.desktop
