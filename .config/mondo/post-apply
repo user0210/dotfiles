@@ -71,8 +71,14 @@ sed -i "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=$name/g" /home/philipp/.con
 
 
 ##### change background-color
-convert /home/philipp/.xfiles/background/png-walls/dots.png -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" /home/philipp/.xfiles/background/png-walls/dots8.png
-convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -query|awk '/\*color18:/ {print $2}')" -opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots16.png
+#convert /home/philipp/.xfiles/background/png-walls/dots.png -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" /home/philipp/.xfiles/background/png-walls/dots8.png
+#convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -query|awk '/\*color18:/ {print $2}')" -opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots16.png
+
+#convert /home/philipp/.xfiles/background/png-walls/dots.png -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" /home/philipp/.xfiles/background/png-walls/dots8.png
+#convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -query|awk '/\*color0:/ {print $2}')" -opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots16.png
+
+convert /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" -fill "$(xrdb -query|awk '/\*color18:/ {print $2}')" +opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots8.png
+convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots16.png
 
 hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
 #xsetroot -bitmap /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -bg "$(xrdb -query|awk '/\*color20:/ {print $2}')"

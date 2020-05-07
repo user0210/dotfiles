@@ -1,4 +1,14 @@
 dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
+
+!dmenu.background        : base00
+!dmenu.foreground        : base05
+!dmenu.selbackground     : base01
+!dmenu.selforeground     : base06
+!dmenu.highbackground    : base00
+!dmenu.highforeground    : base0A
+!dmenu.highselbackground : base01
+!dmenu.highselforeground : base0A
+
 dmenu.background        : base01
 dmenu.foreground        : base06
 dmenu.selbackground     : base00
