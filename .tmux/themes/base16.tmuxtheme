@@ -6,12 +6,16 @@
 set -g status-style fg=colour07,bg=colour18
 
 # Left/Right side of status bar
-set -g status-left-style fg=colour07,bg=colour00
-set -g status-right-style fg=colour07,bg=colour00
+#set -g status-left-style fg=colour07,bg=colour00
+#set -g status-right-style fg=colour07,bg=colour00
+set -g status-left-style fg=colour07,bg=colour18
+set -g status-right-style fg=colour07,bg=colour18
 
 # Pane colors
-set -g pane-border-style fg=colour08,bg=colour00
-set -g pane-active-border-style fg=colour04,bg=colour00
+#set -g pane-border-style fg=colour08,bg=colour00
+#set -g pane-active-border-style fg=colour04,bg=colour00
+set -g pane-border-style fg=colour18,bg=colour00
+set -g pane-active-border-style fg=colour00,bg=colour18
 # Pane number indicator
 set -g display-panes-colour default
 set -g display-panes-active-colour default
@@ -43,7 +47,7 @@ set -g pane-base-index 1
 
 # Left side of status bar
 set -g status-left-length 25
-set -g status-left "term #[fg=colour16,bold]#S   #[fg=colour07,nobold]#I ﱞ #P #{prefix_highlight}"
+set -g status-left " term #[fg=colour16,bold]#S   #[fg=colour07,nobold]#I ﱞ #P #{prefix_highlight}"
 
 # Right side of status bar
 set -g status-right-length 25
