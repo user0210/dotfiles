@@ -9,14 +9,16 @@
 ##### settings
 ####################################################
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+export DISPLAY=:0.0
+
 # HDPI
 #export GDK_SCALE=2
 #export GDK_DPI_SCALE=0.8
 
 setopt interactive_comments
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
 
 # history
 HISTFILE=~/.bash_history

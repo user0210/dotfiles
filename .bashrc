@@ -10,6 +10,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export DISPLAY=:0.0
+
 # HDPI
 #export GDK_SCALE=2
 #export GDK_DPI_SCALE=0.8

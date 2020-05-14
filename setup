@@ -224,6 +224,9 @@ and then, at the prompt, enter the application: apvlv.
 
 """
 
+spotify-browser-support
+yay chromium-widevine
+
 ##### pcmanfm
 pacman -S pcmanfm-gtk3 gvfs xarchiver
 terminal --> st -e stmux
