@@ -5,16 +5,9 @@
 !dwm.col_act:	base02
 !dwm.col_sel:	base0D
 
-!dwm.col_alt:	base00
-!dwm.col_bg:    base01
-!dwm.col_fg:    base06
-!dwm.col_inact:	base02
-!dwm.col_act:	base03
-!dwm.col_sel:	base0D
-
-dwm.col_alt:	base02
+dwm.col_alt:	base00
 dwm.col_bg:     base01
 dwm.col_fg:     base06
-dwm.col_inact:	base00
-dwm.col_act:	base01
+dwm.col_inact:	base07
+dwm.col_act:	base02
 dwm.col_sel:	base0D
