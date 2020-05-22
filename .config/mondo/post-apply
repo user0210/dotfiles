@@ -24,7 +24,6 @@ externalpipe_buffer.sh st_reloadsignal
 ##### tmux-zsh-base16-source
 
 # BASH
-## just if it doesnt wait until it escapes (C-[)
 #for i in {1..10}; do tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
 ##tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['
 #
@@ -41,7 +40,7 @@ externalpipe_buffer.sh st_reloadsignal
 #sleep 0.2
 #tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ~/.zshrc && fg > /dev/null 2>&1" C-m
 
-#just for the tmux-bell...
+# tmux-bell crashes process...
 tmux set -g bell-action none
 
 sessions=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | cut -f1 -d':')

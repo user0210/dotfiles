@@ -16,8 +16,6 @@ audiosel pulse
 
 
 ##### without debugger with searchoption ###################
-youtube-dl --rm-cache-dir
-rm ~/.config/mps-youtube/cache_py* 
 if [ -t 0 ] ; then
     mpsyt "$@"
 else

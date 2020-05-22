@@ -18,5 +18,5 @@ is_closed(){
 # the session is now either closed or detatched
 if is_closed ; then
     killall stmux
-    killall scratchpad
+    killall scratchpad      # only for combined stmux-scratchpad
 fi

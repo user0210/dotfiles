@@ -84,7 +84,7 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-highlight LineNr ctermbg=0 ctermfg=4
+highlight LineNr ctermbg=19 ctermfg=4
 highlight CursorLineNr ctermfg=9
 """"""" PLUGIN quick-scope
 """"""""""""""""""""""""""""""""""
