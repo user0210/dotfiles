@@ -1,0 +1,16 @@
+static const char base00[] = "#000000";
+static const char base01[] = "#1d2b53";
+static const char base02[] = "#7e2553";
+static const char base03[] = "#008751";
+static const char base04[] = "#ab5236";
+static const char base05[] = "#5f574f";
+static const char base06[] = "#c2c3c7";
+static const char base07[] = "#fff1e8";
+static const char base08[] = "#ff004d";
+static const char base09[] = "#ffa300";
+static const char base0A[] = "#fff024";
+static const char base0B[] = "#00e756";
+static const char base0C[] = "#29adff";
+static const char base0D[] = "#83769c";
+static const char base0E[] = "#ff77a8";
+static const char base0F[] = "#ffccaa";

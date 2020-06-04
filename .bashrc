@@ -12,6 +12,8 @@
 
 export DISPLAY=:0.0
 
+tabs -4
+
 # HDPI
 #export GDK_SCALE=2
 #export GDK_DPI_SCALE=0.8
@@ -40,6 +42,7 @@ fi
 
 
 ##### Aliases
+alias less='less -x4'
 alias nm='nmtui'
 alias mem='sudo ps_mem'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'

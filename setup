@@ -2,6 +2,14 @@
 ##### usefull
 ###########################################################
 
+##### manuell compilierte programme managen..
+./configure --prefix=/opt/programm
+make
+sudo make install
+
+dann reicht es, wenn ich /opt/programm/ entferne, um das Programm rückstandslos wieder zu entsorgen 
+(nur die Einstellungen in ~/programm sind dann noch da)
+
 ##### nach UDEV und KERNEL events achten...
 udevadm monitor --property
 
@@ -130,7 +138,7 @@ mkdir github
 git clone https://git.suckless.org/dwm,st,dmenu
 git clone https://git.suckless.org/st
 git clone https://git.suckless.org/dmenu
-git clone https://github.com/efexos/dwmblocks
+#git clone https://github.com/efexos/dwmblocks
 
 ## bei allen:
 git remote add myorigin https://github.com/philor1/####.git
@@ -180,9 +188,9 @@ Section "InputClass"
         Identifier "libinput touchpad catchall"
         MatchIsTouchpad "on"
         MatchDevicePath "/dev/input/event*"
-	Option "Tapping" "True"
-	Option "TappingDrag" "True"
-	Driver "libinput"
+	    Option "Tapping" "True"
+    	Option "TappingDrag" "True"
+	    Driver "libinput"
 EndSection
 
 ##### for 3g
@@ -383,27 +391,28 @@ systemctl enable thinkfan
 ##### SSD-TRIM
 sudo systemctl enable fstrim.timer
 
-##### dwmblocks USB
+
+###########################################
+# entweder dwmblocks-c oder dwmblocks(bash)
+###########################################
+
+##### dwmblocks-c
+
+# dwmblocks-c USB
 cd /etc/udev/rules.d
 sudo touch 40-android.rules
 sudo vim 40-android.rules
-paste the following in android rules: (!wq for save in vim)
-########################################################################################################
-ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+15 dwmblocks"
-ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+15 dwmblocks"
-########################################################################################################
+    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+15 dwmblocks"
+    ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+15 dwmblocks"
 
 sudo touch 40-usb.rules
 sudo vim 40-usb.rules
-paste the following in usb rules:
-##################################################################################################################
-ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ATTR{removable}=="1", RUN{program}+="/bin/pkill -SIGRTMIN+14 dwmblocks"
-ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="block", RUN{program}+="/bin/pkill -SIGRTMIN+14 dwmblocks"
-##################################################################################################################
+    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ATTR{removable}=="1", RUN{program}+="/bin/pkill -SIGRTMIN+14 dwmblocks"
+    ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="block", RUN{program}+="/bin/pkill -SIGRTMIN+14 dwmblocks"
 
 sudo udevadm control --reload
 
-##### pacman-hook for dwmblocks-updatecounter
+# pacman-hook for dwmblocks-c updatecounter
 vim /etc/pacman.d/hooks/50-updatecount.hook
     [Trigger]
     Operation = Install

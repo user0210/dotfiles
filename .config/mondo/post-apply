@@ -106,3 +106,7 @@ killall nm-applet; nm-applet &
 killall polkit-gnome-authentication-agent-1; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 killall qutebrowser && qutebrowser &
 
+##### restart dwmblocks
+killall dwmblocks
+make -C /home/philipp/github/dwmblocks
+dwmblocks &

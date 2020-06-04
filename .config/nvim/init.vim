@@ -55,9 +55,8 @@ let mapleader=" "
 """"""""""""""""""""""""""""""""""
 set number relativenumber
 set mouse=a
-set tabstop=4 softtabstop=4
+set tabstop=4 softtabstop=0 noexpandtab
 set shiftwidth=4
-set expandtab
 set smartindent
 set autoindent
 set nowrap
@@ -115,10 +114,11 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+" stupid tab-completion
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
