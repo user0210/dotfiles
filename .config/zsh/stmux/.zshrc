@@ -36,7 +36,7 @@ else
     	    ((STMUX++))
     	    tmux new-session -d -t 1 -s $STMUX
     	    tmux new-window
-    	    tmux attach-session -t $STMUX \; set-option destroy-unattached
+    	    tmux attach-session -t $STMUX #\; set-option destroy-unattached
     	else
     	    tmux attach-session -t $ID
     	fi

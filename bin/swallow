@@ -1,0 +1,6 @@
+#!/bin/bash
+
+dir=$(pwd)
+sess=$(tmux display-message -p '#S')
+
+tmux detach-client -E "cd $dir && $* && tmux attach -t $sess"
