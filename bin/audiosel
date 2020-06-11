@@ -2,7 +2,7 @@
 
 case "$1" in
 	pulse)
-		systemctl --user unmask pulseaudio.socket && systemctl --user start pulseaudio && notify-send "pulseaudio enabled" ;;
+		systemctl --user unmask pulseaudio.socket && systemctl --user start pulseaudio ;; #&& notify-send "pulseaudio enabled" ;;
 	alsa)
-		systemctl --user mask pulseaudio.socket && systemctl --user stop pulseaudio && alsactl restore; notify-send "pulseaudio disabled" ;;
+		systemctl --user mask pulseaudio.socket && systemctl --user stop pulseaudio && alsactl restore ;; #notify-send "pulseaudio disabled" ;;
 esac

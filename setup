@@ -208,6 +208,14 @@ sudo pacman -S qt5-styleplugins dconf-editor
 export DESKTOP_SESSION=gnome ---> .xinitrc
 dconf-editor: org > gnome > desktop > interface --> icon-theme
 
+##### backlight-terminal control
+sudo pacman -S  acpilight
+sudo chmod a+w /sys/class/backlight/intel_backlight/brightness
+
+##### add program to sudoers to run without passord
+%sudo	ALL=(ALL) ALL
+philipp ALL=(ALL) NOPASSWD: /usr/bin/ps_mem
+
 ###########################################################
 ##### programs
 ###########################################################
