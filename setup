@@ -228,7 +228,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 yay:mondo-generator xbanish brave thinkpad-scripts
 	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git
 pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
-	xdg-utils perl-file-mimeinfo playerctl
+	xdg-utils perl-file-mimeinfo playerctl calcurse
 
 """
 ln -s ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
