@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cal --color=always | less -R

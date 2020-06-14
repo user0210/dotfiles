@@ -114,7 +114,6 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
-" stupid tab-completion
 "inoremap <silent><expr> <TAB>
 "      \ pumvisible() ? "\<C-n>" :
 "      \ <SID>check_back_space() ? "\<TAB>" :
