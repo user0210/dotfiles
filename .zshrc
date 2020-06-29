@@ -12,7 +12,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export DISPLAY=:0.0
+#export DISPLAY=:0.0
 
 tabs -4
 

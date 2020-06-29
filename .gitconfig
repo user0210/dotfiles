@@ -6,3 +6,6 @@
 	conflictstyle = diff3
 [core]
 	pager = less -x4
+[rerere]
+	enabled = true
+	autoupdate = true

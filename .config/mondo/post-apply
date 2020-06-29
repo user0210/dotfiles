@@ -38,7 +38,6 @@ externalpipe_buffer.sh st_reloadsignal
 #sleep 0.2
 #tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ~/.zshrc && fg > /dev/null 2>&1" C-m
 
-
 # tmux-bell crashes process...
 tmux set -g bell-action none
 

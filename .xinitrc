@@ -6,7 +6,7 @@
 # /_/\_\_|_| |_|_|\__|_|  \___|
 # 
 
-export DISPLAY=":0"
+#export DISPLAY=":0.0"
 export QT_QPA_PLATFORMTHEME=gtk2
 export DESKTOP_SESSION=gnome
 
@@ -14,6 +14,8 @@ userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+
+xinput set-prop "TPPS/2 IBM TrackPoint" "libinput Accel Speed" -0.4
 
 ##### merge in defaults and keymaps
 if [ -f $sysresources ]; then
