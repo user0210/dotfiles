@@ -35,16 +35,6 @@ set -g mode-style fg=colour18,bg=colour05
 ##### appearance ﱞ
 #################################################################
 
-# 24 hour clock
-setw -g clock-mode-style 24
-
-# Status update interval
-set -g status-interval 1
-
-# starting index
-set -g base-index 1
-set -g pane-base-index 1
-
 # Left side of status bar
 set -g status-left-length 25
 set -g status-left " term #[fg=colour16,bold]#S   #[fg=colour07,nobold]#I ﱞ #P #{prefix_highlight}"
@@ -66,3 +56,22 @@ set -g window-status-activity-style default # fg and bg are flipped here due to 
 # Pane settings
 set -g pane-border-status bottom
 set -g pane-border-format "#[bold][#P]" 
+
+# toggle bar
+bind-key -n C-F4 set -g status off \; set -g pane-border-status off #Ctrl+F3 Combo
+bind-key -n C-F3 set -g pane-border-status bottom \; set -g status on #Ctrl+F4 Combo
+
+# prefix highlight plugin
+set -g @prefix_highlight_show_sync_mode 'on'
+set -g @prefix_highlight_show_copy_mode 'on'
+set -g @prefix_highlight_fg 'black'
+set -g @prefix_highlight_bg 'green'
+set -g @prefix_highlight_prefix_prompt 'λ '
+set -g @prefix_highlight_sync_prompt ' '
+set -g @prefix_highlight_copy_prompt ' '
+set -g @prefix_highlight_sync_mode_attr "bg=red,fg=black,bold"
+set -g @prefix_highlight_prefix_mode_attr "bg=yellow,fg=black,bold"
+set -g @prefix_highlight_copy_mode_attr "bg=magenta,fg=black,bold"
+set -g @prefix_highlight_output_prefix ''
+set -g @prefix_highlight_output_suffix ''
+
