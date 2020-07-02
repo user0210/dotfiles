@@ -3,11 +3,11 @@ set -g status-justify centre
 set -g status-style "fg=Colour8 bg=Colour4"
 set -g window-style ""
 
-set -g status-left "#{prefix_highlight} >_  "
+set -g status-left "#{prefix_highlight} >_   "
 set -g status-left-style "bold fg=Colour0"
-set -g status-left-length 12
+set -g status-left-length 11
 
-set -g status-right "  #I :: #P "
+set -g status-right "   #S :: #P "
 set -g status-right-style "fg=Colour0"
 set -g status-right-length 20
  
@@ -17,7 +17,7 @@ set -g window-status-format "#{?#{==:#{window_name},zsh},#{b:pane_current_path},
 set -g window-status-current-format "#{?#{==:#{window_name},zsh},#{b:pane_current_path},#W}#{?window_zoomed_flag,.Z,}"
 set -g window-status-separator "  "
 
-set -g pane-border-format "#[fg=Colour8][#P] #(pwd)" 
+#set -g pane-border-format "#[fg=Colour8][#P]" 
 set -g pane-border-style fg=Colour18,bg=Colour18
 set -g pane-active-border-style fg=Colour4,bg=Colour4
 

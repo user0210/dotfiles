@@ -216,6 +216,34 @@ sudo chmod a+w /sys/class/backlight/intel_backlight/brightness
 %sudo	ALL=(ALL) ALL
 philipp ALL=(ALL) NOPASSWD: /usr/bin/ps_mem
 
+##### share windows fonts
+sudo ln -s /mnt/Windows/Windows/Fonts /usr/share/fonts/WindowsFonts
+fc-cache -f
+
+sudo vim /etc/fonts/conf.d/30-metric-aliases-free.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+       <alias binding="same">
+         <family>Helvetica</family>
+         <accept>
+         <family>Arial</family>
+         </accept>
+       </alias>
+       <alias binding="same">
+         <family>Times</family>
+         <accept>
+         <family>Times New Roman</family>
+         </accept>
+       </alias>
+       <alias binding="same">
+         <family>Courier</family>
+         <accept>
+         <family>Courier New</family>
+         </accept>
+       </alias>
+</fontconfig>
+
 ###########################################################
 ##### programs
 ###########################################################

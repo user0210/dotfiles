@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ZDOTDIR=/home/philipp/.config/zsh/scratchpad zsh

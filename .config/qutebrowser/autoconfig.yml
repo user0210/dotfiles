@@ -16,6 +16,7 @@ settings:
         ;M: hint --rapid links spawn umpv {hint-url}
   content.notifications:
     https://3.solo6.biz: true
+    https://awesometoptreats.com: false
     https://www.reddit.com: false
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: true
