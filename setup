@@ -2,6 +2,13 @@
 ##### usefull
 ###########################################################
 
+##### paccache
+du -sh /var/cache/pacman/pkg   # Belegung des Cache-Speicherplatzes prüfen
+paccache -h                    # Befehlsübersicht
+paccache -dk2                  # Testdurchlauf; Wieviel Platz kann eingespart werden?
+paccache -vrk2                 # Entfernt Pakete aus dem Cache, behält die jüngsten 2 Versionen
+paccache -ruk0                 # Alle Pakete aus dem Cache entfernen, die nicht (mehr) installiert sind
+
 ##### manuell compilierte programme managen..
 ./configure --prefix=/opt/programm
 make
@@ -243,6 +250,10 @@ sudo vim /etc/fonts/conf.d/30-metric-aliases-free.conf
          </accept>
        </alias>
 </fontconfig>
+
+##### system maintainance
+sudo pacman -S pacman-contrib
+systemctl enable paccache.timer
 
 ###########################################################
 ##### programs
