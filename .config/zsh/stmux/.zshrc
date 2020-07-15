@@ -4,7 +4,26 @@
 ##### tmux autostart
 ####################################################
 
-#### atostart tmux with sessions in windows (arch-wiki)
+#### separate stmux-scratchpad with base-session for stmux
+STMUX=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | wc -l)
+BASE=$(tmux ls 2> /dev/null | grep '^0:' | wc -l)
+if [[ "$BASE" == "0" ]]; then
+	tmux new-session -d -s 0 -n base 2> /dev/null
+fi
+if [[ -z "$TMUX" ]] ;then
+	ID="$( tmux ls 2> /dev/null | grep '^[1-9]\+:' | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+	if [[ -z "$ID" ]] ;then # if not available create a new one
+	    ((STMUX++))
+		tmux new-session -d -t 0 -s $STMUX
+	    tmux new-window
+		tmux kill-window -t 0:base 2> /dev/null
+	    tmux attach-session -t $STMUX \; set-option destroy-unattached
+	else
+	    tmux attach-session -t $ID \; set-option destroy-unattached
+	fi
+fi
+
+#### stmux and scratchpad shared session...
 #STMUX=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | wc -l)
 #if [[ "$STMUX" == "0" ]]; then
 #    tmux new-session -d -t scratchpad -s 1
@@ -23,22 +42,21 @@
 #    fi
 #fi
 
-
-#### separate stmux-scratchpad
-STMUX=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | wc -l)
-if [[ "$STMUX" == "0" ]]; then
-	tmux new-session -s 1 2> /dev/null
-#	tmux new-session -s 1 \; set-option destroy-unattached 2> /dev/null
-else
-    if [[ -z "$TMUX" ]] ;then
-    	ID="$( tmux ls 2> /dev/null | grep '^[0-9]\+:' | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
-    	if [[ -z "$ID" ]] ;then # if not available create a new one
-    	    ((STMUX++))
-    	    tmux new-session -d -t 1 -s $STMUX
-    	    tmux new-window
-    	    tmux attach-session -t $STMUX \; set-option destroy-unattached
-    	else
-    	    tmux attach-session -t $ID \; set-option destroy-unattached
-    	fi
-    fi
-fi
+##### separate stmux-scratchpad
+#STMUX=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | wc -l)
+#if [[ "$STMUX" == "0" ]]; then
+#	tmux new-session -s 1 2> /dev/null
+##	tmux new-session -s 1 \; set-option destroy-unattached 2> /dev/null
+#else
+#    if [[ -z "$TMUX" ]] ;then
+#    	ID="$( tmux ls 2> /dev/null | grep '^[0-9]\+:' | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+#    	if [[ -z "$ID" ]] ;then # if not available create a new one
+#    	    ((STMUX++))
+#    	    tmux new-session -d -t 1 -s $STMUX
+#    	    tmux new-window
+#    	    tmux attach-session -t $STMUX \; set-option destroy-unattached
+#    	else
+#    	    tmux attach-session -t $ID \; set-option destroy-unattached
+#    	fi
+#    fi
+#fi

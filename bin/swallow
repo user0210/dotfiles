@@ -3,4 +3,5 @@
 dir=$(pwd)
 sess=$(tmux display-message -p '#S')
 
-tmux detach-client -E "cd $dir && $* && tmux attach -t $sess"
+tmux set-option destroy-unattached off
+tmux detach-client -E "cd $dir && $* && tmux attach -t $sess \; set-option destroy-unattached"

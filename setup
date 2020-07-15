@@ -2,6 +2,13 @@
 ##### usefull
 ###########################################################
 
+TODO
+	macho-man
+	curl-weather
+	curl-manpage
+	slock
+	
+
 ##### paccache
 du -sh /var/cache/pacman/pkg   # Belegung des Cache-Speicherplatzes prüfen
 paccache -h                    # Befehlsübersicht
@@ -267,7 +274,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 yay:mondo-generator xbanish brave thinkpad-scripts
 	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git
 pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
-	xdg-utils perl-file-mimeinfo playerctl calcurse
+	xdg-utils perl-file-mimeinfo playerctl calcurse p7zip
 
 """
 ln -s ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list

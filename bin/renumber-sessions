@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sessions=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | cut -f1 -d':' | sort)
+sessions=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | cut -f1 -d':' | sort)
 
 new=1
 for old in $sessions
@@ -9,14 +9,13 @@ do
     ((new++))
 done
 
-# test if the session has windows
-is_closed(){
-    n=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | wc -l)
-    [[ $n -eq 0 ]]
-}
-
-# the session is now either closed or detatched
-if is_closed ; then
-	killall stmux
-	#killall scratchpad      # only for combined stmux-scratchpad
-fi
+## test if the session has windows
+#is_closed(){
+#    n=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | wc -l)
+#    [[ $n -eq 0 ]]
+#}
+## the session is now either closed or detatched
+#if is_closed ; then
+#	killall stmux
+#	#killall scratchpad      # only for combined stmux-scratchpad
+#fi

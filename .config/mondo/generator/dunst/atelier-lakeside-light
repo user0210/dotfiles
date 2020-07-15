@@ -22,15 +22,15 @@
     history = mod4+shift+d
 
 [urgency_low]
-    background = "#c1e4f6"
+    background = "#ebf8ff"
     foreground = "#1f292e"
-    frame_color = "#c1e4f6"
+    frame_color = "#ebf8ff"
     timeout = 6
     icon = /home/philipp/.xfiles/icons/low.svg
 [urgency_normal]
-    background = "#c1e4f6"
+    background = "#ebf8ff"
     foreground = "#568c3b"
-    frame_color = "#c1e4f6"
+    frame_color = "#ebf8ff"
     timeout = 6
     icon = /home/philipp/.xfiles/icons/normal.svg
 [urgency_critical]
