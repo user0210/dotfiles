@@ -540,3 +540,6 @@ sudo npm i -g bash-language-server
 
 ##### archivierungsprogramme
 sudo pacman -S zip unzip 
+
+##### propertree
+sudo pacman -S python-pmw tk tcl libplist
