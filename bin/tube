@@ -3,26 +3,18 @@
 
 audiosel pulse
 
-##### debugger #############################################
-#youtube-dl --rm-cache-dir
-#rm ~/.config/mps-youtube/cache_py* 
-#if [ -t 0 ] ; then
-#    mpsyt set api_key AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
-#else
-#    st -e mpsyt set api_key AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro &
-#    st -e cava &
-#fi
-############################################################
-
-
-##### without debugger with searchoption ###################
-#if [ -t 0 ] ; then
-#    mpsyt "$@"
-#else
-#    st -e cava &
-#    sleep 0.5
-#    st -e mpsyt "$@" &
-#fi
+##### debugger ############################################
+case "$1" in
+	update)
+youtube-dl --rm-cache-dir
+rm /home/philipp/.config/mps-youtube/cache_py* 
+if [ -t 0 ] ; then
+    mpsyt set api_key AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
+else
+    st -e mpsyt set api_key AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro &
+fi
+exit 1
+esac
 ############################################################
 
 
@@ -37,3 +29,4 @@ else
 		st -e mpsyt "$@" &
 	fi
 fi
+############################################################
