@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/FractalSnowflake.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#015CBA",
+        "foreground": "#cddaec",
+        "cursor": "#cddaec"
+    },
+    "colors": {
+        "color0": "#015CBA",
+        "color1": "#3286CD",
+        "color2": "#4B8BCD",
+        "color3": "#6392C5",
+        "color4": "#6D9FDA",
+        "color5": "#8FACD7",
+        "color6": "#97B0E0",
+        "color7": "#cddaec",
+        "color8": "#8f98a5",
+        "color9": "#3286CD",
+        "color10": "#4B8BCD",
+        "color11": "#6392C5",
+        "color12": "#6D9FDA",
+        "color13": "#8FACD7",
+        "color14": "#97B0E0",
+        "color15": "#cddaec"
+    }
+}

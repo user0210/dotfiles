@@ -4,10 +4,11 @@ text/plain=nvim.desktop;
 application/zip=xarchiver.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 image/x-xbitmap=nvim.desktop;
-image/png=nvim.desktop;
-image/bmp=nvim.desktop;
-image/jpeg=nvim.desktop;
+image/png=nvim.desktop;sxiv.desktop;
+image/bmp=sxiv.desktop;
+image/jpeg=sxiv.desktop;
 application/x-apple-diskimage=xarchiver.desktop;
+text/x-matlab=nvim.desktop;
 
 [Default Applications]
 inode/directory=pcmanfm.desktop

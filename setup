@@ -2,12 +2,19 @@
 ##### usefull
 ###########################################################
 
+#####random
+sed -i "s/^base\(.\{2\}\)       \(.\{6\}\)/base\1       #\2/g" *
+
+
 TODO
 	macho-man
 	curl-weather
 	curl-manpage
 	slock
 	
+
+##### update mondo generator-themes
+mondo -f -g all
 
 ##### paccache
 du -sh /var/cache/pacman/pkg   # Belegung des Cache-Speicherplatzes prüfen
@@ -222,6 +229,9 @@ sudo pacman -S qt5-styleplugins dconf-editor
 export DESKTOP_SESSION=gnome ---> .xinitrc
 dconf-editor: org > gnome > desktop > interface --> icon-theme
 
+##### gtk-engines and stuff...
+sudo pacman -S gtk-engine-murrine
+
 ##### backlight-terminal control
 sudo pacman -S  acpilight
 sudo chmod a+w /sys/class/backlight/intel_backlight/brightness
@@ -274,7 +284,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 yay:mondo-generator xbanish brave thinkpad-scripts
 	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git
 pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
-	xdg-utils perl-file-mimeinfo playerctl calcurse p7zip
+	xdg-utils perl-file-mimeinfo playerctl calcurse p7zip xsettingsd
 
 """
 ln -s ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
@@ -318,6 +328,9 @@ sudo pacman -S python-pynvim
 yay neovim-symlinks neovim-remote #only for vimtex !!!!
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# neovim desktop file setting
+vim /usr/share/applications/nvim.desktop
+	Exec=bash -ci "nvim %F"
 
 ##### zsh
 sudo pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
@@ -514,6 +527,7 @@ to
 ##### onboard
 change systray-setting to "non-auto..."
 sudo ln -s /home/philipp/.config/onboard/Base16.colors /usr/share/onboard/themes/Base16.colors
+sudo ln -s /home/philipp/.config/onboard/Pywal.colors /usr/share/onboard/themes/Pywal.colors
 
 ##### dunst
 #falls git softlinks nicht wiederherstellt...

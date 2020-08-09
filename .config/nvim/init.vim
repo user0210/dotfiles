@@ -16,6 +16,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'tpope/vim-sensible'
 Plug 'chriskempson/base16-vim'
+Plug 'dylanaraps/wal.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
@@ -79,12 +80,19 @@ autocmd VimLeave * call system("xsel -ib", getreg('+'))
 """"""" PLUGIN base16-shell
 """"""""""""""""""""""""""""""""""
 if filereadable(expand("~/.vimrc_background"))
+  set termguicolors
   let base16colorspace=256
   source ~/.vimrc_background
+  highlight LineNr guibg=0 guifg=8
+else
+  colorscheme wal
+  highlight LineNr ctermbg=0 ctermfg=8
+  highlight CursorLineNr ctermbg=8 ctermfg=0
+  highlight CursorLine ctermbg=8 ctermfg=0
+  highlight CursorColumn ctermbg=8 ctermfg=0
 endif
 
-highlight LineNr ctermbg=0 ctermfg=4
-highlight CursorLineNr ctermbg=0 ctermfg=9
+
 """"""" PLUGIN quick-scope
 """"""""""""""""""""""""""""""""""
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

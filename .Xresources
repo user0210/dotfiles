@@ -6,19 +6,27 @@
 
 
 
-*font: TerminessTTF Nerd Font:pixelsize=16
-
 !-------------------------------------------------------------------
-! ---------- suckless theme ----------------------------------------
+! ---------- settings ----------------------------------------------
 !-------------------------------------------------------------------
 
 !Xft.dpi: 125.37
+
+!sets font in sxiv...
+*font: TerminessTTF Nerd Font:pixelsize=16
+
+!-------------------------------------------------------------------
+! ---------- colors ------------------------------------------------
+!-------------------------------------------------------------------
+
 *alpha: 1.0
 
+##### colors import
+#include ".xfiles/pywal/xres-color-pywal"
+#include ".xfiles/base16/xres-color-base16"
 
 ##### main Xres-colors
-#include ".xfiles/mondo-colors"
-#include ".xfiles/colors"
+#include ".xfiles/xres-color-def"
 
 ##### suckless colors
 #include ".xfiles/dwm-color"

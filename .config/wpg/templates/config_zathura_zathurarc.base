@@ -1,0 +1,88 @@
+####################################################################
+##### settings
+####################################################################
+
+map i recolor
+map b toggle_statusbar
+
+set sandbox none
+set selection-clipboard clipboard
+set adjust-open best-fit
+
+set font "TerminessTTF Nerd Font 12"
+
+####################################################################
+##### colors
+####################################################################
+
+##### base16-colors
+{BASH}set notification-error-bg       "%%base00%%" # bg
+{BASH}set notification-error-fg       "%%base08%%" # bright:red
+{BASH}set notification-warning-bg     "%%base00%%" # bg
+{BASH}set notification-warning-fg     "%%base0A%%" # bright:yellow
+{BASH}set notification-bg             "%%base00%%" # bg
+{BASH}set notification-fg             "%%base0B%%" # bright:green
+
+{BASH}set completion-bg               "%%base02%%" # bg2
+{BASH}set completion-fg               "%%base06%%" # fg
+{BASH}set completion-group-bg         "%%base01%%" # bg1
+{BASH}set completion-group-fg         "%%base04%%" # gray
+{BASH}set completion-highlight-bg     "%%base0D%%" # bright:blue
+{BASH}set completion-highlight-fg     "%%base02%%" # bg2
+
+# Define the color in index mode
+{BASH}set index-bg                    "%%base02%%" # bg2
+{BASH}set index-fg                    "%%base06%%" # fg
+{BASH}set index-active-bg             "%%base0D%%" # bright:blue
+{BASH}set index-active-fg             "%%base02%%" # bg2
+
+{BASH}set inputbar-bg                 "%%base00%%" # bg
+{BASH}set inputbar-fg                 "%%base06%%" # fg
+
+{BASH}set statusbar-bg                "%%base02%%" # bg2
+{BASH}set statusbar-fg                "%%base06%%" # fg
+
+{BASH}set highlight-color             "%%base0A%%" # bright:yellow
+{BASH}set highlight-active-color      "%%base09%%" # bright:orange
+
+{BASH}set default-bg                  "%%base00%%" # bg
+{BASH}set default-fg                  "%%base06%%" # fg
+{BASH}set render-loading              true
+{BASH}set render-loading-bg           "%%base00%%" # bg
+{BASH}set render-loading-fg           "%%base06%%" # fg
+
+# Recolor book content's color
+{BASH}set recolor-lightcolor          "%%base00%%" # bg
+{BASH}set recolor-darkcolor           "%%base06%%" # fg
+{BASH}set recolor                     true
+{BASH}set recolor-keephue             true          # keep original color
+
+##### pywal-colors
+{OFF}set recolor "true"
+{OFF}set completion-bg "{background}"
+{OFF}set completion-fg "{foreground}"
+{OFF}set completion-group-bg "{background}"
+{OFF}set completion-group-fg "{color2}"
+{OFF}set completion-highlight-bg "{foreground}"
+{OFF}set completion-highlight-fg "{background}"
+{OFF}set recolor-lightcolor "{background}"
+{OFF}set recolor-darkcolor "{foreground}"
+{OFF}set default-bg "{background}"
+{OFF}set inputbar-bg "{background}"
+{OFF}set inputbar-fg "{foreground}"
+{OFF}set notification-bg "{background}"
+{OFF}set notification-fg "{foreground}"
+{OFF}set notification-error-bg "{color1}"
+{OFF}set notification-error-fg "{foreground}"
+{OFF}set notification-warning-bg "{color1}"
+{OFF}set notification-warning-fg "{foreground}"
+{OFF}set statusbar-bg "{background}"
+{OFF}set statusbar-fg "{foreground}"
+{OFF}set index-bg "{background}"
+{OFF}set index-fg "{foreground}"
+{OFF}set index-active-bg "{foreground}"
+{OFF}set index-active-fg "{background}"
+{OFF}set render-loading-bg "{background}"
+{OFF}set render-loading-fg "{foreground}"
+{OFF}set window-title-home-tilde true
+{OFF}set statusbar-basename true

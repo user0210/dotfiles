@@ -19,4 +19,10 @@
 # To source the settings file one could use this:
 # source "${THIS_DIR}/_mondo-settings"
 
-/home/philipp/.xfiles/shell-color
+theme=$(mondo get theme)
+if [ -z $(ls /home/philipp/.config/base16-shell/scripts | grep "$theme") ]; then
+	sed -i "s/^_base16.*/_base16 \"\/home\/philipp\/\.config\/base16-shell\/scripts\/base16-custom\.sh\" custom/g" /home/philipp/.xfiles/base16/shell-update
+else
+	sed -i "s/^_base16.*/_base16 \"\/home\/philipp\/\.config\/base16-shell\/scripts\/base16-$theme\.sh\" $theme/g" /home/philipp/.xfiles/base16/shell-update
+fi
+/home/philipp/.xfiles/base16/shell-update

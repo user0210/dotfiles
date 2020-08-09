@@ -1,0 +1,51 @@
+#!/bin/bash
+
+
+# tmux-bell crashes process...
+tmux set -g bell-action none
+
+
+##### tmux-bash-base16-source ###################################################################################################################################
+#for i in {1..10}; do tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
+##tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['
+#
+#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-z
+#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-c
+##tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ~/.bashrc; fg &> /dev/null; echo -n" C-m
+#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE "source ~/.zshrc" C-m
+#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE "fg > /dev/null 2>&1" C-m
+# ZSH
+#for i in {1..10}; do tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
+#tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-z # or "#{session_name}:#{window_index}.#{pane_index}"
+#tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-c
+#sleep 0.2
+#tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ~/.zshrc && fg > /dev/null 2>&1" C-m
+
+
+##### tmux-zsh-base16-source ####################################################################################################################################
+sessions=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | cut -f1 -d':')
+for sess in $sessions
+do
+#	for i in {1..10}; do tmux send-keys -t $sess: 'C-['; done
+	tmux send-keys -t $sess: 'C-['
+	tmux send-keys -t $sess: C-z
+	sleep 0.2
+	tmux send-keys -t $sess: C-c
+	sleep 0.2
+	tmux send-keys -t $sess: "source ~/.zshrc; fg > /dev/null 2>&1 && tput cuu 7 || tput cuu 4" C-m
+done
+scratch=$(tmux ls 2> /dev/null | grep "scratchpad" | wc -l)
+if [[ "$scratch" != "0" ]]; then
+#	for i in {1..10}; do tmux send-keys -t scratchpad: 'C-['; done
+	tmux send-keys -t scratchpad: 'C-['
+	tmux send-keys -t scratchpad: C-z
+	sleep 0.2
+	tmux send-keys -t scratchpad: C-c
+	sleep 0.2
+	tmux send-keys -t scratchpad: "source ~/.zshrc; fg > /dev/null 2>&1 && tput cuu 7 || tput cuu 4" C-m
+fi
+
+
+################################################################################################################################################################
+#just for the tmux-bell...
+tmux set -g bell-action any

@@ -1,5 +1,4 @@
 [global]
-#	font = InconsolataLGC Nerd Font 8
 	font = TerminessTTF Nerd Font 9
 
     horizontal_padding = 5
@@ -22,23 +21,32 @@
     history = mod4+shift+d
 
 [urgency_low]
-    background = "#000000"
-    foreground = "#999999"
-    frame_color = "#000000"
-    timeout = 6
-    icon = /home/philipp/.xfiles/icons/low.svg
+#	background =  "{color0}"
+#	foreground =  "{color7}"
+#	frame_color = "{color0}"
+	background =  "#000000"
+	foreground =  "#999999"
+	frame_color = "#000000"
+		timeout = 6
+		icon = /home/philipp/.xfiles/icons/low.svg
 [urgency_normal]
-    background = "#000000"
-    foreground = "#dd9999"
-    frame_color = "#000000"
-    timeout = 6
-    icon = /home/philipp/.xfiles/icons/normal.svg
+#	background =  "{color0}"
+#	foreground =  "{color10}"
+#	frame_color = "{color0}"
+	background =  "#000000"
+	foreground =  "#dd9999"
+	frame_color = "#000000"
+		timeout = 6
+		icon = /home/philipp/.xfiles/icons/normal.svg
 [urgency_critical]
-    background = "#5f8787"
-    foreground = "#000000"
-    frame_color = "#5f8787"
-    timeout = 0
-    icon = /home/philipp/.xfiles/icons/critical.svg
+#	background =  "{color9}"
+#	foreground =  "{color0}"
+#	frame_color = "{color9}"
+	background =  "#5f8787"
+	foreground =  "#000000"
+	frame_color = "#5f8787"
+		timeout = 0
+		icon = /home/philipp/.xfiles/icons/critical.svg
 
 
 #########################################################################
@@ -65,7 +73,7 @@
 #    follow = mouse
 #
 #    # The geometry of the window:
-#    #   [{width}]x{height}[+/-{x}+/-{y}]
+#    #   [(width)]x(height)[+/-(x)+/-(y)]
 #    # The geometry of the message window.
 #    # The height is measured in number of notifications everything else
 #    # in pixels.  If the width is omitted but the height is given

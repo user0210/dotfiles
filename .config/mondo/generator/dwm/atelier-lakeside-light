@@ -1,18 +1,36 @@
--nbg	ebf8ff
--nfg	516d7b
--nbo	7ea2b4
--nfl	7ea2b4
--sbg	257fad
--sfg	161b1d
--sbo	257fad
--sfl	257fad
--ibg	c1e4f6
--ifg	516d7b
--ibo	ebf8ff
--abg	7195a8
--afg	1f292e
--abo	ebf8ff
--dnb	ebf8ff
--dnf	516d7b
--dsb	257fad
--dsf	161b1d
+dwm.col_alt   : base06
+dwm.col_bg    : base00
+dwm.col_fg    : base05
+dwm.col_inact : base01
+dwm.col_act   : base02
+dwm.col_sel   : base0D
+
+!dwm.col_alt   : Color15
+!dwm.col_bg    : Color0
+!dwm.col_fg    : Color7
+!dwm.col_inact : Color8
+!dwm.col_act   : Color8
+!dwm.col_sel   : Color12
+
+! color0:       base00
+! color1:       base08
+! color2:       base0B
+! color3:       base0A
+! color4:       base0D
+! color5:       base0E
+! color6:       base0C
+! color7:       base05
+! color8:       base03
+! color9:       base08
+! color10:      base0B
+! color11:      base0A
+! color12:      base0D
+! color13:      base0E
+! color14:      base0C
+! color15:      base07
+! color16:      base09
+! color17:      base0F
+! color18:      base01
+! color19:      base02
+! color20:      base04
+! color21:      base06

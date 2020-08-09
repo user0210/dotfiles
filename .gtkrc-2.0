@@ -1,5 +1,5 @@
-gtk-theme-name="gruvbox-dark-hard"
-gtk-icon-theme-name="gruvbox-dark-hard"
+gtk-theme-name="FlatColor"
+gtk-icon-theme-name="TermColor"
 gtk-font-name="InconsolataLGC Nerd Font Mono Medium 8"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0

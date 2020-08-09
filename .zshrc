@@ -38,6 +38,7 @@ zstyle ':completion:*' menu select
 autoload -Uz compinit
 compinit
 
+
 ####################################################
 ##### theme
 ####################################################
@@ -72,20 +73,22 @@ prompt spaceship
 
 spaceship_vi_mode_enable
 
-####################################################
-##### bashrc import
-####################################################
-
 ##### Base16 Shell
-if xhost >& /dev/null ; then
-	BASE16_SHELL="$HOME/.config/base16-shell/"
-	[ -n "$PS1" ] && \
-    	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-	        eval "$("$BASE16_SHELL/profile_helper.sh")"
-#else echo "Display invalid"
+if [[ $(mondo get theme) == pywal ]]; then
+	(cat ~/.config/wpg/sequences &)
+else
+	if xhost >& /dev/null ; then
+		BASE16_SHELL="$HOME/.config/base16-shell/"
+		[ -n "$PS1" ] && \
+	    	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+		        eval "$("$BASE16_SHELL/profile_helper.sh")"
+	#else echo "Display invalid"
+	fi
 fi
 
+####################################################
 ##### Aliases
+####################################################
 alias less='less -x4'
 alias bs='tmux detach && bash && clear'
 alias nm='nmtui'
@@ -107,6 +110,11 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+
+####################################################
+##### source stuff...
+####################################################
 
 ##### highlight and autosuggestions
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

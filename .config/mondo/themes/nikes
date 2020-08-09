@@ -1,24 +1,23 @@
 !! Theme:    nikes
 !! Author:   philipp
 !! Created:  2020-03-22
-base00	babaa9
-base01	a4a493
-base02	8d938d
-base03	6e776e
-base04	445e67
-base05	4b575a
-base06	3f3f3f
-base07	303030
-base08	d4665d
-base09	cc7833
-base0A	b58900
-base0B	61854e
-base0C	3e999f
-base0D	4c83ad
-base0E	8959a8
-base0F	b16286
+base00	#babaa9
+base01	#a4a493
+base02	#8d938d
+base03	#6e776e
+base04	#445e67
+base05	#4b575a
+base06	#3f3f3f
+base07	#303030
+base08	#d4665d
+base09	#cc7833
+base0A	#b58900
+base0B	#61854e
+base0C	#3e999f
+base0D	#4c83ad
+base0E	#8959a8
+base0F	#b16286
 
-shell	nikes
 
 !! base00	# ----
 !! base01	# ---
@@ -36,3 +35,9 @@ shell	nikes
 !! base0D	# blue
 !! base0E	# purple
 !! base0F	# brown    
+
+
+OFF 
+XRES !
+BASH #
+CFIN */

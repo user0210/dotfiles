@@ -1,4 +1,0 @@
-#!/bin/bash
-
-theme=$(ls "/home/philipp/.config/mondo/themes" | grep "^[^._]" | dmenu -p "theme: ")
-mondo -a $theme

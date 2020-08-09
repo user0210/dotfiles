@@ -1,0 +1,1 @@
+/home/philipp/.config/qutebrowser/pywalcolors.py

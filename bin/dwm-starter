@@ -4,20 +4,14 @@
 internetav &
 updatebar &
 dwmblocks &
-
-##### compositor
 picom &
 
 ##### background
 #xsetroot -solid "$(xrdb -query|awk '/\*color0:/ {print $2}')"
 #xsetroot -bitmap /home/philipp/.xfiles/background/bitmap-walls/patterns/line_diag8_1.xbm -bg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -fg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
-#xsetroot -bitmap /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_big.xbm -bg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -fg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
-#xsetroot -bitmap /home/philipp/.xfiles/background/bitmap-walls/patterns/grey_32_28.xbm -fg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -bg "$(xrdb -query|awk '/\*color7:/ {print $2}')"
-#xsetroot -bitmap /home/philipp/.xfiles/background/bitmap-walls/patterns/check.xbm -fg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -bg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
-#xsetroot -bitmap /home/philipp/.xfiles/background/bitmap-walls/patterns/chev_same.xbm -fg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -bg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
-#xsetroot -bitmap /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -bg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
 #display -resize 1366x768\! -window root /home/philipp/.xfiles/background/wallpapers/fractals-leaf-caro.jpg
 #display -size 1366x768 -window root /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
+
 hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
 
 ##### polkit authentication agent (erst installieren)

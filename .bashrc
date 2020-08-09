@@ -31,13 +31,16 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
-##### Base16 Shell
-if xhost >& /dev/null ; then
-	BASE16_SHELL="$HOME/.config/base16-shell/"
-	[ -n "$PS1" ] && \
-    	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-	        eval "$("$BASE16_SHELL/profile_helper.sh")"
-#else echo "Display invalid"
+if [[ $(mondo get theme) == pywal ]]; then
+	(cat ~/.config/wpg/sequences &)
+else
+	if xhost >& /dev/null ; then
+		BASE16_SHELL="$HOME/.config/base16-shell/"
+		[ -n "$PS1" ] && \
+	    	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+		        eval "$("$BASE16_SHELL/profile_helper.sh")"
+	#else echo "Display invalid"
+	fi
 fi
 
 
