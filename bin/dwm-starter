@@ -12,7 +12,7 @@ picom &
 #display -resize 1366x768\! -window root /home/philipp/.xfiles/background/wallpapers/fractals-leaf-caro.jpg
 #display -size 1366x768 -window root /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
-hsetroot -fill /home/philipp/.config/wpg/wallpapers/.current
+hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
 
 ##### polkit authentication agent (erst installieren)
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

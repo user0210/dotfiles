@@ -86,12 +86,12 @@ if filereadable(expand("~/.vimrc_background"))
   highlight LineNr guibg=0 guifg=8
 else
   colorscheme wal
-  highlight LineNr ctermbg=0 ctermfg=8
-  highlight CursorLineNr ctermbg=8 ctermfg=0
-  highlight CursorLine ctermbg=8 ctermfg=0
-  highlight CursorColumn ctermbg=8 ctermfg=0
+  highlight LineNr ctermbg=NONE ctermfg=8
+  highlight CursorLineNr ctermbg=0 ctermfg=1
+  highlight CursorLine ctermbg=0 ctermfg=NONE
+  highlight CursorColumn ctermbg=0 ctermfg=NONE
 endif
-
+hi! Normal ctermbg=NONE guibg=NONE
 
 """"""" PLUGIN quick-scope
 """"""""""""""""""""""""""""""""""

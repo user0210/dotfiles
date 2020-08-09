@@ -59,6 +59,8 @@ else
 
 	sed -i "s/^#\(c\.colors\..*base0.\)/\1/g; s/^\(c\.colors\..*color.*\)/#\1/g" /home/philipp/.config/qutebrowser/config.py
 
+	sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" /home/philipp/.Xresources
+
 	mondo -a $theme
 
 	ICON=$(xrdb -query|awk '/\*color3:/ {print $2}')
@@ -96,13 +98,16 @@ else
 		convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -query|awk '/\*color7:/ {print $2}')" -opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots16.png
 		hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
 		sed -i "s/^hsetroot -fill \/home\/philipp\/\.config\/wpg\/wallpapers\/\.current/hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/g" /home/philipp/bin/dwm-starter
+		sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" /home/philipp/.Xresources
 	elif [[ $template == "[pywal-wallpaper]" ]]; then
 		wpg -s $theme
 		hsetroot -fill /home/philipp/.config/wpg/wallpapers/.current
 		sed -i "s/^hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/hsetroot -fill \/home\/philipp\/\.config\/wpg\/wallpapers\/\.current/g" /home/philipp/bin/dwm-starter
+		sed -i "s/^\*alpha:.*/\*alpha: 0\.93/g" /home/philipp/.Xresources
 	fi
 
 	xrdb -merge -I$HOME ~/.Xresources
+	externalpipe_buffer.sh st_reloadsignal
 	neovim-reload.py
 
 	sed -e "s/#aaaaaa/$(xrdb -query|awk '/\*color7:/ {print $2}')/" /home/philipp/.xfiles/icons/low-bak.svg > /home/philipp/.xfiles/icons/low.svg
