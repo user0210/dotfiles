@@ -10,7 +10,7 @@
 %%XRES%%dwm.col_fg    : Color7
 %%XRES%%dwm.col_inact : Color8
 %%XRES%%dwm.col_act   : Color8
-%%XRES%%dwm.col_sel   : Color12
+%%XRES%%dwm.col_sel   : Color4
 
 ! color0:       base00
 ! color1:       base08

@@ -32,7 +32,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
 if [[ $(mondo get theme) == pywal ]]; then
-	(cat ~/.config/wpg/sequences &)
+#	(cat ~/.config/wpg/sequences &)
+	:
 else
 	if xhost >& /dev/null ; then
 		BASE16_SHELL="$HOME/.config/base16-shell/"

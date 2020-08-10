@@ -88,7 +88,7 @@ else
   colorscheme wal
   highlight LineNr ctermbg=NONE ctermfg=8
   highlight CursorLineNr ctermbg=0 ctermfg=1
-  highlight CursorLine ctermbg=0 ctermfg=NONE
+  highlight CursorLine term=bold cterm=bold ctermbg=0 ctermfg=NONE
   highlight CursorColumn ctermbg=0 ctermfg=NONE
 endif
 hi! Normal ctermbg=NONE guibg=NONE

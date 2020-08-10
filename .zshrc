@@ -76,6 +76,7 @@ spaceship_vi_mode_enable
 ##### Base16 Shell
 if [[ $(mondo get theme) == pywal ]]; then
 #	(cat ~/.config/wpg/sequences &)
+	:
 else
 	if xhost >& /dev/null ; then
 		BASE16_SHELL="$HOME/.config/base16-shell/"

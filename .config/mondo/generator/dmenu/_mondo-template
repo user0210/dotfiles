@@ -11,11 +11,11 @@ dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
 
 %%XRES%%dmenu.background        : Color0
 %%XRES%%dmenu.foreground        : Color7
-%%XRES%%dmenu.selbackground     : Color12
+%%XRES%%dmenu.selbackground     : Color4
 %%XRES%%dmenu.selforeground     : Color0
 %%XRES%%dmenu.highbackground    : Color0
 %%XRES%%dmenu.highforeground    : Color11
-%%XRES%%dmenu.highselbackground : Color12
+%%XRES%%dmenu.highselbackground : Color4
 %%XRES%%dmenu.highselforeground : Color11
 
 ! color0:       base00
