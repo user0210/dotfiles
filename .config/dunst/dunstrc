@@ -21,30 +21,30 @@
     history = mod4+shift+d
 
 [urgency_low]
-#	background =  "{color0}"
-#	foreground =  "{color7}"
-#	frame_color = "{color0}"
-	background =  "#282c34"
-	foreground =  "#d5c4a1"
-	frame_color = "#282c34"
+	background =  "#1e1e1e"
+	foreground =  "#d4d4d4"
+	frame_color = "#1e1e1e"
+#	background =  "%%base00%%"
+#	foreground =  "%%base06%%"
+#	frame_color = "%%base00%%"
 		timeout = 6
 		icon = /home/philipp/.xfiles/icons/low.svg
 [urgency_normal]
-#	background =  "{color0}"
-#	foreground =  "{color10}"
-#	frame_color = "{color0}"
-	background =  "#282c34"
-	foreground =  "#528b8b"
-	frame_color = "#282c34"
+	background =  "#1e1e1e"
+	foreground =  "#d7ba7d"
+	frame_color = "#1e1e1e"
+#	background =  "%%base00%%"
+#	foreground =  "%%base0B%%"
+#	frame_color = "%%base00%%"
 		timeout = 6
 		icon = /home/philipp/.xfiles/icons/normal.svg
 [urgency_critical]
-#	background =  "{color9}"
-#	foreground =  "{color0}"
-#	frame_color = "{color9}"
-	background =  "#83a598"
-	foreground =  "#282c34"
-	frame_color = "#83a598"
+	background =  "#f44747"
+	foreground =  "#1e1e1e"
+	frame_color = "#f44747"
+#	background =  "%%base08%%"
+#	foreground =  "%%base00%%"
+#	frame_color = "%%base08%%"
 		timeout = 0
 		icon = /home/philipp/.xfiles/icons/critical.svg
 

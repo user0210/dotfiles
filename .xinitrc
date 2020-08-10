@@ -6,7 +6,7 @@
 # /_/\_\_|_| |_|_|\__|_|  \___|
 # 
 
-#export DISPLAY=":0.0"
+# fix for QT (and dconf-editor)...
 export QT_QPA_PLATFORMTHEME=gtk2
 export DESKTOP_SESSION=gnome
 
