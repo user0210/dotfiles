@@ -1,7 +1,0 @@
-#!/bin/bash
-
-sessions=$(tmux ls | cut -f1 -d':')
-for sess in $sessions
-do
-	tmux set-option -t $sess: status-style bg=Colour08; tmux set-option status-style bg=Colour04
-done
