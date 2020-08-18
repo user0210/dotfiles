@@ -24,9 +24,9 @@ if [ -t 0 ] ; then
     mpsyt "$@"
 else
 	if [ $# -eq 0 ]; then
-		st -t tube -e /home/philipp/.config/zsh/tube/tmux
+		st -h -t tube -e /home/philipp/.config/zsh/tube/tmux
 	else
-		st -e mpsyt "$@" &
+		st -h -e mpsyt "$@" &
 	fi
 fi
 ############################################################

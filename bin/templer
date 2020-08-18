@@ -15,7 +15,7 @@ esac
 
 init=$(mondo get theme)
 
-templer=([pywal-wallpaper] [pywal-themes] [base16-themes])
+templer=("[pywal-wallpaper]" "[pywal-themes]" "[base16-themes]")
 template=$(printf '%s\n' "${templer[@]}" | dmenu -p "template: ")
 
 ##############################################################################################
@@ -79,6 +79,12 @@ if [[ $template == "[pywal-themes]" ]]; then
 	theme=$(wpg --theme | sort | dmenu -p "pywal: ")
 elif [[ $template == "[pywal-wallpaper]" ]]; then
 	theme=$(sxiv -to /home/philipp/.config/wpg/wallpapers/* | head -n 1 | sed "s/.*\///")
+	sample=$(ls /home/philipp/.config/wpg/samples | grep "$theme")
+	if [ $(echo $sample | wc -l) > 1 ]; then
+		backend=$(sxiv -to /home/philipp/.config/wpg/samples/*$theme* | head -n 1 | sed "s/.*\/$theme.\(.*\)_sample\.png/\1/")
+	else
+		backend=$(ls /home/philipp/.config/wpg/samples/*$theme* | head -n 1 | sed "s/.*\/$theme.\(.*\)_sample\.png/\1/")
+	fi
 fi
 
 if [[ -z "$theme" ]] ;then
@@ -100,7 +106,7 @@ else
 		sed -i "s/^hsetroot -fill \/home\/philipp\/\.config\/wpg\/wallpapers\/\.current/hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/g" /home/philipp/bin/dwm-starter
 		sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" /home/philipp/.Xresources
 	elif [[ $template == "[pywal-wallpaper]" ]]; then
-		wpg -s $theme
+		wpg --backend $backend -s $theme
 		hsetroot -fill /home/philipp/.config/wpg/wallpapers/.current
 		sed -i "s/^hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/hsetroot -fill \/home\/philipp\/\.config\/wpg\/wallpapers\/\.current/g" /home/philipp/bin/dwm-starter
 		sed -i "s/^\*alpha:.*/\*alpha: 0\.93/g" /home/philipp/.Xresources
