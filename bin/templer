@@ -78,10 +78,10 @@ elif [[ $template == "[pywal-themes]" || "[pywal-wallpaper]" ]]; then  #####  PY
 if [[ $template == "[pywal-themes]" ]]; then
 	theme=$(wpg --theme | sort | dmenu -p "pywal: ")
 elif [[ $template == "[pywal-wallpaper]" ]]; then
-	theme=$(sxiv -to /home/philipp/.config/wpg/wallpapers/* | head -n 1 | sed "s/.*\///")
+	theme=$(sxiv -N wallman -to /home/philipp/.config/wpg/wallpapers/* | head -n 1 | sed "s/.*\///")
 	sample=$(ls /home/philipp/.config/wpg/samples | grep "$theme")
 	if [ $(echo $sample | wc -l) > 1 ]; then
-		backend=$(sxiv -to /home/philipp/.config/wpg/samples/*$theme* | head -n 1 | sed "s/.*\/$theme.\(.*\)_sample\.png/\1/")
+		backend=$(sxiv -N wallman -to /home/philipp/.config/wpg/samples/*$theme* | head -n 1 | sed "s/.*\/$theme.\(.*\)_sample\.png/\1/")
 	else
 		backend=$(ls /home/philipp/.config/wpg/samples/*$theme* | head -n 1 | sed "s/.*\/$theme.\(.*\)_sample\.png/\1/")
 	fi
