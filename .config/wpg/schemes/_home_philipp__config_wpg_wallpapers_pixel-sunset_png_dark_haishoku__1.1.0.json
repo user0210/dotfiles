@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/pixel-sunset.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#24232a",
+        "foreground": "#fefeff",
+        "cursor": "#fefeff"
+    },
+    "colors": {
+        "color0": "#24232a",
+        "color1": "#f15b57",
+        "color2": "#d6bd8c",
+        "color3": "#f2825d",
+        "color4": "#b2c6e5",
+        "color5": "#90aeda",
+        "color6": "#809fd3",
+        "color7": "#c8c8c9",
+        "color8": "#3b3945",
+        "color9": "#ff625b",
+        "color10": "#fffd9f",
+        "color11": "#ff9e63",
+        "color12": "#c5f2ff",
+        "color13": "#a3ddff",
+        "color14": "#90c9ff",
+        "color15": "#fefeff"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/pixel-xp.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#172303",
+        "foreground": "#fffff9",
+        "cursor": "#fffff9"
+    },
+    "colors": {
+        "color0": "#172303",
+        "color1": "#82a8c6",
+        "color2": "#74b014",
+        "color3": "#8bb26f",
+        "color4": "#237dc8",
+        "color5": "#aabac6",
+        "color6": "#5394c7",
+        "color7": "#c5c8c0",
+        "color8": "#355205",
+        "color9": "#93dcff",
+        "color10": "#99f10d",
+        "color11": "#b1fa7d",
+        "color12": "#1ea3ff",
+        "color13": "#c5f5ff",
+        "color14": "#59c2ff",
+        "color15": "#fffff9"
+    }
+}

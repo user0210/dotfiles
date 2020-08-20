@@ -33,6 +33,10 @@ else
 	cp /home/philipp/.config/wpg/templates/philipp_xfiles_dmenu-color.base /home/philipp/.config/mondo/generator/dmenu/_mondo-template
 	sed -i "s/{XRES}/%%OFF%%/g; s/{OFF}/%%XRES%%/g" /home/philipp/.config/mondo/generator/dmenu/_mondo-template
 	
+	rm /home/philipp/.config/mondo/generator/xmenu/_mondo-template
+	cp /home/philipp/.config/wpg/templates/philipp_xfiles_xmenu-color.base /home/philipp/.config/mondo/generator/xmenu/_mondo-template
+	sed -i "s/{XRES}/%%OFF%%/g; s/{OFF}/%%XRES%%/g" /home/philipp/.config/mondo/generator/xmenu/_mondo-template
+	
 	rm /home/philipp/.config/mondo/generator/dwm/_mondo-template
 	cp /home/philipp/.config/wpg/templates/philipp_xfiles_dwm-color.base /home/philipp/.config/mondo/generator/dwm/_mondo-template
 	sed -i "s/{XRES}/%%OFF%%/g; s/{OFF}/%%XRES%%/g" /home/philipp/.config/mondo/generator/dwm/_mondo-template
@@ -68,6 +72,9 @@ else
 	find /home/philipp/.icons/TermColor/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
 	timeout 0.01s xsettingsd -c /home/philipp/.xfiles/.xsettingsd
 	timeout 0.01s xsettingsd -c /home/philipp/.xsettingsd
+
+	convert -size 16x16 -background none /home/philipp/.icons/TermColor/apps/scalable/web-browser-symbolic.svg /home/philipp/.xfiles/icons/web-browser-symbolic.png
+	convert -size 16x16 -background none /home/philipp/.icons/TermColor/actions/scalable/sidebar-places-symbolic.svg /home/philipp/.xfiles/icons/sidebar-places-symbolic.png
 
 	xsetroot -name "fsignal:1"
 	xsetroot -name "fsignal:2"
@@ -136,6 +143,9 @@ else
 	find /home/philipp/.icons/TermColor/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
 	timeout 0.01s xsettingsd -c /home/philipp/.xfiles/.xsettingsd
 	timeout 0.01s xsettingsd -c /home/philipp/.xsettingsd
+
+	convert -size 16x16 -background none /home/philipp/.icons/TermColor/apps/scalable/web-browser-symbolic.svg /home/philipp/.xfiles/icons/web-browser-symbolic.png
+	convert -size 16x16 -background none /home/philipp/.icons/TermColor/actions/scalable/sidebar-places-symbolic.svg /home/philipp/.xfiles/icons/sidebar-places-symbolic.png
 
 	xsetroot -name "fsignal:1"
 	xsetroot -name "fsignal:2"

@@ -1,0 +1,16 @@
+static const char color0[] = "#2a3b4d";
+static const char color1[] = "#c4676c";
+static const char color2[] = "#5de561";
+static const char color3[] = "#cfd05d";
+static const char color4[] = "#1ae1dc";
+static const char color5[] = "#9c6cd3";
+static const char color6[] = "#4b8f77";
+static const char color7[] = "#9fa2a6";
+static const char color8[] = "#55799c";
+static const char color9[] = "#c4676c";
+static const char color10[] = "#5de561";
+static const char color11[] = "#cfd05d";
+static const char color12[] = "#1ae1dc";
+static const char color13[] = "#9c6cd3";
+static const char color14[] = "#4b8f77";
+static const char color15[] = "#ffffff";

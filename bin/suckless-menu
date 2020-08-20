@@ -9,7 +9,7 @@ mkfifo $PIPE
 exec 3<> $PIPE
 
 #Yad Dialog erstellen
-yad --notification --listen --command="dmenu_run" --class suckless-menu <&3 & 
+yad --notification --listen --command="xmenu.sh" --class suckless-menu <&3 & 
 
 #Menüeinträge definieren
 echo "menu:\

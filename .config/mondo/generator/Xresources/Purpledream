@@ -1,0 +1,16 @@
+#define base00 #100510
+#define base01 #302030
+#define base02 #403040
+#define base03 #605060
+#define base04 #bbb0bb
+#define base05 #ddd0dd
+#define base06 #eee0ee
+#define base07 #fff0ff
+#define base08 #FF1D0D
+#define base09 #CCAE14
+#define base0A #F000A0
+#define base0B #14CC64
+#define base0C #0075B0
+#define base0D #00A0F0
+#define base0E #B000D0
+#define base0F #6A2A3C

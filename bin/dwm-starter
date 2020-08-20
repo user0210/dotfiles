@@ -26,6 +26,8 @@ xbanish &
 ##### systray-applications
 suckless-menu 2> /dev/null && sleep 1 && nm-applet &
 
+##### xclickroot-options
+xclickroot -r xmenu.sh &
 
 ##### dwm (while loop for autorestart..)
 while true; do

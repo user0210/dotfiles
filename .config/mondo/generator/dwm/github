@@ -10,7 +10,7 @@ dwm.col_sel   : base0D
 !dwm.col_fg    : Color7
 !dwm.col_inact : Color8
 !dwm.col_act   : Color8
-!dwm.col_sel   : Color12
+!dwm.col_sel   : Color4
 
 ! color0:       base00
 ! color1:       base08

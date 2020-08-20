@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/simple-geometric.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#1b1d1f",
+        "foreground": "#fefeff",
+        "cursor": "#fefeff"
+    },
+    "colors": {
+        "color0": "#1b1d1f",
+        "color1": "#ce3a3a",
+        "color2": "#5f5d54",
+        "color3": "#e3692b",
+        "color4": "#7d4450",
+        "color5": "#a24046",
+        "color6": "#916c42",
+        "color7": "#c6c6c7",
+        "color8": "#323639",
+        "color9": "#ff3a3a",
+        "color10": "#878061",
+        "color11": "#ff8226",
+        "color12": "#af4b60",
+        "color13": "#e1444e",
+        "color14": "#ca8d48",
+        "color15": "#fefeff"
+    }
+}

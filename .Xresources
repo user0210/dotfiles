@@ -31,6 +31,7 @@
 ##### suckless colors
 #include ".xfiles/dwm-color"
 #include ".xfiles/dmenu-color"
+#include ".xfiles/xmenu-color"
 
 !-------------------------------------------------------------------
 ! ---------- usefull stuff -----------------------------------------

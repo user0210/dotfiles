@@ -281,7 +281,7 @@ systemctl enable paccache.timer
 git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 ## remove yay folder....
 
-yay:mondo-generator xbanish brave thinkpad-scripts
+yay:mondo-generator xbanish brave thinkpad-scripts xmenu xlickroot-git
 	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git
 pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
 	xdg-utils perl-file-mimeinfo playerctl calcurse p7zip xsettingsd

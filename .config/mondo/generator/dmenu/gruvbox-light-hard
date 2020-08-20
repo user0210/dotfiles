@@ -11,11 +11,11 @@ dmenu.highselforeground : base0A
 
 !dmenu.background        : Color0
 !dmenu.foreground        : Color7
-!dmenu.selbackground     : Color12
+!dmenu.selbackground     : Color4
 !dmenu.selforeground     : Color0
 !dmenu.highbackground    : Color0
 !dmenu.highforeground    : Color11
-!dmenu.highselbackground : Color12
+!dmenu.highselbackground : Color4
 !dmenu.highselforeground : Color11
 
 ! color0:       base00
