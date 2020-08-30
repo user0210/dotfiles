@@ -117,6 +117,7 @@ else
 		hsetroot -fill /home/philipp/.config/wpg/wallpapers/.current
 		sed -i "s/^hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/hsetroot -fill \/home\/philipp\/\.config\/wpg\/wallpapers\/\.current/g" /home/philipp/bin/dwm-starter
 		sed -i "s/^\*alpha:.*/\*alpha: 0\.93/g" /home/philipp/.Xresources
+		sed -i "s/^backend.*/backend = $backend/g" /home/philipp/.config/wpg/wpg.conf 
 	fi
 
 	xrdb -merge -I$HOME ~/.Xresources

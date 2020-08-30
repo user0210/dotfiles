@@ -1,16 +1,16 @@
-dwm.col_alt   : base06
-dwm.col_bg    : base00
-dwm.col_fg    : base05
-dwm.col_inact : base01
-dwm.col_act   : base02
-dwm.col_sel   : base0D
+!dwm.col_alt   : base06
+!dwm.col_bg    : base00
+!dwm.col_fg    : base05
+!dwm.col_inact : base01
+!dwm.col_act   : base02
+!dwm.col_sel   : base0D
 
-!dwm.col_alt   : Color15
-!dwm.col_bg    : Color0
-!dwm.col_fg    : Color7
-!dwm.col_inact : Color8
-!dwm.col_act   : Color8
-!dwm.col_sel   : Color12
+dwm.col_alt   : Color15
+dwm.col_bg    : Color0
+dwm.col_fg    : Color7
+dwm.col_inact : Color8
+dwm.col_act   : Color8
+dwm.col_sel   : Color4
 
 ! color0:       base00
 ! color1:       base08
