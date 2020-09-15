@@ -1,3 +1,8 @@
+/* selfmade */
+tooltip {
+	border-radius: 0px;
+}
+
 /* remove window title from Client-Side Decorations */
 .solid-csd headerbar .title {
     font-size: 0;
