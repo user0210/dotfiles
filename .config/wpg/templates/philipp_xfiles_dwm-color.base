@@ -1,11 +1,11 @@
-{XRES}dwm.col_alt   : base06
+{XRES}dwm.col_alt   : base04
 {XRES}dwm.col_bg    : base00
 {XRES}dwm.col_fg    : base05
-{XRES}dwm.col_inact : base01
-{XRES}dwm.col_act   : base02
+{XRES}dwm.col_inact : base03
+{XRES}dwm.col_act   : base03
 {XRES}dwm.col_sel   : base0D
 
-{OFF}dwm.col_alt   : Color15
+{OFF}dwm.col_alt   : Color7
 {OFF}dwm.col_bg    : Color0
 {OFF}dwm.col_fg    : Color7
 {OFF}dwm.col_inact : Color8

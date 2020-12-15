@@ -16,73 +16,73 @@ set font "TerminessTTF Nerd Font 12"
 ####################################################################
 
 ##### base16-colors
-set notification-error-bg       "#babaa9" # bg
-set notification-error-fg       "#d4665d" # bright:red
-set notification-warning-bg     "#babaa9" # bg
-set notification-warning-fg     "#b58900" # bright:yellow
-set notification-bg             "#babaa9" # bg
-set notification-fg             "#61854e" # bright:green
+#set notification-error-bg       "%%base00%%" # bg
+#set notification-error-fg       "%%base08%%" # bright:red
+#set notification-warning-bg     "%%base00%%" # bg
+#set notification-warning-fg     "%%base0A%%" # bright:yellow
+#set notification-bg             "%%base00%%" # bg
+#set notification-fg             "%%base0B%%" # bright:green
 
-set completion-bg               "#8d938d" # bg2
-set completion-fg               "#3f3f3f" # fg
-set completion-group-bg         "#a4a493" # bg1
-set completion-group-fg         "#445e67" # gray
-set completion-highlight-bg     "#4c83ad" # bright:blue
-set completion-highlight-fg     "#8d938d" # bg2
+#set completion-bg               "%%base02%%" # bg2
+#set completion-fg               "%%base06%%" # fg
+#set completion-group-bg         "%%base01%%" # bg1
+#set completion-group-fg         "%%base04%%" # gray
+#set completion-highlight-bg     "%%base0D%%" # bright:blue
+#set completion-highlight-fg     "%%base02%%" # bg2
 
 # Define the color in index mode
-set index-bg                    "#8d938d" # bg2
-set index-fg                    "#3f3f3f" # fg
-set index-active-bg             "#4c83ad" # bright:blue
-set index-active-fg             "#8d938d" # bg2
+#set index-bg                    "%%base02%%" # bg2
+#set index-fg                    "%%base06%%" # fg
+#set index-active-bg             "%%base0D%%" # bright:blue
+#set index-active-fg             "%%base02%%" # bg2
 
-set inputbar-bg                 "#babaa9" # bg
-set inputbar-fg                 "#3f3f3f" # fg
+#set inputbar-bg                 "%%base00%%" # bg
+#set inputbar-fg                 "%%base06%%" # fg
 
-set statusbar-bg                "#8d938d" # bg2
-set statusbar-fg                "#3f3f3f" # fg
+#set statusbar-bg                "%%base02%%" # bg2
+#set statusbar-fg                "%%base06%%" # fg
 
-set highlight-color             "#b58900" # bright:yellow
-set highlight-active-color      "#cc7833" # bright:orange
+#set highlight-color             "%%base0A%%" # bright:yellow
+#set highlight-active-color      "%%base09%%" # bright:orange
 
-set default-bg                  "#babaa9" # bg
-set default-fg                  "#3f3f3f" # fg
-set render-loading              true
-set render-loading-bg           "#babaa9" # bg
-set render-loading-fg           "#3f3f3f" # fg
+#set default-bg                  "%%base00%%" # bg
+#set default-fg                  "%%base06%%" # fg
+#set render-loading              true
+#set render-loading-bg           "%%base00%%" # bg
+#set render-loading-fg           "%%base06%%" # fg
 
 # Recolor book content's color
-set recolor-lightcolor          "#babaa9" # bg
-set recolor-darkcolor           "#3f3f3f" # fg
-set recolor                     true
-set recolor-keephue             true          # keep original color
+#set recolor-lightcolor          "%%base00%%" # bg
+#set recolor-darkcolor           "%%base06%%" # fg
+#set recolor                     true
+#set recolor-keephue             true          # keep original color
 
 ##### pywal-colors
-#set recolor "true"
-#set completion-bg "{background}"
-#set completion-fg "{foreground}"
-#set completion-group-bg "{background}"
-#set completion-group-fg "{color2}"
-#set completion-highlight-bg "{foreground}"
-#set completion-highlight-fg "{background}"
-#set recolor-lightcolor "{background}"
-#set recolor-darkcolor "{foreground}"
-#set default-bg "{background}"
-#set inputbar-bg "{background}"
-#set inputbar-fg "{foreground}"
-#set notification-bg "{background}"
-#set notification-fg "{foreground}"
-#set notification-error-bg "{color1}"
-#set notification-error-fg "{foreground}"
-#set notification-warning-bg "{color1}"
-#set notification-warning-fg "{foreground}"
-#set statusbar-bg "{background}"
-#set statusbar-fg "{foreground}"
-#set index-bg "{background}"
-#set index-fg "{foreground}"
-#set index-active-bg "{foreground}"
-#set index-active-fg "{background}"
-#set render-loading-bg "{background}"
-#set render-loading-fg "{foreground}"
-#set window-title-home-tilde true
-#set statusbar-basename true
+set recolor "true"
+set completion-bg "#090a22"
+set completion-fg "#fbfbff"
+set completion-group-bg "#090a22"
+set completion-group-fg "#5e35ad"
+set completion-highlight-bg "#fbfbff"
+set completion-highlight-fg "#090a22"
+set recolor-lightcolor "#090a22"
+set recolor-darkcolor "#fbfbff"
+set default-bg "#090a22"
+set inputbar-bg "#090a22"
+set inputbar-fg "#fbfbff"
+set notification-bg "#090a22"
+set notification-fg "#fbfbff"
+set notification-error-bg "#7d36ab"
+set notification-error-fg "#fbfbff"
+set notification-warning-bg "#7d36ab"
+set notification-warning-fg "#fbfbff"
+set statusbar-bg "#090a22"
+set statusbar-fg "#fbfbff"
+set index-bg "#090a22"
+set index-fg "#fbfbff"
+set index-active-bg "#fbfbff"
+set index-active-fg "#090a22"
+set render-loading-bg "#090a22"
+set render-loading-fg "#fbfbff"
+set window-title-home-tilde true
+set statusbar-basename true

@@ -1,11 +1,11 @@
-%%OFF%%dwm.col_alt   : base06
+%%OFF%%dwm.col_alt   : base04
 %%OFF%%dwm.col_bg    : base00
 %%OFF%%dwm.col_fg    : base05
-%%OFF%%dwm.col_inact : base01
-%%OFF%%dwm.col_act   : base02
+%%OFF%%dwm.col_inact : base03
+%%OFF%%dwm.col_act   : base03
 %%OFF%%dwm.col_sel   : base0D
 
-%%XRES%%dwm.col_alt   : Color15
+%%XRES%%dwm.col_alt   : Color7
 %%XRES%%dwm.col_bg    : Color0
 %%XRES%%dwm.col_fg    : Color7
 %%XRES%%dwm.col_inact : Color8
