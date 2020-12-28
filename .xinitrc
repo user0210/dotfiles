@@ -7,7 +7,7 @@
 # 
 
 # fix for QT (and dconf-editor)...
-#export QT_QPA_PLATFORMTHEME=gtk2
+export QT_QPA_PLATFORMTHEME=gtk2
 export DESKTOP_SESSION=gnome
 
 userresources=$HOME/.Xresources
