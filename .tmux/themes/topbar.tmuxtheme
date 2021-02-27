@@ -13,8 +13,10 @@ set -g status-right-length 20
  
 set -g window-status-current-style "bold fg=Colour0"
 set -g window-status-style ""
-set -g window-status-format "#{?#{==:#{window_name},zsh},#{b:pane_current_path},#W}#{?window_zoomed_flag,.Z,}"
-set -g window-status-current-format "#{?#{==:#{window_name},zsh},#{b:pane_current_path},#W}#{?window_zoomed_flag,.Z,}"
+set -g window-status-format "#T#{?window_zoomed_flag,.Z,}"
+set -g window-status-current-format "#T#{?window_zoomed_flag,.Z,}"
+#set -g window-status-format "#{?#{==:#{window_name},zsh},#{b:pane_current_path},#{?#{==:#{window_name},vim},#T,#W}}#{?window_zoomed_flag,.Z,}"
+#set -g window-status-current-format "#{?#{==:#{window_name},zsh},#{b:pane_current_path},#{?#{==:#{window_name},vim},#T,#W}}#{?window_zoomed_flag,.Z,}"
 set -g window-status-separator "  "
 
 #set -g pane-border-format "#[fg=Colour8][#P]" 

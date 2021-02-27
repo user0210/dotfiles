@@ -37,6 +37,12 @@ zstyle ':completion:*' menu select
 autoload -Uz compinit
 compinit
 
+# update window-title-name to current dir...
+case $TERM in
+	tmux-256color*)
+		precmd () {print -Pn "\e]0;`basename ${PWD}`"}
+		;;
+esac
 
 ####################################################
 ##### theme

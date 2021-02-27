@@ -65,6 +65,8 @@ set smartcase
 set noswapfile
 set undodir=~/.config/nvim/undodir
 set undofile
+set title titlestring=%t
+"set title titlestring=%(%{expand(\"%:~:.:h\")}%)/%t\ -\ Vim
 
 set cursorline
 set cursorcolumn
