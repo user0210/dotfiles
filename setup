@@ -578,3 +578,44 @@ sudo pacman -S zip unzip
 
 ##### propertree
 sudo pacman -S python-pmw tk tcl libplist
+
+##### replicate rc.local on systemd system....
+sudo vim /etc/systemd/system/rc-local.service
+
+	[Unit]
+	Description=/etc/rc.local compatibility
+	
+	[Service]
+	Type=oneshot
+	ExecStart=/etc/rc.local
+	# disable timeout logic
+	TimeoutSec=0
+	#StandardOutput=tty
+	RemainAfterExit=yes
+	SysVStartPriority=99
+	
+	[Install]
+	WantedBy=multi-user.target
+
+systemctl enable rc-local.service
+sudo chmod +x /etc/rc.local
+
+
+###########################################
+# switch to b43 wireless driver
+###########################################
+
+yay b43-firmware
+
+svim /etc/modprobe.d/local-b43.conf
+	options b43 allhwsupport=1
+
+##### prevent other modules to load
+svim /etc/modprobe.d/blacklist.conf
+	blacklist brcmsmac
+	blacklist b43legacy
+
+##### if it doesnt load on startup... (optonal)
+svim /etc/modules-load.d/b43.conf
+	b43
+
