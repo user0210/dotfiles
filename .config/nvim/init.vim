@@ -88,10 +88,26 @@ if filereadable(expand("~/.vimrc_background"))
   highlight LineNr guibg=0 guifg=8
 else
   colorscheme wal
-  highlight LineNr ctermbg=NONE ctermfg=8
-  highlight CursorLineNr ctermbg=0 ctermfg=1
-  highlight CursorLine term=bold cterm=bold ctermbg=0 ctermfg=NONE
-  highlight CursorColumn ctermbg=0 ctermfg=NONE
+  hi LineNr ctermbg=NONE ctermfg=8
+  hi CursorLineNr ctermbg=0 ctermfg=1
+  hi CursorLine term=bold cterm=bold ctermbg=0 ctermfg=NONE
+  hi CursorColumn ctermbg=0 ctermfg=NONE
+  hi Pmenu ctermbg=0 ctermfg=5
+  hi Comment ctermbg=NONE ctermfg=6
+  hi TabLine ctermbg=NONE ctermfg=6
+  hi TabLineFill ctermbg=NONE ctermfg=6
+  hi LineNr ctermbg=NONE ctermfg=6
+  hi CursorLineNr ctermbg=NONE ctermfg=6
+  hi PmenuThumb ctermbg=8 ctermfg=6
+  hi Folded ctermbg=NONE ctermfg=6
+  hi SpecialKey ctermbg=NONE ctermfg=6
+  hi DiffChange ctermbg=NONE ctermfg=6
+  hi MatchParen ctermbg=1 ctermfg=6
+  hi ErrorMsg ctermbg=NONE ctermfg=6
+  hi Cursor ctermbg=NONE ctermfg=6
+  hi vimCommentString ctermbg=NONE ctermfg=6
+  hi cssNoise ctermbg=NONE ctermfg=6
+  hi rubyTodo ctermbg=NONE ctermfg=6
 endif
 hi! Normal ctermbg=NONE guibg=NONE
 
@@ -108,10 +124,10 @@ let g:vimtex_compiler_progname = 'nvr'
 
 """"""" PLUGIN airline
 """"""""""""""""""""""""""""""""""
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep = ' '
+let g:airline_right_sep = ' '
+let g:airline#extensions#tabline#enabled = 0
 autocmd VimEnter * hi Normal ctermbg=none
 
 

@@ -59,6 +59,9 @@ sudo pacman -S perl-file-mimeinfo
 ##### paperview
 convert -coalesce XXXXXX.gif out.bmp
 
+##### missing dmenu_run suggestions
+rm ~/.cache/dmenu_run
+
 ###########################################################
 ##### Arch setup
 ###########################################################
@@ -303,7 +306,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 
 yay:mondo-generator xbanish thinkpad-scripts xmenu xclickroot-git
 	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git
-	cbonsai-git
+	cbonsai-git wpgtk-git
 pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
 	xdg-utils perl-file-mimeinfo playerctl calcurse p7zip xsettingsd
 
