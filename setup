@@ -2,7 +2,12 @@
 ##### usefull
 ###########################################################
 
-#####random
+##### install python-packages
+best)	sudo pacman -S python-'package'
+okay)	AUR
+least)	sudo pip install 'python-package'
+
+##### random
 sed -i "s/^base\(.\{2\}\)       \(.\{6\}\)/base\1       #\2/g" *
 
 
@@ -248,9 +253,16 @@ sudo ln -s /home/philipp/.themes /root/.themes
 sudo ln -s /home/philipp/.icons /root/.icons
 
 ##### qt-gkt
-sudo pacman -S qt5-styleplugins dconf-editor
-export DESKTOP_SESSION=gnome ---> .xinitrc
+sudo pacman -S qt5-styleplugins
+#with gnome-session
+sudo pacman -S dconf-editor
+export QT_QPA_PLATFORMTHEME=gtk2 --->.xinitrc
+export DESKTOP_SESSION=gnome		#or set to xfce for classic ui
+export XDG_CURRENT_DESKTOP=GNOME	#or set to XFCE for classic ui
 dconf-editor: org > gnome > desktop > interface --> icon-theme
+#with "qt"-session
+sudo pacman -S qt5ct
+export QT_QPA_PLATFORMTHEME=qt5ct --->.xinitrc
 
 ##### gtk-engines and stuff...
 sudo pacman -S gtk-engine-murrine
@@ -299,8 +311,6 @@ systemctl enable paccache.timer
 ##### programs
 ###########################################################
 
-(cmatrix)
-
 git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 ## remove yay folder....
 
@@ -322,6 +332,15 @@ and then, at the prompt, enter the application: apvlv.
 
 spotify-browser-support
 yay chromium-widevine
+
+##### cmatrix
+
+##### qutebrowser
+sudo pacman -S qutebrowser python-adblock python-pygments
+# fix unreadable tooltips:
+:set qt.force_platformtheme qt5ctl	# in qutebrowser
+export QT_QPA_PLATFORMTHEME=qt5ct	# in xinit.rc
+# see archwiki......
 
 ##### pcmanfm
 pacman -S pcmanfm-gtk3 gvfs xarchiver

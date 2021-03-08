@@ -14,6 +14,8 @@ settings:
         ',M': hint links spawn umpv {hint-url}
         ',m': spawn umpv {url}
         ;M: hint --rapid links spawn umpv {hint-url}
+  content.blocking.method:
+    global: auto
   content.notifications:
     https://3.solo6.biz: true
     https://awesometoptreats.com: false

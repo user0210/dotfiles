@@ -65,6 +65,7 @@ else
 	rm /home/philipp/.config/mondo/generator/gtk2/_mondo-template
 	cp /home/philipp/.config/wpg/templates/gtk2.base /home/philipp/.config/mondo/generator/gtk2/_mondo-template
 	sed -i "s/{BASH}/%%OFF%%/g; s/{OFF}/%%BASH%%/g" /home/philipp/.config/mondo/generator/gtk2/_mondo-template
+	sed -i "s/{{/{/g; s/}}/}/g" /home/philipp/.config/mondo/generator/gtk2/_mondo-template
 	rm /home/philipp/.config/mondo/generator/gtk3.0/_mondo-template
 	cp /home/philipp/.config/wpg/templates/gtk3.0.base /home/philipp/.config/mondo/generator/gtk3.0/_mondo-template
 	sed -i "s/{CFIN}/%%OFF%%/g; s/{OFF}/%%CFIN%%/g" /home/philipp/.config/mondo/generator/gtk3.0/_mondo-template

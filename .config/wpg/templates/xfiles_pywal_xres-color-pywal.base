@@ -10,7 +10,7 @@
 #define Color5 {color5}
 #define Color6 {color6}
 #define Color7 {color7}
-#define Color8 {background}
+#define Color8 {color8}
 #define Color9 {color9}
 #define Color10 {color10}
 #define Color11 {color11}

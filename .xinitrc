@@ -7,8 +7,9 @@
 # 
 
 # fix for QT (and dconf-editor)...
-export QT_QPA_PLATFORMTHEME=gtk2
-export DESKTOP_SESSION=gnome
+export QT_QPA_PLATFORMTHEME=qt5ct
+#export DESKTOP_SESSION=gnome		#or set to xfce for classic ui
+#export XDG_CURRENT_DESKTOP=GNOME	#or set to XFCE for classic ui
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
