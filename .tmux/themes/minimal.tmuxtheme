@@ -14,9 +14,10 @@ set -g window-status-format ":: #T#{?window_zoomed_flag,.Z,} "
 
 set -g window-status-separator ""
 
-#set -g pane-border-format "#[fg=Colour8][#P]" 
-#set -g pane-border-style fg=Colour8,bg=Colour8
-set -g pane-active-border-style fg=Colour7,bg=Colour7
+#set -g pane-border-format "[#P]" 
+#set -g pane-border-lines "double"
+set -g pane-border-style "fg=Colour8,bg=Colour8"
+set -g pane-active-border-style "fg=Colour0,bg=Colour8"
 
 ##### TOGGLE BAR
 
