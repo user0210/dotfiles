@@ -17,7 +17,11 @@ if [[ -z "$TMUX" ]] ;then
 		tmux new-session -d -t 0 -s $STMUX
 	    tmux new-window
 		tmux kill-window -t 0:base 2> /dev/null
-	    tmux attach-session -t $STMUX \; set-option destroy-unattached
+#		if [[ "$STMUX" == "1" ]]; then
+#	    	tmux attach-session -t $STMUX \; send-keys -t 1 "cbonsai -pl" C-m \; set-option destroy-unattached
+#		else
+			tmux attach-session -t $STMUX \; set-option destroy-unattached
+#		fi
 	else
 	    tmux attach-session -t $ID \; set-option destroy-unattached
 	fi

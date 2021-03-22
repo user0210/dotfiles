@@ -2,6 +2,9 @@
 ##### usefull
 ###########################################################
 
+#### pacman error after bad update (unable to lock database)
+sudo rm /var/lib/pacman/db.lck
+
 ##### install python-packages
 best)	sudo pacman -S python-'package'
 okay)	AUR
@@ -36,7 +39,7 @@ sudo make install
 dann reicht es, wenn ich /opt/programm/ entferne, um das Programm rückstandslos wieder zu entsorgen 
 (nur die Einstellungen in ~/programm sind dann noch da)
 
-##### nach UDEV und KERNEL events achten...
+##### auf UDEV und KERNEL events achten...
 udevadm monitor --property
 
 ##### nützlich um Crash nach Updates zu vermeiden...
@@ -47,12 +50,12 @@ sudo pacman -Fy
 pacman -F filename
 
 ##### systemd-boot refind
-sudo bootctl update #update systemd-boot
+sudo bootctl update # update systemd-boot or install systemd-boot-pacman-hook
 bootctl list
 
 sudo pacman -S refind-efi
-refind-install #update refind
-diff refind.conf refind.conf-sample
+refind-install # install and update refind
+diff refind.conf refind.conf-sample # after update implement changes from new sample file
 
 ##### default application setup
 sudo pacman -S perl-file-mimeinfo
@@ -211,6 +214,9 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 ###########################################################
 ##### settings
 ###########################################################
+
+##### uhrzeit vom internet...
+sudo pacman -S ntp
 
 ##### trackpoint (maybe not needed...)
 sudo vim /etc/X11/xorg.conf.d/20-trackpoint.conf
@@ -383,8 +389,13 @@ yay spaceship-prompt
 sudo pacman -S tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 yay urlview
-## install plugins in tpm
-
+## install plugins in tpm ...prefix+U to update
+tmux-prefix-highlight
+tmux-sidebar
+tmux-sensible
+tmux-urlview
+tmux-fpp
+tmux-pain-control
 
 ##### ranger
 sudo pacman -S ranger atool mediainfo w3m poppler highlight
@@ -598,7 +609,7 @@ sudo npm i -g bash-language-server
 ##### archivierungsprogramme
 sudo pacman -S zip unzip 
 
-##### propertree
+##### propertree ???
 sudo pacman -S python-pmw tk tcl libplist
 
 ##### replicate rc.local on systemd system....
@@ -621,6 +632,13 @@ sudo vim /etc/systemd/system/rc-local.service
 
 systemctl enable rc-local.service
 sudo chmod +x /etc/rc.local
+
+
+###########################################
+# fix bluetooth issue (journalctl-error)
+###########################################
+
+yay broadcom-bt-firmware-git
 
 
 ###########################################

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 export CM_HISTLENGTH=5
 
 case "$1" in

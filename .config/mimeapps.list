@@ -9,6 +9,7 @@ image/bmp=sxiv.desktop;
 image/jpeg=sxiv.desktop;
 application/x-apple-diskimage=xarchiver.desktop;
 text/x-matlab=nvim.desktop;
+application/x-apple-systemprofiler+xml=nvim.desktop;
 
 [Default Applications]
 inode/directory=pcmanfm.desktop

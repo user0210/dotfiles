@@ -1,10 +1,4 @@
-#!/bin/bash
-
-##### statusbar
-internetav &
-updatebar &
-dwmblocks &
-picom &
+#!/bin/sh
 
 ##### background
 #xsetroot -solid "$(xrdb -query|awk '/\*color0:/ {print $2}')"
@@ -13,6 +7,19 @@ picom &
 #display -size 1366x768 -window root /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
 hsetroot -fill /home/philipp/.config/wpg/wallpapers/.current
+
+picom &
+
+##### startup-screen
+xbanish -a &
+st -g 80x30+350+150 -e cbonsai -lt 0.005 -m " DWM" &
+sleep 5 && killall cbonsai 2> /dev/null
+killall xbanish
+
+##### statusbar
+internetav &
+updatebar &
+dwmblocks &
 
 ##### polkit authentication agent (erst installieren)
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

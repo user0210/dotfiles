@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 # tmux-bell crashes process...
@@ -35,7 +35,7 @@ do
 	tmux send-keys -t $sess: "source ~/.zshrc; fg > /dev/null 2>&1 && tput cuu 7 || tput cuu 4" C-m
 done
 scratch=$(tmux ls 2> /dev/null | grep "scratchpad" | wc -l)
-if [[ "$scratch" != "0" ]]; then
+if [ "$scratch" -ne 0 ]; then
 #	for i in {1..10}; do tmux send-keys -t scratchpad: 'C-['; done
 	tmux send-keys -t scratchpad: 'C-['
 	tmux send-keys -t scratchpad: C-z

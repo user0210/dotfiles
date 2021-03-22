@@ -5,6 +5,9 @@ from pywalcolors import *
 ## Remove it to not load settings done via the GUI.
 config.load_autoconfig()
 
+# set dark-mode
+c.colors.webpage.darkmode.enabled = True
+
 # bas16 colors
 #c.colors.completion.fg = base05
 #c.colors.completion.odd.bg = base03

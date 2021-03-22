@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if xinput list-props "SynPS/2 Synaptics TouchPad" | grep "Device Enabled (165):.*1" >/dev/null
 then
   xinput disable "SynPS/2 Synaptics TouchPad"

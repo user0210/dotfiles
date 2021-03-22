@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 ##############################################################################################
@@ -28,15 +28,19 @@ esac
 
 init=$(mondo get theme)
 
-templer=("[pywal-wallpaper]" "[pywal-themes]" "[base16-themes]")
-template=$(printf '%s\n' "${templer[@]}" | dmenu -p "template: ")
+## with bashisms
+#templer=("[pywal-wallpaper]" "[pywal-themes]" "[base16-themes]")
+#template=$(printf '%s\n' "${templer[@]}" | dmenu -p "template: ")
+## posix...
+templer=("[pywal-wallpaper]"'\n'"[pywal-themes]"'\n'"[base16-themes]")
+template=$(printf "${templer}" | dmenu -p "template: ")
 
 ##############################################################################################
-if [[ $template == "[base16-themes]" ]]; then  #####  BASE16  ################################
+if [ '[base16-themes]' = "$template" ]; then  #####  BASE16  ################################
 ##############################################################################################
 theme=$(ls "/home/philipp/.config/mondo/themes" | grep "^[^._]" | dmenu -p "base16: ")
 
-if [[ -z "$theme" ]] ;then
+if [ -z "$theme" ] ;then
 	echo "nothing"
 else
 	rm /home/philipp/.xfiles/xres-color-def
@@ -93,12 +97,12 @@ else
 	xsetroot -name "fsignal:1"
 	xsetroot -name "fsignal:2"
 fi
-##############################################################################################
-elif [[ $template == "[pywal-themes]" || "[pywal-wallpaper]" ]]; then  #####  PYWAL-THEME  ###
-##############################################################################################
-if [[ $template == "[pywal-themes]" ]]; then
+###############################################################################################################
+elif [ '[pywal-themes]' = "$template" ] || [ '[pywal-wallpaper]' = "$template" ]; then  #####  PYWAL-THEME  ###
+###############################################################################################################
+if [ '[pywal-themes]' = "$template" ]; then
 	theme=$(wpg --theme | sort | dmenu -p "pywal: ")
-elif [[ $template == "[pywal-wallpaper]" ]]; then
+elif [ '[pywal-wallpaper]' = "$template" ]; then
 	theme=$(sxiv -N wallman -to /home/philipp/.config/wpg/wallpapers/* | head -n 1 | sed "s/.*\///")
 	sample=$(ls /home/philipp/.config/wpg/samples | grep "$theme")
 	if [ $(echo $sample | wc -l) > 1 ]; then
@@ -108,7 +112,7 @@ elif [[ $template == "[pywal-wallpaper]" ]]; then
 	fi
 fi
 
-if [[ -z "$theme" ]] ;then
+if [ -z "$theme" ] ;then
 	echo "nothing"
 else
 	rm /home/philipp/.vimrc_background
@@ -119,14 +123,14 @@ else
 
 	sed -i "s/^#\(c\.colors\..*color.*\)/\1/g; s/^\(c\.colors\..*base0.\)/#\1/g" /home/philipp/.config/qutebrowser/config.py
 
-	if [[ $template == "[pywal-themes]" ]]; then
+	if [ '[pywal-themes]' = "$template" ]; then
 		wpg -n --theme $theme
 		convert /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fill "$(xrdb -query|awk '/\*color7:/ {print $2}')" -opaque "#000000" -fill "$(xrdb -query|awk '/\*color0:/ {print $2}')" +opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots8.png
 		convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -query|awk '/\*color7:/ {print $2}')" -opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots16.png
 		hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
 		sed -i "s/^hsetroot -fill \/home\/philipp\/\.config\/wpg\/wallpapers\/\.current/hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/g" /home/philipp/bin/dwm-starter
 		sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" /home/philipp/.Xresources
-	elif [[ $template == "[pywal-wallpaper]" ]]; then
+	elif [ '[pywal-wallpaper]' = "$template" ]; then
 		wpg --backend $backend -s $theme
 		hsetroot -fill /home/philipp/.config/wpg/wallpapers/.current
 		sed -i "s/^hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/hsetroot -fill \/home\/philipp\/\.config\/wpg\/wallpapers\/\.current/g" /home/philipp/bin/dwm-starter

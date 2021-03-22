@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # externalpipe_buffer.sh: use with surf/st externalpipe-signal patches
 #   Input Usage: echo st or surf content from externalpipe | ./externalpipe_buffer.sh {st,surf}_strings_read
