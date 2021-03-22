@@ -5,7 +5,7 @@ sess=$(tmux display-message -p '#S')
 
 first_arg=$1
 shift
-rest_args=("$@")
+rest_args=$@
 
 tmux rename-session -t $sess swallowed-$sess
 tmux set-option destroy-unattached off

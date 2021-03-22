@@ -32,7 +32,7 @@ init=$(mondo get theme)
 #templer=("[pywal-wallpaper]" "[pywal-themes]" "[base16-themes]")
 #template=$(printf '%s\n' "${templer[@]}" | dmenu -p "template: ")
 ## posix...
-templer=("[pywal-wallpaper]"'\n'"[pywal-themes]"'\n'"[base16-themes]")
+templer="[pywal-wallpaper]\n[pywal-themes]\n[base16-themes]"
 template=$(printf "${templer}" | dmenu -p "template: ")
 
 ##############################################################################################

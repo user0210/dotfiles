@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -rs 'simple-geometric.png' 'simple-geometric.png'
+wpg -nrs 'moonman.jpg' 'moonman.jpg'

@@ -341,6 +341,10 @@ yay chromium-widevine
 
 ##### cmatrix
 
+##### dash
+sudo pacman -S dash
+yay dashbinsh
+
 ##### qutebrowser
 sudo pacman -S qutebrowser python-adblock python-pygments
 # fix unreadable tooltips:

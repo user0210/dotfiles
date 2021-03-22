@@ -8,7 +8,7 @@
 #else
 *background:   base00
 #endif
-*cursorColor:  base05
+*cursorColor:  base07
 
 *color0:       base00
 *color1:       base08
