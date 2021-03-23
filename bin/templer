@@ -4,7 +4,7 @@
 ##############################################################################################
 case "$1" in  ################################################################################
 ##############################################################################################
-update)
+-u)
 	sudo sed -i "s/232/257/g" /usr/lib/python3.8/site-packages/pywal/sequences.py
 	exit 1
 esac
@@ -12,25 +12,61 @@ esac
 ##############################################################################################
 case "$1" in  ################################################################################
 ##############################################################################################
-add)
-	wpg --backend haishoku -a "$2"
-	sleep 0.5
-	wpg --backend haishoku -A "$2"
-	wpg --backend schemer2 -a "$2"
-	sleep 0.5
-	wpg --backend schemer2 -A "$2"
-	wpg --backend colorz -a "$2"
-	sleep 0.5
-	wpg --backend colorz -A "$2"
-	wpg --backend colorthief -a "$2"
-	sleep 0.5
-	wpg --backend colorthief -A "$2"
-	wpg --backend wal -a "$2"
-	sleep 0.5
-	wpg --backend wal -A "$2"
+-a)
+	fullname=$(basename -- "$2")
+	name="${fullname%.*}"
+	folder="/home/philipp/.config/wpg/"
+	backendlist="colorz colorthief haishoku schemer2 wal"
+	
+	echo "$backendlist" | tr ' ' '\n' | while read backend; do
+		wpg --backend $backend -a "$2" || (find ${folder}samples/ -name "${name}*${backend}*" -delete; find ${folder}schemes/ -name "*${name}*${backend}*" -delete)
+	done
+
 	exit 1
 esac
 
+##############################################################################################
+case "$1" in  ################################################################################
+##############################################################################################
+-all)
+	ls | xargs -I {} templer -a {}
+
+	exit 1
+esac
+
+##############################################################################################
+case "$1" in  ################################################################################
+##############################################################################################
+-d)
+	fullname=$(sxiv -N wallman -to /home/philipp/.config/wpg/wallpapers/* | head -n 1 | sed "s/.*\///")
+	if [ ! -z "$fullname" ] ;then
+		name="${fullname%.*}"
+		folder="/home/philipp/.config/wpg/"
+		samplenr=$(ls /home/philipp/.config/wpg/samples | grep "$fullname" | wc -l)
+		if [ "$samplenr" -gt 1 ]; then
+			backendlist=$(sxiv -N wallman -to /home/philipp/.config/wpg/samples/*$fullname* | sed "s/.*\/$fullname.\(.*\)_sample\.png/\1/")
+			if [ -z "$backendlist" ] ;then
+				echo "nothing"
+			else
+				echo "$backendlist" | tr ' ' '\n' | while read backend; do
+					find ${folder}samples/ -name "${name}*${backend}*" -delete
+					find ${folder}schemes/ -name "*${name}*${backend}*" -delete
+				done
+			fi
+		else
+			backend=$(ls /home/philipp/.config/wpg/samples/*$fullname* | head -n 1 | sed "s/.*\/$fullname.\(.*\)_sample\.png/\1/")
+				find ${folder}samples/ -name "${name}*${backend}*" -delete
+				find ${folder}schemes/ -name "*${name}*${backend}*" -delete
+		fi
+	
+		test=$(ls /home/philipp/.config/wpg/samples | grep "$fullname")
+		if [ -z "$test" ]; then
+			find ${folder}wallpapers/ -name "${fullname}" -delete
+		fi
+	fi
+
+	exit 1
+esac
 
 
 init=$(mondo get theme)
@@ -111,8 +147,8 @@ if [ '[pywal-themes]' = "$template" ]; then
 	theme=$(wpg --theme | sort | dmenu -p "pywal: ")
 elif [ '[pywal-wallpaper]' = "$template" ]; then
 	theme=$(sxiv -N wallman -to /home/philipp/.config/wpg/wallpapers/* | head -n 1 | sed "s/.*\///")
-	sample=$(ls /home/philipp/.config/wpg/samples | grep "$theme")
-	if [ $(echo $sample | wc -l) > 1 ]; then
+	samplenr=$(ls /home/philipp/.config/wpg/samples | grep "$theme" | wc -l)
+	if [ "$samplenr" -gt 1 ]; then
 		backend=$(sxiv -N wallman -to /home/philipp/.config/wpg/samples/*$theme* | head -n 1 | sed "s/.*\/$theme.\(.*\)_sample\.png/\1/")
 	else
 		backend=$(ls /home/philipp/.config/wpg/samples/*$theme* | head -n 1 | sed "s/.*\/$theme.\(.*\)_sample\.png/\1/")

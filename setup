@@ -322,7 +322,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 
 yay:mondo-generator xbanish thinkpad-scripts xmenu xclickroot-git
 	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git
-	cbonsai-git wpgtk-git
+	cbonsai-git
 pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
 	xdg-utils perl-file-mimeinfo playerctl calcurse p7zip xsettingsd
 
@@ -340,6 +340,14 @@ spotify-browser-support
 yay chromium-widevine
 
 ##### cmatrix
+
+##### wpgtk
+yay wpgtk-git
+# importand to install after... because of stupid wpgtk
+yay colorz colorthief haishoku 
+#to update schemer2... then put the schemer2 file to ~bin/
+#sudo pacman -S go
+#go get github.com/thefryscorer/schemer2
 
 ##### dash
 sudo pacman -S dash
