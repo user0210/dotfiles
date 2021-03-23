@@ -15,12 +15,19 @@ case "$1" in  ##################################################################
 add)
 	wpg --backend haishoku -a "$2"
 	sleep 0.5
+	wpg --backend haishoku -A "$2"
+	wpg --backend schemer2 -a "$2"
+	sleep 0.5
+	wpg --backend schemer2 -A "$2"
 	wpg --backend colorz -a "$2"
 	sleep 0.5
+	wpg --backend colorz -A "$2"
 	wpg --backend colorthief -a "$2"
 	sleep 0.5
+	wpg --backend colorthief -A "$2"
 	wpg --backend wal -a "$2"
 	sleep 0.5
+	wpg --backend wal -A "$2"
 	exit 1
 esac
 
@@ -156,6 +163,8 @@ else
 	killall dwmblocks
 	make -C /home/philipp/github/dwmblocks
 	dwmblocks &
+
+	pgrep qutebrowser && qutebrowser :config-source
 
 	ICON=$(xrdb -query|awk '/\*color2:/ {print $2}')
 	cp -rf /home/philipp/.xfiles/icons/TermColor.template/* /home/philipp/.icons/TermColor

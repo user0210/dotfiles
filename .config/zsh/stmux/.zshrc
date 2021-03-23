@@ -4,28 +4,43 @@
 ##### tmux autostart
 ####################################################
 
-#### separate stmux-scratchpad with base-session for stmux
-STMUX=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | wc -l)
-BASE=$(tmux ls 2> /dev/null | grep '^0:' | wc -l)
-if [[ "$BASE" == "0" ]]; then
-	tmux new-session -d -s 0 -n base 2> /dev/null
-fi
-if [[ -z "$TMUX" ]] ;then
-	ID="$( tmux ls 2> /dev/null | grep '^[1-9]\+:' | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
-	if [[ -z "$ID" ]] ;then # if not available create a new one
+
+#### simpler, better (first terminal attaches to unclosed session...)
+if [ -z "$TMUX" ] ;then
+		STMUX=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | wc -l)
+		tmux new-session -d -s base -n 0 2> /dev/null
 	    ((STMUX++))
-		tmux new-session -d -t 0 -s $STMUX
-	    tmux new-window
-		tmux kill-window -t 0:base 2> /dev/null
-#		if [[ "$STMUX" == "1" ]]; then
-#	    	tmux attach-session -t $STMUX \; send-keys -t 1 "cbonsai -pl" C-m \; set-option destroy-unattached
-#		else
-			tmux attach-session -t $STMUX \; set-option destroy-unattached
-#		fi
-	else
-	    tmux attach-session -t $ID \; set-option destroy-unattached
-	fi
+		tmux new-session -d -t base -s $STMUX
+		if [[ "$STMUX" > "1" ]]; then
+		    tmux new-window
+		fi
+		tmux attach-session -t $STMUX \; set-option destroy-unattached
+		tmux kill-window -t base:0 2> /dev/null
 fi
+
+
+#### separate stmux-scratchpad with base-session for stmux
+#STMUX=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | wc -l)
+#BASE=$(tmux ls 2> /dev/null | grep '^0:' | wc -l)
+#if [[ "$BASE" == "0" ]]; then
+#	tmux new-session -d -s 0 -n base 2> /dev/null
+#fi
+#if [[ -z "$TMUX" ]] ;then
+#	ID="$( tmux ls 2> /dev/null | grep '^[1-9]\+:' | grep -vm1 attached | cut -d: -f1 )" # get the id of a deattached session
+#	if [[ -z "$ID" ]] ;then # if not available create a new one
+#	    ((STMUX++))
+#		tmux new-session -d -t 0 -s $STMUX
+#	    tmux new-window
+#		tmux kill-window -t 0:base 2> /dev/null
+##		if [[ "$STMUX" == "1" ]]; then
+##	    	tmux attach-session -t $STMUX \; send-keys -t 1 "cbonsai -pl" C-m \; set-option destroy-unattached
+##		else
+#			tmux attach-session -t $STMUX \; set-option destroy-unattached
+##		fi
+#	else
+#	    tmux attach-session -t $ID \; set-option destroy-unattached
+#	fi
+#fi
 
 #### stmux and scratchpad shared session...
 #STMUX=$(tmux ls 2> /dev/null | grep '^[0-9]\+:' | wc -l)
