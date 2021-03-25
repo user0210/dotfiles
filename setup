@@ -70,6 +70,10 @@ convert -coalesce XXXXXX.gif out.bmp
 ##### missing dmenu_run suggestions
 rm ~/.cache/dmenu_run
 
+##### youtube-dl problems? try forcing ipv4
+vim ~/.config/youtube-dl/config
+	-4
+
 ###########################################################
 ##### Arch setup
 ###########################################################

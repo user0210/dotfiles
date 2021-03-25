@@ -18,14 +18,14 @@
 @define-color color14 {color14};
 @define-color color15 {color15};
 @define-color selected_bg_color {active};
-@define-color bg_color mix(@color0, @color15, 0.12);
-@define-color tooltip_bg_color mix(@color0, @color15, 0.04);
-@define-color base_color mix(@color0, @color15, 0);
-@define-color fg_color @color15;
-@define-color text_color @color15;
+@define-color bg_color mix(@color0, @color7, 0.12);
+@define-color tooltip_bg_color mix(@color0, @color7, 0.04);
+@define-color base_color mix(@color0, @color7, 0);
+@define-color fg_color @color7;
+@define-color text_color @color7;
 @define-color text_color_disabled mix(@text_color, @base_color, 0.4);
-@define-color selected_fg_color @color15;
-@define-color tooltip_fg_color @color15;
+@define-color selected_fg_color @color7;
+@define-color tooltip_fg_color @color7;
 
 %%CFIN%%/* base16-colors %%CFIN%%
 @define-color color0 %%base00%%;
@@ -51,9 +51,9 @@
 @define-color color20 %%base04%%;
 @define-color color21 %%base06%%;
 @define-color selected_bg_color %%base0D%%;
-@define-color selected_fg_color %%base07%%;
+@define-color selected_fg_color %%base06%%;
 @define-color bg_color %%base02%%;
-@define-color fg_color %%base07%%;
+@define-color fg_color %%base06%%;
 @define-color base_color %%base01%%;
 @define-color text_color %%base06%%;
 @define-color text_color_disabled %%base03%%;

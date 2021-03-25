@@ -17,15 +17,15 @@
 %%BASH%%color13:{color13}
 %%BASH%%color14:{color14}
 %%BASH%%color15:{color15}
-%%BASH%%text_color:{color15}
+%%BASH%%text_color:{color7}
 %%BASH%%selected_bg_color:{active}
-%%BASH%%selected_fg_color:{color15}
+%%BASH%%selected_fg_color:{color7}
 %%BASH%%tooltip_bg_color:{color0}
-%%BASH%%tooltip_fg_color:{color15}
+%%BASH%%tooltip_fg_color:{color7}
 %%BASH%%titlebar_bg_color:{color0}
-%%BASH%%titlebar_fg_color:{color15}
+%%BASH%%titlebar_fg_color:{color7}
 %%BASH%%menu_bg_color:{color0}
-%%BASH%%menu_fg_color:{color15}
+%%BASH%%menu_fg_color:{color7}
 %%BASH%%link_color:{active}"
 
 %%OFF%%gtk-color-scheme = "bg_color:%%base00%%

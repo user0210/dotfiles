@@ -17,15 +17,15 @@
 {OFF}color13:{color13}
 {OFF}color14:{color14}
 {OFF}color15:{color15}
-{OFF}text_color:{color15}
+{OFF}text_color:{color7}
 {OFF}selected_bg_color:{active}
-{OFF}selected_fg_color:{color15}
+{OFF}selected_fg_color:{color7}
 {OFF}tooltip_bg_color:{color0}
-{OFF}tooltip_fg_color:{color15}
+{OFF}tooltip_fg_color:{color7}
 {OFF}titlebar_bg_color:{color0}
-{OFF}titlebar_fg_color:{color15}
+{OFF}titlebar_fg_color:{color7}
 {OFF}menu_bg_color:{color0}
-{OFF}menu_fg_color:{color15}
+{OFF}menu_fg_color:{color7}
 {OFF}link_color:{active}"
 
 {BASH}gtk-color-scheme = "bg_color:%%base00%%

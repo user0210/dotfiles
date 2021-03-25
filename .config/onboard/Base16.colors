@@ -22,37 +22,37 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 <color_scheme name="Base16" format="2.1">
     <window type="key-popup">
-        <color element="border" rgb="#53555D" opacity="1.0"/>
+        <color element="border" rgb="#504945" opacity="1.0"/>
     </window>
 
-    <icon> <color element="background" rgb="#BEBFC2" opacity="1.0"/> </icon>
+    <icon> <color element="background" rgb="#fbf1c7" opacity="1.0"/> </icon>
 
-    <layer> <color element="background" rgb="#282B35" opacity="1.0"/> </layer>
-    <layer> <color element="background" rgb="#A9AAAE" opacity="0.8"/> </layer>
-    <layer> <color element="background" rgb="#A9AAAE" opacity="0.8"/> </layer>
+    <layer> <color element="background" rgb="#1d2021" opacity="1.0"/> </layer>
+    <layer> <color element="background" rgb="#ebdbb2" opacity="0.8"/> </layer>
+    <layer> <color element="background" rgb="#ebdbb2" opacity="0.8"/> </layer>
 
     <key_group>
         <!-- light grey default -->
-        <color element="fill"   rgb="#7E8086"/>
-        <color element="stroke" rgb="#282B35"/>
-        <color element="label"  rgb="#3D4048"/>
-        <color element="dwell-progress"  rgb="#B21889"/>
+        <color element="fill"   rgb="#bdae93"/>
+        <color element="stroke" rgb="#1d2021"/>
+        <color element="label"  rgb="#3c3836"/>
+        <color element="dwell-progress"  rgb="#fb4934"/>
         F5.rows_of_six, F6.rows_of_six, F7.rows_of_six, F8.rows_of_six,
         icon1, icon2,
         pause-learning.wordlist, language.wordlist, hide.wordlist
 
         <!-- word suggestions -->
         <key_group>
-            <color element="fill"  rgb="#A9AAAE"/>
-            <color element="label" rgb="#BEBFC2"/>
+            <color element="fill"  rgb="#ebdbb2"/>
+            <color element="label" rgb="#fbf1c7"/>
             correctionsbg,
             correction
         </key_group>
 
         <!-- dark keys -->
         <key_group>
-            <color element="fill" rgb="#686A71"/>
-            <color element="fill" rgb="#53555D" active="true"/>
+            <color element="fill" rgb="#665c54"/>
+            <color element="fill" rgb="#504945" active="true"/>
             icon0, icon3,
             ESC, F5, F6, F7, F8,
             Prnt, Pause, Scroll,
@@ -70,8 +70,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
         <!-- very light gray, sidebar -->
         <key_group>
-            <color element="fill" rgb="#939599"/>
-            <color element="fill" rgb="#7E8086" active="true"/>
+            <color element="fill" rgb="#d5c4a1"/>
+            <color element="fill" rgb="#bdae93" active="true"/>
             hide, move, showclick, layer
         </key_group>
 
