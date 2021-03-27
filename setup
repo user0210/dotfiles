@@ -327,7 +327,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 yay:mondo-generator xbanish thinkpad-scripts xmenu xclickroot-git
 	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git
 	cbonsai-git
-pacman: network-manager-applet polkit-gnome fzf xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
+pacman: network-manager-applet polkit-gnome fzf youtube-dl xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
 	xdg-utils perl-file-mimeinfo playerctl calcurse p7zip xsettingsd
 
 """
@@ -568,8 +568,7 @@ svim /etc/updatedb.conf
     PRUNEPATHS=".......... /timeshift"
 
 ##### mps-youtube
-sudo pacman -S mpv
-yay mps-youtube-git
+sudo pacman -S mpv mps-youtube python-pyperclip
 
 (https://github.com/mps-youtube/mps-youtube/issues/1063)
 1.Go to https://console.cloud.google.com, create a project, then enable Youtube Data Api V3 and create credential and get the API_KEY for public use.

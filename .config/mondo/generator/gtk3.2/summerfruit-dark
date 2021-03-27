@@ -18,14 +18,14 @@
 @define-color color14 {color14};
 @define-color color15 {color15};
 @define-color selected_bg_color {active};
-@define-color bg_color mix(@color0, @color15, 0.12);
-@define-color tooltip_bg_color mix(@color0, @color15, 0.04);
-@define-color base_color mix(@color0, @color15, 0);
-@define-color fg_color @color15;
-@define-color text_color @color15;
+@define-color bg_color mix(@color0, @color7, 0.12);
+@define-color tooltip_bg_color mix(@color0, @color7, 0.04);
+@define-color base_color mix(@color0, @color7, 0);
+@define-color fg_color @color7;
+@define-color text_color @color7;
 @define-color text_color_disabled mix(@text_color, @base_color, 0.4);
-@define-color selected_fg_color @color15;
-@define-color tooltip_fg_color @color15;
+@define-color selected_fg_color @color7;
+@define-color tooltip_fg_color @color7;
 
 *//* base16-colors */
 @define-color color0 #151515;
@@ -51,9 +51,9 @@
 @define-color color20 #B0B0B0;
 @define-color color21 #E0E0E0;
 @define-color selected_bg_color #3777E6;
-@define-color selected_fg_color #FFFFFF;
+@define-color selected_fg_color #E0E0E0;
 @define-color bg_color #303030;
-@define-color fg_color #FFFFFF;
+@define-color fg_color #E0E0E0;
 @define-color base_color #202020;
 @define-color text_color #E0E0E0;
 @define-color text_color_disabled #505050;

@@ -3,23 +3,23 @@
 
 /* pywal-colors 
 @define-color bg_color {color0};
-@define-color fg_color {color15};
+@define-color fg_color {color7};
 @define-color base_color {color1};
-@define-color text_color {color15};
+@define-color text_color {color7};
 @define-color selected_bg_color {active};
-@define-color selected_fg_color {color15};
+@define-color selected_fg_color {color7};
 @define-color tooltip_bg_color {color0};
-@define-color tooltip_fg_color {color15};
+@define-color tooltip_fg_color {color7};
 
 *//* base16-colors */
 @define-color bg_color #f1efee;
 @define-color fg_color #68615e;
 @define-color base_color #e6e2e0;
-@define-color text_color #1b1918;
+@define-color text_color #2c2421;
 @define-color selected_bg_color #407ee7;
 @define-color selected_fg_color #f1efee;
 @define-color tooltip_bg_color #a8a19f;
-@define-color tooltip_fg_color #1b1918;
+@define-color tooltip_fg_color #2c2421;
 
 
 /* colormap actually used by the theme, to be overridden in other css files */
