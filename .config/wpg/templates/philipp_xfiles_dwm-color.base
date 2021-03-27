@@ -1,7 +1,7 @@
 {XRES}dwm.bar_fg	: base05
 {XRES}dwm.bar_bg	: base00
-{XRES}dwm.bar_brd	: base00
-{XRES}dwm.bar_flo	: base00
+{XRES}dwm.bar_brd	: #000000
+{XRES}dwm.bar_flo	: #ffffff
 {XRES}dwm.tag_fg	: base0D
 {XRES}dwm.tag_bg	: base05
 {XRES}dwm.tag_brd	: base00
@@ -11,18 +11,18 @@
 {XRES}dwm.brd_brd	: base03
 {XRES}dwm.brd_flo	: base02
 {XRES}dwm.foc_fg	: base00
-{XRES}dwm.foc_bg	: base05
-{XRES}dwm.foc_brd	: base01
-{XRES}dwm.foc_flo	: base04
+{XRES}dwm.foc_bg	: base04
+{XRES}dwm.foc_brd	: base06
+{XRES}dwm.foc_flo	: base03
 {XRES}dwm.unf_fg	: base05
-{XRES}dwm.unf_bg	: base03
-{XRES}dwm.unf_brd	: base01
-{XRES}dwm.unf_flo	: base02
+{XRES}dwm.unf_bg	: base02
+{XRES}dwm.unf_brd	: base03
+{XRES}dwm.unf_flo	: base01
 
 {OFF}dwm.bar_fg		: Color7
 {OFF}dwm.bar_bg		: Color0
-{OFF}dwm.bar_brd	: Color0
-{OFF}dwm.bar_flo	: Color0
+{OFF}dwm.bar_brd	: #000000
+{OFF}dwm.bar_flo	: #ffffff
 {OFF}dwm.tag_fg		: Color4
 {OFF}dwm.tag_bg		: Color7
 {OFF}dwm.tag_brd	: Color0
@@ -32,8 +32,8 @@
 {OFF}dwm.brd_brd	: Color8
 {OFF}dwm.brd_flo	: Color8
 {OFF}dwm.foc_fg		: Color0
-{OFF}dwm.foc_bg		: Color14
-{OFF}dwm.foc_brd	: Color8
+{OFF}dwm.foc_bg		: Color6
+{OFF}dwm.foc_brd	: Color14
 {OFF}dwm.foc_flo	: Color6
 {OFF}dwm.unf_fg		: Color7
 {OFF}dwm.unf_bg		: Color8

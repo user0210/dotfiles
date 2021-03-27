@@ -2,20 +2,20 @@ dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
 
 {XRES}dmenu.background        : base00
 {XRES}dmenu.foreground        : base05
-{XRES}dmenu.selbackground     : base01
+{XRES}dmenu.selbackground     : base02
 {XRES}dmenu.selforeground     : base06
 {XRES}dmenu.highbackground    : base00
 {XRES}dmenu.highforeground    : base0A
-{XRES}dmenu.highselbackground : base01
+{XRES}dmenu.highselbackground : base02
 {XRES}dmenu.highselforeground : base0A
 
 {OFF}dmenu.background        : Color0
 {OFF}dmenu.foreground        : Color7
-{OFF}dmenu.selbackground     : Color4
+{OFF}dmenu.selbackground     : Color6
 {OFF}dmenu.selforeground     : Color0
 {OFF}dmenu.highbackground    : Color0
 {OFF}dmenu.highforeground    : Color11
-{OFF}dmenu.highselbackground : Color4
+{OFF}dmenu.highselbackground : Color6
 {OFF}dmenu.highselforeground : Color11
 
 ! color0:       base00
