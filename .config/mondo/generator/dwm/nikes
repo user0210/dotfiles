@@ -3,10 +3,10 @@ dwm.bar_bg	: base00
 dwm.bar_brd	: #000000
 dwm.bar_flo	: #ffffff
 dwm.tag_fg	: base0D
-dwm.tag_bg	: base05
+dwm.tag_bg	: base04
 dwm.tag_brd	: base00
 dwm.tag_flo	: base00
-dwm.brd_fg	: base05
+dwm.brd_fg	: base04
 dwm.brd_bg	: base00
 dwm.brd_brd	: base03
 dwm.brd_flo	: base02
@@ -27,7 +27,7 @@ dwm.unf_flo	: base01
 !dwm.tag_bg		: Color7
 !dwm.tag_brd	: Color0
 !dwm.tag_flo	: Color0
-!dwm.brd_fg		: Color7
+!dwm.brd_fg		: Color6
 !dwm.brd_bg		: Color0
 !dwm.brd_brd	: Color8
 !dwm.brd_flo	: Color8

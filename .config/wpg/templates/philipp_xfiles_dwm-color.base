@@ -3,10 +3,10 @@
 {XRES}dwm.bar_brd	: #000000
 {XRES}dwm.bar_flo	: #ffffff
 {XRES}dwm.tag_fg	: base0D
-{XRES}dwm.tag_bg	: base05
+{XRES}dwm.tag_bg	: base04
 {XRES}dwm.tag_brd	: base00
 {XRES}dwm.tag_flo	: base00
-{XRES}dwm.brd_fg	: base05
+{XRES}dwm.brd_fg	: base04
 {XRES}dwm.brd_bg	: base00
 {XRES}dwm.brd_brd	: base03
 {XRES}dwm.brd_flo	: base02
@@ -27,7 +27,7 @@
 {OFF}dwm.tag_bg		: Color7
 {OFF}dwm.tag_brd	: Color0
 {OFF}dwm.tag_flo	: Color0
-{OFF}dwm.brd_fg		: Color7
+{OFF}dwm.brd_fg		: Color6
 {OFF}dwm.brd_bg		: Color0
 {OFF}dwm.brd_brd	: Color8
 {OFF}dwm.brd_flo	: Color8

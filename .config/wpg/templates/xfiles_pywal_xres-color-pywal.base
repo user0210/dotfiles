@@ -18,3 +18,23 @@
 #define Color13 {color13}
 #define Color14 {color14}
 #define Color15 {color15}
+
+#define Color16 {color3}
+#define Color17 {color1}
+#define Color18 {color0}
+#define Color19 {color8}
+#define Color20 {color6}
+#define Color21 {color15}
+
+*.color16: Color16
+*color16:  Color16
+*.color17: Color17
+*color17:  Color17
+*.color18: Color18
+*color18:  Color18
+*.color19: Color19
+*color19:  Color19
+*.color20: Color20
+*color20:  Color20
+*.color21: Color21
+*color21:  Color21

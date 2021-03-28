@@ -10,7 +10,7 @@ c.colors.webpage.darkmode.enabled = True
 
 # bas16 colors
 c.colors.completion.fg = base05
-c.colors.completion.odd.bg = base03
+c.colors.completion.odd.bg = base01
 c.colors.completion.even.bg = base00
 c.colors.completion.category.fg = base0A
 c.colors.completion.category.bg = base00
@@ -60,7 +60,7 @@ c.colors.statusbar.insert.bg = base0D
 c.colors.statusbar.passthrough.fg = base00
 c.colors.statusbar.passthrough.bg = base0C
 c.colors.statusbar.private.fg = base00
-c.colors.statusbar.private.bg = base03
+c.colors.statusbar.private.bg = base02
 c.colors.statusbar.command.fg = base05
 c.colors.statusbar.command.bg = base00
 c.colors.statusbar.command.private.fg = base05
@@ -81,21 +81,21 @@ c.colors.tabs.indicator.start = base06
 c.colors.tabs.indicator.stop = base0F
 c.colors.tabs.indicator.error = base08
 c.colors.tabs.odd.fg = base05
-c.colors.tabs.odd.bg = base03
+c.colors.tabs.odd.bg = base02
 c.colors.tabs.even.fg = base05
-c.colors.tabs.even.bg = base03
+c.colors.tabs.even.bg = base02
 c.colors.tabs.pinned.even.bg = base0A
 c.colors.tabs.pinned.even.fg = base00
 c.colors.tabs.pinned.odd.bg = base0A
 c.colors.tabs.pinned.odd.fg = base00
-c.colors.tabs.pinned.selected.even.bg = base05
+c.colors.tabs.pinned.selected.even.bg = base04
 c.colors.tabs.pinned.selected.even.fg = base00
-c.colors.tabs.pinned.selected.odd.bg = base05
+c.colors.tabs.pinned.selected.odd.bg = base04
 c.colors.tabs.pinned.selected.odd.fg = base00
 c.colors.tabs.selected.odd.fg = base00
-c.colors.tabs.selected.odd.bg = base05
+c.colors.tabs.selected.odd.bg = base04
 c.colors.tabs.selected.even.fg = base00
-c.colors.tabs.selected.even.bg = base05
+c.colors.tabs.selected.even.bg = base04
 
 # pywal colors
 #c.colors.completion.fg = color7
@@ -177,14 +177,14 @@ c.colors.tabs.selected.even.bg = base05
 #c.colors.tabs.pinned.even.fg = color0
 #c.colors.tabs.pinned.odd.bg = color10
 #c.colors.tabs.pinned.odd.fg = color0
-#c.colors.tabs.pinned.selected.even.bg = color7
+#c.colors.tabs.pinned.selected.even.bg = color6
 #c.colors.tabs.pinned.selected.even.fg = color0
-#c.colors.tabs.pinned.selected.odd.bg = color7
+#c.colors.tabs.pinned.selected.odd.bg = color6
 #c.colors.tabs.pinned.selected.odd.fg = color0
 #c.colors.tabs.selected.odd.fg = color0
-#c.colors.tabs.selected.odd.bg = color7
+#c.colors.tabs.selected.odd.bg = color6
 #c.colors.tabs.selected.even.fg = color0
-#c.colors.tabs.selected.even.bg = color7
+#c.colors.tabs.selected.even.bg = color6
 
 # font
 c.fonts.default_family = 'TerminessTTF Nerd Font'

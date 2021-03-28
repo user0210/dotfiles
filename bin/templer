@@ -128,6 +128,8 @@ else
 
 	mondo -a $theme
 
+	tmux source-file -q ~/.tmux.conf
+
 	ICON=$(xrdb -query|awk '/\*color3:/ {print $2}')
 	cp -rf /home/philipp/.xfiles/icons/TermColor.template/* /home/philipp/.icons/TermColor
 	find /home/philipp/.icons/TermColor/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
@@ -184,6 +186,8 @@ else
 	xrdb -merge -I$HOME ~/.Xresources
 	externalpipe_buffer.sh st_reloadsignal
 	neovim-reload.py
+
+	tmux source-file -q ~/.tmux.conf
 
 	sed -e "s/#aaaaaa/$(xrdb -query|awk '/\*color7:/ {print $2}')/" /home/philipp/.xfiles/icons/low-bak.svg > /home/philipp/.xfiles/icons/low.svg
 	sed -e "s/#aaaaaa/$(xrdb -query|awk '/\*color10:/ {print $2}')/" /home/philipp/.xfiles/icons/normal-bak.svg > /home/philipp/.xfiles/icons/normal.svg

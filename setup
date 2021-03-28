@@ -180,7 +180,7 @@ git clone https://git.suckless.org/dmenu
 #git clone https://github.com/efexos/dwmblocks
 
 ## bei allen:
-git remote add myorigin https://github.com/philor1/####.git
+git remote add myorigin git@github.com:philor1/XXXXXX.git
 git remote -v
 git fetch myorigin
 git branch -v -a
@@ -206,7 +206,7 @@ EndSection
 ## in .bashrc
 alias dotfiles='/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
 mkdir dotfiles... cd...
-git clone --bare https://github.com/philor1/dotfiles-x230t.git $HOME/github/dotfiles
+git clone --bare git@github.com:philor1/dotfiles-x230t.git $HOME/github/dotfiles
 dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
 
@@ -422,6 +422,11 @@ sudo pacman -S ranger atool mediainfo w3m poppler highlight
 yay ueberzug
 ranger --copy-config=all
 ## change setting... ueberzug....
+## make highlight use 4 tab spaces:
+vim ~/.config/ranger/scope.sh
+	env HIGHLIGHT_OPTIONS="${HIGHLIGHT_OPTIONS}" highlight \
+	    --replace-tabs="4" \	################################### add this line
+	    --out-format="${highlight_format}" \
 
 
 ##### neofetch
