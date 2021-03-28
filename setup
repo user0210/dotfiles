@@ -317,6 +317,10 @@ sudo vim /etc/fonts/conf.d/30-metric-aliases-free.conf
 sudo pacman -S pacman-contrib
 systemctl enable paccache.timer
 
+##### ssh disable-root-login
+vim /etc/ssh/sshd_config
+	PermitRootLogin no
+
 ###########################################################
 ##### programs
 ###########################################################

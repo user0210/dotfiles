@@ -1,22 +1,22 @@
 dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
 
-!dmenu.background        : base00
-!dmenu.foreground        : base05
-!dmenu.selbackground     : base02
-!dmenu.selforeground     : base06
-!dmenu.highbackground    : base00
-!dmenu.highforeground    : base0A
-!dmenu.highselbackground : base02
-!dmenu.highselforeground : base0A
+dmenu.background        : base00
+dmenu.foreground        : base05
+dmenu.selbackground     : base02
+dmenu.selforeground     : base06
+dmenu.highbackground    : base00
+dmenu.highforeground    : base0A
+dmenu.highselbackground : base02
+dmenu.highselforeground : base0A
 
-dmenu.background        : Color0
-dmenu.foreground        : Color7
-dmenu.selbackground     : Color6
-dmenu.selforeground     : Color0
-dmenu.highbackground    : Color0
-dmenu.highforeground    : Color11
-dmenu.highselbackground : Color6
-dmenu.highselforeground : Color11
+!dmenu.background        : Color0
+!dmenu.foreground        : Color7
+!dmenu.selbackground     : Color6
+!dmenu.selforeground     : Color0
+!dmenu.highbackground    : Color0
+!dmenu.highforeground    : Color11
+!dmenu.highselbackground : Color6
+!dmenu.highselforeground : Color11
 
 ! color0:       base00
 ! color1:       base08
