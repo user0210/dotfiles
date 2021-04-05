@@ -294,6 +294,8 @@ sudo pacman -S gtk-engine-murrine
 ##### backlight-terminal control
 sudo pacman -S  acpilight
 sudo chmod a+w /sys/class/backlight/intel_backlight/brightness
+##for dwmblocks
+yay backlight_control
 
 ##### add program to sudoers to run without passord
 %sudo	ALL=(ALL) ALL

@@ -9,18 +9,16 @@ case "$1" in
 	else
 		killall pavucontrol; (systemctl --user mask pulseaudio.socket && systemctl --user stop pulseaudio && alsactl restore); notify-send "pulseaudio disabled"
 	fi
-	kill -45 $(pidof dwmblocks)
+	kill -35 $(pidof dwmblocks)
 ;;
 -o)
 	pon=$(pgrep pulseaudio)
 	if [ -z "$pon" ] ;then
-#		killall alsamixer || xsetroot -name 'fsignal:4'
-		killall alsamixer || st -e alsamixer
+		killall alsamixer || xsetroot -name 'fsignal:4'
 	else
-#		killall pavucontrol || xsetroot -name 'fsignal:5'
-		killall pavucontrol || pavucontrol
+		killall pavucontrol || xsetroot -name 'fsignal:5'
 	fi
-	kill -45 $(pidof dwmblocks)
+	kill -35 $(pidof dwmblocks)
 ;;
 pulse)
 

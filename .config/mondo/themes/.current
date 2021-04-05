@@ -9,7 +9,7 @@ base09              #fe8019
 CFIN                */
 base00              #1d2021
 base01              #3c3836
-theme	pywal
+theme               gruvbox-dark-hard
 XRES                !
 base02              #504945
 BASH                #
