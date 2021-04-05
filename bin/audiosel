@@ -14,9 +14,11 @@ case "$1" in
 -o)
 	pon=$(pgrep pulseaudio)
 	if [ -z "$pon" ] ;then
-		xsetroot -name 'fsignal:4'
+#		killall alsamixer || xsetroot -name 'fsignal:4'
+		killall alsamixer || st -e alsamixer
 	else
-		xsetroot -name 'fsignal:5'
+#		killall pavucontrol || xsetroot -name 'fsignal:5'
+		killall pavucontrol || pavucontrol
 	fi
 	kill -45 $(pidof dwmblocks)
 ;;

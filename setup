@@ -2,7 +2,18 @@
 ##### usefull
 ###########################################################
 
-#### pacman error after bad update (unable to lock database)
+##### git rebase
+activate rerere first !!! then you can.....
+
+git rebase -i XXXXXXXX^ --preserve-merges
+...git commit -a (--amend --no-edit)
+git rebase --continue
+...git mergetool ...git commit
+git rebase --continue
+...
+
+
+##### pacman error after bad update (unable to lock database)
 sudo rm /var/lib/pacman/db.lck
 
 ##### install python-packages
@@ -171,13 +182,12 @@ sudo Pacman -S ntfs-3g
 ###########################################################
 
 ##### suckless stuff
-sudo pacman -S git libx11 libxft libxinerama dmenu
+sudo pacman -S git libx11 libxft libxinerama dmenu slop
 mkdir github
 
 git clone https://git.suckless.org/dwm,st,dmenu
 git clone https://git.suckless.org/st
 git clone https://git.suckless.org/dmenu
-#git clone https://github.com/efexos/dwmblocks
 
 ## bei allen:
 git remote add myorigin git@github.com:philor1/XXXXXX.git
@@ -190,6 +200,10 @@ ln -s /home/philipp/github/dwm/dwm /usr/local/bin/dwm
 ln -s /home/philipp/github/st/st /usr/local/bin/st
 ln -s /home/philipp/github/dmenu/dmenu /home/philipp/bin/dmenu
 
+## ...now dwmblocks
+git clone git@github.com:philor1/dwmblocks.git
+git remote add myorigin git@github.com:philor1/dwmblocks.git
+git remote -v
 
 ##### X11
 sudo pacman -S xorg-server xorg-apps xorg-xinit
@@ -657,6 +671,15 @@ sudo vim /etc/systemd/system/rc-local.service
 systemctl enable rc-local.service
 sudo chmod +x /etc/rc.local
 
+##### snap.....
+yay snapd
+sudo systemctl enable snapd.socket --now
+sudo ln -s /var/lib/snapd/snap /snap
+# trackmania...
+# snap install tmnationsforever --edge
+# snap connect tmnationsforever:joystick
+# ~/snap/tmnationsforever/common/.wine/drive_c/Program Files (x86)/TmNationsForever
+# --> rename TmForever.exe to TmForever.exe.bak and TmForeverLauncher.exe to TmForever.exe
 
 ###########################################
 # fix bluetooth issue (journalctl-error)
