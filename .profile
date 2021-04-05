@@ -24,7 +24,6 @@ export HIGHLIGHT_OPTIONS="replace-tabs=4"
 ##### Aliases
 ####################################################
 alias less='less -x4'
-alias bs='tmux detach && bash && clear'
 alias nm='nmtui'
 alias mem='sudo ps_mem'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
@@ -32,7 +31,7 @@ alias pacinstall="pacman -Slq | fzf -m --preview \"cat <(pacman -Si {1}) <(pacma
 alias yayinstall="yay -Slq | fzf -m --preview \"yay -Si {1}\"| xargs -ro yay -S"
 alias yaydelete="yay -Qeq | fzf -m --preview \"yay -Qi {1}\" | xargs -ro yay -Rns"
 alias svim="sudoedit"
-alias bluetoothctl='audiosel pulse && bluetoothctl'
+alias bluetoothctl='audiosel pipe && bluetoothctl'
 
 ##### Color output
 # enable color support of ls and also add handy aliases

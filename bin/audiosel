@@ -1,32 +1,69 @@
-#!/bin/sh
+#!/bin/bash
+
+# bash because dash cant hamdle --user somehow...
+# systemctl --user mask .... prevents system to start automaticly
 
 case "$1" in
 
 -s)
-	pon=$(pgrep pulseaudio)
+	pon=$(pgrep pipewire)
 	if [ -z "$pon" ] ;then
-		killall alsamixer; (systemctl --user unmask pulseaudio.socket && systemctl --user start pulseaudio && notify-send "pulseaudio enabled")
+		killall alsamixer
+		systemctl --user start --now pipewire.{socket,service} &&
+		systemctl --user start --now pipewire-pulse.{socket,service}
+		notify-send "pipewire enabled"
 	else
-		killall pavucontrol; (systemctl --user mask pulseaudio.socket && systemctl --user stop pulseaudio && alsactl restore); notify-send "pulseaudio disabled"
+		killall pavucontrol
+		systemctl --user stop --now pipewire.{socket,service} &&
+		systemctl --user stop --now pipewire-pulse.{socket,service} &&
+		alsactl restore
+		notify-send "pipewire disabled"
 	fi
 	kill -35 $(pidof dwmblocks)
 ;;
 -o)
-	pon=$(pgrep pulseaudio)
-	if [ -z "$pon" ] ;then
-		killall alsamixer || xsetroot -name 'fsignal:4'
-	else
-		killall pavucontrol || xsetroot -name 'fsignal:5'
-	fi
-	kill -35 $(pidof dwmblocks)
+		pon=$(pgrep pipewire)
+		if [ -z "$pon" ] ;then
+			killall alsamixer || xsetroot -name 'fsignal:4'
+		else
+			killall pavucontrol || xsetroot -name 'fsignal:5'
+		fi
+		kill -35 $(pidof dwmblocks)
 ;;
-pulse)
+pipe)
+		systemctl --user start --now pipewire.{socket,service} &&
+		systemctl --user start --now pipewire-pulse.{socket,service}
 
-	systemctl --user unmask pulseaudio.socket && systemctl --user start pulseaudio
 ;;
 alsa)
-
-	systemctl --user mask pulseaudio.socket && systemctl --user stop pulseaudio && alsactl restore
+		systemctl --user stop --now pipewire.{socket,service} &&
+		systemctl --user stop --now pipewire-pulse.{socket,service} &&
+		alsactl restore
 ;;
+
+#pulse)
+#		systemctl --user unmask pulseaudio.socket && systemctl --user start pulseaudio
+#;;
+#alsa)
+#		systemctl --user mask pulseaudio.socket && systemctl --user stop pulseaudio && alsactl restore
+#;;
+#-s)
+#		pon=$(pgrep pulseaudio)
+#		if [ -z "$pon" ] ;then
+#			killall alsamixer; (systemctl --user unmask pulseaudio.socket && systemctl --user start pulseaudio && notify-send "pulseaudio enabled")
+#		else
+#			killall pavucontrol; (systemctl --user mask pulseaudio.socket && systemctl --user stop pulseaudio && alsactl restore); notify-send "pulseaudio disabled"
+#		fi
+#		kill -35 $(pidof dwmblocks)
+#;;
+#-o)
+#		pon=$(pgrep pulseaudio)
+#		if [ -z "$pon" ] ;then
+#			killall alsamixer || xsetroot -name 'fsignal:4'
+#		else
+#			killall pavucontrol || xsetroot -name 'fsignal:5'
+#		fi
+#		kill -35 $(pidof dwmblocks)
+#;;
 
 esac

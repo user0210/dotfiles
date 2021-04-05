@@ -1,7 +1,8 @@
 #!/bin/sh
 
 
-audiosel pulse
+audiosel pipe
+#audiosel pulse
 
 ##### debugger ############################################
 case "$1" in

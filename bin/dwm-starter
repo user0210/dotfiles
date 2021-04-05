@@ -6,7 +6,7 @@
 #display -resize 1366x768\! -window root /home/philipp/.xfiles/background/wallpapers/fractals-leaf-caro.jpg
 #display -size 1366x768 -window root /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
-hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
+hsetroot -fill /home/philipp/.config/wpg/.current
 
 picom &
 
@@ -24,8 +24,8 @@ dwmblocks &
 ##### polkit authentication agent (erst installieren)
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-##### set alsa-audio
-audiosel alsa &
+##### set alsa-audio on startup with pulseaudio (not pipewire)
+#audiosel alsa &
 
 ##### hide cursor
 xbanish &
