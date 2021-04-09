@@ -1,31 +1,81 @@
-#define Foreground #ffffff
-#define Background #151515
+#define Foreground #c5c5c5
+#define Background #19181a
 #define Cursor #ffffff
 
-#define Color0 #151515
-#define Color1 #764569
-#define Color2 #8976bd
-#define Color3 #815f91
-#define Color4 #3c7891
-#define Color5 #c16f99
-#define Color6 #67d1ef
-#define Color7 #c4c4c4
-#define Color8 #2e2e2e
-#define Color9 #a54d8e
-#define Color10 #a885ff
-#define Color11 #ad6bcc
-#define Color12 #40a1c9
-#define Color13 #ff7cc7
-#define Color14 #6fffff
+#define Color0 #19181a
+#define Color1 #bd4a69
+#define Color2 #642e44
+#define Color3 #d38139
+#define Color4 #203857
+#define Color5 #906f9a
+#define Color6 #7d3a5f
+#define Color7 #c5c5c5
+#define Color8 #49464b
+#define Color9 #ff4f80
+#define Color10 #8b3256
+#define Color11 #ffa638
+#define Color12 #214778
+#define Color13 #c47fd9
+#define Color14 #ae3f7c
 #define Color15 #ffffff
 
-#define Color16 #815f91
-#define Color17 #764569
-#define Color18 #151515
-#define Color19 #2e2e2e
-#define Color20 #67d1ef
+#define Color16 #d38139
+#define Color17 #bd4a69
+#define Color18 #19181a
+#define Color19 #49464b
+#define Color20 #7d3a5f
 #define Color21 #ffffff
 
+! X colors.
+*foreground:        Foreground
+*background:        Background
+*.foreground:       Foreground
+*.background:       Background
+emacs*foreground:   Foreground
+emacs*background:   Background
+XTerm*foreground:   Foreground
+XTerm*background:   Background
+XTerm*cursorColor:  Cursor
+
+! Colors 0-15.
+*.color0: Color0
+*color0:  Color0
+*.color1: Color1
+*color1:  Color1
+*.color2: Color2
+*color2:  Color2
+*.color3: Color3
+*color3:  Color3
+*.color4: Color4
+*color4:  Color4
+*.color5: Color5
+*color5:  Color5
+*.color6: Color6
+*color6:  Color6
+*.color7: Color7
+*color7:  Color7
+*.color8: Color8
+*color8:  Color8
+*.color9: Color9
+*color9:  Color9
+*.color10: Color10
+*color10:  Color10
+*.color11: Color11
+*color11:  Color11
+*.color12: Color12
+*color12:  Color12
+*.color13: Color13
+*color13:  Color13
+*.color14: Color14
+*color14:  Color14
+*.color15: Color15
+*color15:  Color15
+
+! Black color that will not be affected by bold highlighting.
+*.color66: Background
+*color66:  Background
+
+! Base16 colorspace addon.
 *.color16: Color16
 *color16:  Color16
 *.color17: Color17

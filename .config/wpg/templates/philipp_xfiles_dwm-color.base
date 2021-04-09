@@ -23,7 +23,7 @@
 {OFF}dwm.bar_bg		: Color0
 {OFF}dwm.bar_brd	: #000000
 {OFF}dwm.bar_flo	: #ffffff
-{OFF}dwm.tag_fg		: Color4
+{OFF}dwm.tag_fg		: Color6
 {OFF}dwm.tag_bg		: Color7
 {OFF}dwm.tag_brd	: Color0
 {OFF}dwm.tag_flo	: Color0

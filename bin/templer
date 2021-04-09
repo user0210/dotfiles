@@ -164,7 +164,7 @@ else
 
 	sed -i "s/^theme.*/theme	pywal/g" /home/philipp/.config/mondo/themes/.current
 	rm /home/philipp/.xfiles/xres-color-def
-	ln -s /home/philipp/.cache/wal/colors.Xresources /home/philipp/.xfiles/xres-color-def
+	ln -s /home/philipp/.xfiles/pywal/xres-color-pywal /home/philipp/.xfiles/xres-color-def
 
 	sed -i "s/^#\(c\.colors\..*color.*\)/\1/g; s/^\(c\.colors\..*base0.\)/#\1/g" /home/philipp/.config/qutebrowser/config.py
 

@@ -26,6 +26,7 @@ HISTFILE=~/.bash_history
 HISTSIZE=8000
 SAVEHIST=5000
 setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_ALL_DUPS
 
 # vim keys
 bindkey -v
