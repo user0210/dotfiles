@@ -7,15 +7,18 @@
 
 #### simpler, better (first terminal attaches to unclosed session...)
 if [ -z "$TMUX" ] ;then
-		STMUX=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | wc -l)
 		tmux new-session -d -s base -n 0 2> /dev/null
-	    ((STMUX++))
-		tmux new-session -d -t base -s $STMUX
-		if [[ "$STMUX" > "1" ]]; then
+		tmux new-session -d -t base -s 1 2> /dev/null
+		STMUX=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | wc -l)
+		ATTACH=$(tmux ls 2> /dev/null | grep '1:' | grep -vm1 attached | wc -l)
+		if [[ "$ATTACH" > "0" ]]; then
+			tmux attach-session -t 1 \; set-option destroy-unattached
+		else
+			((STMUX++))
+			tmux new-session -d -t base -s $STMUX
 		    tmux new-window
+			tmux attach-session -t $STMUX \; set-option destroy-unattached
 		fi
-		tmux attach-session -t $STMUX \; set-option destroy-unattached
-		tmux kill-window -t base:0 2> /dev/null
 fi
 
 

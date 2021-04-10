@@ -346,7 +346,7 @@ git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 
 yay:mondo-generator xbanish thinkpad-scripts xmenu xclickroot-git
 	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git
-	cbonsai-git
+	cbonsai-git gtkrc-reload
 pacman: network-manager-applet polkit-gnome fzf youtube-dl xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
 	xdg-utils perl-file-mimeinfo playerctl calcurse p7zip xsettingsd
 

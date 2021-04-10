@@ -133,8 +133,8 @@ else
 	ICON=$(xrdb -query|awk '/\*color3:/ {print $2}')
 	cp -rf /home/philipp/.xfiles/icons/TermColor.template/* /home/philipp/.icons/TermColor
 	find /home/philipp/.icons/TermColor/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
-	timeout 0.01s xsettingsd -c /home/philipp/.xfiles/.xsettingsd
-	timeout 0.01s xsettingsd -c /home/philipp/.xsettingsd
+	timeout 0.1s xsettingsd -c /home/philipp/.xfiles/.xsettingsdummy
+	timeout 0.1s xsettingsd -c /home/philipp/.xfiles/.xsettingsd
 
 	convert -size 16x16 -background none /home/philipp/.icons/TermColor/apps/scalable/web-browser-symbolic.svg /home/philipp/.xfiles/icons/web-browser-symbolic.png
 	convert -size 16x16 -background none /home/philipp/.icons/TermColor/actions/scalable/sidebar-places-symbolic.svg /home/philipp/.xfiles/icons/sidebar-places-symbolic.png
@@ -209,8 +209,8 @@ else
 	ICON=$(xrdb -query|awk '/\*color2:/ {print $2}')
 	cp -rf /home/philipp/.xfiles/icons/TermColor.template/* /home/philipp/.icons/TermColor
 	find /home/philipp/.icons/TermColor/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
-	timeout 0.01s xsettingsd -c /home/philipp/.xfiles/.xsettingsd
-	timeout 0.01s xsettingsd -c /home/philipp/.xsettingsd
+	timeout 0.1s xsettingsd -c /home/philipp/.xfiles/.xsettingsdummy
+	timeout 0.1s xsettingsd -c /home/philipp/.xfiles/.xsettingsd
 
 	convert -size 16x16 -background none /home/philipp/.icons/TermColor/apps/scalable/web-browser-symbolic.svg /home/philipp/.xfiles/icons/web-browser-symbolic.png
 	convert -size 16x16 -background none /home/philipp/.icons/TermColor/actions/scalable/sidebar-places-symbolic.svg /home/philipp/.xfiles/icons/sidebar-places-symbolic.png
