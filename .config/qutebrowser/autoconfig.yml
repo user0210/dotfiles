@@ -14,6 +14,8 @@ settings:
         ',M': hint links spawn umpv {hint-url}
         ',m': spawn umpv {url}
         ;M: hint --rapid links spawn umpv {hint-url}
+  colors.webpage.darkmode.enabled:
+    global: false
   content.blocking.method:
     global: auto
   content.notifications:
@@ -23,6 +25,10 @@ settings:
     https://www.reddit.com: false
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: true
+  scrolling.bar:
+    global: overlay
+  tabs.show:
+    global: multiple
   url.searchengines:
     global:
       DEFAULT: https://www.google.com/search?hl=de&q={}

@@ -10,9 +10,9 @@ case "$1" in
 youtube-dl --rm-cache-dir
 rm /home/philipp/.config/mps-youtube/cache_py* 
 if [ -t 0 ] ; then
-    mpsyt set api_key AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
+    mpsyt set api_key ***REMOVED***
 else
-    st -e mpsyt set api_key AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro &
+    st -e mpsyt set api_key ***REMOVED*** &
 fi
 exit 1
 esac

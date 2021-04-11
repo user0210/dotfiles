@@ -103,7 +103,7 @@ mount /dev/sdaEFI /mnt/boot
 
 vim /etc/pacman.d/mirrorlist ## German Up
 
-pacstrap /mnt base base-devel linux linux-firmware neovim man-db man-pages bash-completion intel-ucode
+pacstrap /mnt base base-devel linux linux-firmware man-db man-pages bash-completion intel-ucode
 pacman --root /mnt -S dhcpcd ## or networkmanager for Internet
 
 genfstab -Up /mnt > /mnt/etc/fstab
@@ -409,6 +409,9 @@ systemctl enable acpid
 systemctl enable setkeycodes
 
 ##### neovim
+pacman -S neovim	## or
+yay neovim-nightly-bin
+
 sudo pacman -S python-pynvim
 yay neovim-symlinks neovim-remote #only for vimtex !!!!
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -650,10 +653,20 @@ ln -s /home/philipp/.config/dunst/settings /home/philipp/.config/mondo/generator
 ##### fonts
 yay ttf-symbola
 
+##### nvim-lsp
+sudo pacman -S npm
+# servers
+sudo npm i -g bash-language-server	## bash
+sudo pacman -S clang                ## c++
+
 ##### coc-nvim
-sudo pacman -S nodejs npm python-pylint (clang)
+sudo pacman -S nodejs npm
 sudo npm install -g neovim
-sudo npm i -g bash-language-server
+# servers
+sudo npm i -g bash-language-server	## bash
+sudo pacman -S clang				## c++
+sudo pacman -S python-pylint		## ??? python?
+
 :CocConfig
     {
         "languageserver": {
