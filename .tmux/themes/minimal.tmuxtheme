@@ -7,12 +7,12 @@ set -g status-style "bg=default"
 set -g status-left "#{prefix_highlight}#[bold] >_ #[nobold][#S]#[bold]:::::::::: "
 set -g status-left-length 18
 
-set -g status-right "#[bold]:::::"
+set -g status-right "#[bold] :::::"
 set -g status-right-length 5
  
-set -g window-status-format ":: #T#{?window_zoomed_flag,.Z,} "
+set -g window-status-format "#T#{?window_zoomed_flag,.Z,}"
 
-set -g window-status-separator ""
+set -g window-status-separator " :: "
 
 #set -g pane-border-format "[#P]" 
 #set -g pane-border-lines "double"
@@ -41,20 +41,20 @@ set -g @prefix_highlight_output_suffix '::::::: '
 
 ##### CHANGE STATUSCOLOR ON FOCUS EVENT
 
-set-hook -g pane-focus-out "set -p window-status-current-format '#[fg=Colour19,bg=default,bold]:: #[fg=Colour0,bg=Colour19] #T#{?window_zoomed_flag,.Z,} #[bg=default] ' \;\
+set-hook -g pane-focus-out "set -p window-status-current-format '#[fg=Colour0,bg=Colour19] #T#{?window_zoomed_flag,.Z,} ' \;\
 							set -p status-style 'fg=Colour19' \;\
 							set -p status-right-style 'fg=Colour19,bg=default' \;\
 							set -p status-left-style 'fg=Colour0,bg=Colour19'"
-set-hook -g pane-focus-in "run \"tmux set -p window-status-current-format '#[fg=Colour20,bg=default,bold]:: #[fg=Colour0,bg=Colour20] #T#{?window_zoomed_flag,.Z,} #[bg=default] ' && \
+set-hook -g pane-focus-in "run \"tmux set -p window-status-current-format '#[fg=Colour0,bg=Colour20] #T#{?window_zoomed_flag,.Z,} ' && \
 								 tmux set -p status-style 'fg=Colour20' && \
 								 tmux set -p status-right-style 'fg=Colour20,bg=default' && \
 								 tmux set -p status-left-style 'fg=Colour0,bg=Colour20'\""
 
-#set-hook -g pane-focus-out "set -p window-status-current-format '#[fg=Colour8,bg=default,bold]:: #[fg=Colour0,bg=Colour8] #T#{?window_zoomed_flag,.Z,} #[bg=default] ' \;\
+#set-hook -g pane-focus-out "set -p window-status-current-format '#[fg=Colour0,bg=Colour8] #T#{?window_zoomed_flag,.Z,} #[bg=default] ' \;\
 #							set -p status-style 'fg=Colour8' \;\
 #							set -p status-right-style 'fg=Colour8,bg=default' \;\
 #							set -p status-left-style 'fg=Colour0,bg=Colour8'"
-#set-hook -g pane-focus-in "run \"tmux set -p window-status-current-format '#[fg=Colour7,bg=default,bold]:: #[fg=Colour0,bg=Colour7] #T#{?window_zoomed_flag,.Z,} #[bg=default] ' && \
+#set-hook -g pane-focus-in "run \"tmux set -p window-status-current-format '#[fg=Colour0,bg=Colour7] #T#{?window_zoomed_flag,.Z,} #[bg=default] ' && \
 #								 tmux set -p status-style 'fg=Colour7' && \
 #								 tmux set -p status-right-style 'fg=Colour7,bg=default' && \
 #								 tmux set -p status-left-style 'fg=Colour0,bg=Colour7'\""

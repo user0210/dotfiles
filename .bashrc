@@ -47,3 +47,6 @@ fi
 ##### fzf
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
+
+##### nvcode
+export PATH=$HOME/.config/nvcode/utils/bin:$PATH

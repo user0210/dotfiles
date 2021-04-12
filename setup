@@ -413,12 +413,59 @@ pacman -S neovim	## or
 yay neovim-nightly-bin
 
 sudo pacman -S python-pynvim
-yay neovim-symlinks neovim-remote #only for vimtex !!!!
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+yay neovim-symlinks neovim-remote
+
 # neovim desktop file setting
 vim /usr/share/applications/nvim.desktop
 	Exec=bash -ci "nvim %F"
+
+# plugin-manager
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+## nvcode-setup
+sudo pacman -S nodejs npm
+sudo npm install -g neovim
+sudo pacman -S ripgrep fzf ranger ueberzug
+yay -S neovim-remote
+sudo npm install -g tree-sitter-cli
+
+git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone https://github.com/ChristianChiarulli/nvcode.git ~/.config/nvim
+mv $HOME/.config/nvim/init.lua $HOME/.config/nvim/init.lua.tmp
+mv $HOME/.config/nvim/utils/init.lua $HOME/.config/nvim/init.lua
+rm $HOME/.config/nvim/init.lua
+mv $HOME/.config/nvim/init.lua.tmp $HOME/.config/nvim/init.lua
+
+echo 'export PATH=$HOME/.config/nvcode/utils/bin:$PATH' >>~/.zshrc
+echo 'export PATH=$HOME/.config/nvcode/utils/bin:$PATH' >>~/.bashrc
+
+:PackerInstall
+
+## nvim-lsp
+sudo pacman -S npm
+# servers
+sudo npm i -g bash-language-server	## bash
+sudo pacman -S clang                ## c++
+
+## coc-nvim
+sudo pacman -S nodejs npm
+sudo npm install -g neovim
+# servers
+sudo npm i -g bash-language-server	## bash
+sudo pacman -S clang				## c++
+sudo pacman -S python-pylint		## ??? python?
+:CocConfig
+    {
+        "languageserver": {
+          "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+          }
+        }
+    }
 
 ##### zsh
 sudo pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
@@ -652,32 +699,6 @@ ln -s /home/philipp/.config/dunst/settings /home/philipp/.config/mondo/generator
 
 ##### fonts
 yay ttf-symbola
-
-##### nvim-lsp
-sudo pacman -S npm
-# servers
-sudo npm i -g bash-language-server	## bash
-sudo pacman -S clang                ## c++
-
-##### coc-nvim
-sudo pacman -S nodejs npm
-sudo npm install -g neovim
-# servers
-sudo npm i -g bash-language-server	## bash
-sudo pacman -S clang				## c++
-sudo pacman -S python-pylint		## ??? python?
-
-:CocConfig
-    {
-        "languageserver": {
-          "bash": {
-            "command": "bash-language-server",
-            "args": ["start"],
-            "filetypes": ["sh"],
-            "ignoredRootPaths": ["~"]
-          }
-        }
-    }
 
 ##### archivierungsprogramme
 sudo pacman -S zip unzip 

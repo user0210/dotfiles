@@ -1,30 +1,30 @@
-#define Foreground #c3c7c8
-#define Background #0f2025
-#define Cursor #fbffff
+#define Foreground #c1c1c7
+#define Background #090a22
+#define Cursor #fbfbff
 
-#define Color0 #0f2025
-#define Color1 #ab294b
-#define Color2 #b67dae
-#define Color3 #ab6083
-#define Color4 #7c6aaf
-#define Color5 #c6739d
-#define Color6 #50a3be
-#define Color7 #c3c7c8
-#define Color8 #1d3e49
-#define Color9 #ec275a
-#define Color10 #ff8ef0
-#define Color11 #ef6ba9
-#define Color12 #9877f5
-#define Color13 #ff81cc
-#define Color14 #56dcff
-#define Color15 #fbffff
+#define Color0 #090a22
+#define Color1 #7e36aa
+#define Color2 #5f36ad
+#define Color3 #bc72c4
+#define Color4 #3236ab
+#define Color5 #a32ea2
+#define Color6 #9052c2
+#define Color7 #c1c1c7
+#define Color8 #12144a
+#define Color9 #a737eb
+#define Color10 #7637ef
+#define Color11 #ff80ff
+#define Color12 #3238ec
+#define Color13 #e12ee0
+#define Color14 #bd58ff
+#define Color15 #fbfbff
 
-#define Color16 #ab6083
-#define Color17 #ab294b
-#define Color18 #0f2025
-#define Color19 #1d3e49
-#define Color20 #50a3be
-#define Color21 #fbffff
+#define Color16 #bc72c4
+#define Color17 #7e36aa
+#define Color18 #090a22
+#define Color19 #12144a
+#define Color20 #9052c2
+#define Color21 #fbfbff
 
 ! X colors.
 *foreground:        Foreground

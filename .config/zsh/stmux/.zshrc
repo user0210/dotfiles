@@ -10,7 +10,7 @@ if [ -z "$TMUX" ] ;then
 		tmux new-session -d -s base -n 0 2> /dev/null
 		tmux new-session -d -t base -s 1 2> /dev/null
 		STMUX=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | wc -l)
-		ATTACH=$(tmux ls 2> /dev/null | grep '1:' | grep -vm1 attached | wc -l)
+		ATTACH=$(tmux ls 2> /dev/null | grep '^1:' | grep -vm1 attached | wc -l)
 		if [[ "$ATTACH" > "0" ]]; then
 			tmux attach-session -t 1 \; set-option destroy-unattached
 		else
