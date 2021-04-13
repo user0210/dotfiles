@@ -18,6 +18,14 @@ base0D	#0066ff
 base0E	#cc00ff
 base0F	#3300ff
 
+base08a	#DF0000
+base09a	#DF7900
+base0Aa	#DF0079
+base0Ba	#13DF00
+base0Ca	#00DFDF
+base0Da	#0046DF
+base0Ea	#AC00DF
+base0Fa	#1300DF
 
 !! base00	# ----
 !! base01	# ---

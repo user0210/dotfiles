@@ -23,7 +23,7 @@ dwm.unf_flo	: base01
 !dwm.bar_bg		: Color0
 !dwm.bar_brd	: #000000
 !dwm.bar_flo	: #ffffff
-!dwm.tag_fg		: Color4
+!dwm.tag_fg		: Color6
 !dwm.tag_bg		: Color7
 !dwm.tag_brd	: Color0
 !dwm.tag_flo	: Color0
@@ -38,7 +38,8 @@ dwm.unf_flo	: base01
 !dwm.unf_fg		: Color7
 !dwm.unf_bg		: Color8
 !dwm.unf_brd	: Color8
-!dwm.unf_flo	: Color8
+! same as bar_bg for tab-seperator (only pywal)
+!dwm.unf_flo	: Color0 
 
 
 ! color0:       base00

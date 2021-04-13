@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 ##############################################################################################
@@ -160,7 +160,37 @@ fi
 if [ -z "$theme" ] ;then
 	echo "nothing"
 else
-	rm /home/philipp/.vimrc_background
+    # old nvim-config
+	# rm /home/philipp/.vimrc_background
+	if [ '[pywal-wallpaper]' = "$template" ]; then
+        scheme=$(printf $theme | sed -e 's/\.[^.]*$//')
+        col0=$(grep "color0" /home/philipp/.config/wpg/schemes/*${scheme}*${backend}* | grep -o "#......")
+        col8=$(grep "color8" /home/philipp/.config/wpg/schemes/*${scheme}*${backend}* | grep -o "#......")
+        col7=$(grep "color7" /home/philipp/.config/wpg/schemes/*${scheme}*${backend}* | grep -o "#......")
+        col15=$(grep "color15" /home/philipp/.config/wpg/schemes/*${scheme}*${backend}* | grep -o "#......")
+	elif [ '[pywal-themes]' = "$template" ]; then
+        col0=$(grep -o "color0[^,]*" /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/${theme}* | grep -o "#......")
+        col8=$(grep -o "color8[^,]*" /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/${theme}* | grep -o "#......")
+        col7=$(grep -o "color7[^,]*" /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/${theme}* | grep -o "#......")
+        col15=$(grep -o "color15[^,]*" /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/${theme}* | grep -o "#......")
+    fi
+    light=$(colort -c $col0 && printf 0 || printf 1)
+	if [ "$light" -eq 0 ]; then
+        col0a=$(colort -l 15 $col0)
+        col8a=$(colort -l 30 $col8)
+        col7a=$(colort -l -30 $col7)
+        col15a=$(colort -l -15 $col15)
+    else
+        col0a=$(colort -l 15 $col0)
+        col8a=$(colort -l 30 $col8)
+        col7a=$(colort -l -30 $col7)
+        col15a=$(colort -l -15 $col15)
+    fi
+    sed -i "s/color0a = #....../color0a = $col0a/g" /home/philipp/.config/wpg/wpg.conf
+    sed -i "s/color8a = #....../color8a = $col8a/g" /home/philipp/.config/wpg/wpg.conf
+    sed -i "s/color7a = #....../color7a = $col7a/g" /home/philipp/.config/wpg/wpg.conf
+    sed -i "s/color15a = #....../color15a = $col15a/g" /home/philipp/.config/wpg/wpg.conf
+
 
 	sed -i "s/^theme.*/theme	pywal/g" /home/philipp/.config/mondo/themes/.current
 	rm /home/philipp/.xfiles/xres-color-def

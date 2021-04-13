@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#fileorpath=/home/philipp/test/themes/*
+fileorpath=/home/philipp/test/themes/gruvbox-dark-hard
+
+for f in $fileorpath; do
+    col0=$(grep "^base00" $f | grep -o "#......")
+    col8=$(grep "^base08" $f | grep -o "#......")
+    col9=$(grep "^base09" $f | grep -o "#......")
+    colA=$(grep "^base0A" $f | grep -o "#......")
+    colB=$(grep "^base0B" $f | grep -o "#......")
+    colC=$(grep "^base0C" $f | grep -o "#......")
+    colD=$(grep "^base0D" $f | grep -o "#......")
+    colE=$(grep "^base0E" $f | grep -o "#......")
+    colF=$(grep "^base0F" $f | grep -o "#......")
+
+    light=$(colort -c $col0 && printf 0 || printf 1)
+
+	if [ "$light" -eq 0 ]; then
+        col8a=$(colort -l -32 $col8)
+        col9a=$(colort -l -32 $col9)
+        colAa=$(colort -l -32 $colA)
+        colBa=$(colort -l -32 $colB)
+        colCa=$(colort -l -32 $colC)
+        colDa=$(colort -l -32 $colD)
+        colEa=$(colort -l -32 $colE)
+        colFa=$(colort -l -32 $colF)
+    else
+        col8a=$(colort -l 32 $col8)
+        col9a=$(colort -l 32 $col9)
+        colAa=$(colort -l 32 $colA)
+        colBa=$(colort -l 32 $colB)
+        colCa=$(colort -l 32 $colC)
+        colDa=$(colort -l 32 $colD)
+        colEa=$(colort -l 32 $colE)
+        colFa=$(colort -l 32 $colF)
+    fi
+
+    sed -i "21i\base0Fa\t$colFa" $f
+    sed -i "21i\base0Ea\t$colEa" $f
+    sed -i "21i\base0Da\t$colDa" $f
+    sed -i "21i\base0Ca\t$colCa" $f
+    sed -i "21i\base0Ba\t$colBa" $f
+    sed -i "21i\base0Aa\t$colAa" $f
+    sed -i "21i\base09a\t$col9a" $f
+    sed -i "21i\base08a\t$col8a" $f
+done

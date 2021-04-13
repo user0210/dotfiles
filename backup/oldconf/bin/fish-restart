@@ -1,0 +1,4 @@
+#!/bin/fish
+
+omf reload
+source ~/.config/fish/config.fish
