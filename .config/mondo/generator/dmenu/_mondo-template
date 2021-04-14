@@ -4,19 +4,27 @@ dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
 %%OFF%%dmenu.foreground        : base05
 %%OFF%%dmenu.selbackground     : base02
 %%OFF%%dmenu.selforeground     : base06
-%%OFF%%dmenu.highbackground    : base00
-%%OFF%%dmenu.highforeground    : base0A
-%%OFF%%dmenu.highselbackground : base02
-%%OFF%%dmenu.highselforeground : base0A
+%%OFF%%dmenu.outbackground     : base04
+%%OFF%%dmenu.outforeground     : base07
+%%OFF%%dmenu.hibackground      : base00
+%%OFF%%dmenu.hiforeground      : base0A
+%%OFF%%dmenu.hiselbackground   : base02
+%%OFF%%dmenu.hiselforeground   : base0A
+%%OFF%%dmenu.hioutbackground   : base04
+%%OFF%%dmenu.hioutforeground   : base0A
 
 %%XRES%%dmenu.background        : Color0
 %%XRES%%dmenu.foreground        : Color7
 %%XRES%%dmenu.selbackground     : Color6
 %%XRES%%dmenu.selforeground     : Color0
-%%XRES%%dmenu.highbackground    : Color0
-%%XRES%%dmenu.highforeground    : Color11
-%%XRES%%dmenu.highselbackground : Color6
-%%XRES%%dmenu.highselforeground : Color11
+%%XRES%%dmenu.outbackground     : Color5
+%%XRES%%dmenu.outforeground     : Color0
+%%XRES%%dmenu.hibackground      : Color0
+%%XRES%%dmenu.hiforeground      : Color11
+%%XRES%%dmenu.hiselbackground   : Color6
+%%XRES%%dmenu.hiselforeground   : Color11
+%%XRES%%dmenu.hioutbackground   : Color5
+%%XRES%%dmenu.hioutforeground   : Color11
 
 ! color0:       base00
 ! color1:       base08

@@ -17,7 +17,7 @@ function surf_strings_read() {
   awk '{printf "%sNEWLINE_REPLACE", $0} END {printf "\n"}' |
     xmllint --html --xpath "//*" - |
     awk '{ gsub("<[^>]*>", ""); print($0); }' |
-    sed 's/NEWLINE_REPLACE/↵/g' |
+    sed 's/NEWLINE_REPLACE/â†µ/g' |
     awk '{ gsub("<[^>]*>",""); print $0 }' |
     sed 's/&lt;/</g' |
     sed 's/&gt;/>/g' |
@@ -42,11 +42,15 @@ function trigger_sigusr2() {
 
 function dmenu_copy() {
   trigger_sigusr1
-  cat $BUFFER_FILE | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Copy' | sed 's/↵/\n/g' | xclip -i
+  setxkbmap de && cat $BUFFER_FILE | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Copy' | sed 's/â†µ/\n/g' | xclip -i -selection c
 }
 function dmenu_type() {
   trigger_sigusr1
-  cat $BUFFER_FILE | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | sed 's/↵/\n/g' | xargs -IC xdotool type --delay 0 "C"
+  setxkbmap de && stty -echo && \
+	  cat $BUFFER_FILE | grep '╰╼ ' | cut -d ' ' -f 4- | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | \
+	  sed 's/â†µ/\n/g' | xargs -IC xdotool type --delay 0 "C" && \
+	  stty echo
+# setxkbmap de && cat $BUFFER_FILE | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | sed 's/â†µ/\n/g' | xargs -IC xdotool type --delay 0 "C"
 }
 function pipe_combine() {
   trigger_sigusr1

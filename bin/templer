@@ -234,7 +234,7 @@ else
 	make -C /home/philipp/github/dwmblocks
 	dwmblocks &
 
-	pgrep qutebrowser 2> /dev/null && qutebrowser :config-source 2> /dev/null
+	pgrep qutebrowser && qutebrowser :config-source
 
 	ICON=$(xrdb -query|awk '/\*color2:/ {print $2}')
 	cp -rf /home/philipp/.xfiles/icons/TermColor.template/* /home/philipp/.icons/TermColor

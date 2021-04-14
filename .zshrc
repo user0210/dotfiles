@@ -13,20 +13,18 @@ source /home/philipp/.profile
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-tabs -4
-
-# HDPI
-#export GDK_SCALE=2
-#export GDK_DPI_SCALE=0.8
-
+# allow comments in the shell
 setopt interactive_comments
 
 # history
 HISTFILE=~/.bash_history
-HISTSIZE=8000
+HISTSIZE=5000
 SAVEHIST=5000
 setopt HIST_IGNORE_SPACE
 setopt HIST_IGNORE_ALL_DUPS
+setopt APPEND_HISTORY
+## save to history after every command 
+#setopt INC_APPEND_HISTORY
 
 # vim keys
 bindkey -v
@@ -49,8 +47,7 @@ esac
 ##### theme
 ####################################################
 
-# spaceship theme
-
+##### spaceship theme
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_PROMPT_DEFAULT_PREFIX="["
 SPACESHIP_PROMPT_DEFAULT_SUFFIX="]"
@@ -104,6 +101,3 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ##### fzf
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-
-##### nvcode
-export PATH=$HOME/.config/nvcode/utils/bin:$PATH

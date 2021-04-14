@@ -483,6 +483,8 @@ tmux-urlview
 tmux-fpp
 tmux-pain-control
 
+## tmuxp ?
+
 ##### ranger
 sudo pacman -S ranger atool mediainfo w3m poppler highlight
 yay ueberzug

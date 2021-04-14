@@ -4,19 +4,27 @@ dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
 {XRES}dmenu.foreground        : base05
 {XRES}dmenu.selbackground     : base02
 {XRES}dmenu.selforeground     : base06
-{XRES}dmenu.highbackground    : base00
-{XRES}dmenu.highforeground    : base0A
-{XRES}dmenu.highselbackground : base02
-{XRES}dmenu.highselforeground : base0A
+{XRES}dmenu.outbackground     : base04
+{XRES}dmenu.outforeground     : base07
+{XRES}dmenu.hibackground      : base00
+{XRES}dmenu.hiforeground      : base0A
+{XRES}dmenu.hiselbackground   : base02
+{XRES}dmenu.hiselforeground   : base0A
+{XRES}dmenu.hioutbackground   : base04
+{XRES}dmenu.hioutforeground   : base0A
 
 {OFF}dmenu.background        : Color0
 {OFF}dmenu.foreground        : Color7
 {OFF}dmenu.selbackground     : Color6
 {OFF}dmenu.selforeground     : Color0
-{OFF}dmenu.highbackground    : Color0
-{OFF}dmenu.highforeground    : Color11
-{OFF}dmenu.highselbackground : Color6
-{OFF}dmenu.highselforeground : Color11
+{OFF}dmenu.outbackground     : Color5
+{OFF}dmenu.outforeground     : Color0
+{OFF}dmenu.hibackground      : Color0
+{OFF}dmenu.hiforeground      : Color11
+{OFF}dmenu.hiselbackground   : Color6
+{OFF}dmenu.hiselforeground   : Color11
+{OFF}dmenu.hioutbackground   : Color5
+{OFF}dmenu.hioutforeground   : Color11
 
 ! color0:       base00
 ! color1:       base08
