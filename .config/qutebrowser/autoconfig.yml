@@ -18,7 +18,7 @@ settings:
     global: false
   content.blocking.method:
     global: auto
-  content.notifications:
+  content.notifications.enabled:
     https://3.solo6.biz: true
     https://awesometoptreats.com: false
     https://www.hackintosh-forum.de: false
