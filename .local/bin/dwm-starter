@@ -6,15 +6,15 @@
 #display -resize 1366x768\! -window root /home/philipp/.xfiles/background/wallpapers/fractals-leaf-caro.jpg
 #display -size 1366x768 -window root /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
-hsetroot -fill /home/philipp/.config/wpg/.current
+hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
 
 picom &
 
 ##### startup-screen
-#xbanish -a &
-#st -g 80x30+350+150 -e cbonsai -lt 0.005 -m " DWM" &
-#sleep 5 && killall cbonsai 2> /dev/null
-#killall xbanish
+xbanish -a &
+st -g 80x30+350+150 -e cbonsai -lt 0.005 -m " DWM" &
+sleep 5 && killall cbonsai 2> /dev/null
+killall xbanish
 
 ##### statusbar
 internetav &

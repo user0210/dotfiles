@@ -6,6 +6,9 @@
 # |_|
 # 
 
+##### add ~/.local/bin to PATH
+export PATH=$PATH:/home/philipp/.local/bin
+
 ##### HDPI
 #export GDK_SCALE=2
 #export GDK_DPI_SCALE=0.8
@@ -38,7 +41,7 @@ fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 ##### nvcode
-export PATH=$HOME/.config/nvcode/utils/bin:$PATH
+#export PATH=$HOME/.config/nvcode/utils/bin:$PATH
 
 ####################################################
 ##### Aliases

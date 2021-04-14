@@ -1,30 +1,30 @@
 dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
 
-!dmenu.background        : base00
-!dmenu.foreground        : base05
-!dmenu.selbackground     : base02
-!dmenu.selforeground     : base06
-!dmenu.outbackground     : base04
-!dmenu.outforeground     : base07
-!dmenu.hibackground      : base00
-!dmenu.hiforeground      : base0A
-!dmenu.hiselbackground   : base02
-!dmenu.hiselforeground   : base0A
-!dmenu.hioutbackground   : base04
-!dmenu.hioutforeground   : base0A
+dmenu.background        : base00
+dmenu.foreground        : base05
+dmenu.selbackground     : base02
+dmenu.selforeground     : base06
+dmenu.outbackground     : base04
+dmenu.outforeground     : base07
+dmenu.hibackground      : base00
+dmenu.hiforeground      : base0A
+dmenu.hiselbackground   : base02
+dmenu.hiselforeground   : base0A
+dmenu.hioutbackground   : base04
+dmenu.hioutforeground   : base0A
 
-dmenu.background        : Color0
-dmenu.foreground        : Color7
-dmenu.selbackground     : Color6
-dmenu.selforeground     : Color0
-dmenu.outbackground     : Color5
-dmenu.outforeground     : Color0
-dmenu.hibackground      : Color0
-dmenu.hiforeground      : Color11
-dmenu.hiselbackground   : Color6
-dmenu.hiselforeground   : Color11
-dmenu.hioutbackground   : Color5
-dmenu.hioutforeground   : Color11
+!dmenu.background        : Color0
+!dmenu.foreground        : Color7
+!dmenu.selbackground     : Color6
+!dmenu.selforeground     : Color0
+!dmenu.outbackground     : Color5
+!dmenu.outforeground     : Color0
+!dmenu.hibackground      : Color0
+!dmenu.hiforeground      : Color11
+!dmenu.hiselbackground   : Color6
+!dmenu.hiselforeground   : Color11
+!dmenu.hioutbackground   : Color5
+!dmenu.hioutforeground   : Color11
 
 ! color0:       base00
 ! color1:       base08

@@ -15,7 +15,7 @@ base00              #1d2021
 base0Ea             #B3667B
 base08a             #DB2914
 base01              #3c3836
-theme	pywal
+theme               gruvbox-dark-hard
 XRES                !
 base0Fa             #B63D00
 base09a             #DE6000
