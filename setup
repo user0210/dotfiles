@@ -198,7 +198,9 @@ git branch -v -a
 ## checkout!!!, make, sudo make install, replace bin-files with softlinks to git-folders:
 ln -s /home/philipp/github/dwm/dwm /usr/local/bin/dwm
 ln -s /home/philipp/github/st/st /usr/local/bin/st
-ln -s /home/philipp/github/dmenu/dmenu /home/philipp/bin/dmenu
+ln -s /home/philipp/github/dmenu/dmenu /usr/local/bin/dmenu
+ln -s /home/philipp/github/dmenu/dmenu_run /usr/local/bin/dmenu_run
+ln -s /home/philipp/github/dmenu/dmenu_path /usr/local/bin/dmenu_path
 
 ## ...now dwmblocks
 git clone git@github.com:philor1/dwmblocks.git
@@ -344,7 +346,7 @@ vim /etc/ssh/sshd_config
 git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
 ## remove yay folder....
 
-yay:mondo-generator xbanish thinkpad-scripts xmenu xclickroot-git
+yay:mondo-generator xbanish thinkpad-scripts xmenu
 	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git
 	cbonsai-git gtkrc-reload
 pacman: network-manager-applet polkit-gnome fzf youtube-dl xsel usbutils figlet htop ps_mem dunst xdotool powertop wget xclip imagemagick
@@ -423,24 +425,15 @@ vim /usr/share/applications/nvim.desktop
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-## nvcode-setup
-sudo pacman -S nodejs npm
-sudo npm install -g neovim
-sudo pacman -S ripgrep fzf ranger ueberzug
+## lv-code-setup
+sudo pacman -S nodejs python-pynvim npm ueberzug ripgrep fzf ranger
 yay -S neovim-remote
-sudo npm install -g tree-sitter-cli
+sudo npm i -g neovim
+npm install -g tree-sitter-cli
 
+git clone https://github.com/ChristianChiarulli/lunarvim.git ~/.config/nvim
 git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-git clone https://github.com/ChristianChiarulli/nvcode.git ~/.config/nvim
-mv $HOME/.config/nvim/init.lua $HOME/.config/nvim/init.lua.tmp
-mv $HOME/.config/nvim/utils/init.lua $HOME/.config/nvim/init.lua
-rm $HOME/.config/nvim/init.lua
-mv $HOME/.config/nvim/init.lua.tmp $HOME/.config/nvim/init.lua
-
-echo 'export PATH=$HOME/.config/nvcode/utils/bin:$PATH' >>~/.zshrc
-echo 'export PATH=$HOME/.config/nvcode/utils/bin:$PATH' >>~/.bashrc
-
-:PackerInstall
+nvim -u $HOME/.config/nvim/init.lua +PackerInstall
 
 ## nvim-lsp
 sudo pacman -S npm

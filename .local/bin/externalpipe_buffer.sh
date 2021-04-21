@@ -11,7 +11,7 @@ function st_strings_read() {
     echo "$INPUT" | grep -oP '"[^"]+"' | tr -d '"'
     echo "$INPUT" | sed 's/^ *[0-9]\+.//g' | awk '{$1=$1};1'
   )" | uniq | grep . | awk '{ print length, $0 }' | sort -n -s | cut -d" " -f2- \
-  >> $BUFFER_FILE &
+  > $BUFFER_FILE &
 }
 function surf_strings_read() {
   awk '{printf "%sNEWLINE_REPLACE", $0} END {printf "\n"}' |
@@ -22,10 +22,10 @@ function surf_strings_read() {
     sed 's/&lt;/</g' |
     sed 's/&gt;/>/g' |
     uniq | grep . | awk '{ print length, $0 }' | sort -n -s | cut -d" " -f2- \
-    >> $BUFFER_FILE &
+    > $BUFFER_FILE &
 }
 function trigger_sigusr1() {
-  USE_FIFO=F # Recomended as T but only if using dmenu-stdin patch w/ FIFO
+  USE_FIFO=T # Recomended as T but only if using dmenu-stdin patch w/ FIFO
   rm -f $BUFFER_FILE
   if [ $USE_FIFO == T ]; then mkfifo $BUFFER_FILE; else touch $BUFFER_FILE; fi
   pkill -USR1 "surf" &
@@ -33,7 +33,7 @@ function trigger_sigusr1() {
   if [ $USE_FIFO != T ]; then sleep 0.8; fi
 }
 function trigger_sigusr2() {
-  USE_FIFO=F # Recomended as T but only if using dmenu-stdin patch w/ FIFO
+  USE_FIFO=T # Recomended as T but only if using dmenu-stdin patch w/ FIFO
   rm -f $BUFFER_FILE
   if [ $USE_FIFO == T ]; then mkfifo $BUFFER_FILE; else touch $BUFFER_FILE; fi
   pkill -USR2 "^st$" &
@@ -46,11 +46,11 @@ function dmenu_copy() {
 }
 function dmenu_type() {
   trigger_sigusr1
-  setxkbmap de && stty -echo && \
-	  cat $BUFFER_FILE | grep '╰╼ ' | cut -d ' ' -f 4- | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | \
-	  sed 's/â†µ/\n/g' | xargs -IC xdotool type --delay 0 "C" && \
-	  stty echo
-# setxkbmap de && cat $BUFFER_FILE | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | sed 's/â†µ/\n/g' | xargs -IC xdotool type --delay 0 "C"
+#  setxkbmap de && stty -echo && \
+#	  cat $BUFFER_FILE | grep '╰╼ ' | cut -d ' ' -f 4- | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | \
+#	  sed 's/â†µ/\n/g' | xargs -IC xdotool type --delay 0 "C" && \
+#	  stty echo
+ setxkbmap de && cat $BUFFER_FILE | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | sed 's/â†µ/\n/g' | xargs -IC xdotool type --delay 0 "C"
 }
 function pipe_combine() {
   trigger_sigusr1

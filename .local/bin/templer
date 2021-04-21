@@ -120,7 +120,7 @@ else
 	cp /home/philipp/.config/wpg/templates/gtk3.20.base /home/philipp/.config/mondo/generator/gtk3.2/_mondo-template
 	sed -i "s/{CFIN}/%%OFF%%/g; s/{OFF}/%%CFIN%%/g" /home/philipp/.config/mondo/generator/gtk3.2/_mondo-template
 
-	sed -i "s/^hsetroot -fill \/home\/philipp\/\.config\/wpg\/\.current/hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/g" /home/philipp/bin/dwm-starter
+	sed -i "s/^hsetroot -fill \/home\/philipp\/\.config\/wpg\/\.current/hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/g" /home/philipp/.local/bin/dwm-starter
 
 	sed -i "s/^#\(c\.colors\..*base0.\)/\1/g; s/^\(c\.colors\..*color.*\)/#\1/g" /home/philipp/.config/qutebrowser/config.py
 
@@ -203,12 +203,12 @@ else
 		convert /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fill "$(xrdb -query|awk '/\*color7:/ {print $2}')" -opaque "#000000" -fill "$(xrdb -query|awk '/\*color0:/ {print $2}')" +opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots8.png
 		convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -query|awk '/\*color7:/ {print $2}')" -opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots16.png
 		hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
-		sed -i "s/^hsetroot -fill \/home\/philipp\/\.config\/wpg\/\.current/hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/g" /home/philipp/bin/dwm-starter
+		sed -i "s/^hsetroot -fill \/home\/philipp\/\.config\/wpg\/\.current/hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/g" /home/philipp/.local/bin/dwm-starter
 		sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" /home/philipp/.Xresources
 	elif [ '[pywal-wallpaper]' = "$template" ]; then
 		wpg --backend $backend -s $theme
 		hsetroot -fill /home/philipp/.config/wpg/.current
-		sed -i "s/^hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/hsetroot -fill \/home\/philipp\/\.config\/wpg\/\.current/g" /home/philipp/bin/dwm-starter
+		sed -i "s/^hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/hsetroot -fill \/home\/philipp\/\.config\/wpg\/\.current/g" /home/philipp/.local/bin/dwm-starter
 		sed -i "s/^\*alpha:.*/\*alpha: 0\.93/g" /home/philipp/.Xresources
 		sed -i "s/^backend.*/backend = $backend/g" /home/philipp/.config/wpg/wpg.conf 
 	fi

@@ -4,14 +4,14 @@ dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
 {XRES}dmenu.foreground        : base05
 {XRES}dmenu.selbackground     : base02
 {XRES}dmenu.selforeground     : base06
-{XRES}dmenu.outbackground     : base04
-{XRES}dmenu.outforeground     : base07
+{XRES}dmenu.outbackground     : base0D
+{XRES}dmenu.outforeground     : base00
 {XRES}dmenu.hibackground      : base00
 {XRES}dmenu.hiforeground      : base0A
 {XRES}dmenu.hiselbackground   : base02
 {XRES}dmenu.hiselforeground   : base0A
-{XRES}dmenu.hioutbackground   : base04
-{XRES}dmenu.hioutforeground   : base0A
+{XRES}dmenu.hioutbackground   : base0D
+{XRES}dmenu.hioutforeground   : base00
 
 {OFF}dmenu.background        : Color0
 {OFF}dmenu.foreground        : Color7

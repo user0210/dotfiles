@@ -6,7 +6,7 @@
 #display -resize 1366x768\! -window root /home/philipp/.xfiles/background/wallpapers/fractals-leaf-caro.jpg
 #display -size 1366x768 -window root /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
-hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
+hsetroot -fill /home/philipp/.config/wpg/.current
 
 picom &
 
@@ -32,9 +32,6 @@ xbanish &
 
 ##### systray-applications
 suckless-menu 2> /dev/null && sleep 1 && nm-applet &
-
-##### xclickroot-options
-xclickroot -r xmenu.sh &
 
 ##### dwm (while loop for autorestart..)
 while true; do

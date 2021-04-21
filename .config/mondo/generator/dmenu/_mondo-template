@@ -4,14 +4,14 @@ dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
 %%OFF%%dmenu.foreground        : base05
 %%OFF%%dmenu.selbackground     : base02
 %%OFF%%dmenu.selforeground     : base06
-%%OFF%%dmenu.outbackground     : base04
-%%OFF%%dmenu.outforeground     : base07
+%%OFF%%dmenu.outbackground     : base0D
+%%OFF%%dmenu.outforeground     : base00
 %%OFF%%dmenu.hibackground      : base00
 %%OFF%%dmenu.hiforeground      : base0A
 %%OFF%%dmenu.hiselbackground   : base02
 %%OFF%%dmenu.hiselforeground   : base0A
-%%OFF%%dmenu.hioutbackground   : base04
-%%OFF%%dmenu.hioutforeground   : base0A
+%%OFF%%dmenu.hioutbackground   : base0D
+%%OFF%%dmenu.hioutforeground   : base00
 
 %%XRES%%dmenu.background        : Color0
 %%XRES%%dmenu.foreground        : Color7
