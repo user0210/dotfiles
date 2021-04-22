@@ -27,6 +27,8 @@ settings:
     https://mail.google.com?extsrc=mailto&url=%25s: true
   scrolling.bar:
     global: overlay
+  statusbar.show:
+    global: in-mode
   tabs.show:
     global: multiple
   url.searchengines:

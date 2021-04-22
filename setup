@@ -629,13 +629,13 @@ sudo systemctl enable fstrim.timer
 cd /etc/udev/rules.d
 sudo touch 40-android.rules
 sudo vim 40-android.rules
-    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+15 dwmblocks"
-    ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+15 dwmblocks"
+    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+12 dwmblocks"
+    ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+12 dwmblocks"
 
 sudo touch 40-usb.rules
 sudo vim 40-usb.rules
-    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ATTR{removable}=="1", RUN{program}+="/bin/pkill -SIGRTMIN+14 dwmblocks"
-    ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="block", RUN{program}+="/bin/pkill -SIGRTMIN+14 dwmblocks"
+    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ATTR{removable}=="1", RUN{program}+="/bin/pkill -SIGRTMIN+11 dwmblocks"
+    ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="block", RUN{program}+="/bin/pkill -SIGRTMIN+11 dwmblocks"
 
 sudo udevadm control --reload
 
@@ -651,7 +651,7 @@ vim /etc/pacman.d/hooks/50-updatecount.hook
     [Action]
     Description = Reset Update-counter in dwmblocks
     When = PostTransaction
-    Exec = /usr/bin/bash -c "sudo /usr/bin/checkupdates | wc -l > /home/philipp/.cache/updates && pkill -SIGRTMIN+12 dwmblocks"
+    Exec = /usr/bin/bash -c "sudo /usr/bin/checkupdates | wc -l > /home/philipp/.cache/updates && pkill -SIGRTMIN+10 dwmblocks"
 
 ##### mlocate
 svim /etc/updatedb.conf
