@@ -7,6 +7,7 @@
 
 #### simpler, better (first terminal attaches to unclosed session...)
 if [ -z "$TMUX" ] ;then
+		renumber-sessions
 		tmux new-session -d -s base -n 0 2> /dev/null
 		tmux new-session -d -t base -s 1 2> /dev/null
 		STMUX=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | wc -l)

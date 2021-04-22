@@ -20,6 +20,9 @@ PROMPT_COMMAND='printf "\e]112\a"'
 tabs -4
 export HIGHLIGHT_OPTIONS="replace-tabs=4"
 
+##### for apps to know the colorspace
+export COLORTERM=truecolor
+
 ##### Default programs:
 export EDITOR="vim"
 export BROWSER="qutebrowser"
