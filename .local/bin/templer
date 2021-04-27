@@ -1,252 +1,240 @@
 #!/bin/sh
 
-
 ##############################################################################################
 case "$1" in  ################################################################################
 ##############################################################################################
--u)
-	sudo sed -i "s/232/257/g" /usr/lib/python3.8/site-packages/pywal/sequences.py
-	exit 1
-esac
+-base)
 
-##############################################################################################
-case "$1" in  ################################################################################
-##############################################################################################
--a)
-	fullname=$(basename -- "$2")
-	name="${fullname%.*}"
-	folder="/home/philipp/.config/wpg/"
-	backendlist="colorz colorthief haishoku schemer2 wal"
-	
-	echo "$backendlist" | tr ' ' '\n' | while read backend; do
-		wpg --backend $backend -a "$2" || (find ${folder}samples/ -name "${name}*${backend}*" -delete; find ${folder}schemes/ -name "*${name}*${backend}*" -delete)
-	done
+fileorpath=$2
 
-	exit 1
-esac
+for f in $fileorpath; do
+    col0=$(grep "color0" $2 | grep -o "#......")
+    col7=$(grep "color7" $2 | grep -o "#......")
+    col8=$(grep "color8" $2 | grep -o "#......")
+    col15=$(grep "color15" $2 | grep -o "#......")
 
-##############################################################################################
-case "$1" in  ################################################################################
-##############################################################################################
--all)
-	ls | xargs -I {} templer -a {}
-
-	exit 1
-esac
-
-##############################################################################################
-case "$1" in  ################################################################################
-##############################################################################################
--d)
-	fullname=$(sxiv -N wallman -to /home/philipp/.config/wpg/wallpapers/* | head -n 1 | sed "s/.*\///")
-	if [ ! -z "$fullname" ] ;then
-		name="${fullname%.*}"
-		folder="/home/philipp/.config/wpg/"
-		samplenr=$(ls /home/philipp/.config/wpg/samples | grep "$fullname" | wc -l)
-		if [ "$samplenr" -gt 1 ]; then
-			backendlist=$(sxiv -N wallman -to /home/philipp/.config/wpg/samples/*$fullname* | sed "s/.*\/$fullname.\(.*\)_sample\.png/\1/")
-			if [ -z "$backendlist" ] ;then
-				echo "nothing"
-			else
-				echo "$backendlist" | tr ' ' '\n' | while read backend; do
-					find ${folder}samples/ -name "${name}*${backend}*" -delete
-					find ${folder}schemes/ -name "*${name}*${backend}*" -delete
-				done
-			fi
-		else
-			backend=$(ls /home/philipp/.config/wpg/samples/*$fullname* | head -n 1 | sed "s/.*\/$fullname.\(.*\)_sample\.png/\1/")
-				find ${folder}samples/ -name "${name}*${backend}*" -delete
-				find ${folder}schemes/ -name "*${name}*${backend}*" -delete
-		fi
-	
-		test=$(ls /home/philipp/.config/wpg/samples | grep "$fullname")
-		if [ -z "$test" ]; then
-			find ${folder}wallpapers/ -name "${fullname}" -delete
-		fi
-	fi
-
-	exit 1
-esac
-
-
-init=$(mondo get theme)
-
-## with bashisms
-#templer=("[pywal-wallpaper]" "[pywal-themes]" "[base16-themes]")
-#template=$(printf '%s\n' "${templer[@]}" | dmenu -p "template: ")
-## posix...
-templer="[pywal-wallpaper]\n[pywal-themes]\n[base16-themes]"
-template=$(printf "${templer}" | dmenu -p "template: ")
-
-##############################################################################################
-if [ '[base16-themes]' = "$template" ]; then  #####  BASE16  ################################
-##############################################################################################
-theme=$(ls "/home/philipp/.config/mondo/themes" | grep "^[^._]" | dmenu -p "base16: ")
-
-if [ -z "$theme" ] ;then
-	echo "nothing"
-else
-	rm /home/philipp/.xfiles/xres-color-def
-	ln -s /home/philipp/.xfiles/base16/xres-color-def /home/philipp/.xfiles/xres-color-def
-	
-	rm /home/philipp/.config/mondo/generator/dmenu/_mondo-template
-	cp /home/philipp/.config/wpg/templates/philipp_xfiles_dmenu-color.base /home/philipp/.config/mondo/generator/dmenu/_mondo-template
-	sed -i "s/{XRES}/%%OFF%%/g; s/{OFF}/%%XRES%%/g" /home/philipp/.config/mondo/generator/dmenu/_mondo-template
-	
-	rm /home/philipp/.config/mondo/generator/xmenu/_mondo-template
-	cp /home/philipp/.config/wpg/templates/philipp_xfiles_xmenu-color.base /home/philipp/.config/mondo/generator/xmenu/_mondo-template
-	sed -i "s/{XRES}/%%OFF%%/g; s/{OFF}/%%XRES%%/g" /home/philipp/.config/mondo/generator/xmenu/_mondo-template
-	
-	rm /home/philipp/.config/mondo/generator/dwm/_mondo-template
-	cp /home/philipp/.config/wpg/templates/philipp_xfiles_dwm-color.base /home/philipp/.config/mondo/generator/dwm/_mondo-template
-	sed -i "s/{XRES}/%%OFF%%/g; s/{OFF}/%%XRES%%/g" /home/philipp/.config/mondo/generator/dwm/_mondo-template
-
-	rm /home/philipp/.config/mondo/generator/dunst/_mondo-template
-	cp /home/philipp/.config/wpg/templates/config_dunst_dunstrc.base /home/philipp/.config/mondo/generator/dunst/_mondo-template
-	sed -i "s/{BASH}/%%OFF%%/g; s/{OFF}/%%BASH%%/g" /home/philipp/.config/mondo/generator/dunst/_mondo-template
-
-	rm /home/philipp/.config/mondo/generator/zathura/_mondo-template
-	cp /home/philipp/.config/wpg/templates/config_zathura_zathurarc.base /home/philipp/.config/mondo/generator/zathura/_mondo-template
-	sed -i "s/{BASH}/%%OFF%%/g; s/{OFF}/%%BASH%%/g" /home/philipp/.config/mondo/generator/zathura/_mondo-template
-
-	rm /home/philipp/.config/mondo/generator/gtk2/_mondo-template
-	cp /home/philipp/.config/wpg/templates/gtk2.base /home/philipp/.config/mondo/generator/gtk2/_mondo-template
-	sed -i "s/{BASH}/%%OFF%%/g; s/{OFF}/%%BASH%%/g" /home/philipp/.config/mondo/generator/gtk2/_mondo-template
-	sed -i "s/{{/{/g; s/}}/}/g" /home/philipp/.config/mondo/generator/gtk2/_mondo-template
-	rm /home/philipp/.config/mondo/generator/gtk3.0/_mondo-template
-	cp /home/philipp/.config/wpg/templates/gtk3.0.base /home/philipp/.config/mondo/generator/gtk3.0/_mondo-template
-	sed -i "s/{CFIN}/%%OFF%%/g; s/{OFF}/%%CFIN%%/g" /home/philipp/.config/mondo/generator/gtk3.0/_mondo-template
-	rm /home/philipp/.config/mondo/generator/gtk3.2/_mondo-template
-	cp /home/philipp/.config/wpg/templates/gtk3.20.base /home/philipp/.config/mondo/generator/gtk3.2/_mondo-template
-	sed -i "s/{CFIN}/%%OFF%%/g; s/{OFF}/%%CFIN%%/g" /home/philipp/.config/mondo/generator/gtk3.2/_mondo-template
-
-	sed -i "s/^hsetroot -fill \/home\/philipp\/\.config\/wpg\/\.current/hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/g" /home/philipp/.local/bin/dwm-starter
-
-	sed -i "s/^#\(c\.colors\..*base0.\)/\1/g; s/^\(c\.colors\..*color.*\)/#\1/g" /home/philipp/.config/qutebrowser/config.py
-
-	sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" /home/philipp/.Xresources
-
-	mondo -a $theme
-
-	tmux source-file -q ~/.tmux.conf
-
-	ICON=$(xrdb -query|awk '/\*color3:/ {print $2}')
-	cp -rf /home/philipp/.xfiles/icons/TermColor.template/* /home/philipp/.icons/TermColor
-	find /home/philipp/.icons/TermColor/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
-	timeout 0.1s xsettingsd -c /home/philipp/.xfiles/.xsettingsdummy
-	timeout 0.1s xsettingsd -c /home/philipp/.xfiles/.xsettingsd
-
-	convert -size 16x16 -background none /home/philipp/.icons/TermColor/apps/scalable/web-browser-symbolic.svg /home/philipp/.xfiles/icons/web-browser-symbolic.png
-	convert -size 16x16 -background none /home/philipp/.icons/TermColor/actions/scalable/sidebar-places-symbolic.svg /home/philipp/.xfiles/icons/sidebar-places-symbolic.png
-
-	xsetroot -name "fsignal:1"
-	xsetroot -name "fsignal:2"
-fi
-###############################################################################################################
-elif [ '[pywal-themes]' = "$template" ] || [ '[pywal-wallpaper]' = "$template" ]; then  #####  PYWAL-THEME  ###
-###############################################################################################################
-if [ '[pywal-themes]' = "$template" ]; then
-	theme=$(wpg --theme | sort | dmenu -p "pywal: ")
-elif [ '[pywal-wallpaper]' = "$template" ]; then
-	theme=$(sxiv -N wallman -to /home/philipp/.config/wpg/wallpapers/* | head -n 1 | sed "s/.*\///")
-	samplenr=$(ls /home/philipp/.config/wpg/samples | grep "$theme" | wc -l)
-	if [ "$samplenr" -gt 1 ]; then
-		backend=$(sxiv -N wallman -to /home/philipp/.config/wpg/samples/*$theme* | head -n 1 | sed "s/.*\/$theme.\(.*\)_sample\.png/\1/")
-	else
-		backend=$(ls /home/philipp/.config/wpg/samples/*$theme* | head -n 1 | sed "s/.*\/$theme.\(.*\)_sample\.png/\1/")
-	fi
-fi
-
-if [ -z "$theme" ] ;then
-	echo "nothing"
-else
-    # old nvim-config
-	# rm /home/philipp/.vimrc_background
-	if [ '[pywal-wallpaper]' = "$template" ]; then
-        scheme=$(printf $theme | sed -e 's/\.[^.]*$//')
-        col0=$(grep "color0" /home/philipp/.config/wpg/schemes/*${scheme}*${backend}* | grep -o "#......")
-        col8=$(grep "color8" /home/philipp/.config/wpg/schemes/*${scheme}*${backend}* | grep -o "#......")
-        col7=$(grep "color7" /home/philipp/.config/wpg/schemes/*${scheme}*${backend}* | grep -o "#......")
-        col15=$(grep "color15" /home/philipp/.config/wpg/schemes/*${scheme}*${backend}* | grep -o "#......")
-	elif [ '[pywal-themes]' = "$template" ]; then
-        col0=$(grep -o "color0[^,]*" /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/${theme}* | grep -o "#......")
-        col8=$(grep -o "color8[^,]*" /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/${theme}* | grep -o "#......")
-        col7=$(grep -o "color7[^,]*" /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/${theme}* | grep -o "#......")
-        col15=$(grep -o "color15[^,]*" /usr/lib/python3.9/site-packages/pywal/colorschemes/dark/${theme}* | grep -o "#......")
-    fi
     light=$(colort -c $col0 && printf 0 || printf 1)
+	
 	if [ "$light" -eq 0 ]; then
-        col0a=$(colort -l 15 $col0)
-        col8a=$(colort -l 30 $col8)
-        col7a=$(colort -l -30 $col7)
-        col15a=$(colort -l -15 $col15)
+        col0a=$(colort -l -15 $col0)
+        col8a=$(colort -l -30 $col8)
+        col7a=$(colort -l 30 $col7)
+        col15a=$(colort -l 15 $col15)
     else
         col0a=$(colort -l 15 $col0)
         col8a=$(colort -l 30 $col8)
         col7a=$(colort -l -30 $col7)
         col15a=$(colort -l -15 $col15)
     fi
-    sed -i "s/color0a = #....../color0a = $col0a/g" /home/philipp/.config/wpg/wpg.conf
-    sed -i "s/color8a = #....../color8a = $col8a/g" /home/philipp/.config/wpg/wpg.conf
-    sed -i "s/color7a = #....../color7a = $col7a/g" /home/philipp/.config/wpg/wpg.conf
-    sed -i "s/color15a = #....../color15a = $col15a/g" /home/philipp/.config/wpg/wpg.conf
+
+	echo "base00 : $col0"
+	echo "base01 : $col0a"
+	echo "base02 : $col8"
+	echo "base03 : $col8a"
+	echo "base04 : $col7a"
+	echo "base05 : $col7"
+	echo "base06 : $col15a"
+	echo "base07 : $col15"
+done
+esac
+
+##############################################################################################
+case "$1" in  ################################################################################
+##############################################################################################
+-color)
+
+fileorpath=$2
+
+for f in $fileorpath; do
+    col0=$(grep "^base00" $f | grep -o "#......")
+    col8=$(grep "^base08" $f | grep -o "#......")
+    col9=$(grep "^base09" $f | grep -o "#......")
+    colA=$(grep "^base0A" $f | grep -o "#......")
+    colB=$(grep "^base0B" $f | grep -o "#......")
+    colC=$(grep "^base0C" $f | grep -o "#......")
+    colD=$(grep "^base0D" $f | grep -o "#......")
+    colE=$(grep "^base0E" $f | grep -o "#......")
+    colF=$(grep "^base0F" $f | grep -o "#......")
+
+    light=$(colort -c $col0 && printf 0 || printf 1)
+
+	if [ "$light" -eq 0 ]; then
+        col8a=$(colort -l -32 $col8)
+        col9a=$(colort -l -32 $col9)
+        colAa=$(colort -l -32 $colA)
+        colBa=$(colort -l -32 $colB)
+        colCa=$(colort -l -32 $colC)
+        colDa=$(colort -l -32 $colD)
+        colEa=$(colort -l -32 $colE)
+        colFa=$(colort -l -32 $colF)
+    else
+        col8a=$(colort -l 32 $col8)
+        col9a=$(colort -l 32 $col9)
+        colAa=$(colort -l 32 $colA)
+        colBa=$(colort -l 32 $colB)
+        colCa=$(colort -l 32 $colC)
+        colDa=$(colort -l 32 $colD)
+        colEa=$(colort -l 32 $colE)
+        colFa=$(colort -l 32 $colF)
+    fi
+
+	# echo...
+    echo "base8a : $colFa"
+    echo "base9a : $colEa"
+    echo "baseAa : $colDa"
+    echo "baseBa : $colCa"
+    echo "baseCa : $colBa"
+    echo "baseDa : $colAa"
+    echo "baseEa : $col9a"
+    echo "baseFa : $col8a"
+
+	# print directly to file...
+    #sed -i "21i\base0Fa\t$colFa" $f
+    #sed -i "21i\base0Ea\t$colEa" $f
+    #sed -i "21i\base0Da\t$colDa" $f
+    #sed -i "21i\base0Ca\t$colCa" $f
+    #sed -i "21i\base0Ba\t$colBa" $f
+    #sed -i "21i\base0Aa\t$colAa" $f
+    #sed -i "21i\base09a\t$col9a" $f
+    #sed -i "21i\base08a\t$col8a" $f
+done
+esac
 
 
-	sed -i "s/^theme.*/theme	pywal/g" /home/philipp/.config/mondo/themes/.current
-	rm /home/philipp/.xfiles/xres-color-def
-	ln -s /home/philipp/.xfiles/pywal/xres-color-pywal /home/philipp/.xfiles/xres-color-def
 
-	sed -i "s/^#\(c\.colors\..*color.*\)/\1/g; s/^\(c\.colors\..*base0.\)/#\1/g" /home/philipp/.config/qutebrowser/config.py
 
-	if [ '[pywal-themes]' = "$template" ]; then
-		wpg -n --theme $theme
-		convert /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fill "$(xrdb -query|awk '/\*color7:/ {print $2}')" -opaque "#000000" -fill "$(xrdb -query|awk '/\*color0:/ {print $2}')" +opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots8.png
-		convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -query|awk '/\*color7:/ {print $2}')" -opaque "#ffffff" /home/philipp/.xfiles/background/png-walls/dots16.png
-		hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
-		sed -i "s/^hsetroot -fill \/home\/philipp\/\.config\/wpg\/\.current/hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/g" /home/philipp/.local/bin/dwm-starter
-		sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" /home/philipp/.Xresources
-	elif [ '[pywal-wallpaper]' = "$template" ]; then
-		wpg --backend $backend -s $theme
-		hsetroot -fill /home/philipp/.config/wpg/.current
-		sed -i "s/^hsetroot -tile \/home\/philipp\/\.xfiles\/background\/png-walls\/dots16\.png/hsetroot -fill \/home\/philipp\/\.config\/wpg\/\.current/g" /home/philipp/.local/bin/dwm-starter
-		sed -i "s/^\*alpha:.*/\*alpha: 0\.93/g" /home/philipp/.Xresources
-		sed -i "s/^backend.*/backend = $backend/g" /home/philipp/.config/wpg/wpg.conf 
-	fi
+templer="[wallpaper]\n[wallpaper-theme]\n[xresources-theme]"
+template=$(printf "${templer}" | dmenu -p "template: ")
 
-	xrdb -merge -I$HOME ~/.Xresources
-	externalpipe_buffer.sh st_reloadsignal
-	neovim-reload.py
 
-	tmux source-file -q ~/.tmux.conf
+##############################################################################################
+if [ '[wallpaper]' = "$template" ]; then  #####  SET-WALLPAPER  #####################
+##############################################################################################
 
-	sed -e "s/#aaaaaa/$(xrdb -query|awk '/\*color7:/ {print $2}')/" /home/philipp/.xfiles/icons/low-bak.svg > /home/philipp/.xfiles/icons/low.svg
-	sed -e "s/#aaaaaa/$(xrdb -query|awk '/\*color10:/ {print $2}')/" /home/philipp/.xfiles/icons/normal-bak.svg > /home/philipp/.xfiles/icons/normal.svg
-	sed -e "s/#aaaaaa/$(xrdb -query|awk '/\*color0:/ {print $2}')/" /home/philipp/.xfiles/icons/critical-bak.svg > /home/philipp/.xfiles/icons/critical.svg
-	killall dunst
+wallpaper=$(sxiv -N wallman -to ~/.xfiles/background/wallpapers | head -n 1)
 
-	sed -i "s/scheme>Base16/scheme>Pywal/" /home/philipp/.local/share/onboard/themes/templer.theme
-	killall onboard && onboard &
+if [ -z "$wallpaper" ] ;then
+	echo "nothing"
+else
+	echo $wallpaper > ~/.xfiles/impler/wallpaper
+	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ~\/\.xfiles\/impler\/wallpaper\)/g" ~/.local/bin/dwm-starter
+	hsetroot -fill $(cat ~/.xfiles/impler/wallpaper)
+fi
 
-	killall nm-applet; nm-applet &
-	killall polkit-gnome-authentication-agent-1; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-	killall -9 dwmblocks
-	make -C /home/philipp/github/dwmblocks
-	dwmblocks &
+##############################################################################################
+elif [ '[xresources-theme]' = "$template" ]; then  #####  TERMINAL-COLORS  #####################
+##############################################################################################
 
-	pgrep qutebrowser && qutebrowser :config-source
+theme=$(ls ~/.config/mondo/themes | grep "^[^._]" | dmenu -p "theme: ")
 
-	ICON=$(xrdb -query|awk '/\*color2:/ {print $2}')
-	cp -rf /home/philipp/.xfiles/icons/TermColor.template/* /home/philipp/.icons/TermColor
-	find /home/philipp/.icons/TermColor/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
-	timeout 0.1s xsettingsd -c /home/philipp/.xfiles/.xsettingsdummy
-	timeout 0.1s xsettingsd -c /home/philipp/.xfiles/.xsettingsd
+if [ -z "$theme" ] ;then
+	echo "nothing"
+else
+	mondo -a $theme
+fi
 
-	convert -size 16x16 -background none /home/philipp/.icons/TermColor/apps/scalable/web-browser-symbolic.svg /home/philipp/.xfiles/icons/web-browser-symbolic.png
-	convert -size 16x16 -background none /home/philipp/.icons/TermColor/actions/scalable/sidebar-places-symbolic.svg /home/philipp/.xfiles/icons/sidebar-places-symbolic.png
+###############################################################################################################
+elif [ '[wallpaper-theme]' = "$template" ]; then  #####  WALLPAPER-COLORS  ####################################
+###############################################################################################################
 
-	xsetroot -name "fsignal:1"
-	xsetroot -name "fsignal:2"
+rm ~/.xfiles/impler/schemes/* 2> /dev/null
+rm ~/.xfiles/impler/samples/* 2> /dev/null
+wallpaper=$(sxiv -N wallman -to ~/.xfiles/background/wallpapers/* | head -n 1)
+
+if [ -z "$wallpaper" ] ;then
+	echo "nothing"
+else
+	theme="impler"
+	backendlist="pigmnts schemer2 convert"
+	echo "$backendlist" | tr ' ' '\n' | while read backend; do
+		impler --image=$wallpaper --palette=$backend set
+# get base-colors...
+		base00=$(grep  "color0="   ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base01=$(grep  "color237=" ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base02=$(grep  "color239=" ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base03=$(grep  "color241=" ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base04=$(grep  "color246=" ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base05=$(grep  "color249=" ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base06=$(grep  "color250=" ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base07=$(grep  "color15="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base08=$(grep  "color9="   ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base09=$(grep  "color56="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0A=$(grep  "color11="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0B=$(grep  "color10="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0C=$(grep  "color14="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0D=$(grep  "color12="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0E=$(grep  "color13="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0F=$(grep  "color18="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base08a=$(grep "color1="   ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base09a=$(grep "color59="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Aa=$(grep "color3="   ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Ba=$(grep "color2="   ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Ca=$(grep "color6="   ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Da=$(grep "color4="   ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Ea=$(grep "color5="   ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Fa=$(grep "color20="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+# export scheme-files...
+		echo "base00  $base00"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base01  $base01"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base02  $base02"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base03  $base03"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base04  $base04"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base05  $base05"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base06  $base06"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base07  $base07"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base08  $base08"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base09  $base09"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base0A  $base0A"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base0B  $base0B"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base0C  $base0C"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base0D  $base0D"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base0E  $base0E"  >> ~/.xfiles/impler/schemes/$backend
+		echo "base0F  $base0F"  >> ~/.xfiles/impler/schemes/$backend
+		echo >> ~/.xfiles/impler/schemes/$backend
+		echo "base08a $base08a" >> ~/.xfiles/impler/schemes/$backend
+		echo "base09a $base09a" >> ~/.xfiles/impler/schemes/$backend
+		echo "base0Aa $base0Aa" >> ~/.xfiles/impler/schemes/$backend
+		echo "base0Ba $base0Ba" >> ~/.xfiles/impler/schemes/$backend
+		echo "base0Ca $base0Ca" >> ~/.xfiles/impler/schemes/$backend
+		echo "base0Da $base0Da" >> ~/.xfiles/impler/schemes/$backend
+		echo "base0Ea $base0Ea" >> ~/.xfiles/impler/schemes/$backend
+		echo "base0Fa $base0Fa" >> ~/.xfiles/impler/schemes/$backend
+# generate sample image...
+		convert -size 800x300 xc:none \
+		   -fill "$base00" -draw "rectangle 0,0 100,100" \
+		   -fill "$base01" -draw "rectangle 100,0 200,100" \
+		   -fill "$base02" -draw "rectangle 200,0 300,100" \
+		   -fill "$base03" -draw "rectangle 300,0 400,100" \
+		   -fill "$base04" -draw "rectangle 400,0 500,100" \
+		   -fill "$base05" -draw "rectangle 500,0 600,100" \
+		   -fill "$base06" -draw "rectangle 600,0 700,100" \
+		   -fill "$base07" -draw "rectangle 700,0 800,100" \
+		   -fill "$base08" -draw "rectangle 0,100 100,200" \
+		   -fill "$base09" -draw "rectangle 100,100 200,200" \
+		   -fill "$base0A" -draw "rectangle 200,100 300,200" \
+		   -fill "$base0B" -draw "rectangle 300,100 400,200" \
+		   -fill "$base0C" -draw "rectangle 400,100 500,200" \
+		   -fill "$base0D" -draw "rectangle 500,100 600,200" \
+		   -fill "$base0E" -draw "rectangle 600,100 700,200" \
+		   -fill "$base0F" -draw "rectangle 700,100 800,200" \
+		   -fill "$base08a" -draw "rectangle 0,200 100,300" \
+		   -fill "$base09a" -draw "rectangle 100,200 200,300" \
+		   -fill "$base0Aa" -draw "rectangle 200,200 300,300" \
+		   -fill "$base0Ba" -draw "rectangle 300,200 400,300" \
+		   -fill "$base0Ca" -draw "rectangle 400,200 500,300" \
+		   -fill "$base0Da" -draw "rectangle 500,200 600,300" \
+		   -fill "$base0Ea" -draw "rectangle 600,200 700,300" \
+		   -fill "$base0Fa" -draw "rectangle 700,200 800,300" ~/.xfiles/impler/samples/$backend.png
+	done
+# choose backend... 
+	backend=$(sxiv -N wallman -to ~/.xfiles/impler/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
+# connect color-theme to mondo...
+	rm ~/.config/mondo/themes/impler 2> /dev/null
+	ln -s ~/.xfiles/impler/schemes/$backend ~/.config/mondo/themes/impler
+	mondo -f -g impler
+# apply theme on templates
+	mondo -a $theme
 fi
 
 

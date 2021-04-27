@@ -13,7 +13,7 @@
     icon_position = left
     max_icon_size = 17
     dmenu = /usr/local/bin/dmenu -p dunst:
-    browser = /usr/bin/brave
+    browser = /usr/bin/qutebrowser
 
 [shortcuts]
     close = mod4+ctrl+d
@@ -21,32 +21,23 @@
     history = mod4+shift+d
 
 [urgency_low]
-#	background =  "{color0}"
-#	foreground =  "{color7}"
-#	frame_color = "{color0}"
 	background =  "#f5f7ff"
 	foreground =  "#293256"
 	frame_color = "#f5f7ff"
-		timeout = 6
-		icon = /home/philipp/.xfiles/icons/low.svg
+	timeout = 6
+	icon = /home/philipp/.xfiles/icons/low.svg
 [urgency_normal]
-#	background =  "{color0}"
-#	foreground =  "{color10}"
-#	frame_color = "{color0}"
 	background =  "#f5f7ff"
 	foreground =  "#ac9739"
 	frame_color = "#f5f7ff"
-		timeout = 6
-		icon = /home/philipp/.xfiles/icons/normal.svg
+	timeout = 6
+	icon = /home/philipp/.xfiles/icons/normal.svg
 [urgency_critical]
-#	background =  "{color9}"
-#	foreground =  "{color0}"
-#	frame_color = "{color9}"
-	background =  "#c94922"
+	background =  "#E96942"
 	foreground =  "#f5f7ff"
-	frame_color = "#c94922"
-		timeout = 0
-		icon = /home/philipp/.xfiles/icons/critical.svg
+	frame_color = "#E96942"
+	timeout = 0
+	icon = /home/philipp/.xfiles/icons/critical.svg
 
 
 #########################################################################

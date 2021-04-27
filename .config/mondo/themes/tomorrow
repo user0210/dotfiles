@@ -43,9 +43,3 @@ base0Fa	#C3887A
 !! base0D	# blue
 !! base0E	# purple
 !! base0F	# brown    
-
-
-OFF 
-XRES !
-BASH #
-CFIN */

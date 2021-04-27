@@ -19,6 +19,4 @@
 # To source the settings file one could use this:
 # source "${THIS_DIR}/_mondo-settings"
 
-sed -i "s/scheme>Pywal/scheme>Base16/" /home/philipp/.local/share/onboard/themes/templer.theme
-
 killall onboard && onboard &

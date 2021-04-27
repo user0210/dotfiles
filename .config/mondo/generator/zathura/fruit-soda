@@ -15,74 +15,44 @@ set font "TerminessTTF Nerd Font 12"
 ##### colors
 ####################################################################
 
-##### base16-colors
-set notification-error-bg       "#f1ecf1" # bg
-set notification-error-fg       "#fe3e31" # bright:red
-set notification-warning-bg     "#f1ecf1" # bg
-set notification-warning-fg     "#f7e203" # bright:yellow
-set notification-bg             "#f1ecf1" # bg
-set notification-fg             "#47f74c" # bright:green
+##### templer-colors
+set notification-error-bg	"#f1ecf1"	# bg
+set notification-error-fg	"#fe3e31"	# bright:red
+set notification-warning-bg	"#f1ecf1"	# bg
+set notification-warning-fg	"#f7e203"	# bright:yellow
+set notification-bg			"#f1ecf1"	# bg
+set notification-fg			"#47f74c"	# bright:green
 
-set completion-bg               "#d8d5d5" # bg2
-set completion-fg               "#474545" # fg
-set completion-group-bg         "#e0dee0" # bg1
-set completion-group-fg         "#979598" # gray
-set completion-highlight-bg     "#2931df" # bright:blue
-set completion-highlight-fg     "#d8d5d5" # bg2
+set completion-bg			"#d8d5d5"	# bg2
+set completion-fg			"#474545"	# fg
+set completion-group-bg		"#e0dee0"	# bg1
+set completion-group-fg		"#979598"	# gray
+set completion-highlight-bg	"#2931df"	# bright:blue
+set completion-highlight-fg	"#d8d5d5"	# bg2
 
 # Define the color in index mode
-set index-bg                    "#d8d5d5" # bg2
-set index-fg                    "#474545" # fg
-set index-active-bg             "#2931df" # bright:blue
-set index-active-fg             "#d8d5d5" # bg2
+set index-bg				"#d8d5d5"	# bg2
+set index-fg				"#474545"	# fg
+set index-active-bg			"#2931df"	# bright:blue
+set index-active-fg			"#d8d5d5"	# bg2
 
-set inputbar-bg                 "#f1ecf1" # bg
-set inputbar-fg                 "#474545" # fg
+set inputbar-bg				"#f1ecf1"	# bg
+set inputbar-fg				"#474545"	# fg
 
-set statusbar-bg                "#d8d5d5" # bg2
-set statusbar-fg                "#474545" # fg
+set statusbar-bg			"#d8d5d5"	# bg2
+set statusbar-fg			"#474545"	# fg
 
-set highlight-color             "#f7e203" # bright:yellow
-set highlight-active-color      "#fe6d08" # bright:orange
+set highlight-color			"#f7e203"	# bright:yellow
+set highlight-active-color	"#fe6d08"	# bright:orange
 
-set default-bg                  "#f1ecf1" # bg
-set default-fg                  "#474545" # fg
-set render-loading              true
-set render-loading-bg           "#f1ecf1" # bg
-set render-loading-fg           "#474545" # fg
+set default-bg				"#f1ecf1"	# bg
+set default-fg				"#474545"	# fg
+set render-loading			true
+set render-loading-bg		"#f1ecf1"	# bg
+set render-loading-fg		"#474545"	# fg
 
 # Recolor book content's color
-set recolor-lightcolor          "#f1ecf1" # bg
-set recolor-darkcolor           "#474545" # fg
-set recolor                     true
-set recolor-keephue             true          # keep original color
-
-##### pywal-colors
-#set recolor "true"
-#set completion-bg "{background}"
-#set completion-fg "{foreground}"
-#set completion-group-bg "{background}"
-#set completion-group-fg "{color2}"
-#set completion-highlight-bg "{foreground}"
-#set completion-highlight-fg "{background}"
-#set recolor-lightcolor "{background}"
-#set recolor-darkcolor "{foreground}"
-#set default-bg "{background}"
-#set inputbar-bg "{background}"
-#set inputbar-fg "{foreground}"
-#set notification-bg "{background}"
-#set notification-fg "{foreground}"
-#set notification-error-bg "{color1}"
-#set notification-error-fg "{foreground}"
-#set notification-warning-bg "{color1}"
-#set notification-warning-fg "{foreground}"
-#set statusbar-bg "{background}"
-#set statusbar-fg "{foreground}"
-#set index-bg "{background}"
-#set index-fg "{foreground}"
-#set index-active-bg "{foreground}"
-#set index-active-fg "{background}"
-#set render-loading-bg "{background}"
-#set render-loading-fg "{foreground}"
-#set window-title-home-tilde true
-#set statusbar-basename true
+set recolor-lightcolor		"#f1ecf1"	# bg
+set recolor-darkcolor		"#474545"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color

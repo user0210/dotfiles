@@ -4,7 +4,7 @@
 # / /\__ \ | | | | | (__
 #/___|___/_| |_|_|  \___|
 #
-source /home/philipp/.profile
+source ~/.profile
 
 ####################################################
 ##### settings
@@ -31,7 +31,7 @@ bindkey -v
 #export KEYTIMEOUT=1
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/philipp/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 zstyle ':completion:*' menu select
 autoload -Uz compinit
 compinit
@@ -75,20 +75,6 @@ autoload -U promptinit; promptinit
 prompt spaceship
 
 spaceship_vi_mode_enable
-
-##### Base16 Shell
-if [[ $(mondo get theme) == pywal ]]; then
-#	(cat ~/.config/wpg/sequences &)
-	:
-else
-	if xhost >& /dev/null ; then
-		BASE16_SHELL="$HOME/.config/base16-shell/"
-		[ -n "$PS1" ] && \
-	    	[ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-		        eval "$("$BASE16_SHELL/profile_helper.sh")"
-	#else echo "Display invalid"
-	fi
-fi
 
 ####################################################
 ##### source stuff...

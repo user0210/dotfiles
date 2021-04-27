@@ -19,11 +19,7 @@
 ! ---------- colors ------------------------------------------------
 !-------------------------------------------------------------------
 
-*alpha: 0.93
-
-##### colors import
-#include ".xfiles/pywal/xres-color-pywal"
-#include ".xfiles/base16/xres-color-base16"
+*alpha: 1.0
 
 ##### main Xres-colors
 #include ".xfiles/xres-color-def"

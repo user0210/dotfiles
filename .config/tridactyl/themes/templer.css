@@ -1,0 +1,79 @@
+:root {
+    --tridactyl-photon-colours-code-green:					#86de74 !important;
+    --tridactyl-photon-colours-warning-color:				#fce19f;
+    --tridactyl-photon-colours-warning-background-color:	#44391f;
+    --tridactyl-photon-colours-theme-highlight-green:		#86de74;
+    --tridactyl-photon-colours-theme-highlight-blue:		#75bfff;
+    --tridactyl-photon-colours-theme-highlight-purple:		#b98eff;
+    --tridactyl-photon-colours-theme-highlight-red:			#ff7de9;
+    --tridactyl-photon-colours-theme-highlight-yellow:		#fff89e;
+    --tridactyl-photon-colours-theme-highlight-bluegrey:	#5e88b0;
+    --tridactyl-photon-colours-theme-highlight-lightorange:	#d99b28;
+    --tridactyl-photon-colours-theme-highlight-orange:		#d96629;
+    --tridactyl-photon-colours-theme-highlight-pink:		#df80ff;
+    --tridactyl-photon-colours-tone-1: #f9f9fa;
+    --tridactyl-photon-colours-tone-2: #ededf0;
+    --tridactyl-photon-colours-tone-3: #d7d7db;
+    --tridactyl-photon-colours-tone-4: #b1b1b3;
+    --tridactyl-photon-colours-tone-5: #737373;
+    --tridactyl-photon-colours-tone-6: #4a4a4f;
+    --tridactyl-photon-colours-tone-7: #38383d;
+    --tridactyl-photon-colours-tone-8: #2a2a2e;
+    --tridactyl-photon-colours-tone-9: #0c0c0d;
+    --tridactyl-photon-colours-accent-1: #45a1ff;
+    --tridactyl-photon-colours-accent-2: #0a84ff;
+    --tridactyl-photon-colours-accent-3: #0060df;
+
+    --tridactyl-fg:								var(--tridactyl-photon-colours-tone-4) !important;
+    --tridactyl-bg:								var(--tridactyl-photon-colours-tone-7) !important;
+
+    --tridactyl-scrollbar-color:				var(--tridactyl-photon-colours-tone-8)
+												var(--tridactyl-fg);
+
+    --tridactyl-cmdl-fg:						var(--tridactyl-photon-colours-tone-3) !important;
+    --tridactyl-cmdl-bg:						var(--tridactyl-photon-colours-tone-8) !important;
+
+    --tridactyl-header-first-bg:				var(--tridactyl-photon-colours-tone-8) !important;
+    --tridactyl-header-second-bg:				var(--tridactyl-photon-colours-tone-8) !important;
+    --tridactyl-header-third-bg:				var(--tridactyl-header-first-bg);
+
+    /* --tridactyl-header-first-bg: #333; */
+    /* --tridactyl-header-second-bg: #222; */
+    /* --tridactyl-header-third-bg: #111; */
+
+    --tridactyl-cmplt-border-top: 1px solid		var(--tridactyl-photon-colours-tone-8) !important;
+
+    --tridactyl-url-fg:							var(--tridactyl-photon-colours-code-green);
+    --tridactyl-url-bg:							var(--tridactyl-bg);
+
+    --tridactyl-of-fg:							var(--tridactyl-photon-colours-warning-color);
+    --tridactyl-of-bg:							var(--tridactyl-photon-colours-warning-background-color);
+
+    /* Hints are not photon coloured. Feel free to experiment with that */
+
+    --tridactyl-hintspan-fg:					white;
+    --tridactyl-hintspan-bg:					#204e8a;
+
+    --tridactyl-hint-active-fg:					#333;
+    --tridactyl-hint-active-bg:					#88ff00;
+    --tridactyl-hint-active-outline: 1px solid	#000;
+
+    --tridactyl-hint-bg:						rgba(13, 31, 54, 0.25);
+    --tridactyl-hint-outline: 1px solid			var(--tridactyl-hintspan-bg);
+
+    --tridactyl-highlight-box-bg:				var(--tridactyl-photon-colours-tone-6) !important;
+    --tridactyl-highlight-box-fg:				var(--tridactyl-photon-colours-tone-3) !important;
+}
+
+:root.TridactylOwnNamespace input[id^="spoiler"] ~ .spoiler {
+    border-color:								var(--tridactyl-photon-colours-tone-5) !important;
+}
+
+:root.TridactylOwnNamespace {
+  scrollbar-color:								var(--tridactyl-photon-colours-tone-8)
+  scrollbar-width: thin;
+}
+
+:root.TridactylOwnNamespace a {
+    color:										var(--tridactyl-photon-colours-accent-1);
+}

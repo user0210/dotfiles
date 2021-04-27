@@ -20,7 +20,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<color_scheme name="Base16" format="2.1">
+<color_scheme name="Templer" format="2.1">
     <window type="key-popup">
         <color element="border" rgb="#3E2D5C" opacity="1.0"/>
     </window>
@@ -36,7 +36,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
         <color element="fill"   rgb="#BEBCBF"/>
         <color element="stroke" rgb="#271C3A"/>
         <color element="label"  rgb="#100323"/>
-        <color element="dwell-progress"  rgb="#A92258"/>
+        <color element="dwell-progress"  rgb="#890238"/>
         F5.rows_of_six, F6.rows_of_six, F7.rows_of_six, F8.rows_of_six,
         icon1, icon2,
         pause-learning.wordlist, language.wordlist, hide.wordlist

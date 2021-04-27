@@ -40,9 +40,3 @@ base0Fa	#base0Fa
 !! base0D	# blue
 !! base0E	# purple
 !! base0F	# brown    
-
-
-OFF 
-XRES !
-BASH #
-CFIN */

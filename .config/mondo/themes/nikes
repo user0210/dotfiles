@@ -9,23 +9,23 @@ base04	#445e67
 base05	#4b575a
 base06	#3f3f3f
 base07	#303030
-base08	#d4665d
-base09	#cc7833
-base0A	#b58900
-base0B	#61854e
-base0C	#3e999f
-base0D	#4c83ad
-base0E	#8959a8
-base0F	#b16286
+base08	#F4867D
+base09	#EC9853
+base0A	#D5A920
+base0B	#81A56E
+base0C	#5EB9BF
+base0D	#6CA3CD
+base0E	#A979C8
+base0F	#D182A6
 
-base08a	#F4867D
-base09a	#EC9853
-base0Aa	#D5A920
-base0Ba	#81A56E
-base0Ca	#5EB9BF
-base0Da	#6CA3CD
-base0Ea	#A979C8
-base0Fa	#D182A6
+base08a	#d4665d
+base09a	#cc7833
+base0Aa	#b58900
+base0Ba	#61854e
+base0Ca	#3e999f
+base0Da	#4c83ad
+base0Ea	#8959a8
+base0Fa	#b16286
 
 !! base00	# ----
 !! base01	# ---
@@ -43,9 +43,3 @@ base0Fa	#D182A6
 !! base0D	# blue
 !! base0E	# purple
 !! base0F	# brown    
-
-
-OFF 
-XRES !
-BASH #
-CFIN */

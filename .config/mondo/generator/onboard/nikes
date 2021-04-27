@@ -20,7 +20,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<color_scheme name="Base16" format="2.1">
+<color_scheme name="Templer" format="2.1">
     <window type="key-popup">
         <color element="border" rgb="#8d938d" opacity="1.0"/>
     </window>

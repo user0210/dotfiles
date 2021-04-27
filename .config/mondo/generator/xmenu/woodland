@@ -7,14 +7,7 @@ xmenu.separatorWidth	: 3
 
 xmenu.background		: base00
 xmenu.foreground		: base05
-xmenu.selbackground	: base0D
-xmenu.selforeground	: base00
+xmenu.selbackground		: base0D
+xmenu.selforeground		: base00
 xmenu.border			: base02
-xmenu.separator		: base02
-
-!xmenu.background		: Color0
-!xmenu.foreground		: Color7
-!xmenu.selbackground	: Color4
-!xmenu.selforeground	: Color0
-!xmenu.border			: Color8
-!xmenu.separator		: Color8
+xmenu.separator			: base02

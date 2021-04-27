@@ -1,10 +1,10 @@
 static const char color0[] = "%%base00%%";
-static const char color1[] = "%%base08%%";
-static const char color2[] = "%%base0B%%";
-static const char color3[] = "%%base0A%%";
-static const char color4[] = "%%base0D%%";
-static const char color5[] = "%%base0E%%";
-static const char color6[] = "%%base0C%%";
+static const char color1[] = "%%base08a%%";
+static const char color2[] = "%%base0Ba%%";
+static const char color3[] = "%%base0Aa%%";
+static const char color4[] = "%%base0Da%%";
+static const char color5[] = "%%base0Ea%%";
+static const char color6[] = "%%base0Ca%%";
 static const char color7[] = "%%base05%%";
 static const char color8[] = "%%base03%%";
 static const char color9[] = "%%base08%%";

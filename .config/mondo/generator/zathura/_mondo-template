@@ -15,74 +15,44 @@ set font "TerminessTTF Nerd Font 12"
 ##### colors
 ####################################################################
 
-##### base16-colors
-%%OFF%%set notification-error-bg       "%%base00%%" # bg
-%%OFF%%set notification-error-fg       "%%base08%%" # bright:red
-%%OFF%%set notification-warning-bg     "%%base00%%" # bg
-%%OFF%%set notification-warning-fg     "%%base0A%%" # bright:yellow
-%%OFF%%set notification-bg             "%%base00%%" # bg
-%%OFF%%set notification-fg             "%%base0B%%" # bright:green
+##### templer-colors
+set notification-error-bg	"%%base00%%"	# bg
+set notification-error-fg	"%%base08%%"	# bright:red
+set notification-warning-bg	"%%base00%%"	# bg
+set notification-warning-fg	"%%base0A%%"	# bright:yellow
+set notification-bg			"%%base00%%"	# bg
+set notification-fg			"%%base0B%%"	# bright:green
 
-%%OFF%%set completion-bg               "%%base02%%" # bg2
-%%OFF%%set completion-fg               "%%base06%%" # fg
-%%OFF%%set completion-group-bg         "%%base01%%" # bg1
-%%OFF%%set completion-group-fg         "%%base04%%" # gray
-%%OFF%%set completion-highlight-bg     "%%base0D%%" # bright:blue
-%%OFF%%set completion-highlight-fg     "%%base02%%" # bg2
+set completion-bg			"%%base02%%"	# bg2
+set completion-fg			"%%base06%%"	# fg
+set completion-group-bg		"%%base01%%"	# bg1
+set completion-group-fg		"%%base04%%"	# gray
+set completion-highlight-bg	"%%base0D%%"	# bright:blue
+set completion-highlight-fg	"%%base02%%"	# bg2
 
 # Define the color in index mode
-%%OFF%%set index-bg                    "%%base02%%" # bg2
-%%OFF%%set index-fg                    "%%base06%%" # fg
-%%OFF%%set index-active-bg             "%%base0D%%" # bright:blue
-%%OFF%%set index-active-fg             "%%base02%%" # bg2
+set index-bg				"%%base02%%"	# bg2
+set index-fg				"%%base06%%"	# fg
+set index-active-bg			"%%base0D%%"	# bright:blue
+set index-active-fg			"%%base02%%"	# bg2
 
-%%OFF%%set inputbar-bg                 "%%base00%%" # bg
-%%OFF%%set inputbar-fg                 "%%base06%%" # fg
+set inputbar-bg				"%%base00%%"	# bg
+set inputbar-fg				"%%base06%%"	# fg
 
-%%OFF%%set statusbar-bg                "%%base02%%" # bg2
-%%OFF%%set statusbar-fg                "%%base06%%" # fg
+set statusbar-bg			"%%base02%%"	# bg2
+set statusbar-fg			"%%base06%%"	# fg
 
-%%OFF%%set highlight-color             "%%base0A%%" # bright:yellow
-%%OFF%%set highlight-active-color      "%%base09%%" # bright:orange
+set highlight-color			"%%base0A%%"	# bright:yellow
+set highlight-active-color	"%%base09%%"	# bright:orange
 
-%%OFF%%set default-bg                  "%%base00%%" # bg
-%%OFF%%set default-fg                  "%%base06%%" # fg
-%%OFF%%set render-loading              true
-%%OFF%%set render-loading-bg           "%%base00%%" # bg
-%%OFF%%set render-loading-fg           "%%base06%%" # fg
+set default-bg				"%%base00%%"	# bg
+set default-fg				"%%base06%%"	# fg
+set render-loading			true
+set render-loading-bg		"%%base00%%"	# bg
+set render-loading-fg		"%%base06%%"	# fg
 
 # Recolor book content's color
-%%OFF%%set recolor-lightcolor          "%%base00%%" # bg
-%%OFF%%set recolor-darkcolor           "%%base06%%" # fg
-%%OFF%%set recolor                     true
-%%OFF%%set recolor-keephue             true          # keep original color
-
-##### pywal-colors
-%%BASH%%set recolor "true"
-%%BASH%%set completion-bg "{background}"
-%%BASH%%set completion-fg "{foreground}"
-%%BASH%%set completion-group-bg "{background}"
-%%BASH%%set completion-group-fg "{color2}"
-%%BASH%%set completion-highlight-bg "{foreground}"
-%%BASH%%set completion-highlight-fg "{background}"
-%%BASH%%set recolor-lightcolor "{background}"
-%%BASH%%set recolor-darkcolor "{foreground}"
-%%BASH%%set default-bg "{background}"
-%%BASH%%set inputbar-bg "{background}"
-%%BASH%%set inputbar-fg "{foreground}"
-%%BASH%%set notification-bg "{background}"
-%%BASH%%set notification-fg "{foreground}"
-%%BASH%%set notification-error-bg "{color1}"
-%%BASH%%set notification-error-fg "{foreground}"
-%%BASH%%set notification-warning-bg "{color1}"
-%%BASH%%set notification-warning-fg "{foreground}"
-%%BASH%%set statusbar-bg "{background}"
-%%BASH%%set statusbar-fg "{foreground}"
-%%BASH%%set index-bg "{background}"
-%%BASH%%set index-fg "{foreground}"
-%%BASH%%set index-active-bg "{foreground}"
-%%BASH%%set index-active-fg "{background}"
-%%BASH%%set render-loading-bg "{background}"
-%%BASH%%set render-loading-fg "{foreground}"
-%%BASH%%set window-title-home-tilde true
-%%BASH%%set statusbar-basename true
+set recolor-lightcolor		"%%base00%%"	# bg
+set recolor-darkcolor		"%%base06%%"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color

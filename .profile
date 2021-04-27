@@ -14,7 +14,7 @@ export PATH=$PATH:/home/philipp/.local/bin
 #export GDK_DPI_SCALE=0.8
 
 ##### fix pointer with pywal... maybe not needed...
-PROMPT_COMMAND='printf "\e]112\a"'
+#PROMPT_COMMAND='printf "\e]112\a"'
 
 ##### tab-spaces
 tabs -4
@@ -42,6 +42,14 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+##### source color-scheme (not in use because of alpha issue)
+## check if display-server is available:
+#if xhost >& /dev/null ; then
+#	# check if shell is interactive:
+#	[ -n "$PS1" ] && \
+#		source ~/.xfiles/shell
+#fi
 
 ####################################################
 ##### Aliases

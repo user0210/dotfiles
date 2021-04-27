@@ -1,3 +1,7 @@
+!
+! Xresources color definitions
+!
+
 #define base00 #0b1c2c
 #define base01 #223b54
 #define base02 #405c79
@@ -14,3 +18,48 @@
 #define base0D #8b56bf
 #define base0E #bf568b
 #define base0F #bf5656
+
+#define base08a #9F6B36
+#define base09a #9F9F36
+#define base0Aa #6B9F36
+#define base0Ba #369F6B
+#define base0Ca #366B9F
+#define base0Da #6B369F
+#define base0Ea #9F366B
+#define base0Fa #9F3636
+
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base07
+
+*color0:       base00
+*color1:       base08a
+*color2:       base0Ba
+*color3:       base0Aa
+*color4:       base0Da
+*color5:       base0Ea
+*color6:       base0Ca
+*color7:       base05
+
+*color8:       base03
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
+*color15:      base07
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*color16:      base09
+*color17:      base0F
+*color18:      base01
+*color19:      base02
+*color20:      base04
+*color21:      base06
+

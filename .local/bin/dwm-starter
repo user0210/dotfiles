@@ -6,7 +6,8 @@
 #display -resize 1366x768\! -window root /home/philipp/.xfiles/background/wallpapers/fractals-leaf-caro.jpg
 #display -size 1366x768 -window root /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
-hsetroot -fill /home/philipp/.config/wpg/.current
+#hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
+hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
 
 picom &
 

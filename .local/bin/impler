@@ -1,0 +1,717 @@
+#!/usr/bin/env bash
+
+
+dig='^[0-9]+$'
+num='^[0-9]+[\.]?[0-9]*$'
+dec='^(:?(:?0\.[0-9]*)|(:?1\.0))$'
+
+_default_palette=pigmnts
+_default_saturate=0.02
+_default_sort=chroma
+_default_blends_first6=0.2
+_default_blends_second6=0.2
+_default_blends_black=0.08
+_default_blends_white=0.12
+_default_blends_gray=0.2
+_default_blends_rgb=0.5
+
+
+# colors for printing the output comand and help
+declare -ra col=(
+    $'\e[1;0m'      # normal  ## col[0]
+    $'\e[1;31;40m'  # red     ## col[1]
+    $'\e[1;32;40m'  # green   ## col[2]
+    $'\e[1;33;40m'  # orange  ## col[3]
+    $'\e[1;34;40m'  # cyan    ## col[4]
+    $'\e[1;35;40m'  # magenta ## col[5]
+)
+
+
+# TODO: binary check
+check_if_binaries_exist() {
+    if ! command -v pastel &> /dev/null ; then
+        1>&2 printf "please install ${col[3]}pastel${col[0]} before using ${col[3]}impler${col[0]}, because it's the heart of this tool\n"
+        1>&2 printf "for more info on how to install it, please check: ${col[3]}https://github.com/sharkdp/pastel${col[0]}\n"
+        exit
+    fi
+}
+
+check_if_palettes_exist() {
+    for index in ${!_optional_paletes[*]}; do 
+        if command -v ${_optional_paletes[$index]} &> /dev/null ; then
+            return
+        fi
+    done
+    1>&2 printf "please install one of${col[3]}palette generators${col[0]} used by ${col[3]}impler${col[0]}\n"
+    1>&2 printf "for more info on how to install it, please check: ${col[3]}impler palette -s${col[0]}\n"
+    exit
+}
+
+
+#check mising directories
+check_if_cache_exists() {
+    #create ccache directory if does not exist
+    if [ ! -d $HOME/.xfiles/impler ]; then
+        mkdir -p $HOME/.xfiles/impler;
+    fi
+}
+
+
+# use pipe json to set variables
+set_pipe_vars(){
+    echo 
+    PIPE="$(</dev/stdin)"
+    [[ -z $PIPE ]] && return
+}
+
+
+# generate ALL ANSI COLORS
+rainbow() {
+    # If the '-e' flag is passed, cells will be three rows high.
+    [[ "$_arg_color_e" == "true" ]] && expanded=true || expanded=false
+
+    # If the option --sixteen is given, only show the first 16 colors
+    [[ "$_arg_color_m" == "true" ]] && showall=true sixteen=true expanded=true || sixteen=false
+
+    # Creates a color row -- Arguments: - width (number) - starting color (number) - ending color (number)
+    row () {
+        # Give the arguments names for scope reasons.
+        width=$(($1 - 2))
+        start=$2
+        end=$3
+        # Creates a "slice" (one terminal row) of a row. -- Arguments: - label (boolean)
+        slice () {
+            for ((i=$start; i<=$end; i++))
+            do
+                if [ $1 ]; then string=$i; else string=' '; fi
+                # Change background to the correct color.
+                tput setab $i
+                # Print the cell.
+                printf "%${width}s " $string
+            done
+            # Clear the coloring to avoid nasty wrapping colors.
+            tput sgr0
+            echo
+        }
+        if [ $expanded == true ]; then
+            slice; slice true; slice
+        else
+            slice true
+        fi
+    }
+
+    # 0-15.
+    echo
+    row $(($(tput cols)/8)) 0 7
+    row $(($(tput cols)/8)) 8 15
+    echo
+    [[ $sixteen == true ]] && exit
+
+    # 16-231.
+    for ((a=0; a<=17; a++)) do
+        row $(($(tput cols)/12)) $((16 + (12 * a))) $((27 + (12 * a)))
+    done
+    echo
+
+    # 232-255.
+    row $(($(tput cols)/12)) 232 243
+    tput setaf 0
+    row $(($(tput cols)/12)) 244 255
+
+    # Clear before exiting.
+    tput sgr0
+    echo
+}
+
+
+# generate colors from wallaper with different tools
+_optional_paletes=(pigmnts schemer2 convert)
+_optional_paletes_sources=(
+    "https://github.com/blenderskool/pigmnts" 
+    "https://github.com/thefryscorer/schemer2"
+    "https://github.com/ImageMagick/ImageMagick" 
+)
+_arg_palette=$_default_palette
+palette() {
+    check_if_palettes_exist
+    if ! command -v "$_arg_palette" &> /dev/null ; then
+        1>&2 printf "${col[1]}executable: ${col[3]}$_arg_palette${col[1]} is not fond in your \$PATH, please install it or check:${col[3]} impler palette -s${col[0]}\n" && exit
+    fi
+
+    local wallpaper=$(cat $HOME/.xfiles/impler/wallpaper)
+    if [[ $_arg_palette == "${_optional_paletes[0]}" ]]; then
+        pigmnts -c 16 $wallpaper -q
+    elif [[ $_arg_palette == "${_optional_paletes[1]}" ]]; then
+        schemer2 -format img::colors -in $wallpaper
+    elif [[ $_arg_palette == "${_optional_paletes[2]}" ]]; then
+        convert $wallpaper +dither -colors 16 -unique-colors txt: | tail -n +2 | cut -d" " -f4 | tac
+    fi
+}
+
+_optional_sorts=(brightness luminance hue chroma random)
+all_paletes(){
+    for index in ${!_optional_paletes[*]}; do 
+        if [[ "$_arg_paletter_s" == "true" ]]; then
+            printf " - ${col[3]}${_optional_paletes[$index]}\'s${col[0]} source code is in:\n\t${col[3]}${_optional_paletes_sources[$index]}${col[0]}\n\n"
+        elif [[ "$_arg_paletter_c" == "true" ]]; then
+            if command -v ${_optional_paletes[$index]} &> /dev/null ; then
+                printf " - ${_optional_paletes[$index]} executable ${col[3]}exists${col[0]} in: $(command -v ${_optional_paletes[$index]})\n"
+            else
+                printf " - ${_optional_paletes[$index]} executable ${col[1]}does not exists${col[0]} in your path, run${col[3]} impler palette -s ${col[0]} to see source link\n"
+            fi
+        else
+            _arg_palette=${_optional_paletes[$index]}
+            printf "\nColors generated from palete: ${_optional_paletes[$index]}\n"
+            palette | pastel -f saturate $_default_saturate | pastel sort-by -r $_default_sort | pastel format hex
+        fi
+    done
+}
+
+
+#get_new image as wallpaper (not set, just get it)
+new_wallpaper() {
+    #if --image is mising throw error
+    if [[ -z $_arg_image ]]; then
+            1>&2 printf "${col[1]}image not selected with ${col[3]}impler -i <path>${col[1]}\n"
+            usage && exit
+    fi
+    #if --image is set use as wallpaper
+    if [[ ! -z $_arg_image ]]; then
+        if file "$_arg_image" | grep -qE 'image|bitmap'; then
+            echo "$_arg_image"
+        else
+            1>&2 printf "${col[1]}path: ${col[3]}$1${col[1]} is not an image${col[0]}\n"
+            exit
+        fi
+    fi
+}
+
+
+check_colorz() {
+    if [ ! -f /tmp/colorz ]; then
+        # new_wallpaper
+        1>&2 printf "${col[1]}please set a colorscheme first with ${col[3]}impler new${col[1]} and run again or use different command:${col[0]}\n"
+        usage && exit
+    fi
+}
+
+
+### adjust accent color based on dark/light theme
+adjust_primary(){
+    if [ $(cat $HOME/.xfiles/impler/theme) == "light" ] ; then
+        ac=$(cat /tmp/rainbow | head -n 1 | pastel set hsl-lightness 0.3 | pastel format hex)
+        echo light > $HOME/.xfiles/impler/theme
+    else
+        ac=$(cat /tmp/rainbow | head -n 1 | pastel set hsl-lightness 0.7 | pastel format hex)
+        echo dark > $HOME/.xfiles/impler/theme
+    fi
+}
+
+
+#concatinating main colors (colors 0-15)
+generate_colors_main() {
+    echo $back > $HOME/.xfiles/impler/colors
+    echo $col1 | pastel -f saturate $_default_saturate | pastel format hex >> $HOME/.xfiles/impler/colors
+    cat /tmp/rainbow | tail -n 5 | pastel -f mix -f $_default_blends_first6 $fore | pastel -f saturate $_default_saturate | pastel format hex >> $HOME/.xfiles/impler/colors
+    echo $col7 >> $HOME/.xfiles/impler/colors
+    echo $col8 >> $HOME/.xfiles/impler/colors
+    cat /tmp/rainbow | pastel -f mix -f $_default_blends_second6 $back | pastel format hex >> $HOME/.xfiles/impler/colors
+    echo $fore >> $HOME/.xfiles/impler/colors
+}
+
+
+# additional color generation (colors 16-231)
+generate_colors_other() {
+    redish=$(pastel -f mix $ac -f $_default_blends_rgb "#ff0000" | pastel -f saturate 0.2)
+    blueish=$(pastel -f mix $ac -f $_default_blends_rgb "#0000ff" | pastel -f saturate 0.2)
+    greenish=$(pastel -f mix $ac -f $_default_blends_rgb "#00ff00" | pastel -f saturate 0.2)
+    #generating shades of each additional color (colors 16-51)
+    pastel -f gradient $back $redish $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back $greenish $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back $blueish $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    #generating shades of each additional color (colors 52-135)
+    pastel -f gradient $back '#ff0000' $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back '#00ff00' $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back '#0000ff' $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back '#ff00ff' $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back '#ffff00' $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back '#00ffff' $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back '#888888' $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    #generating shades of each additional color (colors 136-196)
+    pastel -f gradient $back $(pastel -f random -n 1) $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back $(pastel -f random -n 1) $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back $(pastel -f random -n 1) $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back $(pastel -f random -n 1) $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back $(pastel -f random -n 1) $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back $(pastel -f random -n 1) $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back $(pastel -f random -n 1) $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+    pastel -f gradient $back $(pastel -f random -n 1) $fore -n 14 | xargs -0 | head -n -2 | tail -n +2 | pastel format hex >> $HOME/.xfiles/impler/colors
+}
+
+
+#generating gradients (colors 232-255)
+generate_colors_gradient() {
+    pastel -f gradient $black $back -n 3 | xargs -0 | head -n -1 | pastel format hex >> $HOME/.xfiles/impler/colors 
+    pastel -f gradient $back $col1 $fore -n 18 | xargs -0 | head -n -1 | pastel format hex >> $HOME/.xfiles/impler/colors 
+    pastel -f gradient $fore $white -n 3 | xargs -0 | head -n -1 | pastel format hex >> $HOME/.xfiles/impler/colors 
+}
+
+
+generate_colors(){
+    adjust_primary
+    ### === COLOR-GENERATION AND VARIABLE COLOR GENERATION ===
+    col0=$(pastel -f mix $ac -f $_default_blends_black "#000000" | pastel format hex)
+    col1=$(echo $ac | pastel -f saturate 0.1 | pastel format hex)
+    col7=$(pastel -f mix $ac -f $_default_blends_gray "#aaaaaa" | pastel format hex)
+    col8=$(pastel -f mix $ac -f $_default_blends_gray "#666666" | pastel format hex)
+    col15=$(pastel -f mix $ac -f $_default_blends_white "#ffffff" | pastel format hex)
+
+    ### invert black/white theme based on theme selected
+    if [ $(cat $HOME/.xfiles/impler/theme) == "light" ] ; then
+        white="#000000"
+        black="#ffffff"
+        back=$col15 
+        fore=$col0
+    else
+        black="#000000"
+        white="#ffffff"
+        back=$col0
+        fore=$col15
+    fi
+
+    generate_colors_main
+    generate_colors_other
+    generate_colors_gradient
+}
+
+
+create_files(){
+    ### === PRINTING THINGS TO FILES === ###
+    wallpaper=$(cat $HOME/.xfiles/impler/wallpaper)
+    theme=$(cat $HOME/.xfiles/impler/theme)
+    fore=$(sed -n '16p' $HOME/.xfiles/impler/colors)
+    back=$(sed -n '1p' $HOME/.xfiles/impler/colors)
+    col1=$(sed -n '2p' $HOME/.xfiles/impler/colors)
+    # COLORS.SH (used by shells - bash,zsh,fish...)
+    printf "foreground=\"$fore\"\nbackground=\"$back\"\ncursor=\"$col1\"\n" > $HOME/.xfiles/impler/colors.sh
+    awk '{print "color" NR-1 "=\"" $0 "\""}' $HOME/.xfiles/impler/colors >> $HOME/.xfiles/impler/colors.sh
+
+    # COLORS.YAML (used by ALACRITY)
+    printf "special:\n\tbackground: \"$back\"\n\tforeground: \"$fore\"\n\tcursor: \"$col1\"\n\ncolors:\n" > $HOME/.xfiles/impler/colors.yml
+    awk '{print "\tcolor" NR-1 ": \"" $0 "\""}' $HOME/.xfiles/impler/colors >> $HOME/.xfiles/impler/colors.yml
+
+    # COLORS.JSON (used by FREFOX)
+    printf "{\n\t\"wallpaper\": \"$wallpaper\",\n\t\"theme\": \"$theme\",\n" > $HOME/.xfiles/impler/colors.json
+    printf "\t\"special\": {\n\t\t\"background\": \"$back\",\n\t\t\"foreground\": \"$fore\",\n\t\t\"cursor\": \"$col1\"\n\t},\n\t\"colors\": {\n" >> $HOME/.xfiles/impler/colors.json
+    awk '{print "\t\t\"color" NR-1 "\": \"" $0 "\","}' $HOME/.xfiles/impler/colors >> $HOME/.xfiles/impler/colors.json
+    truncate -s-2 $HOME/.xfiles/impler/colors.json; printf "\n\t}\n}" >> $HOME/.xfiles/impler/colors.json
+
+    # COLORS.INI (used by POLYBAR)
+    printf "[colors]\n\tforeground=$fore\n\tbackground=$back\n\tcursor=$col1\n" > $HOME/.xfiles/impler/colors.ini
+    awk '{print "\tcolor" NR-1 "=" $0 }' $HOME/.xfiles/impler/colors >> $HOME/.xfiles/impler/colors.ini
+
+    # COLORS.CONF (used by KITTY)
+    printf "foreground\t$fore\nbackground\t$back\ncursor\t$col1\n\n" > $HOME/.xfiles/impler/colors.conf
+    awk '{print "color" NR-1 "\t " $0}' $HOME/.xfiles/impler/colors >> $HOME/.xfiles/impler/colors.conf
+
+    # SEQUENCES (escape codes sent to all '/dev/pts/*')
+    printf "]10;$fore\\]11;$back\\]12;$col1\\]13;$back\\]17;$col1\\]19;$back\\" > $HOME/.xfiles/impler/sequences
+    awk '{print "]4;" NR-1 ";" $0"\\"}' ORS='' $HOME/.xfiles/impler/colors >> $HOME/.xfiles/impler/sequences
+}
+
+
+### MAIN COMMANDS
+_nocommnd=true
+_positional_commands=(set pick regen theme)
+choose_command(){
+    if [[ $_command == "${_positional_commands[0]}" ]]; then
+        new_wallpaper > $HOME/.xfiles/impler/wallpaper
+        palette > /tmp/colorz
+
+    elif [[ $_command == "${_positional_commands[1]}" ]]; then
+        check_colorz
+        picked=$(pastel -f pick | pastel format hex)
+        [[ -z $picked ]] && exit || echo $picked > /tmp/rainbow
+
+    elif [[ $_command == "${_positional_commands[2]}" ]]; then
+        check_colorz
+        palette > /tmp/colorz
+
+    elif [[ $_command == "${_positional_commands[3]}" ]]; then
+        check_colorz
+        [[ $(cat $HOME/.xfiles/impler/theme) == "dark" ]] && echo light > $HOME/.xfiles/impler/theme || echo dark > $HOME/.xfiles/impler/theme
+    fi
+
+    cat /tmp/colorz | pastel -f saturate 0.1 | pastel sort-by -r $_default_sort | head -n 6 | pastel format hex > /tmp/rainbow
+}
+
+
+### SPECIAL COMMANDS
+_nospecial=true
+_positional_specals=(colors palette)
+choose_special() {
+    if [[ $_special == "${_positional_specals[0]}" ]]; then
+        rainbow
+        exit
+    fi
+    if [[ $_special == "${_positional_specals[1]}" ]]; then
+        all_paletes
+        exit
+    fi
+}
+
+#print main usage
+USE="true"
+usage() {
+    if [[ $ALL == "true" ]] ; then
+        printf "command line tool to set 255 colors on tty's and other places that use ANSI colors\n"
+    fi
+    if [[ $USE == "true" ]] ; then
+    printf "\n${col[2]}USAGE:${col[0]}\n\
+    impler [options][flags] <command>\n\
+    impler <special> [flags]\n"
+
+    printf "\n${col[2]}OPTIONS:${col[0]}\n\
+    ${col[2]}--palette[=]<name>${col[0]} -> ";
+    for index in ${!_optional_paletes[*]}; do 
+        printf "${col[3]}"
+        [[ ${_optional_paletes[$index]} == $_default_palette ]] && printf "{ "
+        printf "${_optional_paletes[$index]}"; 
+        [[ ${_optional_paletes[$index]} == $_default_palette ]] && printf " }"
+        printf "${col[0]} , "
+    done
+    printf "\n\tspecify the palete binary to use\n\
+    ${col[2]}--sort[=]<name>${col[0]} -> ";
+    for index in ${!_optional_sorts[*]}; do 
+        printf "${col[3]}"
+        [[ ${_optional_sorts[$index]} == $_default_sort ]] && printf "{ "
+        printf "${_optional_sorts[$index]}"; 
+        [[ ${_optional_sorts[$index]} == $_default_sort ]] && printf " }"
+        printf "${col[0]} , "
+    done
+    printf "\n\tspecify the soring colord of pallete\n\
+    ${col[2]}--saturate[=]<value>${col[0]} -> only ${col[3]}numbers${col[0]} (0.0-1.0) are valid
+    \tammout of saturation of main colors\n\
+    ${col[2]}--image[=]<filepath>${col[0]}
+    \tspecify the image to extract colors from\n\
+    ${col[2]}--white[=]<value>${col[0]} -> only ${col[3]}numbers${col[0]} (0.0-1.0) are valid
+    ${col[2]}--black[=]<value>${col[0]} -> only ${col[3]}numbers${col[0]} (0.0-1.0) are valid
+    ${col[2]}--gray[=]<value>${col[0]} -> only ${col[3]}numbers${col[0]} (0.0-1.0) are valid
+    ${col[2]}--rgb[=]<value>${col[0]} -> only ${col[3]}numbers${col[0]} (0.0-1.0) are valid
+    ${col[2]}--first6[=]<value>${col[0]} -> only ${col[3]}numbers${col[0]} (0.0-1.0) are valid
+    ${col[2]}--second6[=]<value>${col[0]} -> only ${col[3]}numbers${col[0]} (0.0-1.0) are valid\n"
+
+    printf "\n${col[2]}FLAGS:${col[0]}\n\
+    ${col[2]}-p ${col[0]}\tread values from pipe/stdin\n\
+    ${col[2]}-f ${col[0]}\trefresh the colors ${col[2]} * ${col[0]}\n\
+  flags marked with: ${col[3]} * ${col[0]} should be used alone eg.: ${col[3]} impler -f ${col[0]}\n"
+
+    printf "\n${col[2]}COMMANDS:${col[0]}\n\
+    ${col[2]}${_positional_commands[0]}${col[0]} \t generate new colors from new image\n\
+    ${col[2]}${_positional_commands[1]}${col[0]} \t pick a color as accent color\n\
+    ${col[2]}${_positional_commands[2]}${col[0]} \t generate new colors from same image\n\
+    ${col[2]}${_positional_commands[3]}${col[0]} \t invert dark and light theme\n"
+
+    printf "\n${col[2]}SPECIAL:${col[0]}\n\
+    ${col[2]}${_positional_specals[0]} [flags]${col[0]} \t print all 255 colors in terminal ${col[2]} * ${col[0]}\n\
+    ${col[2]}${_positional_specals[1]} [flags]${col[0]} \t more info about diffenert palette generators ${col[2]} * ${col[0]}\n\
+  commands marked with ${col[3]} * ${col[0]} have their own flags, check: ${col[3]}impler <special> -h ${col[0]}\n"
+    fi
+}
+
+
+_arg_f="false"
+_arg_p="false"
+parse_command() {
+    _positionals_count=0
+    _optionals_count=0
+    while test $# -gt 0
+    do
+        _key="$1"
+        case "$_key" in
+            --white)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage_palette && exit; fi
+                _arg_white="$2"
+                [[ $_arg_white =~ $dec ]] && _default_blends_white=$_arg_white
+                shift
+                ;;
+            --white=*)
+                _arg_white="${_key##--white=}"
+                [[ $_arg_white =~ $dec ]] && _default_blends_white=$_arg_white
+                ;;
+            --gray)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage_palette && exit; fi
+                _arg_gray="$2"
+                [[ $_arg_gray =~ $dec ]] && _default_blends_gray=$_arg_gray
+                shift
+                ;;
+            --gray=*)
+                _arg_gray="${_key##--gray=}"
+                [[ $_arg_gray =~ $dec ]] && _default_blends_gray=$_arg_gray
+                ;;
+            --rgb)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage_palette && exit; fi
+                _arg_rgb="$2"
+                [[ $_arg_rgb =~ $dec ]] && _default_blends_rgb=$_arg_rgb
+                shift
+                ;;
+            --rgb=*)
+                _arg_rgb="${_key##--rgb=}"
+                [[ $_arg_rgb =~ $dec ]] && _default_blends_rgb=$_arg_rgb
+                ;;
+            --black)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage_palette && exit; fi
+                _arg_black="$2"
+                [[ $_arg_black =~ $dec ]] && _default_blends_black=$_arg_black
+                shift
+                ;;
+            --black=*)
+                _arg_black="${_key##--black=}"
+                [[ $_arg_black =~ $dec ]] && _default_blends_black=$_arg_black
+                ;;
+            --first6)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage_palette && exit; fi
+                _arg_first6="$2"
+                [[ $_arg_first6 =~ $dec ]] && _default_blends_first6=$_arg_first6
+                shift
+                ;;
+            --first6=*)
+                _arg_first6="${_key##--first6=}"
+                [[ $_arg_first6 =~ $dec ]] && _default_blends_first6=$_arg_first6
+                ;;
+            --second6)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage_palette && exit; fi
+                _arg_second6="$2"
+                [[ $_arg_second6 =~ $dec ]] && _default_blends_second6=$_arg_second6
+                shift
+                ;;
+            --second6=*)
+                _arg_second6="${_key##--second6=}"
+                [[ $_arg_second6 =~ $dec ]] && _default_blends_second6=$_arg_second6
+                ;;
+            --saturate)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage_palette && exit; fi
+                _arg_saturate="$2"
+                [[ $_arg_saturate =~ $dec ]] && _default_saturate=$_arg_saturate || 1>&2 printf "${col[3]}--saturate${col[1]} argument is not a valid (0.1-1.0) ${col[3]}number${col[0]}\n"
+                shift
+                ;;
+            --saturate=*)
+                _arg_saturate="${_key##--palette=}"
+                [[ $_arg_saturate =~ $dec ]] && _default_saturate=$_arg_saturate || 1>&2 printf "${col[3]}--saturate${col[1]} argument is not a valid (0.1-1.0) ${col[3]}number${col[0]}\n"
+                ;;
+
+            --sort)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage_palette && exit; fi
+                _arg_sort="$2"
+                [[ ! " ${_optional_sorts[@]} " =~ " ${_arg_sort} " ]] && 1>&2 printf "${col[1]}Not a valid argument for: ${col[3]}'$_key'.\n${col[0]}" && exit;
+                _default_sort=$_arg_sort; 
+                shift
+                ;;
+            --sort=*)
+                _arg_sort="${_key##--sort=}"
+                [[ ! " ${_optional_sorts[@]} " =~ " ${_arg_sort} " ]] && 1>&2 printf "${col[1]}Not a valid argument for: ${col[3]}'$_key'.\n${col[0]}" && exit;
+                _default_sort=$_arg_sort; 
+                ;;
+            --palette)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage_palette && exit; fi
+                _arg_palette="$2"
+                [[ ! " ${_optional_paletes[@]} " =~ " ${_arg_palette} " ]] && 1>&2 printf "${col[1]}Not a valid argument for: ${col[3]}'$_key'.\n${col[0]}" && exit;
+                _default_palette=$_arg_palette;
+                shift
+                ;;
+            --palette=*)
+                _arg_palette="${_key##--palette=}"
+                [[ ! " ${_optional_paletes[@]} " =~ " ${_arg_palette} " ]] && 1>&2 printf "${col[1]}Not a valid argument for: ${col[3]}'$_key'.\n${col[0]}" && exit;
+                _default_palette=$_arg_palette;
+                ;;
+            --image)
+                if [[ $# -lt 2 ]]; then 1>&2 printf "${col[1]}Missing value for the argument: ${col[3]}'$_key'.\n${col[0]}" && usage && exit; fi
+                _arg_image="$2"
+                shift
+                ;;
+            --image=*)
+                _arg_image="${_key##--image=}"
+                ;;
+            -p)
+                _arg_p="true"
+                set_pipe_vars
+                ;;
+            -f)
+                _arg_f="true"
+                ;;
+            -h|--help)
+                ALL=true
+                usage
+                exit
+                ;;
+            *)
+                _last_positional="$1"
+                _positionals_main+=("$_last_positional")
+                _positionals_count=$((_positionals_count + 1))
+                ;;
+        esac
+        shift
+    done
+}
+
+
+positionals_command() {
+    #if impler -r is used, make an exception, allow it without positionals
+    if [[ "$_arg_f" == "true" ]]; then
+        return
+    elif [[ "${_positionals_count}" -gt 1 ]] ; then
+        1>&2 printf "${col[1]}There were spurious positional arguments --- we expect exactly 1 but got ${col[3]}${_positionals_count}${col[0]}\n"
+        usage
+        exit
+    fi
+
+    local _positional_name 
+    shift "$1"
+    for _positional_name in ${_positional_commands[@]}
+    do
+        if [ "${1}" == "$_positional_name" ] ; then
+            _nocommnd=false
+            _command="${1}"
+        fi
+    done
+
+    if [[ "$_nocommnd" == "true" ]] ; then
+        1>&2 printf "${col[1]}Incorret useage of arguments --- we expect exactly one of those commands:${col[0]}\n"
+        usage
+        exit
+    fi
+}
+
+
+#print special command "colors" usage
+usage_colors() {
+    printf "${col[2]}impler ${_positional_specals[0]}${col[0]}\nprint ANSI colors in terminal\n"
+
+    printf "\n${col[2]}USAGE:${col[0]}\n\
+    impler ${_positional_specals[0]} [flag]\n"
+
+    printf "\n${col[2]}FLAGS:${col[0]}\n\
+    ${col[2]}-e ${col[0]}\tshow thicker/bigger colors\n\
+    ${col[2]}-r ${col[0]}\tprint raw color #HEX\n\
+    ${col[2]}-m ${col[0]}\tshow only main 16 primary colors\n"
+}
+
+
+parse_colors() {
+    _positionals_count=0
+    _optionals_count=0
+    while test $# -gt 0
+    do
+        _key="$1"
+        case "$_key" in
+            -r)
+                cat $HOME/.xfiles/impler/colors | pastel format hex
+                exit
+                ;;
+            -e)
+                _arg_color_e="true"
+                ;;
+            -m)
+                _arg_color_m="true"
+                ;;
+            -h|--help)
+                usage_colors
+                exit
+                ;;
+            *)
+                1>&2 printf "${col[1]}Incorret useage ot arguments --- we expect exactly one of those commands:${col[0]}\n"
+                usage_colors
+                exit
+                ;;
+        esac
+        shift
+    done
+}
+
+
+#print special command "palette" usage
+usage_palette() {
+    printf "${col[2]}impler ${_positional_specals[1]}${col[0]}\ninfo about different palette generators\n"
+
+    printf "\n${col[2]}USAGE:${col[0]}\n\
+    impler ${_positional_specals[1]} [flag]\n"
+
+    printf "\n${col[2]}FLAGS:${col[0]}\n\
+    ${col[2]}-s ${col[0]}\tprint sources of different tools\n\
+    ${col[2]}-c ${col[0]}\tcheck which palette binaries are installed\n"
+}
+
+
+paste_palette() {
+    _positionals_count=0
+    _optionals_count=0
+    while test $# -gt 0
+    do
+        _key="$1"
+        case "$_key" in
+            -c)
+                _arg_paletter_c="true"
+                ;;
+            -s)
+                _arg_paletter_s="true"
+                ;;
+            -h|--help)
+                usage_palette
+                exit
+                ;;
+            *)
+                1>&2 printf "${col[1]}Incorret useage ot arguments --- we expect exactly one of those commands:${col[0]}\n"
+                usage_palette
+                exit
+                ;;
+        esac
+        shift
+    done
+}
+
+
+run_command_generate_colors(){
+    choose_command
+    generate_colors
+    create_files
+}
+
+
+# running main checks
+check_if_cache_exists
+check_if_binaries_exist
+
+# if no arguments print help
+if [[ -z $@ ]] ; then
+    ALL=true
+    usage
+    exit
+fi
+
+
+# check if first argument is special
+for _positional_name in ${_positional_specals[@]}; do
+    if [ "${1}" == "$_positional_name" ] ; then
+        _nospecial=false
+        _special="${1}"
+        shift
+    fi
+done
+
+
+# parse commands or specials
+if [[ "$_nospecial" == "true" ]] ; then
+    parse_command "$@"
+    positionals_command 1 "${_positionals_main[@]}"
+    if [[ ! "$_arg_f" == "true" ]]; then
+        run_command_generate_colors
+    fi
+else
+    if [[ "$_special" == ${_positional_specals[0]} ]] ; then
+        parse_colors "$@"
+    fi
+    if [[ "$_special" == ${_positional_specals[1]} ]] ; then
+        paste_palette "$@"
+    fi
+    choose_special
+fi

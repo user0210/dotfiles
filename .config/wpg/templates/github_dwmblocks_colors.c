@@ -1,1 +1,0 @@
-/home/philipp/github/dwmblocks/colors.c

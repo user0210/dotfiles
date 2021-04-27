@@ -6,7 +6,7 @@ new=1
 for old in $sessions
 do
     tmux rename -t $old $new
-	$((new=new+1))
+	new=$((new+1))
 done
 
 ## test if the session has windows

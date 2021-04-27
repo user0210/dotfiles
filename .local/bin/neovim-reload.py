@@ -31,7 +31,7 @@ def reload(instance):
 
     # execute the reload command
     #nvim.command('source ~/.config/nvim/init.vim')
-    nvim.command('source ~/.config/nvim/init.lua')
+    nvim.command('source ~/.local/share/nvim/site/pack/packer/opt/nvcode-color-schemes.vim/colors/templer.vim')
 
 
 def main():

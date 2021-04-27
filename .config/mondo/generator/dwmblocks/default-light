@@ -1,10 +1,10 @@
 static const char color0[] = "#f8f8f8";
-static const char color1[] = "#ab4642";
-static const char color2[] = "#a1b56c";
-static const char color3[] = "#f7ca88";
-static const char color4[] = "#7cafc2";
-static const char color5[] = "#ba8baf";
-static const char color6[] = "#86c1b9";
+static const char color1[] = "#CB6662";
+static const char color2[] = "#C1D58C";
+static const char color3[] = "#FFEAA8";
+static const char color4[] = "#9CCFE2";
+static const char color5[] = "#DAABCF";
+static const char color6[] = "#A6E1D9";
 static const char color7[] = "#383838";
 static const char color8[] = "#b8b8b8";
 static const char color9[] = "#ab4642";

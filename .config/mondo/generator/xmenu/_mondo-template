@@ -5,16 +5,9 @@ xmenu.height			: 20
 xmenu.borderWidth		: 1
 xmenu.separatorWidth	: 3
 
-%%OFF%%xmenu.background		: base00
-%%OFF%%xmenu.foreground		: base05
-%%OFF%%xmenu.selbackground	: base0D
-%%OFF%%xmenu.selforeground	: base00
-%%OFF%%xmenu.border			: base02
-%%OFF%%xmenu.separator		: base02
-
-%%XRES%%xmenu.background		: Color0
-%%XRES%%xmenu.foreground		: Color7
-%%XRES%%xmenu.selbackground	: Color4
-%%XRES%%xmenu.selforeground	: Color0
-%%XRES%%xmenu.border			: Color8
-%%XRES%%xmenu.separator		: Color8
+xmenu.background		: base00
+xmenu.foreground		: base05
+xmenu.selbackground		: base0D
+xmenu.selforeground		: base00
+xmenu.border			: base02
+xmenu.separator			: base02

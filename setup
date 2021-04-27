@@ -85,6 +85,9 @@ rm ~/.cache/dmenu_run
 vim ~/.config/youtube-dl/config
 	-4
 
+##### update node.js packages
+sudo npm update -g
+
 ###########################################################
 ##### Arch setup
 ###########################################################
@@ -227,10 +230,6 @@ dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
 
 
-##### configs....
-git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-
-
 ###########################################################
 ##### settings
 ###########################################################
@@ -367,9 +366,7 @@ yay chromium-widevine
 
 ##### cmatrix
 
-##### wpgtk
-yay wpgtk-git
-# importand to install after... because of stupid wpgtk
+##### color-picker....
 yay colorz colorthief haishoku 
 #to update schemer2... then put the schemer2 file to ~bin/
 #sudo pacman -S go
@@ -429,7 +426,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 sudo pacman -S nodejs python-pynvim npm ueberzug ripgrep fzf ranger
 yay -S neovim-remote
 sudo npm i -g neovim
-npm install -g tree-sitter-cli
+sudo npm i -g tree-sitter-cli
 
 git clone https://github.com/ChristianChiarulli/lunarvim.git ~/.config/nvim
 git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
@@ -443,7 +440,7 @@ sudo pacman -S clang                ## c++
 
 ## coc-nvim
 sudo pacman -S nodejs npm
-sudo npm install -g neovim
+sudo npm i -g neovim
 # servers
 sudo npm i -g bash-language-server	## bash
 sudo pacman -S clang				## c++
@@ -685,8 +682,7 @@ to
 
 ##### onboard
 change systray-setting to "non-auto..."
-sudo ln -s /home/philipp/.config/onboard/Base16.colors /usr/share/onboard/themes/Base16.colors
-sudo ln -s /home/philipp/.config/onboard/Pywal.colors /usr/share/onboard/themes/Pywal.colors
+sudo ln -s /home/philipp/.config/onboard/Templer.colors /usr/share/onboard/themes/Templer.colors
 
 ##### dunst
 #falls git softlinks nicht wiederherstellt...
