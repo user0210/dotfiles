@@ -387,6 +387,18 @@ export QT_QPA_PLATFORMTHEME=qt5ct	# in xinit.rc
 pacman -S pcmanfm-gtk3 gvfs xarchiver
 terminal --> st -e stmux
 
+#thumbnails
+sudo pacman -S libgsf ffmpegthumbnailer tumbler poppler-glib freetype2 raw-thumbnailer 
+sudo vim /usr/share/thumbnailers/imagemagick-pdf.thumbnailer
+  [Thumbnailer Entry]
+  TryExec=convert
+  Exec=convert %i[0] -background "#FFFFFF" -flatten -thumbnail %s %o
+  MimeType=application/pdf;application/x-pdf;image/pdf;
+sudo vim /etc/ImageMagick-7/policy.xml
+	comment out this line:
+	<policy domain="delegate" rights="none" pattern="gs" />
+
+
 # mkdir .Trash-1000
 # chown philipp .Trash-1000
 # einträge in fstab ergänzen

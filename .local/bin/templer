@@ -151,12 +151,12 @@ else
 		impler --image=$wallpaper --palette=$backend set
 # get base-colors...
 		base00=$(grep  "color0="   ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base01=$(grep  "color237=" ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base02=$(grep  "color239=" ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base03=$(grep  "color241=" ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base04=$(grep  "color246=" ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base05=$(grep  "color249=" ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base06=$(grep  "color250=" ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base01=$(colort -l  30 $(grep  "color0=" ~/.xfiles/impler/colors.sh | grep -o "#......"))
+		base02=$(colort -l -30 $(grep  "color8=" ~/.xfiles/impler/colors.sh | grep -o "#......"))
+		base03=$(grep  "color8=" ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base04=$(grep  "color7=" ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base05=$(colort -l  30 $(grep  "color7=" ~/.xfiles/impler/colors.sh | grep -o "#......"))
+		base06=$(colort -l -30 $(grep  "color15=" ~/.xfiles/impler/colors.sh | grep -o "#......"))
 		base07=$(grep  "color15="  ~/.xfiles/impler/colors.sh | grep -o "#......")
 		base08=$(grep  "color9="   ~/.xfiles/impler/colors.sh | grep -o "#......")
 		base09=$(grep  "color56="  ~/.xfiles/impler/colors.sh | grep -o "#......")

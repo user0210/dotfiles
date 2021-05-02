@@ -4,7 +4,7 @@
 # \ \/ / | '_ \| | __| '__/ __|
 #  >  <| | | | | | |_| | | (__
 # /_/\_\_|_| |_|_|\__|_|  \___|
-# 
+ 
 
 # fix for QT (and dconf-editor)...
 export QT_QPA_PLATFORMTHEME=qt5ct

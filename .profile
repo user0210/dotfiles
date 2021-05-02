@@ -4,7 +4,7 @@
 # | |_) | | | (_) |  _| | |  __/
 # | .__/|_|  \___/|_| |_|_|\___|
 # |_|
-# 
+ 
 
 ##### add ~/.local/bin to PATH
 export PATH=$PATH:/home/philipp/.local/bin
