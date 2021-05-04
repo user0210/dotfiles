@@ -111,14 +111,14 @@ template=$(printf "${templer}" | dmenu -p "template: ")
 if [ '[wallpaper]' = "$template" ]; then  #####  SET-WALLPAPER  #####################
 ##############################################################################################
 
-wallpaper=$(sxiv -N wallman -to ~/.xfiles/background/wallpapers | head -n 1)
+wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
 
 if [ -z "$wallpaper" ] ;then
 	echo "nothing"
 else
-	echo $wallpaper > ~/.xfiles/impler/wallpaper
-	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ~\/\.xfiles\/impler\/wallpaper\)/g" ~/.local/bin/dwm-starter
-	hsetroot -fill $(cat ~/.xfiles/impler/wallpaper)
+	echo $wallpaper > ${HOME}/.xfiles/impler/wallpaper
+	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/impler\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
+	hsetroot -fill $(cat ${HOME}/.xfiles/impler/wallpaper)
 fi
 
 
@@ -126,7 +126,7 @@ fi
 elif [ '[xresources-theme]' = "$template" ]; then  #####  TERMINAL-COLORS  #####################
 ##############################################################################################
 
-theme=$(ls ~/.config/mondo/themes | grep "^[^._]" | dmenu -p "theme: ")
+theme=$(ls ${HOME}/.config/mondo/themes | grep "^[^._]" | dmenu -p "theme: ")
 
 if [ -z "$theme" ] ;then
 	echo "nothing"
@@ -138,9 +138,9 @@ fi
 elif [ '[wallpaper-theme]' = "$template" ]; then  #####  WALLPAPER-COLORS  ####################################
 ###############################################################################################################
 
-rm ~/.xfiles/impler/schemes/* 2> /dev/null
-rm ~/.xfiles/impler/samples/* 2> /dev/null
-wallpaper=$(sxiv -N wallman -to ~/.xfiles/background/wallpapers/* | head -n 1)
+rm ${HOME}/.xfiles/impler/schemes/* 2> /dev/null
+rm ${HOME}/.xfiles/impler/samples/* 2> /dev/null
+wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers/* | head -n 1)
 
 if [ -z "$wallpaper" ] ;then
 	echo "nothing"
@@ -150,56 +150,56 @@ else
 	echo "$backendlist" | tr ' ' '\n' | while read backend; do
 		impler --image=$wallpaper --palette=$backend set
 # get base-colors...
-		base00=$(grep  "color0="   ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base01=$(colort -l  30 $(grep  "color0=" ~/.xfiles/impler/colors.sh | grep -o "#......"))
-		base02=$(colort -l -30 $(grep  "color8=" ~/.xfiles/impler/colors.sh | grep -o "#......"))
-		base03=$(grep  "color8=" ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base04=$(grep  "color7=" ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base05=$(colort -l  30 $(grep  "color7=" ~/.xfiles/impler/colors.sh | grep -o "#......"))
-		base06=$(colort -l -30 $(grep  "color15=" ~/.xfiles/impler/colors.sh | grep -o "#......"))
-		base07=$(grep  "color15="  ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base08=$(grep  "color9="   ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base09=$(grep  "color56="  ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0A=$(grep  "color11="  ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0B=$(grep  "color10="  ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0C=$(grep  "color14="  ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0D=$(grep  "color12="  ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0E=$(grep  "color13="  ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0F=$(grep  "color18="  ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base08a=$(grep "color1="   ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base09a=$(grep "color59="  ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0Aa=$(grep "color3="   ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0Ba=$(grep "color2="   ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0Ca=$(grep "color6="   ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0Da=$(grep "color4="   ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0Ea=$(grep "color5="   ~/.xfiles/impler/colors.sh | grep -o "#......")
-		base0Fa=$(grep "color20="  ~/.xfiles/impler/colors.sh | grep -o "#......")
+		base00=$(grep  "color0="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base01=$(colort -l  30 $(grep  "color0=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......"))
+		base02=$(colort -l -30 $(grep  "color8=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......"))
+		base03=$(grep  "color8=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base04=$(grep  "color7=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base05=$(colort -l  30 $(grep  "color7=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......"))
+		base06=$(colort -l -30 $(grep  "color15=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......"))
+		base07=$(grep  "color15="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base08a=$(grep "color9="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base09a=$(grep "color56="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Aa=$(grep "color11="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Ba=$(grep "color10="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Ca=$(grep "color14="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Da=$(grep "color12="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Ea=$(grep "color13="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Fa=$(grep "color18="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base08=$(grep  "color1="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base09=$(grep  "color59="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0A=$(grep  "color3="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0B=$(grep  "color2="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0C=$(grep  "color6="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0D=$(grep  "color4="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0E=$(grep  "color5="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0F=$(grep  "color20="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
 # export scheme-files...
-		echo "base00  $base00"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base01  $base01"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base02  $base02"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base03  $base03"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base04  $base04"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base05  $base05"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base06  $base06"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base07  $base07"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base08  $base08"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base09  $base09"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base0A  $base0A"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base0B  $base0B"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base0C  $base0C"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base0D  $base0D"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base0E  $base0E"  >> ~/.xfiles/impler/schemes/$backend
-		echo "base0F  $base0F"  >> ~/.xfiles/impler/schemes/$backend
-		echo >> ~/.xfiles/impler/schemes/$backend
-		echo "base08a $base08a" >> ~/.xfiles/impler/schemes/$backend
-		echo "base09a $base09a" >> ~/.xfiles/impler/schemes/$backend
-		echo "base0Aa $base0Aa" >> ~/.xfiles/impler/schemes/$backend
-		echo "base0Ba $base0Ba" >> ~/.xfiles/impler/schemes/$backend
-		echo "base0Ca $base0Ca" >> ~/.xfiles/impler/schemes/$backend
-		echo "base0Da $base0Da" >> ~/.xfiles/impler/schemes/$backend
-		echo "base0Ea $base0Ea" >> ~/.xfiles/impler/schemes/$backend
-		echo "base0Fa $base0Fa" >> ~/.xfiles/impler/schemes/$backend
+		echo "base00  $base00"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base01  $base01"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base02  $base02"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base03  $base03"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base04  $base04"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base05  $base05"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base06  $base06"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base07  $base07"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base08  $base08"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base09  $base09"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0A  $base0A"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0B  $base0B"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0C  $base0C"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0D  $base0D"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0E  $base0E"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0F  $base0F"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base08a $base08a" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base09a $base09a" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Aa $base0Aa" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Ba $base0Ba" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Ca $base0Ca" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Da $base0Da" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Ea $base0Ea" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Fa $base0Fa" >> ${HOME}/.xfiles/impler/schemes/$backend
 # generate sample image...
 		convert -size 800x300 xc:none \
 		   -fill "$base00" -draw "rectangle 0,0 100,100" \
@@ -225,13 +225,13 @@ else
 		   -fill "$base0Ca" -draw "rectangle 400,200 500,300" \
 		   -fill "$base0Da" -draw "rectangle 500,200 600,300" \
 		   -fill "$base0Ea" -draw "rectangle 600,200 700,300" \
-		   -fill "$base0Fa" -draw "rectangle 700,200 800,300" ~/.xfiles/impler/samples/$backend.png
+		   -fill "$base0Fa" -draw "rectangle 700,200 800,300" ${HOME}/.xfiles/impler/samples/$backend.png
 	done
 # choose backend... 
-	backend=$(sxiv -N wallman -to ~/.xfiles/impler/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
+	backend=$(sxiv -N wallman -to ${HOME}/.xfiles/impler/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
 # connect color-theme to mondo...
-	rm ~/.config/mondo/themes/impler 2> /dev/null
-	ln -s ~/.xfiles/impler/schemes/$backend ~/.config/mondo/themes/impler
+	rm ${HOME}/.config/mondo/themes/impler 2> /dev/null
+	ln -s ${HOME}/.xfiles/impler/schemes/$backend ${HOME}/.config/mondo/themes/impler
 	mondo -f -g impler
 # apply theme on templates
 	mondo -a $theme

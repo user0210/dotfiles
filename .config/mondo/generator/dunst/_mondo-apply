@@ -23,8 +23,8 @@ low=$(mondo get base06)
 normal=$(mondo get base0B)
 critical=$(mondo get base00)
 
-sed -e "s/#aaaaaa/#$low/" /home/philipp/.xfiles/icons/low-bak.svg > /home/philipp/.xfiles/icons/low.svg
-sed -e "s/#aaaaaa/#$normal/" /home/philipp/.xfiles/icons/normal-bak.svg > /home/philipp/.xfiles/icons/normal.svg
-sed -e "s/#aaaaaa/#$critical/" /home/philipp/.xfiles/icons/critical-bak.svg > /home/philipp/.xfiles/icons/critical.svg
+sed -e "s/#aaaaaa/$low/" ~/.xfiles/icons/low-bak.svg > ~/.xfiles/icons/low.svg
+sed -e "s/#aaaaaa/$normal/" ~/.xfiles/icons/normal-bak.svg > ~/.xfiles/icons/normal.svg
+sed -e "s/#aaaaaa/$critical/" ~/.xfiles/icons/critical-bak.svg > ~/.xfiles/icons/critical.svg
 
 killall dunst

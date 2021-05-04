@@ -193,7 +193,7 @@ git clone https://git.suckless.org/st
 git clone https://git.suckless.org/dmenu
 
 ## bei allen:
-git remote add myorigin git@github.com:philor1/XXXXXX.git
+git remote add myorigin git@github.com:phili-doubleP/XXXXXX.git
 git remote -v
 git fetch myorigin
 git branch -v -a
@@ -206,8 +206,8 @@ ln -s /home/philipp/github/dmenu/dmenu_run /usr/local/bin/dmenu_run
 ln -s /home/philipp/github/dmenu/dmenu_path /usr/local/bin/dmenu_path
 
 ## ...now dwmblocks
-git clone git@github.com:philor1/dwmblocks.git
-git remote add myorigin git@github.com:philor1/dwmblocks.git
+git clone git@github.com:phili-doubleP/dwmblocks.git
+git remote add myorigin git@github.com:phili-doubleP/dwmblocks.git
 git remote -v
 
 ##### X11
@@ -225,7 +225,7 @@ EndSection
 ## in .bashrc
 alias dotfiles='/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
 mkdir dotfiles... cd...
-git clone --bare git@github.com:philor1/dotfiles-x230t.git $HOME/github/dotfiles
+git clone --bare git@github.com:phili-doubleP/dotfiles-x230t.git $HOME/github/dotfiles
 dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
 

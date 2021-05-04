@@ -2,12 +2,12 @@
 
 ##### background
 #xsetroot -solid "$(xrdb -query|awk '/\*color0:/ {print $2}')"
-#xsetroot -bitmap /home/philipp/.xfiles/background/bitmap-walls/patterns/line_diag8_1.xbm -bg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -fg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
-#display -resize 1366x768\! -window root /home/philipp/.xfiles/background/wallpapers/fractals-leaf-caro.jpg
-#display -size 1366x768 -window root /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
+#xsetroot -bitmap ${HOME}/.xfiles/background/bitmap-walls/patterns/line_diag8_1.xbm -bg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -fg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
+#display -resize 1366x768\! -window root ${HOME}/.xfiles/background/wallpapers/fractals-leaf-caro.jpg
+#display -size 1366x768 -window root ${HOME}/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
-#hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
-hsetroot -fill $(cat ~/.xfiles/impler/wallpaper)
+#hsetroot -tile ${HOME}/.xfiles/background/png-walls/dots16.png
+hsetroot -fill $(cat ${HOME}/.xfiles/impler/wallpaper)
 
 picom &
 
@@ -37,12 +37,12 @@ suckless-menu 2> /dev/null && sleep 1 && nm-applet &
 ##### dwm (while loop for autorestart..)
 while true; do
     # Log stderror to a file 
-    dwm 2> ~/.config/dwm/dwm.log
+    dwm 2> ${HOME}/.config/dwm/dwm.log
     # No error logging
     #dwm >/dev/null 2>&1
 done
 
 #until dwm \
-#2> ~/.config/dwm/dwm.log; do
+#2> ${HOME}/.config/dwm/dwm.log; do
 #	sleep 1
 #done

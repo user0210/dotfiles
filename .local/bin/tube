@@ -8,7 +8,7 @@ audiosel pipe
 case "$1" in
 	update)
 youtube-dl --rm-cache-dir
-rm /home/philipp/.config/mps-youtube/cache_py* 2> /dev/null
+rm ${HOME}/.config/mps-youtube/cache_py* 2> /dev/null
 if [ -t 0 ] ; then
     mpsyt set api_key ***REMOVED***
 else
@@ -20,12 +20,12 @@ esac
 
 
 ##### tmux-session #########################################
-rm ~/.config/mps-youtube/cache_py* 2> /dev/null
+rm ${HOME}/.config/mps-youtube/cache_py* 2> /dev/null
 if [ -t 0 ] ; then
     mpsyt "$@"
 else
 	if [ $# -eq 0 ]; then
-		st -u -t tube -e /home/philipp/.config/zsh/tube/tmux
+		st -u -t tube -e ${HOME}/.config/zsh/tube/tmux
 	else
 		st -u -e mpsyt "$@" &
 	fi

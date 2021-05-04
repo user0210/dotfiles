@@ -1,17 +1,31 @@
 dmenu.font              : TerminessTTF Nerd Font:pixelsize=16
 
-dmenu.background        : base00
+dmenu.background        : base01
 dmenu.foreground        : base05
 dmenu.selbackground     : base02
 dmenu.selforeground     : base06
 dmenu.outbackground     : base0D
-dmenu.outforeground     : base00
-dmenu.hibackground      : base00
+dmenu.outforeground     : base01
+dmenu.hibackground      : base01
 dmenu.hiforeground      : base0A
 dmenu.hiselbackground   : base02
 dmenu.hiselforeground   : base0A
 dmenu.hioutbackground   : base0D
-dmenu.hioutforeground   : base00
+dmenu.hioutforeground   : base01
+
+! non-border-colors
+! dmenu.background        : base00
+! dmenu.foreground        : base05
+! dmenu.selbackground     : base02
+! dmenu.selforeground     : base06
+! dmenu.outbackground     : base0D
+! dmenu.outforeground     : base00
+! dmenu.hibackground      : base00
+! dmenu.hiforeground      : base0A
+! dmenu.hiselbackground   : base02
+! dmenu.hiselforeground   : base0A
+! dmenu.hioutbackground   : base0D
+! dmenu.hioutforeground   : base00
 
 ! color0:       base00
 ! color1:       base08
