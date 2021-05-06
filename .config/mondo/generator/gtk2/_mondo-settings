@@ -29,4 +29,4 @@
 
 # target can be an (absolute) file path to where
 # the file will be copied when a theme is applied.
-target="~/.local/share/themes/Templer/gtk-2.0/gtkrc"
+target="~/.xfiles/themes/colordef.rc"

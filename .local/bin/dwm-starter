@@ -7,15 +7,15 @@
 #display -size 1366x768 -window root ${HOME}/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
 #hsetroot -tile ${HOME}/.xfiles/background/png-walls/dots16.png
-hsetroot -fill $(cat ${HOME}/.xfiles/impler/wallpaper)
+hsetroot -fill $(cat ~/.xfiles/impler/wallpaper)
 
-picom &
+picom --experimental-backends &
 
 ##### startup-screen
-#xbanish -a &
-#st -g 80x30+350+150 -e cbonsai -lt 0.005 -m " DWM" &
-#sleep 5 && killall cbonsai 2> /dev/null
-#killall xbanish
+xbanish -a &
+st -g 80x30+350+150 -e cbonsai -lt 0.005 -m " DWM" &
+sleep 5 && killall cbonsai 2> /dev/null
+killall xbanish
 
 ##### statusbar
 internetav &

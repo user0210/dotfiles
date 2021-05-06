@@ -667,7 +667,8 @@ svim /etc/updatedb.conf
     PRUNEPATHS=".......... /timeshift"
 
 ##### mps-youtube
-sudo pacman -S mpv mps-youtube python-pyperclip
+sudo pacman -S mpv youtube-dl python-pyperclip
+pip3 install --user -U git+https://github.com/mps-youtube/mps-youtube.git
 
 (https://github.com/mps-youtube/mps-youtube/issues/1063)
 1.Go to https://console.cloud.google.com, create a project, then enable Youtube Data Api V3 and create credential and get the API_KEY for public use.

@@ -1,0 +1,31 @@
+#!/bin/bash
+# This script is executed every time a theme is applied.
+# Each generator can have it's own _mondo-apply script.
+
+# The default syntax is bash, but by changing the shebang,
+# one could use another language (f.i. perl or python).
+
+# $1 is equal to: $MONOD_DIR/generator/TYPE/THEME[.extensions]
+
+# If this script is not needed, this file can safely be removed.
+# (removing the file, will improve execution speed)
+
+# MONDO_DIR="${1%%/generator*}"
+# THIS_DIR="${1%/*}"
+# THIS_GENERATOR="${THIS_DIR##*/}"
+# THIS_FILE="${1##*/}"
+# THIS_THEME="${THIS_FILE%.*}"
+
+# To source the settings file one could use this:
+# source "${THIS_DIR}/_mondo-settings"
+
+base0D=$(mondo get base0D)
+base0Da=$(mondo get base0Da)
+
+base0Ddarker=$(colort -l -15 $base0Da)
+base0Ddarkest=$(colort -l -30 $base0Da)
+base0Dmix=$(pastel mix "$base0D" "$base0Da" | pastel format hex)
+
+echo "@define-color base0Dmix $base0Dmix;" >> ~/.xfiles/themes/colordef.css
+echo "@define-color base0Ddarker $base0Ddarker;" >> ~/.xfiles/themes/colordef.css
+echo "@define-color base0Ddarkest $base0Ddarkest;" >> ~/.xfiles/themes/colordef.css
