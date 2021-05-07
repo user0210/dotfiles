@@ -1,0 +1,243 @@
+#!/bin/sh
+
+##############################################################################################
+case "$1" in  ################################################################################
+##############################################################################################
+-base)
+
+fileorpath=$2
+
+for f in $fileorpath; do
+    col0=$(grep "color0" $2 | grep -o "#......")
+    col7=$(grep "color7" $2 | grep -o "#......")
+    col8=$(grep "color8" $2 | grep -o "#......")
+    col15=$(grep "color15" $2 | grep -o "#......")
+
+    light=$(colort -c $col0 && printf 0 || printf 1)
+	
+	if [ "$light" -eq 0 ]; then
+        col0a=$(colort -l -15 $col0)
+        col8a=$(colort -l -30 $col8)
+        col7a=$(colort -l 30 $col7)
+        col15a=$(colort -l 15 $col15)
+    else
+        col0a=$(colort -l 15 $col0)
+        col8a=$(colort -l 30 $col8)
+        col7a=$(colort -l -30 $col7)
+        col15a=$(colort -l -15 $col15)
+    fi
+
+	echo "base00 : $col0"
+	echo "base01 : $col0a"
+	echo "base02 : $col8"
+	echo "base03 : $col8a"
+	echo "base04 : $col7a"
+	echo "base05 : $col7"
+	echo "base06 : $col15a"
+	echo "base07 : $col15"
+done
+esac
+
+##############################################################################################
+case "$1" in  ################################################################################
+##############################################################################################
+-color)
+
+fileorpath=$2
+
+for f in $fileorpath; do
+    col0=$(grep "^base00" $f | grep -o "#......")
+    col8=$(grep "^base08" $f | grep -o "#......")
+    col9=$(grep "^base09" $f | grep -o "#......")
+    colA=$(grep "^base0A" $f | grep -o "#......")
+    colB=$(grep "^base0B" $f | grep -o "#......")
+    colC=$(grep "^base0C" $f | grep -o "#......")
+    colD=$(grep "^base0D" $f | grep -o "#......")
+    colE=$(grep "^base0E" $f | grep -o "#......")
+    colF=$(grep "^base0F" $f | grep -o "#......")
+
+    light=$(colort -c $col0 && printf 0 || printf 1)
+
+	if [ "$light" -eq 0 ]; then
+        col8a=$(colort -l -32 $col8)
+        col9a=$(colort -l -32 $col9)
+        colAa=$(colort -l -32 $colA)
+        colBa=$(colort -l -32 $colB)
+        colCa=$(colort -l -32 $colC)
+        colDa=$(colort -l -32 $colD)
+        colEa=$(colort -l -32 $colE)
+        colFa=$(colort -l -32 $colF)
+    else
+        col8a=$(colort -l 32 $col8)
+        col9a=$(colort -l 32 $col9)
+        colAa=$(colort -l 32 $colA)
+        colBa=$(colort -l 32 $colB)
+        colCa=$(colort -l 32 $colC)
+        colDa=$(colort -l 32 $colD)
+        colEa=$(colort -l 32 $colE)
+        colFa=$(colort -l 32 $colF)
+    fi
+
+	# echo...
+    echo "base8a : $colFa"
+    echo "base9a : $colEa"
+    echo "baseAa : $colDa"
+    echo "baseBa : $colCa"
+    echo "baseCa : $colBa"
+    echo "baseDa : $colAa"
+    echo "baseEa : $col9a"
+    echo "baseFa : $col8a"
+
+	# print directly to file...
+    #sed -i "21i\base0Fa\t$colFa" $f
+    #sed -i "21i\base0Ea\t$colEa" $f
+    #sed -i "21i\base0Da\t$colDa" $f
+    #sed -i "21i\base0Ca\t$colCa" $f
+    #sed -i "21i\base0Ba\t$colBa" $f
+    #sed -i "21i\base0Aa\t$colAa" $f
+    #sed -i "21i\base09a\t$col9a" $f
+    #sed -i "21i\base08a\t$col8a" $f
+done
+esac
+
+
+
+
+templer="[wallpaper]\n[wallpaper-theme]\n[xresources-theme]"
+template=$(printf "${templer}" | dmenu -p "template: ")
+
+
+##############################################################################################
+if [ '[wallpaper]' = "$template" ]; then  #####  SET-WALLPAPER  #####################
+##############################################################################################
+
+wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
+
+if [ -z "$wallpaper" ] ;then
+	echo "nothing"
+else
+	echo $wallpaper > ${HOME}/.xfiles/impler/wallpaper
+	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/impler\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
+	hsetroot -fill $(cat ${HOME}/.xfiles/impler/wallpaper)
+fi
+
+
+##############################################################################################
+elif [ '[xresources-theme]' = "$template" ]; then  #####  TERMINAL-COLORS  #####################
+##############################################################################################
+
+theme=$(ls ${HOME}/.config/mondo/themes | grep "^[^._]" | dmenu -p "theme: ")
+
+if [ -z "$theme" ] ;then
+	echo "nothing"
+else
+	mondo -a $theme
+fi
+
+###############################################################################################################
+elif [ '[wallpaper-theme]' = "$template" ]; then  #####  WALLPAPER-COLORS  ####################################
+###############################################################################################################
+
+rm ${HOME}/.xfiles/impler/schemes/* 2> /dev/null
+rm ${HOME}/.xfiles/impler/samples/* 2> /dev/null
+wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers/* | head -n 1)
+
+if [ -z "$wallpaper" ] ;then
+	echo "nothing"
+else
+	theme="impler"
+	backendlist="pigmnts schemer2 convert"
+	echo "$backendlist" | tr ' ' '\n' | while read backend; do
+		impler --image=$wallpaper --palette=$backend set
+# get base-colors...
+		base00=$(grep  "color0="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base01=$(colort -l  30 $(grep  "color0=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......"))
+		base02=$(colort -l -30 $(grep  "color8=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......"))
+		base03=$(grep  "color8=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base04=$(grep  "color7=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base05=$(colort -l  30 $(grep  "color7=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......"))
+		base06=$(colort -l -30 $(grep  "color15=" ${HOME}/.xfiles/impler/colors.sh | grep -o "#......"))
+		base07=$(grep  "color15="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base08a=$(grep "color9="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base09a=$(grep "color56="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Aa=$(grep "color11="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Ba=$(grep "color10="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Ca=$(grep "color14="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Da=$(grep "color12="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Ea=$(grep "color13="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0Fa=$(grep "color18="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base08=$(grep  "color1="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base09=$(grep  "color59="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0A=$(grep  "color3="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0B=$(grep  "color2="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0C=$(grep  "color6="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0D=$(grep  "color4="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0E=$(grep  "color5="   ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+		base0F=$(grep  "color20="  ${HOME}/.xfiles/impler/colors.sh | grep -o "#......")
+# export scheme-files...
+		echo "base00  $base00"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base01  $base01"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base02  $base02"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base03  $base03"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base04  $base04"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base05  $base05"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base06  $base06"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base07  $base07"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base08  $base08"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base09  $base09"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0A  $base0A"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0B  $base0B"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0C  $base0C"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0D  $base0D"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0E  $base0E"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0F  $base0F"  >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base08a $base08a" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base09a $base09a" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Aa $base0Aa" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Ba $base0Ba" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Ca $base0Ca" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Da $base0Da" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Ea $base0Ea" >> ${HOME}/.xfiles/impler/schemes/$backend
+		echo "base0Fa $base0Fa" >> ${HOME}/.xfiles/impler/schemes/$backend
+# generate sample image...
+		convert -size 800x300 xc:none \
+		   -fill "$base00" -draw "rectangle 0,0 100,100" \
+		   -fill "$base01" -draw "rectangle 100,0 200,100" \
+		   -fill "$base02" -draw "rectangle 200,0 300,100" \
+		   -fill "$base03" -draw "rectangle 300,0 400,100" \
+		   -fill "$base04" -draw "rectangle 400,0 500,100" \
+		   -fill "$base05" -draw "rectangle 500,0 600,100" \
+		   -fill "$base06" -draw "rectangle 600,0 700,100" \
+		   -fill "$base07" -draw "rectangle 700,0 800,100" \
+		   -fill "$base08" -draw "rectangle 0,100 100,200" \
+		   -fill "$base09" -draw "rectangle 100,100 200,200" \
+		   -fill "$base0A" -draw "rectangle 200,100 300,200" \
+		   -fill "$base0B" -draw "rectangle 300,100 400,200" \
+		   -fill "$base0C" -draw "rectangle 400,100 500,200" \
+		   -fill "$base0D" -draw "rectangle 500,100 600,200" \
+		   -fill "$base0E" -draw "rectangle 600,100 700,200" \
+		   -fill "$base0F" -draw "rectangle 700,100 800,200" \
+		   -fill "$base08a" -draw "rectangle 0,200 100,300" \
+		   -fill "$base09a" -draw "rectangle 100,200 200,300" \
+		   -fill "$base0Aa" -draw "rectangle 200,200 300,300" \
+		   -fill "$base0Ba" -draw "rectangle 300,200 400,300" \
+		   -fill "$base0Ca" -draw "rectangle 400,200 500,300" \
+		   -fill "$base0Da" -draw "rectangle 500,200 600,300" \
+		   -fill "$base0Ea" -draw "rectangle 600,200 700,300" \
+		   -fill "$base0Fa" -draw "rectangle 700,200 800,300" ${HOME}/.xfiles/impler/samples/$backend.png
+	done
+# choose backend... 
+	backend=$(sxiv -N wallman -to ${HOME}/.xfiles/impler/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
+# connect color-theme to mondo...
+	rm ${HOME}/.config/mondo/themes/impler 2> /dev/null
+	ln -s ${HOME}/.xfiles/impler/schemes/$backend ${HOME}/.config/mondo/themes/impler
+	mondo -f -g impler
+# apply theme on templates
+	mondo -a $theme
+fi
+
+
+else #########################################################################################
+	echo "nothing" ###########################################################################
+fi ############################################################################################

@@ -73,6 +73,41 @@ dwmblocks &
 ##############################################################################################
 ##### set gtk- and icon- theme ###############################################################################################
 ##############################################################################################
+  ## more colors.....
+base02=$(mondo get base02)
+base03=$(mondo get base03)
+base04=$(mondo get base04)
+base05=$(mondo get base05)
+base0B=$(mondo get base0B)
+base0Ba=$(mondo get base0Ba)
+base0D=$(mondo get base0D)
+base0Da=$(mondo get base0Da)
+base0Dmix=$(pastel mix "$base0D" "$base0Da" | pastel format hex)
+base0Ddarker=$(pastel mix "$base0Dmix" "$base02" | pastel format hex)
+base0Ddarkera=$(colort -15 $base0Ddarker)
+base0Ddarkeraa=$(colort -30 $base0Ddarker)
+base0Ddarkeraaa=$(colort -55 $base0Ddarker)
+echo "@define-color base0Ddarker $base0Ddarker;" >> ~/.xfiles/themes/colordef.css
+echo "@define-color base0Ddarkera $base0Ddarkera;" >> ~/.xfiles/themes/colordef.css
+echo "@define-color base0Ddarkeraa $base0Ddarkeraa;" >> ~/.xfiles/themes/colordef.css
+echo "@define-color base0Ddarkeraaa $base0Ddarkeraaa;" >> ~/.xfiles/themes/colordef.css
+echo "base0Ddarker:$base0Ddarker" >> ~/.xfiles/themes/colordef.rc
+echo "base0Ddarkera:$base0Ddarkera" >> ~/.xfiles/themes/colordef.rc
+echo "base0Ddarkeraa:$base0Ddarkeraa" >> ~/.xfiles/themes/colordef.rc
+echo "base0Ddarkeraaa:$base0Ddarkeraaa" >> ~/.xfiles/themes/colordef.rc
+base0Bmix=$(pastel mix "$base0B" "$base0Ba" | pastel format hex)
+base0Bgrey=$(pastel mix "$base0Bmix" "$base05" | pastel format hex)
+base0Bgreya=$(pastel mix "$base0Bmix" "$base04" | pastel format hex)
+base0Bgreyaa=$(pastel mix "$base0Bmix" "$base03" | pastel format hex)
+base0Bgreyaaa=$(pastel mix "$base0Bmix" "$base02" | pastel format hex)
+echo "@define-color base0Bgrey $base0Bgrey;" >> ~/.xfiles/themes/colordef.css
+echo "@define-color base0Bgreya $base0Bgreya;" >> ~/.xfiles/themes/colordef.css
+echo "@define-color base0Bgreyaa $base0Bgreyaa;" >> ~/.xfiles/themes/colordef.css
+echo "@define-color base0Bgreyaaa $base0Bgreyaaa;" >> ~/.xfiles/themes/colordef.css
+echo "base0Bgrey:$base0Bgrey" >> ~/.xfiles/themes/colordef.rc
+echo "base0Bgreya:$base0Bgreya" >> ~/.xfiles/themes/colordef.rc
+echo "base0Bgreyaa:$base0Bgreyaa" >> ~/.xfiles/themes/colordef.rc
+echo "base0Bgreyaaa:$base0Bgreyaaa" >> ~/.xfiles/themes/colordef.rc
   ## copy template-icons and set new color
 ICON=$(xrdb -query|awk '/\*color19:/ {print $2}')
 ICONBAR=$(xrdb -query|awk '/\*color3:/ {print $2}')

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+case $BUTTON in
+	1) st -e nvim ${HOME}/github/dwmblocks/config.h ;;
+esac
