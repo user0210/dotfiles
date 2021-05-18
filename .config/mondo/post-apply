@@ -29,7 +29,7 @@ convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -quer
 if [ 'impler' = "$select" ]; then
 
   # set alpha
-	sed -i "s/^\*alpha:.*/\*alpha: 0\.7/g" ~/.config/X11/Xresources
+	sed -i "s/^\*alpha:.*/\*alpha: 0\.9/g" ~/.config/X11/Xresources
   # set wallpaper
 	hsetroot -fill $(cat ~/.xfiles/impler/wallpaper)
 	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ~\/\.xfiles\/impler\/wallpaper\)/g" ~/.local/bin/dwm-starter
@@ -52,8 +52,10 @@ fi
 ##############################################################################################
   ## source Xresources here not in gnerator for alpha getting loadet
 xrdb -merge -I~/.config/X11 ~/.config/X11/Xresources
+
   ## reaload st-clients
 pkill -USR2 "^st$" &
+
   ## source theme to tmux
 tmux source-file -q ~/.tmux.conf
 
@@ -63,8 +65,10 @@ tmux source-file -q ~/.tmux.conf
 ##############################################################################################
   ## nm-applet
 killall nm-applet; nm-applet &
+
   ## polkit-gtk
 killall polkit-gnome-authentication-agent-1; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
   ## dwmblocks
 killall -9 dwmblocks
 make -C ~/.local/git/dwmblocks
@@ -108,15 +112,19 @@ echo "base0Bgrey:$base0Bgrey" >> ~/.xfiles/themes/colordef.rc
 echo "base0Bgreya:$base0Bgreya" >> ~/.xfiles/themes/colordef.rc
 echo "base0Bgreyaa:$base0Bgreyaa" >> ~/.xfiles/themes/colordef.rc
 echo "base0Bgreyaaa:$base0Bgreyaaa" >> ~/.xfiles/themes/colordef.rc
+
   ## copy template-icons and set new color
 ICON=$(xrdb -query|awk '/\*color19:/ {print $2}')
 ICONBAR=$(xrdb -query|awk '/\*color3:/ {print $2}')
 cp -rf ~/.xfiles/icons/Templer.template/* ~/.local/share/icons/Templer
 find ~/.local/share/icons/Templer/status/scalable/ -type f -exec sed -i "s/MAINCOLOR/$ICONBAR/g" {} +
 find ~/.local/share/icons/Templer/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
+
   ## apply gtk-theme on the fly
-timeout 0.1s xsettingsd -c ~/.xfiles/.xsettingsdummy
-timeout 0.1s xsettingsd -c ~/.xfiles/.xsettingsd
+xsettingsd -c ~/.config/X11/xsettingsd &
+pkill -SIGHUP xsettingsd && killall xsettingsd
+
+
   ## set xmenu icons
 convert -size 16x16 -background none ~/.local/share/icons/Templer/apps/scalable/web-browser-symbolic.svg ~/.xfiles/icons/web-browser-symbolic.png
 convert -size 16x16 -background none ~/.local/share/icons/Templer/actions/scalable/sidebar-places-symbolic.svg ~/.xfiles/icons/sidebar-places-symbolic.png
