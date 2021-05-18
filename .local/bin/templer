@@ -206,7 +206,7 @@ elif [ '[wallpaper-theme]' = "$template" ]; then  #####  WALLPAPER-COLORS  #####
 rm ${HOME}/.xfiles/impler/schemes/* 2> /dev/null
 rm ${HOME}/.xfiles/impler/samples/* 2> /dev/null
 
-wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers/* | head -n 1)
+wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
 
 if [ -z "$wallpaper" ] ;then
 	echo "nothing"
@@ -439,6 +439,10 @@ done
 	rm ${HOME}/.config/mondo/themes/impler 2> /dev/null
 	ln -s ${HOME}/.xfiles/impler/schemes/$backend ${HOME}/.config/mondo/themes/impler
 	mondo -f -g impler
+# set wallpaper
+	echo $wallpaper > ${HOME}/.xfiles/impler/wallpaper
+	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/impler\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
+	hsetroot -fill $(cat ${HOME}/.xfiles/impler/wallpaper)
 # apply theme on templates
 	mondo -a $theme
 ########################################

@@ -1,155 +1,308 @@
 include "colordef.rc"
 
-gtk-color-scheme = "base_color:#c6b2a8\nfg_color:#000000\ntooltip_fg_color:#000000\nselected_bg_color:#a8978f\nselected_fg_color:#000000\ntext_color:#000000\nbg_color:#c6b2a8\ninsensitive_bg_color:#a8978f\ntooltip_bg_color:#a8978f"
+gtk-color-scheme = "base_color:@base0Bgrey\nfg_color:@base00\ntooltip_fg_color:@base00\nselected_bg_color:@base0Bgreya\nselected_fg_color:@base00\ntext_color:@base00\nbg_color:@base0Bgrey\ninsensitive_bg_color:@base0Bgreya\ntooltip_bg_color:@base0Bgreya"
     
 style "cde_style_4"
 {
-    fg[NORMAL]  ="#ffffff"
-    bg[NORMAL]  ="#686f82"
-    text[NORMAL]="#ffffff"
-    base[NORMAL]="#686f82"
+    fg[NORMAL]  ="@base06"
+    bg[NORMAL]  ="@base03"
+    text[NORMAL]="@base06"
+    base[NORMAL]="@base03"
 
-    fg[ACTIVE]  ="#ffffff"
-    bg[ACTIVE]  ="#585e6e"
-    text[ACTIVE]="#ffffff"
-    base[ACTIVE]="#585e6e"
+    fg[ACTIVE]  ="@base06"
+    bg[ACTIVE]  ="@base02"
+    text[ACTIVE]="@base06"
+    base[ACTIVE]="@base02"
 
-    fg[PRELIGHT]="#ffffff"
-    bg[PRELIGHT]="#686f82"
-    text[PRELIGHT]="#ffffff"
-    base[PRELIGHT] ="#686f82"
+    fg[PRELIGHT]="@base06"
+    bg[PRELIGHT]="@base03"
+    text[PRELIGHT]="@base06"
+    base[PRELIGHT] ="@base03"
 
-    fg[SELECTED]="#686f82"
-    bg[SELECTED]="#ffffff"
-    text[SELECTED]="#686f82"
-    base[SELECTED]="#ffffff"
+    fg[SELECTED]="@base03"
+    bg[SELECTED]="@base06"
+    text[SELECTED]="@base03"
+    base[SELECTED]="@base06"
 
     #this is the dark color of the etched in insensitive text when on normal background of widget
-    fg[INSENSITIVE]="#33363f"
-    bg[INSENSITIVE]="#686f82"
+    fg[INSENSITIVE]="@base01"
+    bg[INSENSITIVE]="@base03"
     #insensitive text color in entry and also fg color of etched in text in combo box
-    text[INSENSITIVE]="#33363f"
+    text[INSENSITIVE]="@base01"
     #in cde this is normal bg color
-    base[INSENSITIVE]="#686f82"
+    base[INSENSITIVE]="@base03"
 }
 
 style "cde_style_5"
 {
-    fg[NORMAL]  ="#000000"
-    bg[NORMAL]  ="#c6b2a8"
-    text[NORMAL]="#000000"
-    base[NORMAL]="#c6b2a8"
+    fg[NORMAL]  ="@base00"
+    bg[NORMAL]  ="@base0Bgrey"
+    text[NORMAL]="@base00"
+    base[NORMAL]="@base0Bgrey"
 
-    fg[ACTIVE]  ="#000000"
-    bg[ACTIVE]  ="#a8978f"
-    text[ACTIVE]="#000000"
-    base[ACTIVE]="#a8978f"
+    fg[ACTIVE]  ="@base00"
+    bg[ACTIVE]  ="@base0Bgreya"
+    text[ACTIVE]="@base00"
+    base[ACTIVE]="@base0Bgreya"
 
-    fg[PRELIGHT]="#000000"
-    bg[PRELIGHT]="#c6b2a8"
-    text[PRELIGHT]="#000000"
-    base[PRELIGHT] ="#c6b2a8"
+    fg[PRELIGHT]="@base00"
+    bg[PRELIGHT]="@base0Bgrey"
+    text[PRELIGHT]="@base00"
+    base[PRELIGHT] ="@base0Bgrey"
 
-    fg[SELECTED]="#c6b2a8"
-    bg[SELECTED]="#000000"
-    text[SELECTED]="#c6b2a8"
-    base[SELECTED]="#000000"
+    fg[SELECTED]="@base0Bgrey"
+    bg[SELECTED]="@base00"
+    text[SELECTED]="@base0Bgrey"
+    base[SELECTED]="@base00"
 
     #this is the dark color of the etched in insensitive text when on normal background of widget
-    fg[INSENSITIVE]="#6b605b"
-    bg[INSENSITIVE]="#c6b2a8"
+    fg[INSENSITIVE]="@base0Bgreyaa"
+    bg[INSENSITIVE]="@base0Bgrey"
     #insensitive text color in entry and also fg color of etched in text in combo box
-    text[INSENSITIVE]="#6b605b"
+    text[INSENSITIVE]="@base0Bgreyaa"
     #in cde this is normal bg color
-    base[INSENSITIVE]="#c6b2a8"
+    base[INSENSITIVE]="@base0Bgrey"
 }
 
 style "cde_style_6"
 {
-    fg[NORMAL]  ="#ffffff"
-    bg[NORMAL]  ="#4992a7"
-    text[NORMAL]="#ffffff"
-    base[NORMAL]="#4992a7"
+    fg[NORMAL]  ="@base06"
+    bg[NORMAL]  ="@base0Ddarkera"
+    text[NORMAL]="@base06"
+    base[NORMAL]="@base0Ddarkera"
 
-    fg[ACTIVE]  ="#ffffff"
-    bg[ACTIVE]  ="#3e7c8e"
-    text[ACTIVE]="#ffffff"
-    base[ACTIVE]="#3e7c8e"
+    fg[ACTIVE]  ="@base06"
+    bg[ACTIVE]  ="@base0Ddarkeraa"
+    text[ACTIVE]="@base06"
+    base[ACTIVE]="@base0Ddarkeraa"
 
-    fg[PRELIGHT]="#ffffff"
-    bg[PRELIGHT]="#4992a7"
-    text[PRELIGHT]="#ffffff"
-    base[PRELIGHT] ="#4992a7"
+    fg[PRELIGHT]="@base06"
+    bg[PRELIGHT]="@base0Ddarkera"
+    text[PRELIGHT]="@base06"
+    base[PRELIGHT] ="@base0Ddarkera"
 
-    fg[SELECTED]="#4992a7"
-    bg[SELECTED]="#ffffff"
-    text[SELECTED]="#4992a7"
-    base[SELECTED]="#ffffff"
+    fg[SELECTED]="@base0Ddarkera"
+    bg[SELECTED]="@base06"
+    text[SELECTED]="@base0Ddarkera"
+    base[SELECTED]="@base06"
 
     #this is the dark color of the etched in insensitive text when on normal background of widget
-    fg[INSENSITIVE]="#244953"
-    bg[INSENSITIVE]="#4992a7"
+    fg[INSENSITIVE]="@base0Ddarkeraaa"
+    bg[INSENSITIVE]="@base0Ddarkera"
     #insensitive text color in entry and also fg color of etched in text in combo box
-    text[INSENSITIVE]="#244953"
+    text[INSENSITIVE]="@base0Ddarkeraaa"
     #in cde this is normal bg color
-    base[INSENSITIVE]="#4992a7"
+    base[INSENSITIVE]="@base0Ddarkera"
 }
 
 style "cde_style_sel_5"
 {
-    fg[NORMAL]  ="#000000"
-    bg[NORMAL]  ="#a8978f"
-    text[NORMAL]="#000000"
-    base[NORMAL]="#a8978f"
+    fg[NORMAL]  ="@base00"
+    bg[NORMAL]  ="@base0Bgreya"
+    text[NORMAL]="@base00"
+    base[NORMAL]="@base0Bgreya"
 
-    fg[ACTIVE]  ="#000000"
-    bg[ACTIVE]  ="#c6b2a8"
-    text[ACTIVE]="#000000"
-    base[ACTIVE]="#c6b2a8"
+    fg[ACTIVE]  ="@base00"
+    bg[ACTIVE]  ="@base0Bgrey"
+    text[ACTIVE]="@base00"
+    base[ACTIVE]="@base0Bgrey"
 
-    fg[PRELIGHT]="#000000"
-    bg[PRELIGHT]="#6b605b"
-    text[PRELIGHT]="#000000"
-    base[PRELIGHT] ="#6b605b"
+    fg[PRELIGHT]="@base00"
+    bg[PRELIGHT]="@base0Bgreyaa"
+    text[PRELIGHT]="@base00"
+    base[PRELIGHT] ="@base0Bgreyaa"
 
-    fg[SELECTED]="#000000"
-    bg[SELECTED]="#6b605b"
-    text[SELECTED]="#000000"
-    base[SELECTED]="#6b605b"
+    fg[SELECTED]="@base00"
+    bg[SELECTED]="@base0Bgreyaa"
+    text[SELECTED]="@base00"
+    base[SELECTED]="@base0Bgreyaa"
 
-    fg[INSENSITIVE]="#000000"
-    bg[INSENSITIVE]="#a8978f"
-    text[INSENSITIVE]="#000000"
-    base[INSENSITIVE]="#a8978f"
+    fg[INSENSITIVE]="@base00"
+    bg[INSENSITIVE]="@base0Bgreya"
+    text[INSENSITIVE]="@base00"
+    base[INSENSITIVE]="@base0Bgreya"
 }
 
 style "cde_style_sel_6"
 {
-    fg[NORMAL]  ="#ffffff"
-    bg[NORMAL]  ="#3e7c8e"
-    text[NORMAL]="#ffffff"
-    base[NORMAL]="#3e7c8e"
+    fg[NORMAL]  ="@base06"
+    bg[NORMAL]  ="@base0Ddarkeraa"
+    text[NORMAL]="@base06"
+    base[NORMAL]="@base0Ddarkeraa"
 
-    fg[ACTIVE]  ="#ffffff"
-    bg[ACTIVE]  ="#4992a7"
-    text[ACTIVE]="#ffffff"
-    base[ACTIVE]="#4992a7"
+    fg[ACTIVE]  ="@base06"
+    bg[ACTIVE]  ="@base0Ddarkera"
+    text[ACTIVE]="@base06"
+    base[ACTIVE]="@base0Ddarkera"
 
-    fg[PRELIGHT]="#ffffff"
-    bg[PRELIGHT]="#244953"
-    text[PRELIGHT]="#ffffff"
-    base[PRELIGHT] ="#244953"
+    fg[PRELIGHT]="@base06"
+    bg[PRELIGHT]="@base0Ddarkeraaa"
+    text[PRELIGHT]="@base06"
+    base[PRELIGHT] ="@base0Ddarkeraaa"
 
-    fg[SELECTED]="#ffffff"
-    bg[SELECTED]="#244953"
-    text[SELECTED]="#ffffff"
-    base[SELECTED]="#244953"
+    fg[SELECTED]="@base06"
+    bg[SELECTED]="@base0Ddarkeraaa"
+    text[SELECTED]="@base06"
+    base[SELECTED]="@base0Ddarkeraaa"
 
-    fg[INSENSITIVE]="#ffffff"
-    bg[INSENSITIVE]="#3e7c8e"
-    text[INSENSITIVE]="#ffffff"
-    base[INSENSITIVE]="#3e7c8e"
+    fg[INSENSITIVE]="@base06"
+    bg[INSENSITIVE]="@base0Ddarkeraa"
+    text[INSENSITIVE]="@base06"
+    base[INSENSITIVE]="@base0Ddarkeraa"
 }
+
+####################################################################
+#gtk-color-scheme = "base_color:#c6b2a8\nfg_color:#000000\ntooltip_fg_color:#000000\nselected_bg_color:#a8978f\nselected_fg_color:#000000\ntext_color:#000000\nbg_color:#c6b2a8\ninsensitive_bg_color:#a8978f\ntooltip_bg_color:#a8978f"
+#    
+#style "cde_style_4"
+#{
+#    fg[NORMAL]  ="#ffffff"
+#    bg[NORMAL]  ="#686f82"
+#    text[NORMAL]="#ffffff"
+#    base[NORMAL]="#686f82"
+#
+#    fg[ACTIVE]  ="#ffffff"
+#    bg[ACTIVE]  ="#585e6e"
+#    text[ACTIVE]="#ffffff"
+#    base[ACTIVE]="#585e6e"
+#
+#    fg[PRELIGHT]="#ffffff"
+#    bg[PRELIGHT]="#686f82"
+#    text[PRELIGHT]="#ffffff"
+#    base[PRELIGHT] ="#686f82"
+#
+#    fg[SELECTED]="#686f82"
+#    bg[SELECTED]="#ffffff"
+#    text[SELECTED]="#686f82"
+#    base[SELECTED]="#ffffff"
+#
+#    #this is the dark color of the etched in insensitive text when on normal background of widget
+#    fg[INSENSITIVE]="#33363f"
+#    bg[INSENSITIVE]="#686f82"
+#    #insensitive text color in entry and also fg color of etched in text in combo box
+#    text[INSENSITIVE]="#33363f"
+#    #in cde this is normal bg color
+#    base[INSENSITIVE]="#686f82"
+#}
+#
+#style "cde_style_5"
+#{
+#    fg[NORMAL]  ="#000000"
+#    bg[NORMAL]  ="#c6b2a8"
+#    text[NORMAL]="#000000"
+#    base[NORMAL]="#c6b2a8"
+#
+#    fg[ACTIVE]  ="#000000"
+#    bg[ACTIVE]  ="#a8978f"
+#    text[ACTIVE]="#000000"
+#    base[ACTIVE]="#a8978f"
+#
+#    fg[PRELIGHT]="#000000"
+#    bg[PRELIGHT]="#c6b2a8"
+#    text[PRELIGHT]="#000000"
+#    base[PRELIGHT] ="#c6b2a8"
+#
+#    fg[SELECTED]="#c6b2a8"
+#    bg[SELECTED]="#000000"
+#    text[SELECTED]="#c6b2a8"
+#    base[SELECTED]="#000000"
+#
+#    #this is the dark color of the etched in insensitive text when on normal background of widget
+#    fg[INSENSITIVE]="#6b605b"
+#    bg[INSENSITIVE]="#c6b2a8"
+#    #insensitive text color in entry and also fg color of etched in text in combo box
+#    text[INSENSITIVE]="#6b605b"
+#    #in cde this is normal bg color
+#    base[INSENSITIVE]="#c6b2a8"
+#}
+#
+#style "cde_style_6"
+#{
+#    fg[NORMAL]  ="#ffffff"
+#    bg[NORMAL]  ="#4992a7"
+#    text[NORMAL]="#ffffff"
+#    base[NORMAL]="#4992a7"
+#
+#    fg[ACTIVE]  ="#ffffff"
+#    bg[ACTIVE]  ="#3e7c8e"
+#    text[ACTIVE]="#ffffff"
+#    base[ACTIVE]="#3e7c8e"
+#
+#    fg[PRELIGHT]="#ffffff"
+#    bg[PRELIGHT]="#4992a7"
+#    text[PRELIGHT]="#ffffff"
+#    base[PRELIGHT] ="#4992a7"
+#
+#    fg[SELECTED]="#4992a7"
+#    bg[SELECTED]="#ffffff"
+#    text[SELECTED]="#4992a7"
+#    base[SELECTED]="#ffffff"
+#
+#    #this is the dark color of the etched in insensitive text when on normal background of widget
+#    fg[INSENSITIVE]="#244953"
+#    bg[INSENSITIVE]="#4992a7"
+#    #insensitive text color in entry and also fg color of etched in text in combo box
+#    text[INSENSITIVE]="#244953"
+#    #in cde this is normal bg color
+#    base[INSENSITIVE]="#4992a7"
+#}
+#
+#style "cde_style_sel_5"
+#{
+#    fg[NORMAL]  ="#000000"
+#    bg[NORMAL]  ="#a8978f"
+#    text[NORMAL]="#000000"
+#    base[NORMAL]="#a8978f"
+#
+#    fg[ACTIVE]  ="#000000"
+#    bg[ACTIVE]  ="#c6b2a8"
+#    text[ACTIVE]="#000000"
+#    base[ACTIVE]="#c6b2a8"
+#
+#    fg[PRELIGHT]="#000000"
+#    bg[PRELIGHT]="#6b605b"
+#    text[PRELIGHT]="#000000"
+#    base[PRELIGHT] ="#6b605b"
+#
+#    fg[SELECTED]="#000000"
+#    bg[SELECTED]="#6b605b"
+#    text[SELECTED]="#000000"
+#    base[SELECTED]="#6b605b"
+#
+#    fg[INSENSITIVE]="#000000"
+#    bg[INSENSITIVE]="#a8978f"
+#    text[INSENSITIVE]="#000000"
+#    base[INSENSITIVE]="#a8978f"
+#}
+#
+#style "cde_style_sel_6"
+#{
+#    fg[NORMAL]  ="#ffffff"
+#    bg[NORMAL]  ="#3e7c8e"
+#    text[NORMAL]="#ffffff"
+#    base[NORMAL]="#3e7c8e"
+#
+#    fg[ACTIVE]  ="#ffffff"
+#    bg[ACTIVE]  ="#4992a7"
+#    text[ACTIVE]="#ffffff"
+#    base[ACTIVE]="#4992a7"
+#
+#    fg[PRELIGHT]="#ffffff"
+#    bg[PRELIGHT]="#244953"
+#    text[PRELIGHT]="#ffffff"
+#    base[PRELIGHT] ="#244953"
+#
+#    fg[SELECTED]="#ffffff"
+#    bg[SELECTED]="#244953"
+#    text[SELECTED]="#ffffff"
+#    base[SELECTED]="#244953"
+#
+#    fg[INSENSITIVE]="#ffffff"
+#    bg[INSENSITIVE]="#3e7c8e"
+#    text[INSENSITIVE]="#ffffff"
+#    base[INSENSITIVE]="#3e7c8e"
+#}
+##################################################################
 
 style "styleScrollbar" {
 	#also scrollbar slider width

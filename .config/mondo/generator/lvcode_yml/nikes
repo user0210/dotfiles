@@ -4,8 +4,8 @@ information:
   author: "philipp"
 
 palette:
-  fg: "#3f3f3f"
-  bg: "#babaa9"
+  fg: "#a4a493"
+  bg: "#303030"
 
   red: "#d4665d"
   green: "#61854e"
@@ -13,9 +13,9 @@ palette:
   blue: "#4c83ad"
   purple: "#8959a8"
   aqua: "#3e999f"
-  gray: "#6e776e"
+  gray: "#445e67"
 
-  gray_2: "#445e67"
+  gray_2: "#6e776e"
   red_2: "#F4867D"
   green_2: "#81A56E"
   yellow_2: "#D5A920"
@@ -23,19 +23,19 @@ palette:
   purple_2: "#A979C8"
   aqua_2: "#5EB9BF"
 
-  bh0_h: "#babaa9"
-  bg0: "#babaa9"
-  bg1: "#a4a493"
-  bg2: "#8d938d"
-  bg3: "#8d938d"
-  bg4: "#6e776e"
+  bh0_h: "#303030"
+  bg0: "#303030"
+  bg1: "#3f3f3f"
+  bg2: "#4b575a"
+  bg3: "#4b575a"
+  bg4: "#445e67"
   orange: "#D182A6"
 
-  bg0_s: "#8d938d"
-  fg4: "#445e67"
-  fg3: "#4b575a"
-  fg2: "#3f3f3f"
-  fg1: "#303030"
+  bg0_s: "#4b575a"
+  fg4: "#6e776e"
+  fg3: "#8d938d"
+  fg2: "#a4a493"
+  fg1: "#babaa9"
   orange_2: "#EC9853"
 
 highlights:

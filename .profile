@@ -29,8 +29,26 @@ export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"
 
+##### clean home
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export LESSHISTFILE="$XDG_CACHE_HOME/lesshst"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export TREE_SITTER_DIR="$XDG_CONFIG_HOME/tree-sitter"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PYLINTHOME="$XDG_CACHE_HOME/pylint"
+export TERMINFO="$XDG_DATA_HOME/terminfo"
+export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
+export GOPATH="$XDG_DATA_HOME/go"
+export HISTFILE="$XDG_DATA_HOME/bash/history"
+
 ##### Start graphical server on tty1 if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx ~/.config/X11/xinitrc
 
 ##### Color output
 # enable color support of ls and also add handy aliases
@@ -54,10 +72,11 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 ####################################################
 ##### Aliases
 ####################################################
+alias startx='startx ~/.config/X11/xinitrc'
 alias less='less -x4'
 alias nm='nmtui'
 alias mem='sudo ps_mem'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/github/dotfiles/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/git/dotfiles/ --work-tree=$HOME'
 alias pacinstall="pacman -Slq | fzf -m --preview \"cat <(pacman -Si {1}) <(pacman -Fl {1} | awk '{print \$2}')\" | xargs -ro sudo pacman -S"
 alias yayinstall="yay -Slq | fzf -m --preview \"yay -Si {1}\"| xargs -ro yay -S"
 alias yaydelete="yay -Qeq | fzf -m --preview \"yay -Qi {1}\" | xargs -ro yay -Rns"

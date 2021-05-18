@@ -18,15 +18,15 @@
 ! ---------- colors ------------------------------------------------
 !-------------------------------------------------------------------
 
-*alpha: 0.7
+*alpha: 1.0
 
 ##### main Xres-colors
-#include ".xfiles/xres-color-def"
+#include "xres-color-def"
 
 ##### suckless colors
-#include ".xfiles/dwm-color"
-#include ".xfiles/dmenu-color"
-#include ".xfiles/xmenu-color"
+#include "dwm-color"
+#include "dmenu-color"
+#include "xmenu-color"
 
 !-------------------------------------------------------------------
 ! ---------- usefull stuff -----------------------------------------

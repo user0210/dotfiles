@@ -2,14 +2,14 @@
 ! Xresources color definitions
 !
 
-#define base00 #babaa9
-#define base01 #a4a493
-#define base02 #8d938d
-#define base03 #6e776e
-#define base04 #445e67
-#define base05 #4b575a
-#define base06 #3f3f3f
-#define base07 #303030
+#define base00 #303030
+#define base01 #3f3f3f
+#define base02 #4b575a
+#define base03 #445e67
+#define base04 #6e776e
+#define base05 #8d938d
+#define base06 #a4a493
+#define base07 #babaa9
 #define base08 #F4867D
 #define base09 #EC9853
 #define base0A #D5A920

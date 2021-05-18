@@ -1,4 +1,4 @@
-. /home/philipp/.zshrc
+. ~/.config/zsh/.zshrc
 
 ####################################################
 ##### tmux autostart

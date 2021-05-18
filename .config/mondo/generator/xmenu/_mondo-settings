@@ -29,4 +29,4 @@
 
 # target can be an (absolute) file path to where
 # the file will be copied when a theme is applied.
-target="~/.xfiles/xmenu-color"
+target="~/.config/X11/xmenu-color"

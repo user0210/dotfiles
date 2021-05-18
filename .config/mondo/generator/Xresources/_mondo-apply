@@ -19,4 +19,4 @@
 # To source the settings file one could use this:
 # source "${THIS_DIR}/_mondo-settings"
 
-xrdb -merge -I$HOME ~/.Xresources
+xrdb -merge -I~/.config/X11 ~/.config/X11/Xresources

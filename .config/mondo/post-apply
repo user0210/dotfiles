@@ -29,14 +29,14 @@ convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -quer
 if [ 'impler' = "$select" ]; then
 
   # set alpha
-	sed -i "s/^\*alpha:.*/\*alpha: 0\.7/g" ~/.Xresources
+	sed -i "s/^\*alpha:.*/\*alpha: 0\.7/g" ~/.config/X11/Xresources
   # set wallpaper
 	hsetroot -fill $(cat ~/.xfiles/impler/wallpaper)
 	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ~\/\.xfiles\/impler\/wallpaper\)/g" ~/.local/bin/dwm-starter
 else
 
   # set alpha
-	sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" ~/.Xresources
+	sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" ~/.config/X11/Xresources
   # set wallpaper
 	hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
 	#xsetroot -bitmap /home/philipp/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -bg "$(xrdb -query|awk '/\*color20:/ {print $2}')"
@@ -51,9 +51,9 @@ fi
 ##### reload terminal ####################################################################################################
 ##############################################################################################
   ## source Xresources here not in gnerator for alpha getting loadet
-xrdb -merge -I$HOME ~/.Xresources
+xrdb -merge -I~/.config/X11 ~/.config/X11/Xresources
   ## reaload st-clients
-externalpipe_buffer.sh st_reloadsignal
+pkill -USR2 "^st$" &
   ## source theme to tmux
 tmux source-file -q ~/.tmux.conf
 
@@ -67,7 +67,7 @@ killall nm-applet; nm-applet &
 killall polkit-gnome-authentication-agent-1; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
   ## dwmblocks
 killall -9 dwmblocks
-make -C /home/philipp/github/dwmblocks
+make -C ~/.local/git/dwmblocks
 dwmblocks &
 
 ##############################################################################################

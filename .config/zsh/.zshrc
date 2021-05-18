@@ -18,7 +18,7 @@ source ~/.profile
 setopt interactive_comments
 
 # history
-HISTFILE=~/.bash_history
+HISTFILE=~/.local/share/bash/history
 HISTSIZE=5000
 SAVEHIST=5000
 setopt HIST_IGNORE_SPACE

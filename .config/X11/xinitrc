@@ -11,8 +11,8 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 #export DESKTOP_SESSION=gnome		#or set to xfce for classic ui
 #export XDG_CURRENT_DESKTOP=GNOME	#or set to XFCE for classic ui
 
-userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
+userresources=$HOME/.config/X11/Xresources
+usermodmap=$HOME/.config/X11/Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 

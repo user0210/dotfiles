@@ -1,4 +1,4 @@
-. /home/philipp/.zshrc
+. ~/.config/zsh/.zshrc
 
 tmux new-session -d -s tube -n browse "mpsyt && pkill -f tube"
 #tmux set-option -t tube status-style bg=Colour02

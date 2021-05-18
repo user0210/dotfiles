@@ -30,20 +30,20 @@
 @define-color bs_color_1 #7f5a3c; 
 @define-color sel_color_1 #ca8f5f; 
 
-@define-color bg_color_4 @base03; 
+@define-color bg_color_4 @base0Bgreya; 
 @define-color fg_color_4 @base06; 
-@define-color ts_color_4 @base04; 
-@define-color bs_color_4 @base01; 
-@define-color sel_color_4 @base02; 
+@define-color ts_color_4 @base0Bgrey; 
+@define-color bs_color_4 @base0Bgreyaaa; 
+@define-color sel_color_4 @base0Bgreyaa; 
 
-@define-color bg_color_5 @base0Bgrey; 
+@define-color bg_color_5 @base04; 
 @define-color fg_color_5 @base00; 
 @define-color ts_color_5 @base05; 
-@define-color bs_color_5 @base0Bgreyaa; 
-@define-color sel_color_5 @base0Bgreya; 
+@define-color bs_color_5 @base02; 
+@define-color sel_color_5 @base03; 
 
 @define-color bg_color_6 @base0Ddarkera; 
-@define-color fg_color_6 @base06; 
+@define-color fg_color_6 @base05; 
 @define-color ts_color_6 @bas0Ddarker; 
 @define-color bs_color_6 @base0Ddarkeraaa; 
 @define-color sel_color_6 @base0Ddarkeraa; 
