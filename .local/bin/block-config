@@ -1,5 +1,11 @@
 #!/bin/sh
 
+case $1 in
+	open) st -n blockset -e nvim ~/.local/git/dwmblocks/config.h & 
+esac
+
+
+## echo-hack... but it works..
 case $BUTTON in
-	1) st -e nvim ${HOME}/github/dwmblocks/config.h ;;
+	1) ps aux | grep 'st -n blockset' | grep -q -v grep && echo || block-config open ;;
 esac

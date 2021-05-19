@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Action
+Tooltip=Open Folder As Root
+Name=Open Folder As Root
+Name[de]=Ordner mit Root-Rechten öffnen
+Icon=gtk-dialog-authentication
+
+Profiles=on_folder;
+
+[X-Action-Profile on_folder]
+MimeTypes=inode/directory;
+Exec=sh -c "/usr/bin/pkexec env DISPLAY\=\$DISPLAY XAUTHORITY\=\$XAUTHORITY /usr/bin/pcmanfm %u"
+Name=replacement for missing function

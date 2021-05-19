@@ -2,31 +2,31 @@
 ! Xresources color definitions
 !
 
-#define base00 #1d2021
-#define base01 #3c3836
-#define base02 #504945
-#define base03 #665c54
-#define base04 #bdae93
-#define base05 #d5c4a1
-#define base06 #ebdbb2
-#define base07 #fbf1c7
-#define base08 #fb4934
-#define base09 #fe8019
-#define base0A #fabd2f
-#define base0B #b8bb26
-#define base0C #8ec07c
-#define base0D #83a598
-#define base0E #d3869b
-#define base0F #d65d0e
+#define base00 #240e0e
+#define base01 #433030
+#define base02 #635353
+#define base03 #827575
+#define base04 #a19898
+#define base05 #c0baba
+#define base06 #e0dddd
+#define base07 #ffffff
+#define base08 #c9aea9
+#define base09 #83a581
+#define base0A #99b59e
+#define base0B #9cbcb9
+#define base0C #84afad
+#define base0D #57919f
+#define base0E #48a0bd
+#define base0F #82b7cc
 
-#define base08a #DB2914
-#define base09a #DE6000
-#define base0Aa #DA9D0F
-#define base0Ba #989B06
-#define base0Ca #6EA05C
-#define base0Da #638578
-#define base0Ea #B3667B
-#define base0Fa #B63D00
+#define base08a #94675e
+#define base09a #476145
+#define base0Aa #57785c
+#define base0Ba #58817d
+#define base0Ca #476d6b
+#define base0Da #2a464c
+#define base0Ea #235362
+#define base0Fa #3c7a93
 
 *foreground:   base05
 #ifdef background_opacity

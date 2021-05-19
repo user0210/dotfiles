@@ -47,6 +47,10 @@ export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 export GOPATH="$XDG_DATA_HOME/go"
 export HISTFILE="$XDG_DATA_HOME/bash/history"
 
+##### pcmanfm needs this..
+export XDG_MENU_PREFIX="lxde-"
+export XDG_CURRENT_DESKTOP=LXDE
+
 ##### Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx ~/.config/X11/xinitrc
 
@@ -84,3 +88,7 @@ alias svim="sudoedit"
 alias bluetoothctl='audiosel pipe && bluetoothctl'
 alias xclip="xclip -selection c"
 alias xclip="xclip -b"
+alias multimc="multimc --platformtheme qt5ct"
+alias mimeopen="mimeopen -d"
+##### pkexec as gksudo replacement
+alias pkexec="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY"
