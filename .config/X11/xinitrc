@@ -6,10 +6,18 @@
 # /_/\_\_|_| |_|_|\__|_|  \___|
  
 
-# fix for QT (and dconf-editor)...
+##### fix for QT (and dconf-editor)...
 export QT_QPA_PLATFORMTHEME=qt5ct
 #export DESKTOP_SESSION=gnome		#or set to xfce for classic ui
 #export XDG_CURRENT_DESKTOP=GNOME	#or set to XFCE for classic ui
+
+##### pcmanfm needs this..
+export XDG_MENU_PREFIX="lxde-"
+export XDG_CURRENT_DESKTOP=LXDE
+
+##### HDPI
+#export GDK_SCALE=2
+#export GDK_DPI_SCALE=0.8
 
 ##### merge in defaults and keymaps
 xrdb -merge $HOME/.config/X11/Xresources

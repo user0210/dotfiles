@@ -29,7 +29,7 @@ convert /home/philipp/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -quer
 if [ 'impler' = "$select" ]; then
 
   # set alpha
-	sed -i "s/^\*alpha:.*/\*alpha: 0\.8/g" ~/.config/X11/Xresources
+	sed -i "s/^\*alpha:.*/\*alpha: 0\.85/g" ~/.config/X11/Xresources
   # set wallpaper
 	hsetroot -fill $(cat ~/.xfiles/impler/wallpaper)
 	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ~\/\.xfiles\/impler\/wallpaper\)/g" ~/.local/bin/dwm-starter

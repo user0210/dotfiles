@@ -24,6 +24,12 @@ config.bind("Xa", "hint links userscript youtube_mp3_downloader.sh")
 config.bind("xv", "spawn --userscript youtube_downloader.sh")
 config.bind("Xv", "hint links userscript youtube_downloader.sh")
 
+config.bind(",m", "spawn umpv {url}")
+config.bind(",M", "hint links spawn umpv {hint-url}")
+config.bind(";M", "hint --rapid links spawn umpv {hint-url}")
+
+config.bind("<Ctrl-t>", "spawn --userscript tor-toggle.sh")
+
 # bas16 colors
 c.colors.completion.fg = base05
 c.colors.completion.odd.bg = base01

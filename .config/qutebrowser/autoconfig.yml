@@ -10,10 +10,7 @@ settings:
     global: true
   bindings.commands:
     global:
-      normal:
-        ',M': hint links spawn umpv {hint-url}
-        ',m': spawn umpv {url}
-        ;M: hint --rapid links spawn umpv {hint-url}
+      normal: null
   colors.webpage.darkmode.enabled:
     global: false
   content.blocking.method:
@@ -26,6 +23,8 @@ settings:
     https://awesometoptreats.com: false
     https://www.hackintosh-forum.de: false
     https://www.reddit.com: false
+  content.proxy:
+    global: socks://localhost:9050/
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: true
   scrolling.bar:

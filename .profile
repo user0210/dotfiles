@@ -6,12 +6,10 @@
 # |_|
  
 
+##### Settings
+##################################################################
 ##### add ~/.local/bin to PATH
 export PATH=$PATH:/home/philipp/.local/bin
-
-##### HDPI
-#export GDK_SCALE=2
-#export GDK_DPI_SCALE=0.8
 
 ##### fix pointer with pywal... maybe not needed...
 #PROMPT_COMMAND='printf "\e]112\a"'
@@ -23,13 +21,18 @@ export HIGHLIGHT_OPTIONS="replace-tabs=4"
 ##### for apps to know the colorspace
 export COLORTERM=truecolor
 
+##### colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 ##### Default programs:
+##################################################################
 export EDITOR="vim"
 export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"
 
 ##### clean home
+##################################################################
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -47,23 +50,8 @@ export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 export GOPATH="$XDG_DATA_HOME/go"
 export HISTFILE="$XDG_DATA_HOME/bash/history"
 
-##### pcmanfm needs this..
-export XDG_MENU_PREFIX="lxde-"
-export XDG_CURRENT_DESKTOP=LXDE
-
 ##### Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx ~/.config/X11/xinitrc
-
-##### Color output
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.config/dircolors && eval "$(dircolors -b ~/.config/dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias grep='grep --color=auto'
-fi
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 ##### source color-scheme (not in use because of alpha issue)
 ## check if display-server is available:
@@ -73,9 +61,8 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 #		source ~/.xfiles/shell
 #fi
 
-####################################################
 ##### Aliases
-####################################################
+##################################################################
 alias startx='startx ~/.config/X11/xinitrc'
 alias less='less -x4'
 alias nm='nmtui'
@@ -90,5 +77,12 @@ alias xclip="xclip -selection c"
 alias xclip="xclip -b"
 alias multimc="multimc --platformtheme qt5ct"
 alias mimeopen="mimeopen -d"
-##### pkexec as gksudo replacement
+## pkexec as gksudo replacement
 alias pkexec="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY"
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.config/dircolors && eval "$(dircolors -b ~/.config/dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias grep='grep --color=auto'
+fi

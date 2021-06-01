@@ -221,6 +221,7 @@ backendlist="\
  colorz\
  pigmnts\
 "
+
 echo "$backendlist" | tr ' ' '\n' | while read backend; do #########################
 
 
@@ -236,9 +237,11 @@ echo "$backendlist" | tr ' ' '\n' | while read backend; do #####################
 			elif [[ "$(echo $scheme | cut -d' ' -f1)" == "$(echo $scheme | cut -d' ' -f3)" ]]; then
 				simple=1
 				scheme=$(schemer2 --threshold 20 -minBright 50 -maxBright 90 -format img::colors -in $wallpaper)
-				scheme=$(pastel -f saturate 0.3 $scheme | pastel sort-by hue | pastel format hex)
+				scheme=$(pastel -f sort-by hue  $scheme | pastel format hex)
+#				scheme=$(pastel -f saturate 0.2 $scheme | pastel sort-by hue | pastel format hex)
 			else
-				scheme=$(pastel -f saturate 0.1 $scheme | pastel sort-by hue | pastel format hex)
+				scheme=$(pastel -f sort-by hue $scheme | pastel format hex)
+#				scheme=$(pastel -f saturate 0.1 $scheme | pastel sort-by hue | pastel format hex)
 			fi
 
 			monos=$(schemer2 --threshold 70 -minBright 30 -maxBright 220 -format img::colors -in $wallpaper)
@@ -279,6 +282,9 @@ echo "$backendlist" | tr ' ' '\n' | while read backend; do #####################
 			lscheme=$scheme
 			scheme=$(pastel darken 0.25 $scheme | pastel format hex)
 		fi
+
+		scheme=$(pastel -f saturate 0.1 $scheme | pastel sort-by hue | pastel format hex)
+		lscheme=$(pastel -f saturate 0.1 $lscheme | pastel sort-by hue | pastel format hex)
 
 		colors=$(echo $scheme | cut -d' ' -f2,4,6,8,10,12,14,16)
 		lcolors=$(echo $lscheme | cut -d' ' -f2,4,6,8,10,12,14,16)
