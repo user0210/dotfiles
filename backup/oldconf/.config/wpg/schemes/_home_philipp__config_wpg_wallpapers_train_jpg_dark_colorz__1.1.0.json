@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/train.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#211211",
+        "foreground": "#fffcfc",
+        "cursor": "#fffcfc"
+    },
+    "colors": {
+        "color0": "#211211",
+        "color1": "#aa5d56",
+        "color2": "#b8bdc2",
+        "color3": "#a9948d",
+        "color4": "#8e9aa8",
+        "color5": "#a4a4a7",
+        "color6": "#2f9a93",
+        "color7": "#c7c3c3",
+        "color8": "#422321",
+        "color9": "#ed6b5f",
+        "color10": "#d6f5ff",
+        "color11": "#efb6a3",
+        "color12": "#a4c6ee",
+        "color13": "#bfbfee",
+        "color14": "#2fd5ca",
+        "color15": "#fffcfc"
+    }
+}

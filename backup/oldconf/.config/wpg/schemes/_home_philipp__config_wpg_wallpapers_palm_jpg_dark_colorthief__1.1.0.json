@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/palm.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#070207",
+        "foreground": "#e4d7e7",
+        "cursor": "#e4d7e7"
+    },
+    "colors": {
+        "color0": "#070207",
+        "color1": "#7a3fb1",
+        "color2": "#34277d",
+        "color3": "#8d52cf",
+        "color4": "#3e5cc3",
+        "color5": "#be6adb",
+        "color6": "#9c94c4",
+        "color7": "#a79ea9",
+        "color8": "#310931",
+        "color9": "#9f42f5",
+        "color10": "#3c27ad",
+        "color11": "#b657ff",
+        "color12": "#3f6eff",
+        "color13": "#ff74ff",
+        "color14": "#bbaaff",
+        "color15": "#e4d7e7"
+    }
+}

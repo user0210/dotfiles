@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/sun.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#090000",
+        "foreground": "#ebd2d2",
+        "cursor": "#ebd2d2"
+    },
+    "colors": {
+        "color0": "#090000",
+        "color1": "#b71804",
+        "color2": "#230c04",
+        "color3": "#de5d04",
+        "color4": "#7a0404",
+        "color5": "#a9080c",
+        "color6": "#dc4404",
+        "color7": "#ac9a9a",
+        "color8": "#3a0101",
+        "color9": "#f21b01",
+        "color10": "#300e02",
+        "color11": "#ff7801",
+        "color12": "#a20101",
+        "color13": "#e50106",
+        "color14": "#ff5601",
+        "color15": "#ebd2d2"
+    }
+}

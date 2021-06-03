@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/notree.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#111615",
+        "foreground": "#fffff3",
+        "cursor": "#fffff3"
+    },
+    "colors": {
+        "color0": "#111615",
+        "color1": "#D0D6CD",
+        "color2": "#B9C4B3",
+        "color3": "#E5DDA0",
+        "color4": "#F9F5B1",
+        "color5": "#D3BFAF",
+        "color6": "#ACB6AC",
+        "color7": "#f3f3de",
+        "color8": "#263230",
+        "color9": "#f4ffe0",
+        "color10": "#e9ffd0",
+        "color11": "#ffffb6",
+        "color12": "#ffffba",
+        "color13": "#fff5ca",
+        "color14": "#c8ffc8",
+        "color15": "#fffff3"
+    }
+}

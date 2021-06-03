@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/moonman.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#191728",
+        "foreground": "#fcfcff",
+        "cursor": "#fcfcff"
+    },
+    "colors": {
+        "color0": "#191728",
+        "color1": "#c85c8e",
+        "color2": "#d194ca",
+        "color3": "#dd89ad",
+        "color4": "#b8739c",
+        "color5": "#f16caf",
+        "color6": "#b782c4",
+        "color7": "#c5c5c9",
+        "color8": "#2c2947",
+        "color9": "#ff64b7",
+        "color10": "#ffa9ff",
+        "color11": "#ff9add",
+        "color12": "#ff82ce",
+        "color13": "#ff75e3",
+        "color14": "#fa93ff",
+        "color15": "#fcfcff"
+    }
+}

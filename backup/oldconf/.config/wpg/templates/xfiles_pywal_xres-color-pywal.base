@@ -1,0 +1,90 @@
+#define Foreground {foreground}
+#define Background {background}
+#define Cursor {cursor}
+
+#define Color0 {color0}
+#define Color1 {color1}
+#define Color2 {color2}
+#define Color3 {color3}
+#define Color4 {color4}
+#define Color5 {color5}
+#define Color6 {color6}
+#define Color7 {color7}
+#define Color8 {color8}
+#define Color9 {color9}
+#define Color10 {color10}
+#define Color11 {color11}
+#define Color12 {color12}
+#define Color13 {color13}
+#define Color14 {color14}
+#define Color15 {color15}
+
+#define Color16 {color3}
+#define Color17 {color1}
+#define Color18 {color0}
+#define Color19 {color8}
+#define Color20 {color6}
+#define Color21 {color15}
+
+! X colors.
+*foreground:        Foreground
+*background:        Background
+*.foreground:       Foreground
+*.background:       Background
+emacs*foreground:   Foreground
+emacs*background:   Background
+XTerm*foreground:   Foreground
+XTerm*background:   Background
+XTerm*cursorColor:  Cursor
+
+! Colors 0-15.
+*.color0: Color0
+*color0:  Color0
+*.color1: Color1
+*color1:  Color1
+*.color2: Color2
+*color2:  Color2
+*.color3: Color3
+*color3:  Color3
+*.color4: Color4
+*color4:  Color4
+*.color5: Color5
+*color5:  Color5
+*.color6: Color6
+*color6:  Color6
+*.color7: Color7
+*color7:  Color7
+*.color8: Color8
+*color8:  Color8
+*.color9: Color9
+*color9:  Color9
+*.color10: Color10
+*color10:  Color10
+*.color11: Color11
+*color11:  Color11
+*.color12: Color12
+*color12:  Color12
+*.color13: Color13
+*color13:  Color13
+*.color14: Color14
+*color14:  Color14
+*.color15: Color15
+*color15:  Color15
+
+! Black color that will not be affected by bold highlighting.
+*.color66: Background
+*color66:  Background
+
+! Base16 colorspace addon.
+*.color16: Color16
+*color16:  Color16
+*.color17: Color17
+*color17:  Color17
+*.color18: Color18
+*color18:  Color18
+*.color19: Color19
+*color19:  Color19
+*.color20: Color20
+*color20:  Color20
+*.color21: Color21
+*color21:  Color21

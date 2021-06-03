@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/decks.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#221409",
+        "foreground": "#fffffb",
+        "cursor": "#fffffb"
+    },
+    "colors": {
+        "color0": "#221409",
+        "color1": "#ae6731",
+        "color2": "#a4a09a",
+        "color3": "#a6925a",
+        "color4": "#bfbdbe",
+        "color5": "#9f619f",
+        "color6": "#40a1a3",
+        "color7": "#c7c4c1",
+        "color8": "#4a2b12",
+        "color9": "#f08331",
+        "color10": "#e9d4b3",
+        "color11": "#e8c564",
+        "color12": "#ffddf7",
+        "color13": "#df6ddf",
+        "color14": "#44dfe2",
+        "color15": "#fffffb"
+    }
+}

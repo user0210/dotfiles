@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/philipp/.config/wpg/wallpapers/outrun1.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#19181a",
+        "foreground": "#ffffff",
+        "cursor": "#ffffff"
+    },
+    "colors": {
+        "color0": "#19181a",
+        "color1": "#bd4a69",
+        "color2": "#642e44",
+        "color3": "#d38139",
+        "color4": "#203857",
+        "color5": "#906f9a",
+        "color6": "#7d3a5f",
+        "color7": "#c5c5c5",
+        "color8": "#322f34",
+        "color9": "#ff4f80",
+        "color10": "#8b3256",
+        "color11": "#ffa638",
+        "color12": "#214778",
+        "color13": "#c47fd9",
+        "color14": "#ae3f7c",
+        "color15": "#ffffff"
+    }
+}
