@@ -77,6 +77,7 @@ alias xclip="xclip -selection c"
 alias xclip="xclip -b"
 alias multimc="multimc --platformtheme qt5ct"
 alias mimeopen="mimeopen -d"
+alias dosbox="dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf"
 ## pkexec as gksudo replacement
 alias pkexec="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY"
 # enable color support of ls and also add handy aliases
