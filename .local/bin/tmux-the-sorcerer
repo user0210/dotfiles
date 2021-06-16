@@ -5,7 +5,7 @@
 tmux set -g bell-action none
 
 
-##### tmux-bash-base16-source ###################################################################################################################################
+##### tmux-bash-source ###################################################################################################################################
 #for i in {1..10}; do tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
 ##tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['
 #
@@ -22,7 +22,7 @@ tmux set -g bell-action none
 #tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ${HOME}/.zshrc && fg > /dev/null 2>&1" C-m
 
 
-##### tmux-zsh-base16-source ####################################################################################################################################
+##### tmux-zsh-source ####################################################################################################################################
 sessions=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | cut -f1 -d':')
 for sess in $sessions
 do

@@ -1,0 +1,38 @@
+#!/usr/bin/python
+
+import os
+import gi
+
+gi.require_version("Gtk", "3.0")
+gi.require_version('AppIndicator3', '0.1')
+from gi.repository import Gtk as gtk, AppIndicator3 as appindicator
+
+def main():
+  iconpath = os.path.join(os.getenv("HOME"), ".xfiles/icons/suckless_logo.svg")
+  indicator = appindicator.Indicator.new("sucklesstray", iconpath, appindicator.IndicatorCategory.APPLICATION_STATUS)
+  indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
+  indicator.set_menu(menu())
+  gtk.main()
+
+def menu():
+  menu = gtk.Menu()
+  
+  command_one = gtk.MenuItem.new_with_label("Autostart")
+  command_one.connect('activate', note)
+  menu.append(command_one)
+
+  exittray = gtk.MenuItem('Exit Tray')
+  exittray.connect('activate', quit)
+  menu.append(exittray)
+  
+  menu.show_all()
+  return menu
+  
+def note(_):
+  os.system("st -e nvim $HOME/.local/bin/dwm-starter")
+
+def quit(_):
+  gtk.main_quit()
+
+if __name__ == "__main__":
+  main()
