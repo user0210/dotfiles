@@ -61,7 +61,7 @@ video_player="mpv"
 
 #the player to use when choosing a video format with $YTFZF_PREF
 #(YTFZF_PLAYER_FORMAT)
-video_player_format="mpv --ytdl-format="
+video_player_format="mpv --ytdl-format=bestvideo[height<=?768][fps<=?30][vcodec!=?vp9]+bestaudio/best"
 
 #the player to use for audio ( option -m )
 #(YTFZF_AUDIO_PLAYER)
