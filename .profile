@@ -9,7 +9,23 @@
 ##### Settings
 ##################################################################
 ##### add ~/.local/bin to PATH
-export PATH=$PATH:/home/philipp/.local/bin
+path_prepend() {
+    for arg in "$@"; do
+        if [[ ":${PATH}:" != *":${arg}:"* ]]; then
+            export PATH="${arg}${PATH:+":$PATH"}"
+        fi
+    done
+}
+
+path_append() {
+    for arg in "$@"; do
+        if [[ ":${PATH}:" != *":${arg}:"* ]]; then
+            export PATH="${PATH:+"$PATH:"}${arg}"
+        fi
+    done
+}
+
+path_append $HOME/.local/bin
 
 ##### fix pointer with pywal... maybe not needed...
 #PROMPT_COMMAND='printf "\e]112\a"'

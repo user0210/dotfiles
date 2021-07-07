@@ -227,9 +227,7 @@ hi GitGutterDelete guifg=#867469 ctermfg=160 guibg=NONE ctermbg=NONE gui=NONE ct
 hi debugPc guifg=NONE ctermfg=NONE guibg=#867469 ctermbg=160 gui=NONE cterm=NONE
 hi debugBreakpoint guifg=#867469 ctermfg=160 guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
 
-" make background transparent
-hi! Normal ctermbg=NONE guibg=NONE
-" mergetool colors
+" -- mergetool colors
 hi DiffAdd    cterm=bold ctermfg=15 ctermbg=2 gui=none guifg=bg guibg=9
 hi DiffDelete cterm=bold ctermfg=15 ctermbg=1 gui=none guifg=bg guibg=9
 hi DiffChange cterm=bold ctermfg=15 ctermbg=4 gui=none guifg=bg guibg=9

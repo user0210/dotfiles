@@ -1,7 +1,7 @@
 dwm.bar_fg	: base05
 dwm.bar_bg	: base00
-dwm.bar_brd	: base00
-dwm.bar_flo	: base02
+dwm.bar_brd	: base01
+dwm.bar_flo	: base01
 dwm.tag_fg	: base0D
 dwm.tag_bg	: base04
 dwm.tag_brd	: base00
@@ -10,14 +10,18 @@ dwm.brd_fg	: base04
 dwm.brd_bg	: base00
 dwm.brd_brd	: base01
 dwm.brd_flo	: base02
-dwm.foc_fg	: base00
-dwm.foc_bg	: base04
-dwm.foc_brd	: base05
-dwm.foc_flo	: base03
+dwm.sel_fg 	: base00
+dwm.sel_bg 	: base04
+dwm.sel_brd	: base03
+dwm.sel_flo	: base05
+dwm.foc_fg	: base06
+dwm.foc_bg	: base03
+dwm.foc_brd	: base02
+dwm.foc_flo	: base00
 dwm.unf_fg	: base05
-dwm.unf_bg	: base01
-dwm.unf_brd	: base00
-dwm.unf_flo	: base02
+dwm.unf_bg	: base02
+dwm.unf_brd	: base03
+dwm.unf_flo	: base00
 
 ! color0:       base00
 ! color1:       base08

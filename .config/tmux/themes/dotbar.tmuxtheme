@@ -1,0 +1,50 @@
+set -g status-position top
+set -g status-justify right
+set -g status-style "bg=default"
+
+set -g status-left-style "bg=Colour7 fg=Colour0"
+set -g status-left "#{prefix_highlight}#[bold] >_ #[nobold][#S]#[bold]::::: "
+set -g status-left-length 13
+
+set -g status-right "  "
+set -g status-right-length 2
+ 
+set -g window-status-activity-style "bg=default fg=Color1"
+set -g window-status-bell-style "bg=default"
+
+set -g window-status-style "bg=default"
+set -g window-status-format "#{?window_zoomed_flag,◍,◎}"
+
+set -g window-status-separator "  "
+
+set -g pane-border-style "fg=Colour8,bg=Colour8"
+set -g pane-active-border-style "fg=Colour0,bg=Colour8"
+
+##### TOGGLE BAR
+
+bind-key -n C-F4 set -g status off #Ctrl+F3 Combo
+bind-key -n C-F3 set -g status on #Ctrl+F4 Combo
+
+##### PREFIX-SETTINGS
+
+set -g @prefix_highlight_fg 'Colour0'
+set -g @prefix_highlight_bg 'Colour4'
+set -g @prefix_highlight_sync_mode_attr "bg=Colour3,fg=black,bold"
+set -g @prefix_highlight_prefix_mode_attr "bg=Colour3,fg=black,bold"
+set -g @prefix_highlight_copy_mode_attr "bg=Colour3,fg=black,bold"
+set -g @prefix_highlight_show_sync_mode 'on'
+set -g @prefix_highlight_show_copy_mode 'on'
+set -g @prefix_highlight_prefix_prompt '>_ [prefix]'
+set -g @prefix_highlight_sync_prompt '>_ [sync]::'
+set -g @prefix_highlight_copy_prompt '>_ [copy]::'
+set -g @prefix_highlight_output_prefix ''
+set -g @prefix_highlight_output_suffix ' '
+
+##### CHANGE STATUSCOLOR ON FOCUS EVENT
+
+set-hook -g pane-focus-out "set -p window-status-current-format '#[fg=Colour18,bg=default]#{?window_zoomed_flag,◍,◉}' \;\
+							set -p status-style 'fg=Colour18' \;\
+							set -p status-left-style 'fg=Colour0,bg=Colour18'"
+set-hook -g pane-focus-in "run \"tmux set -p window-status-current-format '#[fg=Colour7,bg=default]#{?window_zoomed_flag,◍,◉}' && \
+								 tmux set -p status-style 'fg=Colour7' && \
+								 tmux set -p status-left-style 'fg=Colour0,bg=Colour20'\""
