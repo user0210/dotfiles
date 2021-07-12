@@ -57,10 +57,6 @@ set -g window-status-activity-style default # fg and bg are flipped here due to 
 set -g pane-border-status bottom
 set -g pane-border-format "#[bold][#P]" 
 
-# toggle bar
-bind-key -n C-F4 set -g status off \; set -g pane-border-status off #Ctrl+F3 Combo
-bind-key -n C-F3 set -g pane-border-status bottom \; set -g status on #Ctrl+F4 Combo
-
 # prefix highlight plugin
 set -g @prefix_highlight_show_sync_mode 'on'
 set -g @prefix_highlight_show_copy_mode 'on'

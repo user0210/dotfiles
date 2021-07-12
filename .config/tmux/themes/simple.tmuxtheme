@@ -23,9 +23,6 @@ set -g window-status-separator " :: "
 #set -g pane-border-style fg=Colour8,bg=Colour8
 set -g pane-active-border-style fg=Colour7,bg=Colour7
 
-bind-key -n C-F4 set -g status off #Ctrl+F3 Combo
-bind-key -n C-F3 set -g status on #Ctrl+F4 Combo
-
 set -g @prefix_highlight_show_sync_mode 'on'
 set -g @prefix_highlight_show_copy_mode 'on'
 set -g @prefix_highlight_fg 'Colour0'

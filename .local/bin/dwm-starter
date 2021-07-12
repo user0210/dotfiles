@@ -7,7 +7,7 @@
 #display -size 1366x768 -window root ${HOME}/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
 #hsetroot -tile ${HOME}/.xfiles/background/png-walls/dots16.png
-hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
+hsetroot -fill $(cat ~/.xfiles/impler/wallpaper)
 
 picom --experimental-backends &
 
