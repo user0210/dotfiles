@@ -7,9 +7,9 @@ first_arg=$1
 shift
 rest_args=$@
 
-tmux rename-session -t $sess swallowed-$sess
+tmux rename-session -t $sess $sess-sw
 tmux set-option destroy-unattached off
-tmux detach-client -E "cd $dir && $first_arg $rest_args && tmux attach -t swallowed-$sess \; set-option destroy-unattached \; rename-session -t swallowed-$sess $sess"
+tmux detach-client -E "cd $dir && $first_arg $rest_args && tmux attach -t $sess-sw \; set-option destroy-unattached \; rename-session -t $sess-sw $sess"
 
 ## with bashisms
 #dir=$(pwd)
@@ -19,6 +19,6 @@ tmux detach-client -E "cd $dir && $first_arg $rest_args && tmux attach -t swallo
 #first_arg=$1
 #rest_args=("${all_args[@]:1}")
 #
-#tmux rename-session -t $sess swallowed-$sess
+#tmux rename-session -t $sess sw-$sess
 #tmux set-option destroy-unattached off
-#tmux detach-client -E "cd $dir && $first_arg \"${rest_args[@]}\" && tmux attach -t swallowed-$sess \; set-option destroy-unattached \; rename-session -t swallowed-$sess $sess"
+#tmux detach-client -E "cd $dir && $first_arg \"${rest_args[@]}\" && tmux attach -t sw-$sess \; set-option destroy-unattached \; rename-session -t sw-$sess $sess"

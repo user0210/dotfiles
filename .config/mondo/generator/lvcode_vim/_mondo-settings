@@ -29,4 +29,6 @@
 
 # target can be an (absolute) file path to where
 # the file will be copied when a theme is applied.
-target="~/.local/share/nvim/site/pack/packer/opt/nvcode-color-schemes.vim/colors/templer.vim"
+
+#target="~/.local/share/nvim/site/pack/packer/opt/nvcode-color-schemes.vim/colors/templer.vim"
+target="~/.config/nvim/colors/templer.vim"

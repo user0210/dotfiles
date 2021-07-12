@@ -1,10 +1,3 @@
-set background=dark
-hi clear
-if exists('syntax_on')
-  syntax reset
-endif
-let g:colors_name='templer'
-
 " -- better colors for transparent background
 hi Normal guifg=#DFE2E5 ctermfg=223 guibg=#1C2023 ctermbg=235 gui=NONE cterm=NONE
 hi Comment guifg=#747C84 ctermfg=59 guibg=NONE ctermbg=NONE gui=italic cterm=italic
