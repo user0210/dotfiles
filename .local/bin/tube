@@ -24,8 +24,8 @@ if [ -t 0 ] ; then
     mpsyt "$@"
 else
 	if [ $# -eq 0 ]; then
-		#ZDOTDIR=/home/philipp/.config/zsh/tube st -u -t tube -e zsh
-		st -u -t tube -e bash --rcfile ~/.config/bash/tube/bashrc
+		#ZDOTDIR=/home/philipp/.config/tmux/shell/tube st -u -t tube -e zsh
+		st -u -t tube -e bash --rcfile ~/.config/tmux/shell/tube/.bashrc
 	else
 		st -u -e mpsyt "$@" &
 	fi
