@@ -1,32 +1,32 @@
 set -g status-position top
 set -g status-justify right
-set -g window-style ""
+set -g window-style ''
 
-set -g status-style "bg=default"
+set -g status-style 'bg=default'
 
-set -g status-left "#{prefix_highlight}#[bold] >_ #[nobold][#S]#[bold]:::::::::: "
+set -g status-left '#{prefix_highlight}#[bold] >_ #[nobold][#S]#[bold]:::::::::: '
 set -g status-left-length 18
 
-set -g status-right "#[bold] :::::"
+set -g status-right '#[bold] :::::'
 set -g status-right-length 5
  
 
-set -g window-status-format "#{?#{==:#T,#H},#{b:pane_current_path},#T}#{?window_zoomed_flag,.Z,}"
+set -g window-status-format '#{?#{==:#T,#H},#{b:pane_current_path},#T}#{?window_zoomed_flag,.Z,}'
 
-set -g window-status-separator " :: "
+set -g window-status-separator ' :: '
 
-#set -g pane-border-format "[#P]" 
-#set -g pane-border-lines "double"
-set -g pane-border-style "fg=Colour8,bg=Colour8"
-set -g pane-active-border-style "fg=Colour0,bg=Colour8"
+#set -g pane-border-format '[#P]' 
+#set -g pane-border-lines 'double'
+set -g pane-border-style 'fg=Colour8,bg=Colour8'
+set -g pane-active-border-style 'fg=Colour0,bg=Colour8'
 
 ##### PREFIX-SETTINGS
 
 set -g @prefix_highlight_fg 'Colour0'
 set -g @prefix_highlight_bg 'Colour4'
-set -g @prefix_highlight_sync_mode_attr "bg=Colour3,fg=black,bold"
-set -g @prefix_highlight_prefix_mode_attr "bg=Colour3,fg=black,bold"
-set -g @prefix_highlight_copy_mode_attr "bg=Colour3,fg=black,bold"
+set -g @prefix_highlight_sync_mode_attr 'bg=Colour3,fg=black,bold'
+set -g @prefix_highlight_prefix_mode_attr 'bg=Colour3,fg=black,bold'
+set -g @prefix_highlight_copy_mode_attr 'bg=Colour3,fg=black,bold'
 set -g @prefix_highlight_show_sync_mode 'on'
 set -g @prefix_highlight_show_copy_mode 'on'
 set -g @prefix_highlight_prefix_prompt '>_ prefix'

@@ -2,7 +2,6 @@
 
 _comps=(
 '-' '_precommand'
-'-*-' '_bootctl'
 '.' '_source'
 '5g' '_go'
 '5l' '_go'
@@ -945,6 +944,7 @@ _comps=(
 'pack' '_pack'
 'packf' '_mh'
 'pacman' '_pacman'
+'pacman-conf' '_pacman'
 'pacman-key' '_pacman'
 'pacman.static' '_pacman'
 'pacmd' '_pulseaudio'
@@ -1217,7 +1217,6 @@ _comps=(
 'sha512t256' '_cksum'
 'shasum' '_shasum'
 'shellcheck' '_shellcheck'
-'shell-script' '_bootctl'
 'shift' '_arrays'
 'show' '_mh'
 'showchar' '_psutils'

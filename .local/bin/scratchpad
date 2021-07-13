@@ -1,3 +1,4 @@
 #!/bin/sh
 
-st -e ${HOME}/.config/zsh/scratchpad/tmux
+#ZDOTDIR=/home/philipp/.config/zsh/scratchpad st -u -t scratchpad -e zsh
+st -u -t scratchpad -e bash --rcfile ~/.config/bash/scratchpad/bashrc

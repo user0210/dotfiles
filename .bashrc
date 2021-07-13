@@ -15,8 +15,8 @@ PS1="\[\e[37m\][\[\e[m\]\w\[\e[37m\]]\[\e[m\]\[\e[31m\]\\$\[\e[m\] "
 #PS1='[\u@\h \W]\$ '
 
 ##### history
-export HISTFILESIZE=5000
-export HISTSIZE=5000
+export HISTFILESIZE=1000
+export HISTSIZE=1000
 export HISTCONTROL=ignoredups:erasedups:ignorespace
 shopt -s histappend
 # After each command, save and reload history

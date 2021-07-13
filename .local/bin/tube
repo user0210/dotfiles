@@ -2,7 +2,6 @@
 
 
 audiosel pipe
-#audiosel pulse
 
 ##### debugger ############################################
 case "$1" in
@@ -25,7 +24,8 @@ if [ -t 0 ] ; then
     mpsyt "$@"
 else
 	if [ $# -eq 0 ]; then
-		st -u -t tube -e ${HOME}/.config/zsh/tube/tmux
+		#ZDOTDIR=/home/philipp/.config/zsh/tube st -u -t tube -e zsh
+		st -u -t tube -e bash --rcfile ~/.config/bash/tube/bashrc
 	else
 		st -u -e mpsyt "$@" &
 	fi

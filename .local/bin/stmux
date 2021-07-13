@@ -1,3 +1,4 @@
 #!/bin/sh
 
-st -e ${HOME}/.config/zsh/stmux/tmux
+#ZDOTDIR=/home/philipp/.config/zsh/stmux st -u -e zsh
+st -u -e bash --rcfile ~/.config/bash/stmux/bashrc
