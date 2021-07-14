@@ -1,0 +1,793 @@
+###########################################################
+##### usefull
+###########################################################
+
+##### keycodes.... (example: right-click-menu)
+The keysym to trigger the context menu is called Menu. It can be bound to an arbitrary keycode like this:
+$ xmodmap -e 'keycode 68 = Menu'
+Can be manually triggered from the command line like:
+$ xdotool key Menu
+And to find out the keycode it is currently bound to one can do:
+$ xmodmap -pke | grep Menu
+To figure out what keycode a key emits one can use:
+$ xev
+keycode list
+$ xmodmap -pke
+
+# change capslock to esc and druck to menu...
+xmodmap -e "keycode 66 = Escape"
+xmodmap -e "keycode 107 = Menu"
+xmodmap -pke > ~/.config/X11/Xmodmap
+
+##### git rebase
+activate rerere first !!! then you can.....
+
+git rebase -i XXXXXXXX^ --preserve-merges
+...git commit -a (--amend --no-edit)
+git rebase --continue
+...git mergetool ...git commit
+git rebase --continue
+...
+
+
+##### pacman error after bad update (unable to lock database)
+sudo rm /var/lib/pacman/db.lck
+
+##### install python-packages
+best)	sudo pacman -S python-'package'
+okay)	AUR
+least)	sudo pip install 'python-package'
+
+##### random
+sed -i "s/^base\(.\{2\}\)       \(.\{6\}\)/base\1       #\2/g" *
+
+
+TODO
+	macho-man
+	curl-weather
+	curl-manpage
+	slock
+	
+
+##### update mondo generator-themes
+mondo -f -g all
+
+##### paccache
+du -sh /var/cache/pacman/pkg   # Belegung des Cache-Speicherplatzes prüfen
+paccache -h                    # Befehlsübersicht
+paccache -dk2                  # Testdurchlauf; Wieviel Platz kann eingespart werden?
+paccache -vrk2                 # Entfernt Pakete aus dem Cache, behält die jüngsten 2 Versionen
+paccache -ruk0                 # Alle Pakete aus dem Cache entfernen, die nicht (mehr) installiert sind
+
+##### manuell compilierte programme managen..
+./configure --prefix=/opt/programm
+make
+sudo make install
+
+dann reicht es, wenn ich /opt/programm/ entferne, um das Programm rückstandslos wieder zu entsorgen 
+(nur die Einstellungen in ~/programm sind dann noch da)
+
+##### auf UDEV und KERNEL events achten...
+udevadm monitor --property
+
+##### nützlich um Crash nach Updates zu vermeiden...
+mkinitcpio -p linux
+
+##### find Files with Pacman
+sudo pacman -Fy
+pacman -F filename
+
+##### systemd-boot refind
+sudo bootctl update # update systemd-boot or install systemd-boot-pacman-hook
+bootctl list
+
+sudo pacman -S refind-efi
+refind-install # install and update refind
+diff refind.conf refind.conf-sample # after update implement changes from new sample file
+
+##### default application setup
+sudo pacman -S perl-file-mimeinfo
+-->Example to open all .jpg files in sxiv:
+    /usr/bin/vendor_perl/mimeopen -d $file.jpg
+        -->sxiv
+(new defaults are now also in /home/philipp/.local/share/applications/mimeapps.list)
+
+##### paperview
+convert -coalesce XXXXXX.gif out.bmp
+
+##### missing dmenu_run suggestions
+rm ~/.cache/dmenu_run
+
+##### youtube-dl problems? try forcing ipv4
+vim ~/.config/youtube-dl/config
+	-4
+
+##### update node.js packages
+sudo npm update -g
+
+###########################################################
+##### Arch setup
+###########################################################
+
+##### partitionen einrichten, bootmanager vorbereiten (arch entfernen)
+##### booten (erste option)
+
+loadkeys de
+loadkeys de-latin1-nodeadkeys
+
+lsblk	## find Linux, Mount and Swap Partition
+mount /dev/sdaLINUX /mnt
+swapon /dev/sdaSWAP
+mkdir /mnt/boot
+mount /dev/sdaEFI /mnt/boot
+
+vim /etc/pacman.d/mirrorlist ## German Up
+
+pacstrap /mnt base base-devel linux linux-firmware man-db man-pages bash-completion intel-ucode
+pacman --root /mnt -S dhcpcd ## or networkmanager for Internet
+
+genfstab -Up /mnt > /mnt/etc/fstab
+
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc
+
+echo PHIL-LIN-PAD > /etc/hostname
+
+nvim /etc/local.gen
+     en_US.UTF-8 UTF-8
+     de_DE.UTF-8 UTF-8
+locale-gen
+
+nvim /etc/locale.conf
+     LANG=en_US.UTF-8
+
+nvim /etc/vconsole.conf
+     KEYMAP=de-latin1-nodeadkeys
+
+nvim /etc/hosts
+	127.0.0.1	localhost
+	::1 localhost      
+	127.0.1.1	PHIL-LIN-PAD.localdomain	PHIL-LIN-PAD
+
+passwd
+
+bootctl install
+
+pacman -S efibootmgr
+     ##change Boot Order (dont forget USB)
+
+exit
+umount -R /mnt
+poweroff
+
+
+##### bootpartition setup
+
+##boot to OSX, edit EFI: arch.conf, refind_linux.conf, systemd.png......
+##also :fstab,systemd-services,....
+
+##### Network Setup
+
+## for cable only!!
+systemctl enable dhcpcd
+## for WiFi and both
+pacman -S networkmanager
+systemctl enable NetworkManager
+
+
+##### Benutzer einrichten
+
+useradd -m philipp
+passwd philipp
+Usermode -aG wheel,audio,video,optical,storage,power,network philipp
+
+EDITOR=nvim visudo
+     ## uncomment %wheel ALL=(ALL) ALL
+
+##### add ~/.local/bin to PATH
+export PATH=$PATH:/home/philipp/.local/bin
+
+##### add Partitions
+
+sudo mkdir /mnt/Windows
+sudo mkdir /mnt/Daten
+sudo Pacman -S ntfs-3g
+## edit /etc/fstab
+
+
+###########################################################
+##### Desktop Installation
+###########################################################
+
+##### suckless stuff
+sudo pacman -S git libx11 libxft libxinerama dmenu slop
+mkdir ~/.local/git
+
+git clone git@github.com:user0210/dwm
+git clone git@github.com:user0210/dwmblocks
+git clone git@github.com:user0210/st
+git clone git@github.com:user0210/dmenu
+git clone git@github.com:user0210/sxiv
+
+## bei allen:
+git remote add myorigin git@github.com:user0210/XXXXXX.git
+git remote -v
+git fetch myorigin
+git branch -v -a
+
+## checkout!!!, make, sudo make install, replace bin-files with softlinks to git-folders:
+sudo ln -s ~/.local/git/dwm/dwm /usr/local/bin/dwm
+sudo ln -s ~/.local/git/st/st /usr/local/bin/st
+sudo ln -s ~/.local/git/dmenu/dmenu /usr/local/bin/dmenu
+sudo ln -s ~/.local/git/dmenu/dmenu_run /usr/local/bin/dmenu_run
+sudo ln -s ~/.local/git/dmenu/dmenu_path /usr/local/bin/dmenu_path
+sudo ln -s ~/.local/git/dwmblocks/dwmblocks /usr/local/bin/dwmblocks
+sudo ln -s ~/.local/git/dwmblocks/internetav /usr/local/bin/internetav
+sudo ln -s ~/.local/git/sxiv/sxiv /usr/local/bin/sxiv
+sudo ln -s ~/.local/git/sxiv/sxiv.desktop /usr/share/applications/sxiv.desktop
+ln -s ~/.local/git/sxiv/sxiv.desktop ~/.local/share/applications/sxiv.desktop
+
+##### X11
+sudo pacman -S xorg-server xorg-apps xorg-xinit
+
+nvim etc/X11/xorg.conf.d/20-keyboard.conf
+Section "InputClass"
+	Identifier "keyboard"
+	MatchIsKeyboard "yes"
+	Option "XkbLayout" "de"
+	Option "XkbVariant" "nodeadkeys"
+EndSection
+
+##### dotfiles
+## in .bashrc
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/git/dotfiles/ --work-tree=$HOME'
+mkdir dotfiles... cd...
+git clone --bare git@github.com:user0210/dotfiles-x230t.git $HOME/.local/git/dotfiles
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
+
+
+###########################################################
+##### settings
+###########################################################
+
+##### uhrzeit vom internet...
+sudo pacman -S ntp
+
+##### trackpoint (maybe not needed...)
+sudo vim /etc/X11/xorg.conf.d/20-trackpoint.conf
+Section "InputClass"
+    Identifier "trackpoint"
+    Driver "libinput"
+    MatchProduct "TPPS/2 IBM TrackPoint"
+    MatchDevicePath "/dev/input/event*"
+
+    Option "NaturalScrolling" "false"
+
+    # adaptive or flat 
+    Option "AccelProfile" "adaptive"
+
+    # float between -1 and 1
+    Option "AccelSpeed" "0.5"
+EndSection
+
+##### tab-click touchpad
+/usr/share/X11/xorg.conf.d/40-libinput.conf
+.
+.
+Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+	    Option "Tapping" "True"
+    	Option "TappingDrag" "True"
+	    Driver "libinput"
+EndSection
+
+##### for 3g
+sudo pacman -S modemmanager
+systemctl enable ModemManager
+
+##### root-gtk-theme
+ln -s /home/philipp/.gtkrc-2.0 /etc/gtk-2.0/gtkrc
+ln -s /home/philipp/.config/gtk-3.0/settings.ini /etc/gtk-3.0/settings.ini
+sudo ln -s /home/philipp/.themes /root/.themes
+sudo ln -s /home/philipp/.icons /root/.icons
+
+##### qt-gkt
+sudo pacman -S qt5-styleplugins
+#with gnome-session
+sudo pacman -S dconf-editor
+export QT_QPA_PLATFORMTHEME=gtk2 --->.xinitrc
+export DESKTOP_SESSION=gnome		#or set to xfce for classic ui
+export XDG_CURRENT_DESKTOP=GNOME	#or set to XFCE for classic ui
+dconf-editor: org > gnome > desktop > interface --> icon-theme
+#with "qt"-session
+sudo pacman -S qt5ct
+export QT_QPA_PLATFORMTHEME=qt5ct --->.xinitrc
+
+##### gtk-engines and stuff...
+sudo pacman -S gtk-engine-murrine
+
+##### backlight-terminal control
+sudo pacman -S  acpilight
+sudo chmod a+w /sys/class/backlight/intel_backlight/brightness
+##for dwmblocks
+yay backlight_control
+
+##### add program to sudoers to run without passord
+%sudo	ALL=(ALL) ALL
+philipp ALL=(ALL) NOPASSWD: /usr/bin/ps_mem
+
+##### share windows fonts
+sudo ln -s /mnt/Windows/Windows/Fonts /usr/share/fonts/WindowsFonts
+fc-cache -f
+
+sudo vim /etc/fonts/conf.d/30-metric-aliases-free.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+       <alias binding="same">
+         <family>Helvetica</family>
+         <accept>
+         <family>Arial</family>
+         </accept>
+       </alias>
+       <alias binding="same">
+         <family>Times</family>
+         <accept>
+         <family>Times New Roman</family>
+         </accept>
+       </alias>
+       <alias binding="same">
+         <family>Courier</family>
+         <accept>
+         <family>Courier New</family>
+         </accept>
+       </alias>
+</fontconfig>
+
+##### system maintainance
+sudo pacman -S pacman-contrib
+systemctl enable paccache.timer
+
+##### ssh disable-root-login
+vim /etc/ssh/sshd_config
+	PermitRootLogin no
+
+###########################################################
+##### programs
+###########################################################
+
+git clone https://aur.archlinux.org/yay.git cd yay makepkg -si
+## remove yay folder....
+
+yay:mondo-generator xbanish thinkpad-scripts xmenu
+	timeshift systemd-cron systemd-boot-pacman-hook networkmanager-dmenu-git ytfzf
+	cbonsai-git gtkrc-reload
+pacman: network-manager-applet polkit-gnome fzf youtube-dl xsel usbutils tor figlet tree htop ps_mem dunst xdotool powertop wget xclip imagemagick
+	xdg-utils perl-file-mimeinfo playerctl calcurse p7zip xsettingsd
+
+"""
+ln -s ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
+
+You can use PERL-FILE-MIMEINFO in the extra repository to manage mimetypes.
+Example to open all .pdf files in apvlv:
+/usr/bin/vendor_perl/mimeopen -d $file.pdf
+and then, at the prompt, enter the application: apvlv.
+
+"""
+
+spotify-browser-support
+yay chromium-widevine
+
+##### cmatrix
+
+##### color-picker....
+yay colorz colorthief haishoku 
+#to update schemer2... then put the schemer2 file to ~bin/
+#sudo pacman -S go
+#go get github.com/thefryscorer/schemer2
+
+##### dash
+sudo pacman -S dash
+yay dashbinsh
+
+##### qutebrowser
+sudo pacman -S qutebrowser python-adblock python-pygments
+# fix unreadable tooltips:
+:set qt.force_platformtheme qt5ctl	# in qutebrowser
+export QT_QPA_PLATFORMTHEME=qt5ct	# in xinit.rc
+# see archwiki......
+
+##### pcmanfm
+pacman -S pcmanfm-gtk3 gvfs xarchiver lxmenu-data
+terminal --> st -e stmux
+chmod 640 ~/.config/libfm/libfm.conf ##see archwiki
+
+# to update the menus
+rm -r ~/.cache/menus
+
+#thumbnails
+sudo pacman -S libgsf ffmpegthumbnailer tumbler poppler-glib freetype2 raw-thumbnailer 
+sudo vim /usr/share/thumbnailers/imagemagick-pdf.thumbnailer
+  [Thumbnailer Entry]
+  TryExec=convert
+  Exec=convert %i[0] -background "#FFFFFF" -flatten -thumbnail %s %o
+  MimeType=application/pdf;application/x-pdf;image/pdf;
+sudo vim /etc/ImageMagick-7/policy.xml
+	comment out this line:
+	<policy domain="delegate" rights="none" pattern="gs" />
+
+# mkdir .Trash-1000
+# chown philipp .Trash-1000
+# einträge in fstab ergänzen
+
+##### thinkpad-scripts
+yay thinkpad-scripts
+sudo pacman -S xf86-input-wacom onboard acpid
+systemctl enable acpid
+/etc/systemd/system/setkeycodes.service
+	[Unit]
+	Description=Assign each hardware button to a free keycode on boot
+	
+	[Service]
+	Type=oneshot
+	ExecStart=/usr/bin/setkeycodes 0x67 184 0x6c 185 0x68 186 0x66 187
+	
+	[Install]
+	WantedBy=multi-user.target
+systemctl enable setkeycodes
+
+##### neovim
+pacman -S neovim	## or
+yay neovim-nightly-bin
+
+sudo pacman -S python-pynvim
+yay neovim-symlinks neovim-remote
+
+# neovim desktop file setting
+vim /usr/share/applications/nvim.desktop
+	Exec=bash -ci "nvim %F"
+
+# plugin-manager
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+## lv-code-setup
+sudo pacman -S xclip nodejs python-pynvim ueberzug ripgrep fzf ranger tree-sitter
+yay -S neovim-remote bash-language-server
+
+git clone https://github.com/ChristianChiarulli/lunarvim.git ~/.config/nvim
+git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+nvim -u $HOME/.config/nvim/init.lua +PackerInstall
+
+## nvim-lsp
+# servers
+yay -S bash-language-server	        ## bash
+sudo pacman -S clang                ## c++
+
+## coc-nvim
+sudo pacman -S nodejs npm
+sudo npm i -g neovim
+# servers
+sudo npm i -g bash-language-server	## bash
+sudo pacman -S clang				## c++
+sudo pacman -S python-pylint		## ??? python?
+:CocConfig
+    {
+        "languageserver": {
+          "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+          }
+        }
+    }
+
+##### zsh
+sudo pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
+yay spaceship-prompt
+
+##### tmux
+sudo pacman -S tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+yay urlview
+## install plugins in tpm ...prefix+U to update
+tmux-prefix-highlight
+tmux-sidebar
+tmux-sensible
+tmux-urlview
+tmux-fpp
+tmux-pain-control
+
+## tmuxp ?
+
+##### ranger
+sudo pacman -S ranger atool mediainfo w3m poppler highlight
+yay ueberzug
+ranger --copy-config=all
+## change setting... ueberzug....
+## make highlight use 4 tab spaces:
+vim ~/.config/ranger/scope.sh
+	env HIGHLIGHT_OPTIONS="${HIGHLIGHT_OPTIONS}" highlight \
+	    --replace-tabs="4" \	################################### add this line
+	    --out-format="${highlight_format}" \
+
+
+##### neofetch
+sudo pacman -S neofetch
+/etc/systemd/system/ttylogin.service
+	[Unit]
+	Description=Update /etc/issue with neofetch
+	Before=getty@tty1.service
+	
+	[Service]
+	Type=oneshot
+	ExecStart=/bin/bash -c 'sudo -u nobody neofetch | tee /etc/issue'
+	
+	[Install]
+	WantedBy=multi-user.target
+systemctl enable ttylogin
+
+##### clipmenu
+/home/philipp/.config/systemd/user/clipmenud.service
+	[Unit]
+	Description=Clipmenu daemon
+	
+	[Service]
+	ExecStart=/usr/bin/clipmenud
+	Restart=always
+	RestartSec=500ms
+## ??? 
+##	Environment=DISPLAY=:0
+	
+	MemoryDenyWriteExecute=yes
+	NoNewPrivileges=yes
+	ProtectControlGroups=yes
+	ProtectKernelTunables=yes
+	RestrictAddressFamilies=
+	RestrictRealtime=yes
+	
+	[Install]
+	WantedBy=default.target
+systemctl --user enable clipmenud
+
+##### tmux systemd-daemon
+/home/philipp/.config/systemd/user/tmux.service
+	[Unit]
+	Description=Start tmux in detached session
+	
+	[Service]
+	Type=forking
+	ExecStart=/usr/bin/tmux new-session -s 1 -d
+	ExecStop=/usr/bin/tmux kill-session -t 1
+	Restart=always
+	
+	[Install]
+	WantedBy=default.target
+#systemctl --user enable tmux  ##ACHTUNG wird nicht aktualisiert durch themeselect....
+
+##### audio and bluetooth
+sudo pacman -S alsa-utils
+sudo alsactl store
+
+# pipepire or pulse ?!
+
+## pulse..
+sudo pacman -S pulseaudio-alsa pulseaudio-bluetooth pavucontrol
+
+## pipewire..
+sudo pacman -S pipewire pipewire-pulse pipewire-jack
+
+# for only pipewire also install
+sudo pacman -S pipewire-alsa
+
+# to swich between alsa and pipewire...
+systemctl --user disable --now pipewire.{socket,service}
+systemctl --user disable --now pipewire-pulse.{socket,service}
+# delete this, but then alsa is not piped anymore... only when pipewire-alsa was installed
+rm /etc/alsa/conf.d/99-pipewire-default.conf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf
+
+## bluetooth
+sudo pacman -S  bluez bluez-utils
+systemctl enable bluetooth
+
+##### LTS
+
+sudo pacman -S linux-lts linux-lts-headers
+(sudo pacman -S linux-headers)
+(depmod -ae)???
+
+##### Arch-X230 settings...
+svim /etc/mkinitcpio.conf
+    MODULES=(i915)
+sudo mkinitcpio -p linux
+sudo mkinitcpio -p linux-lts
+
+##### enable hibernation
+svim /etc/mkinitcpio.conf
+    HOOKS=(base udev autodetect modconf block filesystems keyboard resume fsck)
+sudo mkinitcpio -p linux
+sudo mkinitcpio -p linux-lts
+
+/etc/udev/rules.d/99-lowbat.rules
+    # Suspend the system when battery level drops to 5% or lower
+    SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", RUN+="/usr/bin/systemctl hibernate"
+
+##### TLP
+sudo pacman -S tlp tlp-rdw acpi_call-dkms #acpi_call-dkms for LTS acpi_call for non-LTS-kernel
+systemctl enable tlp.service
+systemctl enable NetworkManager-dispatcher.service
+systemctl mask systemd-rfkill.service
+systemctl mask systemd-rfkill.socket
+(depmod -ae)???
+
+##### thinkfan
+sudo pacman -S lm_sensors
+yay thinkfan
+sudo sensors-detect
+sudo modprobe thinkpad_acpi
+systemctl enable thinkfan
+/etc/thinkfan.conf
+    tp_fan /proc/acpi/ibm/fan
+    hwmon /sys/class/thermal/thermal_zone0/temp
+    
+    (0, 0,  60)
+    (1, 53, 65)
+    (2, 55, 66)
+    (3, 57, 68)
+    (4, 61, 70)
+    (5, 64, 71)
+    (7, 68, 32767)
+
+##### SSD-TRIM
+sudo systemctl enable fstrim.timer
+
+##### dwmblocks configs
+
+# dwmblocks-c USB
+cd /etc/udev/rules.d
+sudo touch 40-android.rules
+sudo vim 40-android.rules
+    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+12 dwmblocks"
+    ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="usb", RUN{program}+="/bin/pkill -SIGRTMIN+12 dwmblocks"
+
+sudo touch 40-usb.rules
+sudo vim 40-usb.rules
+    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ATTR{removable}=="1", RUN{program}+="/bin/pkill -SIGRTMIN+11 dwmblocks"
+    ACTION=="remove", SUBSYSTEMS=="usb", SUBSYSTEM=="block", RUN{program}+="/bin/pkill -SIGRTMIN+11 dwmblocks"
+
+sudo udevadm control --reload
+
+# pacman-hook for dwmblocks-c updatecounter
+vim /etc/pacman.d/hooks/50-updatecount.hook
+    [Trigger]
+    Operation = Install
+    Operation = Upgrade
+    Operation = Remove
+    Type = Package
+    Target = *
+    
+    [Action]
+    Description = Reset Update-counter in dwmblocks
+    When = PostTransaction
+    Exec = /usr/bin/bash -c "sudo /usr/bin/checkupdates | wc -l > /home/philipp/.cache/updates && pkill -SIGRTMIN+10 dwmblocks"
+
+##### custom systrayicon
+
+## with yad ...
+sudo pacman -S yad
+...use suckless-menu script
+
+## with python-script
+sudo pacman -S libappindicator-gtk3
+...use script
+
+##### mlocate
+svim /etc/updatedb.conf
+    PRUNEPATHS=".......... /timeshift"
+
+##### mps-youtube
+sudo pacman -S mpv youtube-dl python-pyperclip
+pip3 install --user -U git+https://github.com/mps-youtube/mps-youtube.git
+
+(https://github.com/mps-youtube/mps-youtube/issues/1063)
+1.Go to https://console.cloud.google.com, create a project, then enable Youtube Data Api V3 and create credential and get the API_KEY for public use.
+2.Then remove the cache rm ~/.config/mps-youtube/cache_py*
+3.Set the new api key: mpsyt set api_key YOUR_KEY_HERE
+4.Quit mpsyt (if there are any opened mpsyt instances"
+5.Open it again and use it normally (it worked for me after following these steps)
+--> API: AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
+
+##### gtk-youtube-viewer
+yay gtk-youtube-viewer
+--> open
+vim ~/.config/youtube-viewer/api.json
+--> API: AIzaSyCac3kIuAZDDVmfZIZKd22JrNuLFfOTaro
+
+##### cava-visualizer
+yay cava
+((cd .config/cava.... wget https://raw.githubusercontent.com/karlstav/cava/master/example_files/config))
+
+vim config -->change
+    ; method = ncurses
+to
+    method = noncurses
+
+##### onboard
+change systray-setting to "non-auto..."
+sudo ln -s /home/philipp/.config/onboard/Templer.colors /usr/share/onboard/themes/Templer.colors
+
+##### dunst
+#falls git softlinks nicht wiederherstellt...
+ln -s /home/philipp/.config/dunst/settings /home/philipp/.config/mondo/generator/dunst/_mondo-template
+
+##### fonts
+yay ttf-symbola
+
+##### archivierungsprogramme
+sudo pacman -S zip unzip 
+
+##### propertree ???
+sudo pacman -S python-pmw tk tcl libplist
+
+##### replicate rc.local on systemd system....
+sudo vim /etc/systemd/system/rc-local.service
+
+	[Unit]
+	Description=/etc/rc.local compatibility
+	
+	[Service]
+	Type=oneshot
+	ExecStart=/etc/rc.local
+	# disable timeout logic
+	TimeoutSec=0
+	#StandardOutput=tty
+	RemainAfterExit=yes
+	SysVStartPriority=99
+	
+	[Install]
+	WantedBy=multi-user.target
+
+systemctl enable rc-local.service
+sudo chmod +x /etc/rc.local
+
+##### snap.....
+yay snapd
+sudo systemctl enable snapd.socket --now
+sudo ln -s /var/lib/snapd/snap /snap
+# trackmania...
+# snap install tmnationsforever --edge
+# snap connect tmnationsforever:joystick
+# ~/snap/tmnationsforever/common/.wine/drive_c/Program Files (x86)/TmNationsForever
+# --> rename TmForever.exe to TmForever.exe.bak and TmForeverLauncher.exe to TmForever.exe
+
+###########################################
+# fix bluetooth issue (journalctl-error)
+###########################################
+
+yay broadcom-bt-firmware-git
+
+
+###########################################
+# switch to b43 wireless driver
+###########################################
+
+yay b43-firmware
+
+svim /etc/modprobe.d/local-b43.conf
+	options b43 allhwsupport=1
+
+##### prevent other modules to load
+svim /etc/modprobe.d/blacklist.conf
+	blacklist brcmsmac
+	blacklist b43legacy
+
+##### if it doesnt load on startup... (optonal)
+svim /etc/modules-load.d/b43.conf
+	b43
+

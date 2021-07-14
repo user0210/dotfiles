@@ -1,0 +1,5 @@
+# force ipv4
+-4
+
+# Save in ~/Downloads
+-o ~/Downloads/%(title)s.%(ext)s

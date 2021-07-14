@@ -7,32 +7,32 @@
 ########################################################################
 generatesample() { #####################################################
 
-echo "base00 $(echo $monos | cut -d' ' -f1)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base01 $(echo $monos | cut -d' ' -f2)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base02 $(echo $monos | cut -d' ' -f3)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base03 $(echo $monos | cut -d' ' -f4)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base04 $(echo $monos | cut -d' ' -f5)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base05 $(echo $monos | cut -d' ' -f6)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base06 $(echo $monos | cut -d' ' -f7)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base07 $(echo $monos | cut -d' ' -f8)" >> ~/.xfiles/impler/schemes/$backend.sh
+echo "base00 $(echo $monos | cut -d' ' -f1)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base01 $(echo $monos | cut -d' ' -f2)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base02 $(echo $monos | cut -d' ' -f3)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base03 $(echo $monos | cut -d' ' -f4)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base04 $(echo $monos | cut -d' ' -f5)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base05 $(echo $monos | cut -d' ' -f6)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base06 $(echo $monos | cut -d' ' -f7)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base07 $(echo $monos | cut -d' ' -f8)" >> ~/.xfiles/templer/schemes/$backend.sh
 
-echo "base08 $(echo $lcolors | cut -d' ' -f1)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base09 $(echo $lcolors | cut -d' ' -f2)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0A $(echo $lcolors | cut -d' ' -f3)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0B $(echo $lcolors | cut -d' ' -f4)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0C $(echo $lcolors | cut -d' ' -f5)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0D $(echo $lcolors | cut -d' ' -f6)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0E $(echo $lcolors | cut -d' ' -f7)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0F $(echo $lcolors | cut -d' ' -f8)" >> ~/.xfiles/impler/schemes/$backend.sh
+echo "base08 $(echo $lcolors | cut -d' ' -f1)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base09 $(echo $lcolors | cut -d' ' -f2)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0A $(echo $lcolors | cut -d' ' -f3)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0B $(echo $lcolors | cut -d' ' -f4)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0C $(echo $lcolors | cut -d' ' -f5)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0D $(echo $lcolors | cut -d' ' -f6)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0E $(echo $lcolors | cut -d' ' -f7)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0F $(echo $lcolors | cut -d' ' -f8)" >> ~/.xfiles/templer/schemes/$backend.sh
 
-echo "base08a $(echo $colors | cut -d' ' -f1)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base09a $(echo $colors | cut -d' ' -f2)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0Aa $(echo $colors | cut -d' ' -f3)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0Ba $(echo $colors | cut -d' ' -f4)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0Ca $(echo $colors | cut -d' ' -f5)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0Da $(echo $colors | cut -d' ' -f6)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0Ea $(echo $colors | cut -d' ' -f7)" >> ~/.xfiles/impler/schemes/$backend.sh
-echo "base0Fa $(echo $colors | cut -d' ' -f8)" >> ~/.xfiles/impler/schemes/$backend.sh
+echo "base08a $(echo $colors | cut -d' ' -f1)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base09a $(echo $colors | cut -d' ' -f2)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0Aa $(echo $colors | cut -d' ' -f3)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0Ba $(echo $colors | cut -d' ' -f4)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0Ca $(echo $colors | cut -d' ' -f5)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0Da $(echo $colors | cut -d' ' -f6)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0Ea $(echo $colors | cut -d' ' -f7)" >> ~/.xfiles/templer/schemes/$backend.sh
+echo "base0Fa $(echo $colors | cut -d' ' -f8)" >> ~/.xfiles/templer/schemes/$backend.sh
 
 convert -size 800x300 xc:none \
 -fill "$(echo $monos | cut -d' ' -f1)"  -draw "rectangle 0,0 100,100" \
@@ -58,7 +58,7 @@ convert -size 800x300 xc:none \
 -fill "$(echo $lcolors | cut -d' ' -f5)" -draw "rectangle 400,200 500,300" \
 -fill "$(echo $lcolors | cut -d' ' -f6)" -draw "rectangle 500,200 600,300" \
 -fill "$(echo $lcolors | cut -d' ' -f7)" -draw "rectangle 600,200 700,300" \
--fill "$(echo $lcolors | cut -d' ' -f8)" -draw "rectangle 700,200 800,300" ${HOME}/.xfiles/impler/samples/$backend.png
+-fill "$(echo $lcolors | cut -d' ' -f8)" -draw "rectangle 700,200 800,300" ${HOME}/.xfiles/templer/samples/$backend.png
 }
 
 ########################################################################
@@ -181,9 +181,9 @@ wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 
 if [ -z "$wallpaper" ] ;then
 	echo "nothing"
 else
-	echo $wallpaper > ${HOME}/.xfiles/impler/wallpaper
-	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/impler\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
-	hsetroot -fill $(cat ${HOME}/.xfiles/impler/wallpaper)
+	echo $wallpaper > ${HOME}/.xfiles/templer/wallpaper
+	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
+	hsetroot -fill $(cat ${HOME}/.xfiles/templer/wallpaper)
 fi
 
 
@@ -203,8 +203,8 @@ fi
 ##############################################################################################
 elif [ '[wallpaper-theme]' = "$template" ]; then  #####  WALLPAPER-COLORS  ###################
 ##############################################################################################
-rm ${HOME}/.xfiles/impler/schemes/* 2> /dev/null
-rm ${HOME}/.xfiles/impler/samples/* 2> /dev/null
+rm ${HOME}/.xfiles/templer/schemes/* 2> /dev/null
+rm ${HOME}/.xfiles/templer/samples/* 2> /dev/null
 
 wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
 
@@ -212,7 +212,7 @@ if [ -z "$wallpaper" ] ;then
 	echo "nothing"
 else ################################################################################
 
-theme="impler"
+theme="templer"
 simple=0
 
 backendlist="\
@@ -439,16 +439,16 @@ echo "$backendlist" | tr ' ' '\n' | while read backend; do #####################
 done
 ########################################
 # choose backend... 
-	backend=$(sxiv -N wallman -to ${HOME}/.xfiles/impler/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
+	backend=$(sxiv -N wallman -to ${HOME}/.xfiles/templer/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
 	backend="$backend"".sh"
 # connect color-theme to mondo...
-	rm ${HOME}/.config/mondo/themes/impler 2> /dev/null
-	ln -s ${HOME}/.xfiles/impler/schemes/$backend ${HOME}/.config/mondo/themes/impler
-	mondo -f -g impler
+	rm ${HOME}/.config/mondo/themes/templer 2> /dev/null
+	ln -s ${HOME}/.xfiles/templer/schemes/$backend ${HOME}/.config/mondo/themes/templer
+	mondo -f -g templer
 # set wallpaper
-	echo $wallpaper > ${HOME}/.xfiles/impler/wallpaper
-	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/impler\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
-	hsetroot -fill $(cat ${HOME}/.xfiles/impler/wallpaper)
+	echo $wallpaper > ${HOME}/.xfiles/templer/wallpaper
+	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
+	hsetroot -fill $(cat ${HOME}/.xfiles/templer/wallpaper)
 # apply theme on templates
 	mondo -a $theme
 ########################################

@@ -3,7 +3,7 @@ set -g status-justify right
 set -g status-style 'bg=default'
 
 set -g status-right ' '
-set -g status-left '#{prefix_highlight} '
+set -g status-left '#{prefix_highlight}'
 
 set -g window-status-separator ''
 set -g window-status-format '  ⚪'
@@ -21,19 +21,19 @@ set -g pane-active-border-style 'fg=Colour0 bg=Colour8'
 
 set -g @prefix_highlight_fg 'default'
 set -g @prefix_highlight_bg 'Colour4'
-set -g @prefix_highlight_prefix_prompt ' #[bg=default fg=default bold] >_ #[nobold]#{?window_zoomed_flag,▸, }[prefix]#{?window_zoomed_flag,◂, }'
+set -g @prefix_highlight_prefix_prompt ' #[bg=default fg=default bold] >_  #[nobold]#{?window_zoomed_flag,▸, }[prefix]#{?window_zoomed_flag,◂, }'
 
 set -g @prefix_highlight_show_sync_mode 'on'
 set -g @prefix_highlight_sync_mode_attr 'bg=Colour3'
-set -g @prefix_highlight_sync_prompt ' #[bg=default fg=default bold] >_ #[nobold]#{?window_zoomed_flag,▸, }[sync]#{?window_zoomed_flag,◂, }'
+set -g @prefix_highlight_sync_prompt ' #[bg=default fg=default bold] >_  #[nobold]#{?window_zoomed_flag,▸, }[sync]#{?window_zoomed_flag,◂, }'
 
 set -g @prefix_highlight_show_copy_mode 'on'
 set -g @prefix_highlight_copy_mode_attr 'bg=Colour3'
-set -g @prefix_highlight_copy_prompt ' #[bg=default fg=default bold] >_ #[nobold]#{?window_zoomed_flag,▸, }[tmux]#{?window_zoomed_flag,◂, }'
+set -g @prefix_highlight_copy_prompt ' #[bg=default fg=default bold] >_  #[nobold]#{?window_zoomed_flag,▸, }[tmux]#{?window_zoomed_flag,◂, }'
 
 set -g @prefix_highlight_empty_has_affixes 'on'
 set -g @prefix_highlight_empty_attr 'bg=Color1'
-set -g @prefix_highlight_empty_prompt ' #[bg=default fg=default bold] >_ #[nobold]#{?window_zoomed_flag,▸, }[#S]#{?window_zoomed_flag,◂, }'
+set -g @prefix_highlight_empty_prompt ' #[bg=default fg=default bold] >_  #[nobold]#{?window_zoomed_flag,▸, }[#S]#{?window_zoomed_flag,◂, }'
 
 set -g @prefix_highlight_output_prefix '#[]'
 set -g @prefix_highlight_output_suffix '#[]'

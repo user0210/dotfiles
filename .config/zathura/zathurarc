@@ -16,43 +16,43 @@ set font "TerminessTTF Nerd Font 12"
 ####################################################################
 
 ##### templer-colors
-set notification-error-bg	"#1c131f"	# bg
-set notification-error-fg	"#db7d95"	# bright:red
-set notification-warning-bg	"#1c131f"	# bg
-set notification-warning-fg	"#378be4"	# bright:yellow
-set notification-bg			"#1c131f"	# bg
-set notification-fg			"#90a0c6"	# bright:green
+set notification-error-bg	"#10080e"	# bg
+set notification-error-fg	"#c5a7a4"	# bright:red
+set notification-warning-bg	"#10080e"	# bg
+set notification-warning-fg	"#dacec3"	# bright:yellow
+set notification-bg			"#10080e"	# bg
+set notification-fg			"#b4c3d8"	# bright:green
 
-set completion-bg			"#5d565f"	# bg2
-set completion-fg			"#dfdddf"	# fg
-set completion-group-bg		"#3c353f"	# bg1
-set completion-group-fg		"#9e9a9f"	# gray
-set completion-highlight-bg	"#d0b0d2"	# bright:blue
-set completion-highlight-fg	"#5d565f"	# bg2
+set completion-bg			"#544f53"	# bg2
+set completion-fg			"#dddcdd"	# fg
+set completion-group-bg		"#322b30"	# bg1
+set completion-group-fg		"#999598"	# gray
+set completion-highlight-bg	"#d7d3de"	# bright:blue
+set completion-highlight-fg	"#544f53"	# bg2
 
 # Define the color in index mode
-set index-bg				"#5d565f"	# bg2
-set index-fg				"#dfdddf"	# fg
-set index-active-bg			"#d0b0d2"	# bright:blue
-set index-active-fg			"#5d565f"	# bg2
+set index-bg				"#544f53"	# bg2
+set index-fg				"#dddcdd"	# fg
+set index-active-bg			"#d7d3de"	# bright:blue
+set index-active-fg			"#544f53"	# bg2
 
-set inputbar-bg				"#1c131f"	# bg
-set inputbar-fg				"#dfdddf"	# fg
+set inputbar-bg				"#10080e"	# bg
+set inputbar-fg				"#dddcdd"	# fg
 
-set statusbar-bg			"#5d565f"	# bg2
-set statusbar-fg			"#dfdddf"	# fg
+set statusbar-bg			"#544f53"	# bg2
+set statusbar-fg			"#dddcdd"	# fg
 
-set highlight-color			"#378be4"	# bright:yellow
-set highlight-active-color	"#efc548"	# bright:orange
+set highlight-color			"#dacec3"	# bright:yellow
+set highlight-active-color	"#d4baac"	# bright:orange
 
-set default-bg				"#1c131f"	# bg
-set default-fg				"#dfdddf"	# fg
+set default-bg				"#10080e"	# bg
+set default-fg				"#dddcdd"	# fg
 set render-loading			true
-set render-loading-bg		"#1c131f"	# bg
-set render-loading-fg		"#dfdddf"	# fg
+set render-loading-bg		"#10080e"	# bg
+set render-loading-fg		"#dddcdd"	# fg
 
 # Recolor book content's color
-set recolor-lightcolor		"#1c131f"	# bg
-set recolor-darkcolor		"#dfdddf"	# fg
+set recolor-lightcolor		"#10080e"	# bg
+set recolor-darkcolor		"#dddcdd"	# fg
 set recolor					true
 set recolor-keephue			true			# keep original color

@@ -52,7 +52,7 @@ esac
 ##### theme
 ####################################################
 
-##### spaceship theme
+# spaceship theme
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_PROMPT_DEFAULT_PREFIX="["
 SPACESHIP_PROMPT_DEFAULT_SUFFIX="]"
@@ -76,7 +76,7 @@ SPACESHIP_EXEC_TIME_PREFIX="["
 SPACESHIP_EXEC_TIME_SUFFIX="]"
 SPACESHIP_EXEC_TIME_ELAPSED=1
 
-# Just comment a section if you want to disable it
+# sections
 SPACESHIP_PROMPT_ORDER=(
 	time			# Time stamps section
 	user			# Username section

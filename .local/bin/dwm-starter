@@ -7,7 +7,7 @@
 #display -size 1366x768 -window root ${HOME}/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
 #hsetroot -tile ${HOME}/.xfiles/background/png-walls/dots16.png
-hsetroot -fill $(cat ~/.xfiles/impler/wallpaper)
+hsetroot -fill $(cat ~/.xfiles/templer/wallpaper)
 
 picom --experimental-backends &
 
@@ -36,9 +36,10 @@ xbanish &
 suckless-yad-menu 2> /dev/null && sleep 1 && nm-applet &
 
 ##### dwm (while loop for autorestart..)
+rm ${HOME}/.cache/dwm.log
 while true; do
     # Log stderror to a file 
-    dwm 2> ${HOME}/.config/dwm/dwm.log
+    dwm 2> ${HOME}/.cache/dwm.log
     # No error logging
     #dwm >/dev/null 2>&1
 done
