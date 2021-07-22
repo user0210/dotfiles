@@ -176,7 +176,7 @@ template=$(printf "${templer}" | dmenu -p "template: ")
 if [ '[wallpaper]' = "$template" ]; then  #####  SET-WALLPAPER  ##############################
 ##############################################################################################
 
-wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
+wallpaper=$(sxiv -d -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
 
 if [ -z "$wallpaper" ] ;then
 	echo "nothing"
@@ -206,7 +206,7 @@ elif [ '[wallpaper-theme]' = "$template" ]; then  #####  WALLPAPER-COLORS  #####
 rm ${HOME}/.xfiles/templer/schemes/* 2> /dev/null
 rm ${HOME}/.xfiles/templer/samples/* 2> /dev/null
 
-wallpaper=$(sxiv -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
+wallpaper=$(sxiv -d -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
 
 if [ -z "$wallpaper" ] ;then
 	echo "nothing"
@@ -439,7 +439,7 @@ echo "$backendlist" | tr ' ' '\n' | while read backend; do #####################
 done
 ########################################
 # choose backend... 
-	backend=$(sxiv -N wallman -to ${HOME}/.xfiles/templer/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
+	backend=$(sxiv -d -N wallman -to ${HOME}/.xfiles/templer/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
 	backend="$backend"".sh"
 # connect color-theme to mondo...
 	rm ${HOME}/.config/mondo/themes/templer 2> /dev/null
