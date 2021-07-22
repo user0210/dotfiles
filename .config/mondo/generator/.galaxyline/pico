@@ -1,0 +1,24 @@
+local theme = {}
+
+theme.default = {
+     bg = '#7e2553',
+     yellow = '#fff024',
+     dark_yellow = '#DFD004',
+     cyan = '#29adff',
+     green = '#00C736',
+     light_green = '#00e756',
+     string_orange = '#DF8300',
+     orange = '#ffa300',
+     purple = '#ff77a8',
+     magenta = '#DF5788',
+     grey = '#5f574f',
+     blue = '#63567C',
+     vivid_blue = '#63567C',
+     light_blue = '#83769c',
+     red = '#ff004d',
+     error_red = '#DF002D',
+     info_yellow = '#fff024'
+ }
+
+
+return theme

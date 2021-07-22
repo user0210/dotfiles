@@ -1,0 +1,24 @@
+local theme = {}
+
+theme.default = {
+     bg = '#5e6687',
+     yellow = '#c08b30',
+     dark_yellow = '#A06B10',
+     cyan = '#22a2c9',
+     green = '#8C7719',
+     light_green = '#ac9739',
+     string_orange = '#A74B09',
+     orange = '#c76b29',
+     purple = '#6679cc',
+     magenta = '#4659AC',
+     grey = '#979db4',
+     blue = '#1D6FB1',
+     vivid_blue = '#1D6FB1',
+     light_blue = '#3d8fd1',
+     red = '#c94922',
+     error_red = '#A92902',
+     info_yellow = '#c08b30'
+ }
+
+
+return theme
