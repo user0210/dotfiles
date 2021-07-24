@@ -2,20 +2,31 @@
 
 dir=$(pwd)
 sess=$(tmux display-message -p '#S')
-num=$(tmux ls 2> /dev/null | grep '^[1-9]\+\-' | wc -l)
+group=$(tmux display-message -p '#{session_group}')
+num=$(tmux ls 2> /dev/null | grep '^sw\-[1-9]' | wc -l)
+
 num=$((num+1))
 
 first_arg=$1
 shift
 rest_args=$@
 
-tmux rename-session -t $sess $num-sw
+tmux rename-session -t $sess sw-$num
 tmux set-option destroy-unattached off
-tmux detach-client -E "cd $dir && $first_arg $rest_args && \
-			tmux attach -t $num-sw \; \
+
+if [ 'base' = "$group" ]; then
+	tmux detach-client -E "\
+		cd $dir && $first_arg $rest_args && \
+		tmux attach -t sw-$num \; \
 			set-option destroy-unattached \; \
-			rename-session -t $num-sw 9"
-#			rename-session -t $num-sw $(($(tmux ls 2> /dev/null | grep '^[1-9]\+:' | wc -l)+1))"
+			rename-session -t sw-$num 9"
+else
+	tmux detach-client -E "\
+		cd $dir && $first_arg $rest_args && \
+		tmux attach -t sw-$num \; \
+			set-option destroy-unattached \; \
+			rename-session -t sw-$num $sess"
+fi
 
 ## with bashisms
 #dir=$(pwd)
