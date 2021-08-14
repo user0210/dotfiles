@@ -61,20 +61,6 @@ tmux source-file -q ~/.tmux.conf
 
 
 ##############################################################################################
-##### restart applications ###############################################################################################
-##############################################################################################
-  ## nm-applet
-killall nm-applet; nm-applet &
-
-  ## polkit-gtk
-killall polkit-gnome-authentication-agent-1; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-  ## dwmblocks
-killall -9 dwmblocks
-make -C ~/.local/git/dwmblocks
-dwmblocks &
-
-##############################################################################################
 ##### set gtk- and icon- theme ###############################################################################################
 ##############################################################################################
   ## more colors.....
@@ -95,10 +81,10 @@ echo "@define-color base0Ddarker $base0Ddarker;" >> ~/.xfiles/themes/colordef.cs
 echo "@define-color base0Ddarkera $base0Ddarkera;" >> ~/.xfiles/themes/colordef.css
 echo "@define-color base0Ddarkeraa $base0Ddarkeraa;" >> ~/.xfiles/themes/colordef.css
 echo "@define-color base0Ddarkeraaa $base0Ddarkeraaa;" >> ~/.xfiles/themes/colordef.css
-echo "base0Ddarker:$base0Ddarker" >> ~/.xfiles/themes/colordef.rc
-echo "base0Ddarkera:$base0Ddarkera" >> ~/.xfiles/themes/colordef.rc
-echo "base0Ddarkeraa:$base0Ddarkeraa" >> ~/.xfiles/themes/colordef.rc
-echo "base0Ddarkeraaa:$base0Ddarkeraaa" >> ~/.xfiles/themes/colordef.rc
+sed -i "$ i base0Ddarker:$base0Ddarker" ~/.xfiles/themes/colordef.rc
+sed -i "$ i base0Ddarkera:$base0Ddarkera" ~/.xfiles/themes/colordef.rc
+sed -i "$ i base0Ddarkeraa:$base0Ddarkeraa" ~/.xfiles/themes/colordef.rc
+sed -i "$ i base0Ddarkeraaa:$base0Ddarkeraaa" ~/.xfiles/themes/colordef.rc
 base0Bmix=$(pastel mix "$base0B" "$base0Ba" | pastel format hex)
 base0Bgrey=$(pastel mix "$base0Bmix" "$base05" | pastel format hex)
 base0Bgreya=$(pastel mix "$base0Bmix" "$base04" | pastel format hex)
@@ -108,10 +94,10 @@ echo "@define-color base0Bgrey $base0Bgrey;" >> ~/.xfiles/themes/colordef.css
 echo "@define-color base0Bgreya $base0Bgreya;" >> ~/.xfiles/themes/colordef.css
 echo "@define-color base0Bgreyaa $base0Bgreyaa;" >> ~/.xfiles/themes/colordef.css
 echo "@define-color base0Bgreyaaa $base0Bgreyaaa;" >> ~/.xfiles/themes/colordef.css
-echo "base0Bgrey:$base0Bgrey" >> ~/.xfiles/themes/colordef.rc
-echo "base0Bgreya:$base0Bgreya" >> ~/.xfiles/themes/colordef.rc
-echo "base0Bgreyaa:$base0Bgreyaa" >> ~/.xfiles/themes/colordef.rc
-echo "base0Bgreyaaa:$base0Bgreyaaa" >> ~/.xfiles/themes/colordef.rc
+sed -i "$ i base0Bgrey:$base0Bgrey" ~/.xfiles/themes/colordef.rc
+sed -i "$ i base0Bgreya:$base0Bgreya" ~/.xfiles/themes/colordef.rc
+sed -i "$ i base0Bgreyaa:$base0Bgreyaa" ~/.xfiles/themes/colordef.rc
+sed -i "$ i base0Bgreyaaa:$base0Bgreyaaa" ~/.xfiles/themes/colordef.rc
 
   ## copy template-icons and set new color
 ICON=$(xrdb -query|awk '/\*color19:/ {print $2}')
@@ -131,7 +117,25 @@ convert -size 16x16 -background none ~/.local/share/icons/Templer/actions/scalab
 
 
 ##############################################################################################
-###### dwm-xrdb hack.... not refreshing in mondo... + rescale windows to fix glitches ######################################
+##### restart/source applications ############################################################
+##############################################################################################
+  ## nm-applet
+killall nm-applet; nm-applet &
+
+  ## polkit-gtk
+killall polkit-gnome-authentication-agent-1; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+  ## dwmblocks
+killall -9 dwmblocks
+make -C ~/.local/git/dwmblocks
+dwmblocks &
+
+  ## qutebroser (in some way it depends on gtk2-stuff and so on colors defined above... i dont know why...)
+pgrep qutebrowser && qutebrowser :config-source
+
+
+##############################################################################################
+###### dwm-xrdb hack.... not refreshing in mondo... + rescale windows to fix glitches ########
 ##############################################################################################
 xsetroot -name "fsignal:1"
 xsetroot -name "fsignal:2"

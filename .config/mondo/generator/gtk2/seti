@@ -1,4 +1,5 @@
-base00:#151718
+gtk-color-scheme =
+"base00:#151718
 base01:#282a2b
 base02:#3B758C
 base03:#41535B
@@ -22,3 +23,4 @@ base0Ca:#35BB9E
 base0Da:#3595BB
 base0Ea:#8054A4
 base0Fa:#6A351F
+"

@@ -1,3 +1,11 @@
+dwm.normbordercolor	: base02
+dwm.normbgcolor		: base00
+dwm.normfgcolor		: base05
+dwm.selbordercolor	: base0D
+dwm.selbgcolor		: base0D
+dwm.selfgcolor		: base05
+
+
 dwm.bar_fg	: base05
 dwm.bar_bg	: base00
 dwm.bar_brd	: base01

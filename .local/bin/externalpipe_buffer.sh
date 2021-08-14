@@ -38,16 +38,16 @@ function trigger_sigusr1() {
 
 function dmenu_copy() {
   trigger_sigusr1
-  setxkbmap de && cat $BUFFER_FILE | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Copy' | sed 's/â†µ/\n/g' | xclip -i -selection c
+  setxkbmap de && cat $BUFFER_FILE | dmenu -o 0 -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Copy' | sed 's/â†µ/\n/g' | xclip -i -selection c
 }
 
 function dmenu_type() {
   trigger_sigusr1
 #  setxkbmap de && stty -echo && \
-#	  cat $BUFFER_FILE | grep '╰╼ ' | cut -d ' ' -f 4- | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | \
+#	  cat $BUFFER_FILE | grep '╰╼ ' | cut -d ' ' -f 4- | dmenu -o 0 -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | \
 #	  sed 's/â†µ/\n/g' | xargs -IC xdotool type --delay 0 "C" && \
 #	  stty echo
- setxkbmap de && cat $BUFFER_FILE | dmenu -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | sed 's/â†µ/\n/g' | xargs -IC xdotool type --delay 0 "C"
+ setxkbmap de && cat $BUFFER_FILE | dmenu -o 0 -l 10 -i -w $(xdotool getactivewindow) -p 'Screen Type' | sed 's/â†µ/\n/g' | xargs -IC xdotool type --delay 0 "C"
 }
 
 function pipe_combine() {

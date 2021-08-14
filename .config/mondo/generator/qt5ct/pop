@@ -1,0 +1,4 @@
+[ColorScheme]
+active_colors=#ff000000, #ffb0b0b0, #ffffffff, #ff505050, #ff202020, #ff303030, #ff000000, #ffffffff, #ff000000, #ffffffff, #ffb0b0b0, #ff303030, #ff008A9B, #ffffffff, #ff003A74, #ffCB006A, #ffd0d0d0, #ff000000, #ffe0e0e0, #ff000000, #80000000
+disabled_colors=#ff505050, #ffb0b0b0, #ffffffff, #ff505050, #ff202020, #ff303030, #ff505050, #ffffffff, #ff505050, #ffb0b0b0, #ffb0b0b0, #ff303030, #ff202020, #ffffffff, #ff003A74, #ffCB006A, #ffd0d0d0, #ff000000, #ffe0e0e0, #ff000000, #80000000
+inactive_colors=#ff000000, #ffb0b0b0, #ffffffff, #ff505050, #ff202020, #ff303030, #ff000000, #ffffffff, #ff000000, #ffffffff, #ffb0b0b0, #ff303030, #ff008A9B, #ffffffff, #ff003A74, #ffCB006A, #ffd0d0d0, #ff000000, #ffe0e0e0, #ff000000, #80000000
