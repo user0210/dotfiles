@@ -31,6 +31,9 @@ dwmblocks &
 ##### hide cursor
 xbanish &
 
+##### notification - fondle
+tiramisu -o "#summary" | while read -r notification; do xsetroot -name "msg: $notification"; done &
+
 ##### systray-applications
 #suckless-python-menu 2> /dev/null & sleep 1 && nm-applet &
 suckless-yad-menu 2> /dev/null && sleep 1 && nm-applet &
