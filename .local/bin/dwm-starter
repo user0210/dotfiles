@@ -7,7 +7,7 @@
 #display -size 1366x768 -window root ${HOME}/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
 #hsetroot -tile ${HOME}/.xfiles/background/png-walls/dots16.png
-hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
+hsetroot -fill $(cat ~/.xfiles/templer/wallpaper)
 
 picom --experimental-backends &
 
@@ -32,7 +32,12 @@ dwmblocks &
 xbanish &
 
 ##### notification - fondle
-tiramisu -o "#summary" | while read -r notification; do xsetroot -name "msg: $notification"; done &
+rm /tmp/notify
+touch /tmp/notify
+tiramisu -o "^c$(mondo get base08)^[#source]^d^ #summary | #body" | while read -r notification; do
+	echo $notification >> /tmp/notify
+	xsetroot -name "msg: $notification"
+done &
 
 ##### systray-applications
 #suckless-python-menu 2> /dev/null & sleep 1 && nm-applet &

@@ -327,12 +327,14 @@ echo "$backendlist" | tr ' ' '\n' | while read backend; do #####################
 			fi
 		done <<< $scheme
 
-		colort -l -30 $black > /dev/null || black=$(pastel mix $black "#000000" | pastel format hex)
-		colort -l -30 $black > /dev/null
+		black=$(pastel -f desaturate 0.15 $black | pastel format hex)
+#		colort -l -30 $black > /dev/null || black=$(pastel mix $black "#000000" | pastel format hex)
+
+		colort -l -40 $black > /dev/null
 		while [[ "$?" == "0" ]]
 		do
-			black=$(colort -l -20 $black)
-			colort -l -30 $black > /dev/null
+			black=$(colort -l -30 $black)
+			colort -l -40 $black > /dev/null
 		done
 
 		colort -l 40 $white > /dev/null || white=$(pastel mix $white "#ffffff" | pastel format hex)
@@ -445,10 +447,6 @@ done
 	rm ${HOME}/.config/mondo/themes/templer 2> /dev/null
 	ln -s ${HOME}/.xfiles/templer/schemes/$backend ${HOME}/.config/mondo/themes/templer
 	mondo -f -g templer
-# set wallpaper
-	echo $wallpaper > ${HOME}/.xfiles/templer/wallpaper
-	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
-	hsetroot -fill $(cat ${HOME}/.xfiles/templer/wallpaper)
 # apply theme on templates
 	mondo -a $theme
 ########################################

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+tac /tmp/notify | dmenu -l 5 | while read noti; do
+	noti="$(<<< "$noti" sed -e 's`[][\\/.*^$]`\\&`g')"
+	sed -i "/$noti/d" /tmp/notify
+done
