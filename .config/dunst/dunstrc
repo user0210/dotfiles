@@ -21,21 +21,21 @@
     history = mod4+shift+d
 
 [urgency_low]
-	background =  "#221e34"
-	foreground =  "#dfdfe2"
-	frame_color = "#221e34"
+	background =  "#001319"
+	foreground =  "#c8d0d0"
+	frame_color = "#001319"
 	timeout = 6
 	icon = /home/philipp/.xfiles/icons/low.svg
 [urgency_normal]
-	background =  "#221e34"
-	foreground =  "#b2aeca"
-	frame_color = "#221e34"
+	background =  "#001319"
+	foreground =  "#008484"
+	frame_color = "#001319"
 	timeout = 6
 	icon = /home/philipp/.xfiles/icons/normal.svg
 [urgency_critical]
-	background =  "#414533"
-	foreground =  "#221e34"
-	frame_color = "#414533"
+	background =  "#375e48"
+	foreground =  "#001319"
+	frame_color = "#375e48"
 	timeout = 0
 	icon = /home/philipp/.xfiles/icons/critical.svg
 

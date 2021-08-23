@@ -1,22 +1,16 @@
-[Added Associations]
-application/x-desktop=nvim.desktop;
-text/plain=nvim.desktop;
-application/zip=xarchiver.desktop;
-application/pdf=org.pwmt.zathura.desktop;
-image/x-xbitmap=nvim.desktop;
-image/bmp=sxiv.desktop;
-image/jpeg=sxiv.desktop;
-application/x-apple-diskimage=xarchiver.desktop;
-text/x-matlab=nvim.desktop;
-application/x-apple-systemprofiler+xml=nvim.desktop;
-
 [Default Applications]
 text/plain=nvim.desktop;
+text/x-matlab=nvim.desktop;
 inode/directory=pcmanfm.desktop
 application/zip=xarchiver.desktop
 application/pdf=org.pwmt.zathura.desktop
+application/x-apple-systemprofiler+xml=nvim.desktop;
+application/x-apple-diskimage=xarchiver.desktop;
+application/x-desktop=nvim.desktop;
+image/gif=sxiv.desktop;
 image/jpeg=sxiv.desktop;
 image/png=sxiv.desktop;
 image/bmp=sxiv.desktop;
 image/svg+xml=sxiv.desktop;
 image/webp=sxiv.desktop;
+image/x-xbitmap=nvim.desktop;
