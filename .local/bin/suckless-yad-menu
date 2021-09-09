@@ -3,7 +3,7 @@
 #export DISPLAY=:0.0
 
 #Pipe erstellen
-PIPE="/tmp/.pipe.tmp"
+PIPE="/tmp/.yad-menu-pipe.tmp"
 rm $PIPE
 mkfifo $PIPE
 exec 3<> $PIPE
@@ -17,7 +17,13 @@ sag hallo...!notify-send "...halooo"|\
 Onboard!onboard|\
 PcManFM!pcmanfm|\
 Terminal!st " >&3
+
 #Icon des Menübuttons definieren
 echo "icon:${HOME}/.xfiles/icons/suckless_logo.svg" >&3
+
 #Name des Menüs definieren
 echo "tooltip:suckless-menu" >&3
+
+
+##### change stuff by sending to pipe-file...
+# echo "tooltip:blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa....." > /tmp/.yad-menu-pipe.tmp

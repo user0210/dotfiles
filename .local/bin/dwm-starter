@@ -7,7 +7,7 @@
 #display -size 1366x768 -window root ${HOME}/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
 #hsetroot -tile ${HOME}/.xfiles/background/png-walls/dots16.png
-hsetroot -tile /home/philipp/.xfiles/background/png-walls/dots16.png
+hsetroot -fill $(cat ${HOME}/.xfiles/templer/wallpaper)
 nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${HOME}/.xfiles/templer/gif) -a 2> /dev/null &
 
 picom --experimental-backends &
@@ -30,7 +30,7 @@ dwmblocks &
 #audiosel alsa &
 
 ##### hide cursor
-xbanish &
+xbanish -m se &
 
 ##### notification - fondle
 rm /tmp/notify
