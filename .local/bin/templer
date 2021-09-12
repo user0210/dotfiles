@@ -166,8 +166,11 @@ esac
 
 
 
-
-
+#gapp=$(xwininfo -name dwmbar | grep -E 'Absolute.*X' | grep -oE '[^ ]+$')
+#width=$(xwininfo -name dwmbar | grep -E 'Width' | grep -oE '[^ ]+$')
+#if [ -z "$gapp" ]; then gapp=0; fi
+#if [ -z "$width" ]; then gapp=8000; fi
+#geometry=$(echo "${width}x110+${gapp}+${gapp}")
 
 templer="[wallpaper]\n[wallpaper-theme]\n[paperview]\n[xresources-theme]"
 template=$(printf "${templer}" | dmenu -p "template: ")

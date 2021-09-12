@@ -28,7 +28,8 @@ function surf_strings_read() {
 }
 
 function trigger_sigusr1() {
-  USE_FIFO=T # Recomended as T but only if using dmenu-stdin patch w/ FIFO
+# USE_FIFO=F # Recomended as T but only if using dmenu-stdin patch w/ FIFO
+  USE_FIFO=T # also works without stin-patch....(??!)
   rm -f $BUFFER_FILE
   if [ $USE_FIFO == T ]; then mkfifo $BUFFER_FILE; else touch $BUFFER_FILE; fi
   pkill -USR1 "surf" &

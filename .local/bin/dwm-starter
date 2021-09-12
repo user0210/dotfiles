@@ -30,7 +30,7 @@ dwmblocks &
 #audiosel alsa &
 
 ##### hide cursor
-xbanish -m se &
+xbanish -m se -i mod4 &
 
 ##### notification - fondle
 rm /tmp/notify
