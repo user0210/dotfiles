@@ -32,7 +32,7 @@ settings:
   statusbar.show:
     global: in-mode
   tabs.show:
-    global: multiple
+    global: switching
   url.searchengines:
     global:
       DEFAULT: https://www.google.com/search?hl=de&q={}

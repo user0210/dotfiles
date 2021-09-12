@@ -13,22 +13,33 @@ c.fonts.default_size = '16px'
 
 # settings
 c.tabs.padding = {'top': 0, 'bottom': 2, 'left': 5, 'right': 5}
-c.tabs.show = 'multiple'
+c.tabs.show = 'switching'
+c.statusbar.show = 'never'
 
 c.downloads.location.directory = "~/Downloads"
 c.url.searchengines = {"DEFAULT": "https://www.google.com/search?hl=de&q={}"}
 
 # key bindings
-config.bind("xa", "spawn --userscript youtube_mp3_downloader.sh")
-config.bind("Xa", "hint links userscript youtube_mp3_downloader.sh")
-config.bind("xv", "spawn --userscript youtube_downloader.sh")
-config.bind("Xv", "hint links userscript youtube_downloader.sh")
+config.bind(",a", "spawn --userscript youtube_mp3_downloader.sh")
+config.bind(",A", "hint links userscript youtube_mp3_downloader.sh")
+config.bind(",v", "spawn --userscript youtube_downloader.sh")
+config.bind(",V", "hint links userscript youtube_downloader.sh")
+
+config.bind(",f", "spawn firefox {url} &")
+config.bind(",F", "hint links spawn firefox {hint-url}")
 
 config.bind(",m", "spawn umpv {url}")
 config.bind(",M", "hint links spawn umpv {hint-url}")
 config.bind(";M", "hint --rapid links spawn umpv {hint-url}")
 
-config.bind("<Ctrl-t>", "spawn --userscript tor-toggle.sh")
+config.bind(",t", "spawn --userscript tor-toggle.sh")
+
+config.bind(",B", "config-cycle statusbar.show always never;; config-cycle tabs.show always never")
+config.bind(",b", "set tabs.show always;; later 9000 set tabs.show switching")
+config.bind("<Ctrl-b>", "set tabs.show always;; later 9000 set tabs.show switching")
+
+config.bind('<Alt+Left>', 'tab-prev')
+config.bind('<Alt+Right>', 'tab-next')
 
 # bas16 colors
 c.colors.completion.fg = base05
