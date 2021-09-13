@@ -1,5 +1,4 @@
 #!/bin/sh
 
 sleep 10
-kill -45 $(pidof dwmblocks)
-checkupdates | wc -l > ${HOME}/.cache/updates && chmod 666 ${HOME}/.cache/updates && pkill -SIGRTMIN+12 dwmblocks
+kill -44 $(pidof dwmblocks)
