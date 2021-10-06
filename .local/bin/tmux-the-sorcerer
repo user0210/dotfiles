@@ -5,24 +5,6 @@
 tmux set -g bell-action none
 
 
-##### tmux-bash-source ###################################################################################################################################
-#for i in {1..10}; do tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
-##tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['
-#
-#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-z
-#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-c
-##tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ${HOME}/.bashrc; fg &> /dev/null; echo -n" C-m
-#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE "source ${HOME}/.zshrc" C-m
-#tmux list-panes -as -F "#{session_name}:#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE "fg > /dev/null 2>&1" C-m
-# ZSH
-#for i in {1..10}; do tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE 'C-['; done
-#tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-z # or "#{session_name}:#{window_index}.#{pane_index}"
-#tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE C-c
-#sleep 0.2
-#tmux list-panes -s -F "#{window_index}.#{pane_index}" | xargs -I PANE tmux send-keys -t PANE " source ${HOME}/.zshrc && fg > /dev/null 2>&1" C-m
-
-
-##### tmux-zsh-source ####################################################################################################################################
 sessions=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | cut -f1 -d':')
 for sess in $sessions
 do
@@ -46,6 +28,5 @@ if [ "$scratch" -ne 0 ]; then
 fi
 
 
-################################################################################################################################################################
 #just for the tmux-bell...
 tmux set -g bell-action any

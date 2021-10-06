@@ -37,7 +37,17 @@ set -g @prefix_highlight_output_prefix ''
 set -g @prefix_highlight_output_suffix ''
 
 # change statuscolor on focus-event
-#set-hook -g pane-focus-out "set -p status-style 'bg=Colour08 fg=Colour00' \; set -p window-status-current-style 'bold fg=Colour04' \; run \"sleep 0.2 && tmux set -p status-style 'bg=Colour04 fg=Colour08' && tmux set -p window-status-current-style 'bold fg=Colour00'\""
-set-hook -g pane-focus-out "set -p status-style 'bg=Colour08 fg=Colour00' \; set -p window-status-current-style 'bold fg=Colour07' \; set -p status-right-style 'fg=Colour07'"
-set-hook -g pane-focus-in "run \"tmux set -p status-style 'bg=Colour07 fg=Colour00' && tmux set -p window-status-current-style 'bold fg=Colour00' && tmux set -p status-right-style 'fg=Colour00'\""
-																# "run" is a hack to get it workin
+set-hook -g pane-focus-out \
+"\
+	set -w status-style 'bg=Colour08 fg=Colour00' \;\
+	set -w window-status-current-style 'bold fg=Colour07' \;\
+	set -w status-right-style 'fg=Colour07'\
+"
+
+set-hook -g pane-focus-in \
+"\
+	set -w status-style 'bg=Colour07 fg=Colour00' \;\
+	set -w window-status-current-style 'bold fg=Colour00' \;\
+	set -w status-right-style 'fg=Colour00'\
+"
+

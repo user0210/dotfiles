@@ -20,8 +20,8 @@ killall xbanish
 
 ##### statusbar
 internetav &
-updatebar &
 dwmblocks &
+sh -c 'sleep 10 && kill -44 $(pidof dwmblocks)' &
 
 ##### polkit authentication agent (erst installieren)
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

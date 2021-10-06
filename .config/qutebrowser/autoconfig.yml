@@ -23,6 +23,7 @@ settings:
     https://awesometoptreats.com: false
     https://www.hackintosh-forum.de: false
     https://www.reddit.com: false
+    https://www.wcostream.com: false
   content.proxy:
     global: system
   content.register_protocol_handler:

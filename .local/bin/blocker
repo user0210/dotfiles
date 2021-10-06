@@ -1,3 +1,0 @@
-#!/bin/sh
-
-dwmblocks -p | while read LINE; do xsetroot -name "$LINE"; done

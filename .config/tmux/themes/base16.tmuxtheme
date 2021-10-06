@@ -6,14 +6,10 @@
 set -g status-style fg=colour07,bg=colour18
 
 # Left/Right side of status bar
-#set -g status-left-style fg=colour07,bg=colour00
-#set -g status-right-style fg=colour07,bg=colour00
 set -g status-left-style fg=colour07,bg=colour18
 set -g status-right-style fg=colour07,bg=colour18
 
 # Pane colors
-#set -g pane-border-style fg=colour08,bg=colour00
-#set -g pane-active-border-style fg=colour04,bg=colour00
 set -g pane-border-style fg=colour18,bg=colour00
 set -g pane-active-border-style fg=colour00,bg=colour18
 # Pane number indicator

@@ -24,9 +24,9 @@ case "$1" in
 -o)
 		pon=$(pgrep pipewire)
 		if [ -z "$pon" ] ;then
-			killall alsamixer || xsetroot -name 'fsignal:4'
+			killall alsamixer || xsetroot -name 'dwm:cmd alsam'
 		else
-			killall pavucontrol || xsetroot -name 'fsignal:5'
+			killall pavucontrol || xsetroot -name 'dwm:cmd pulsm'
 		fi
 		kill -35 $(pidof dwmblocks)
 ;;

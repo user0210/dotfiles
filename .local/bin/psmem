@@ -1,3 +1,0 @@
-#!/bin/sh
-
-ps_mem -p $(pgrep -d, -u $USER) | less -S

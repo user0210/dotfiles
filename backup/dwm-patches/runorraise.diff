@@ -1,0 +1,69 @@
+commit 03b79872255fb592b3ec4235bd773cab4b72f12d
+Author: philor1 <scheibe.philipp@gmail.com>
+Date:   Tue Sep 28 23:36:13 2021 +0200
+
+    patch-runorraise [suckless.org: deleted from site...]
+
+diff --git a/config.def.h b/config.def.h
+index f51221b..3893a5a 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -179,6 +179,7 @@ static char dmenugap[16] = "0";
+ static char dmenulen[16] = "0";
+ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-x", dmenugap, "-y", dmenugap, "-z", dmenulen, "-nb", bar_bg, "-nf", bar_fg, "-sb", foc_bg, "-sf", foc_fg, NULL };
+ static const char *termcmd[]  = { "st", NULL };
++static const char *browser[] = { "qutebrowser", NULL, NULL, NULL, "Qutebrowser" };
+ 
+ 
+ /* keymap */
+@@ -187,6 +188,7 @@ static Key keys[] = {
+ 	{ MODKEY|ControlMask|ShiftMask,	XK_Return,			spawn,					SHCMD(notifymenu) },
+ 	{ MODKEY,						XK_Return,			spawn,					{.v = dmenucmd } },
+ 	{ MODKEY|ShiftMask,				XK_Return,			spawn,					{.v = termcmd } },
++	{ MODKEY|ControlMask,			XK_w,				runorraise,				{.v = browser } },
+ 	{ MODKEY,						XK_b,				togglebars,				{0} },
+ 	{ MODKEY|ControlMask,			XK_b,				togglebar,				{0} },
+ 	{ MODKEY|ControlMask|ShiftMask,	XK_b,				toggleebar,				{0} },
+diff --git a/dwm.c b/dwm.c
+index 2a9e4c4..02c0034 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -306,6 +306,7 @@ static void notifyhandler(const Arg *arg);
+ static void removesystrayicon(Client *i);
+ static void resizerequest(XEvent *e);
+ static void rotatelayoutaxis(const Arg *arg);
++static void runorraise(const Arg *arg);
+ static void setgaps(const Arg *arg);
+ static void setcfact(const Arg *arg);
+ static void sigdwmblocks(const Arg *arg);
+@@ -3703,6 +3704,30 @@ rotatelayoutaxis(const Arg *arg) {
+ 	arrange(selmon);
+ }
+ 
++void
++runorraise(const Arg *arg) {
++    char *app = ((char **)arg->v)[0];
++    Arg a = { .ui = ~0 };
++    Monitor *mon;
++    Client *c;
++    XClassHint hint = { NULL, NULL };
++    /* Tries to find the client */
++    for (mon = mons; mon; mon = mon->next) {
++        for (c = mon->clients; c; c = c->next) {
++            XGetClassHint(dpy, c->win, &hint);
++            if (hint.res_class && strcmp(app, hint.res_class) == 0) {
++                a.ui = c->tags;
++                view(&a);
++                focus(c);
++                XRaiseWindow(dpy, c->win);
++                return;
++            }
++        }
++    }
++    /* Client not found: spawn it */
++    spawn(arg);
++}
++
+ void setcfact(const Arg *arg) {
+ 	float f;
+ 	Client *c;

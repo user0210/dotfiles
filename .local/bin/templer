@@ -186,6 +186,7 @@ if [ -z "$wallpaper" ] ;then
 else
 	killall gifview 2> /dev/null
 	echo $wallpaper > ${HOME}/.xfiles/templer/wallpaper
+	echo "no gif" > ${HOME}/.xfiles/templer/gif
 	hsetroot -fill $(cat ${HOME}/.xfiles/templer/wallpaper)
 	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
 fi
@@ -201,6 +202,7 @@ if [ -z "$theme" ] ;then
 	echo "nothing"
 else
 	killall gifview 2> /dev/null
+	echo "no gif" > ${HOME}/.xfiles/templer/gif
 	mondo -a $theme
 	convert ~/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" -fill "$(xrdb -query|awk '/\*color0:/ {print $2}')" +opaque "#ffffff" ~/.xfiles/background/png-walls/dots8.png
 	#convert ~/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" -fill "$(xrdb -query|awk '/\*color18:/ {print $2}')" +opaque "#ffffff" ~/.xfiles/background/png-walls/dots8.png
@@ -218,7 +220,6 @@ fi
 ##############################################################################################
 elif [[ "[wallpaper-theme]" = "$template" ]] || [[ "[paperview]" = "$template" ]]; then  #####  WALLPAPER-COLORS  ###################
 ##############################################################################################
-killall gifview 2> /dev/null
 rm ${HOME}/.xfiles/templer/schemes/* 2> /dev/null
 rm ${HOME}/.xfiles/templer/samples/* 2> /dev/null
 
@@ -531,6 +532,7 @@ done
 	ln -s ${HOME}/.xfiles/templer/schemes/$backend ${HOME}/.config/mondo/themes/templer
 	mondo -f -g templer
 # set wallpaper
+	killall gifview 2> /dev/null
 	echo $wallpaper > ${HOME}/.xfiles/templer/wallpaper
 	echo $wallpaper | sed "s/\image.jpg$/1366x768.gif/" > ${HOME}/.xfiles/templer/gif
 

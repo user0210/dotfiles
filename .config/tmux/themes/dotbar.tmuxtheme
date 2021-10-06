@@ -42,14 +42,14 @@ set -g @prefix_highlight_output_suffix '#[]'
 
 set-hook -g pane-focus-out \
 "\
-	set -p window-status-current-format '#[fg=Colour18 bg=default]  ⚫' \;\
- 	set -p status-style 'fg=Colour18' \;\
- 	set -p status-left-style 'fg=Colour0 bg=Colour18'\
+	set -w window-status-current-format '#[fg=Colour18 bg=default]  ⚫' \;\
+ 	set -w status-style 'fg=Colour18' \;\
+ 	set -w status-left-style 'fg=Colour0 bg=Colour18'\
 "
 
 set-hook -g pane-focus-in \
-"run \"\
-	tmux set -p window-status-current-format '#[fg=Colour20 bg=default]  ⚫' && \
-	tmux set -p status-style 'fg=Colour20' && \
- 	tmux set -p status-left-style 'fg=Colour0 bg=Colour20'\
-\""
+"\
+	set -w window-status-current-format '#[fg=Colour20 bg=default]  ⚫' \;\
+	set -w status-style 'fg=Colour20' \;\
+ 	set -w status-left-style 'fg=Colour0 bg=Colour20'\
+"

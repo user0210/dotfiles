@@ -1,0 +1,42 @@
+diff --git a/dwm.c b/dwm.c
+index e9c4e42..ee89f33 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -343,6 +343,7 @@ static void unmanage(Client *c, int destroyed);
+ static void unmapnotify(XEvent *e);
+ static void updatebarpos(Monitor *m);
+ static void updatebars(void);
++static void updatebarsizehint(void);
+ static void updateclientlist(void);
+ static int updategeom(void);
+ static void updatenumlockmask(void);
+@@ -3775,6 +3776,7 @@ setgaps(const Arg *arg)
+ 		focus(c);
+ 	}
+ 	arrangemon(selmon);
++	updatebarsizehint();
+ }
+ 
+ void
+@@ -4749,6 +4751,21 @@ updatebars(void)
+ 			XSetClassHint(dpy, m->ebarwin, &ch);
+ 		}
+ 	}
++	updatebarsizehint();
++}
++
++void
++updatebarsizehint(void)
++{
++	XSizeHints *sh;
++	sh = XAllocSizeHints();
++	sh->flags = USPosition | USSize;
++	sh->x = sh->y = selmon->gappx;
++	sh->height = bh;
++	sh->width = sw - 2 * selmon->gappx;
++	XSetWMSizeHints(dpy, selmon->barwin, sh, XA_WM_NORMAL_HINTS);
++	XSetWMSizeHints(dpy, selmon->ebarwin, sh, XA_WM_NORMAL_HINTS);
++	XFree(sh);
+ }
+ 
+ void
