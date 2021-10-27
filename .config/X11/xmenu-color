@@ -1,5 +1,5 @@
 xmenu.font				: TerminessTTF Nerd Font:pixelsize=16
-xmenu.gap				: 0
+xmenu.gap				: 2
 xmenu.width				: 100
 xmenu.height			: 20
 xmenu.borderWidth		: 1
@@ -9,5 +9,5 @@ xmenu.background		: base00
 xmenu.foreground		: base05
 xmenu.selbackground		: base0D
 xmenu.selforeground		: base00
-xmenu.border			: base02
-xmenu.separator			: base02
+xmenu.border			: base01
+xmenu.separator			: base01

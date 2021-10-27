@@ -30,7 +30,8 @@ sh -c 'sleep 10 && kill -44 $(pidof dwmblocks)' &
 #audiosel alsa &
 
 ##### hide cursor
-xbanish -m se -i mod4 &
+#xbanish -m se -i mod4 &
+xbanish -i mod4 &
 
 ##### notification - fondle
 rm /tmp/notify
