@@ -8,13 +8,14 @@ start() {
     bash -c "tmux new-session -d -c $basedir -s minecraft $command"
     echo "Server started"
 
-    echo "Connect to Remote Server..."
-    sleep 60
-    ssh -nNT -R 2222:localhost:22 root@217.160.214.90 &
-    sleep 5
-    ssh -nNT -R 25565:localhost:25565 root@217.160.214.90 &
-    pid=$!
-    echo "Remote Server connected"
+## better through systemd-service...
+#    echo "Connect to Remote Server..."
+#    sleep 60
+#    ssh -nNT -R 2222:localhost:22 root@217.160.214.90 &
+#    sleep 5
+#    ssh -nNT -R 25565:localhost:25565 root@217.160.214.90 &
+#    pid=$!
+#    echo "Remote Server connected"
 }
 
 stop() {
