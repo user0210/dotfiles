@@ -41,6 +41,7 @@ fi
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/git/dotfiles/ --work-tree=$HOME'
 
 ## aliases
+alias vim='nvim'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
