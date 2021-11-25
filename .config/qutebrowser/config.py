@@ -13,8 +13,8 @@ c.fonts.default_size = '16px'
 
 # settings
 c.tabs.padding = {'top': 0, 'bottom': 2, 'left': 5, 'right': 5}
-c.tabs.show = 'switching'
-c.statusbar.show = 'never'
+c.tabs.show = 'multiple'
+c.statusbar.show = 'in-mode'
 
 c.downloads.location.directory = "~/Downloads"
 c.url.searchengines = {"DEFAULT": "https://www.google.com/search?hl=de&q={}"}
@@ -34,9 +34,10 @@ config.bind(";M", "hint --rapid links spawn umpv {hint-url}")
 
 config.bind(",t", "spawn --userscript tor-toggle.sh")
 
-config.bind(",B", "config-cycle statusbar.show always never;; config-cycle tabs.show always never")
-config.bind(",b", "set tabs.show always;; later 9000 set tabs.show switching")
-config.bind("<Ctrl-b>", "set tabs.show always;; later 9000 set tabs.show switching")
+config.bind(",B", "config-cycle statusbar.show always in-mode")
+config.bind(",b", "config-cycle tabs.show multiple switching")
+#config.bind("<Ctrl-B>", "config-cycle statusbar.show always in-mode;; config-cycle tabs.show multiple switching")
+#config.bind("<Ctrl-b>", "set tabs.show always;; later 9000 set tabs.show switching")
 
 config.bind('<Alt+Left>', 'tab-prev')
 config.bind('<Alt+Right>', 'tab-next')

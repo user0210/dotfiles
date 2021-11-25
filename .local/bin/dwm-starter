@@ -10,7 +10,8 @@
 hsetroot -fill $(cat ${HOME}/.xfiles/templer/wallpaper)
 nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${HOME}/.xfiles/templer/gif) -a 2> /dev/null &
 
-picom --experimental-backends &
+#picom --blur-method kernel &
+picom --experimental-backends --blur-method dual_kawase &
 
 ##### startup-screen
 xbanish -a &

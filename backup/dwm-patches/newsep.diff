@@ -1,0 +1,176 @@
+diff --git a/config.def.h b/config.def.h
+index 21425a0..2e97948 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -41,9 +41,9 @@ static const int tabbartheme		= 2;		/* 0 = classic, 1 = button-theme, 2 = float-
+ static const int tagtheme			= 0;		/* 0 = classic, 1 = button-theme, 2 = float-theme */
+ 
+ static const char *barorder[]		= {
+-//	"largesep",									/*	] | [	*/
+-//	"midsep",									/*	]|[		*/
+-//	"shortsep",									/*	] [		*/
++//	"sepgap",									/*	[|]	*/
++//	"gap",										/*	[ ]	*/
++//	"seperator",								/*	 |	*/
+ 	"tagbar",
+ 	"ltsymbol",
+ 	"bartab", 									/* FIXED ON "EBAR" - sepparates left and right allignment */
+diff --git a/dwm.c b/dwm.c
+index dc24206..06fd4f9 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -399,7 +399,7 @@ static char rawstext[1024];
+ static char rawtext[1024];
+ static int screen;
+ static int sw, sh;								/* X display screen geometry width, height */
+-static int bh, blw, stw, tgw, lsep, msep, ssep;	/* bar geometry */
++static int bh, blw, stw, tgw, sep, gap;			/* bar geometry */
+ static int lrpad;								/* sum of left and right padding for text */
+ static int (*xerrorxlib)(Display *, XErrorEvent *);
+ static unsigned int numlockmask = 0;
+@@ -780,15 +780,15 @@ buttonpress(XEvent *e)
+ 			} else if (strcmp ("systray", barorder[i]) == 0) {
+ 				if (pos * ev->x < pos * (lr + pos * stw)) return;
+ 				else lr = lr + pos * stw;
+-			} else if (strcmp ("largesep", barorder[i]) == 0) {
+-				if (pos * ev->x < pos * (lr + pos * lsep)) return;
+-				else lr = lr + pos * lsep;
+-			} else if (strcmp ("midsep", barorder[i]) == 0) {
+-				if (pos * ev->x < pos * (lr + pos * msep)) return;
+-				else lr = lr + pos * msep;
+-			} else if (strcmp ("shortsep", barorder[i]) == 0) {
+-				if (pos * ev->x < pos * (lr + pos * ssep)) return;
+-				else lr = lr + pos * ssep;
++			} else if (strcmp ("seperator", barorder[i]) == 0) {
++				if (pos * ev->x < pos * (lr + pos * sep)) return;
++				else lr = lr + pos * sep;
++			} else if (strcmp ("gap", barorder[i]) == 0) {
++				if (pos * ev->x < pos * (lr + pos * gap)) return;
++				else lr = lr + pos * gap;
++			} else if (strcmp ("sepgap", barorder[i]) == 0) {
++				if (pos * ev->x < pos * (lr + pos * gap)) return;
++				else lr = lr + pos * gap;
+ 			}
+ 		}
+ 		if (set == 0 && ev->x > l && ev->x < r)
+@@ -810,15 +810,15 @@ buttonpress(XEvent *e)
+ 			} else if (strcmp ("systray", ebarorder[i]) == 0) {
+ 				if (pos * ev->x < pos * (lr + pos * stw)) return;
+ 				else lr = lr + pos * stw;
+-			} else if (strcmp ("largesep", ebarorder[i]) == 0) {
+-				if (pos * ev->x < pos * (lr + pos * lsep)) return;
+-				else lr = lr + pos * lsep;
+-			} else if (strcmp ("midsep", ebarorder[i]) == 0) {
+-				if (pos * ev->x < pos * (lr + pos * msep)) return;
+-				else lr = lr + pos * msep;
+-			} else if (strcmp ("shortsep", ebarorder[i]) == 0) {
+-				if (pos * ev->x < pos * (lr + pos * ssep)) return;
+-				else lr = lr + pos * ssep;
++			} else if (strcmp ("seperator", ebarorder[i]) == 0) {
++				if (pos * ev->x < pos * (lr + pos * sep)) return;
++				else lr = lr + pos * sep;
++			} else if (strcmp ("gap", ebarorder[i]) == 0) {
++				if (pos * ev->x < pos * (lr + pos * gap)) return;
++				else lr = lr + pos * gap;
++			} else if (strcmp ("sepgap", ebarorder[i]) == 0) {
++				if (pos * ev->x < pos * (lr + pos * gap)) return;
++				else lr = lr + pos * gap;
+ 			}
+ 		}
+ 		if (set == 0 && ev->x > l && ev->x < r)
+@@ -1328,7 +1328,7 @@ drawstatus(char* stext, Monitor *m, int xpos, int l, int r)
+ 					w = TEXTW(text) - lrpad;
+ 					if (x + w >= selmon->ww - r)
+ 						return;
+-					drw_text(drw, x, (bartheme && !istatustimer) ? sep != fsep || block != fblock ? -1 : 0 : 0, w, bh, 0, text, 0);
++					drw_text(drw, x, (statustheme && !istatustimer) ? sep != fsep || block != fblock ? -1 : 0 : 0, w, bh, 0, text, 0);
+ 					x += w;
+ 					/* process code */
+ 					while (text[++i] != '^') {
+@@ -1390,7 +1390,7 @@ drawstatus(char* stext, Monitor *m, int xpos, int l, int r)
+ 				w = TEXTW(text) - lrpad;
+ 				if (x + w >= selmon->ww - r)
+ 					return;
+-				drw_text(drw, x, (bartheme && !istatustimer) ? sep != fsep || block != fblock ? -1 : 0 : 0, w, bh, 0, text, 0);
++				drw_text(drw, x, (statustheme && !istatustimer) ? sep != fsep || block != fblock ? -1 : 0 : 0, w, bh, 0, text, 0);
+ 				x += w;
+ 			}
+ 			i = -1;
+@@ -1420,27 +1420,29 @@ drawstatus(char* stext, Monitor *m, int xpos, int l, int r)
+ }
+ 
+ int drawsep(Monitor *m, int lr, int p, int xpos, int s) {
+-	char sepsymbol[16];
+-	char sym = 124;
+-	int sep = 0;
++	int len;
+ 
+-	snprintf(sepsymbol, sizeof sepsymbol, "%c", sym);
+-	if (s == 3)
+-		sep = lsep = TEXTW(sepsymbol);
+-	else if (s == 2)
+-		sep = msep = TEXTW(sepsymbol) - lrpad;
+-	else if (s == 1)
+-		sep = ssep = lrpad/2;
+-	int x = p ? m->ww - sep - lr : lr;
+-
+-	if (xpos && xpos >= x && xpos <= x + sep) {
++	if (s == 1)
++		len = sep = 1;
++	else
++		len = gap = lrpad/2 + (s == 3 ? 1 : 0);
++
++	int x = p ? m->ww - len - lr : lr;
++
++	if (xpos && xpos >= x && xpos <= x + len) {
+ 		fsep = x;
+-		fblock = sep;
+-	}
+-	drawtheme(0,0,0,bartheme);
+-	drw_text(drw, x, 0, sep, bh, s == 3 ? lrpad / 2 : 0, s != 1 ? sepsymbol : "", 0);
++		fblock = len;
++	}
++	XSetForeground(drw->dpy, drw->gc, scheme[SchemeBar][bartheme ? ColFloat : ColBg].pixel);
++	if (s == 2 || s == 3)
++		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, 0, len, bh);
++	XSetForeground(drw->dpy, drw->gc, scheme[SchemeBar][ColFg].pixel);
++	if (s == 1)
++		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, bh/4, 1, bh - bh/2);
++	if (s == 3)
++		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x + lrpad/4, bh/4, 1, bh - bh/2);
+ 
+-	return lr + sep;
++	return lr + len;
+ }
+ 
+ int drawltsymbol(Monitor *m, int lr, int p, int xpos) {
+@@ -1478,11 +1480,11 @@ drawbar(Monitor *m, int xpos)
+ 			lr = drawltsymbol(m, lr, pos, xpos);
+ 		if (strcmp ("systray", barorder[i]) == 0)
+ 			lr = drawsystray(m, lr, pos, xpos);
+-		if (strcmp ("largesep", barorder[i]) == 0)
++		if (strcmp ("sepgap", barorder[i]) == 0)
+ 			lr = drawsep(m, lr, pos, xpos, 3);
+-		if (strcmp ("midsep", barorder[i]) == 0)
++		if (strcmp ("gap", barorder[i]) == 0)
+ 			lr = drawsep(m, lr, pos, xpos, 2);
+-		if (strcmp ("shortsep", barorder[i]) == 0)
++		if (strcmp ("seperator", barorder[i]) == 0)
+ 			lr = drawsep(m, lr, pos, xpos, 1);
+ 	}
+ 	drawtabgroups(m, l, r, xpos, 0);
+@@ -1507,11 +1509,11 @@ drawebar(char* stext, Monitor *m, int xpos)
+ 			lr = drawltsymbol(m, lr, pos, xpos);
+ 		if (strcmp ("systray", ebarorder[i]) == 0)
+ 			lr = drawsystray(m, lr, pos, xpos);
+-		if (strcmp ("largesep", ebarorder[i]) == 0)
++		if (strcmp ("sepgap", ebarorder[i]) == 0)
+ 			lr = drawsep(m, lr, pos, xpos, 3);
+-		if (strcmp ("midsep", ebarorder[i]) == 0)
++		if (strcmp ("gap", ebarorder[i]) == 0)
+ 			lr = drawsep(m, lr, pos, xpos, 2);
+-		if (strcmp ("shortsep", ebarorder[i]) == 0)
++		if (strcmp ("seperator", ebarorder[i]) == 0)
+ 			lr = drawsep(m, lr, pos, xpos, 1);
+ 	}
+ 	drawstatus(stext, m, xpos, l, r);
