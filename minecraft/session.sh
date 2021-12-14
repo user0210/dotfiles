@@ -222,6 +222,8 @@ update)
 attach)
 	tmux attach -t minecraft ;;
 restart)
+	tmux send-keys -t minecraft "say server restarts in 10 seconds..." C-m
+	sleep 10
 	stop
 	sleep 0.8
 	sudo /sbin/reboot ;;
@@ -229,6 +231,6 @@ temp)
 	cat /sys/class/thermal/thermal_zone0/temp ;;
 
 *)
-echo "Usage: start.sh (start|stop|restart|attach|restart|temp)" ;;
+echo "Usage: start.sh (start|stop|restart|attach|config|temp)" ;;
 
 esac
