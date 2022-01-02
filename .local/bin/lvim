@@ -1,6 +1,0 @@
-#!/bin/sh
-
-export LUNARVIM_CONFIG_DIR="$XDG_CONFIG_HOME/lvim"
-export LUNARVIM_RUNTIME_DIR="$XDG_DATA_HOME/lunarvim"
-
-exec nvim -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"
