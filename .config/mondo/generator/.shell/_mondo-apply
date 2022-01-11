@@ -19,4 +19,4 @@
 # To source the settings file one could use this:
 # source "${THIS_DIR}/_mondo-settings"
 
-~/.xfiles/shell
+~/.config/X11/xfiles/shell

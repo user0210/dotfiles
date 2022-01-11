@@ -79,7 +79,7 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 #if xhost >& /dev/null ; then
 #	# check if shell is interactive:
 #	[ -n "$PS1" ] && \
-#		source ~/.xfiles/shell
+#		source ~/.config/X11/xfiles/shell
 #fi
 
 ##### Aliases

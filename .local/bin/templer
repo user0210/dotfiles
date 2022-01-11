@@ -1,66 +1,11 @@
 #!/bin/bash
 
 
-########################################################################
-generatesample() { #####################################################
-
-	echo "base00 $(echo $monos | cut -d' ' -f1)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base01 $(echo $monos | cut -d' ' -f2)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base02 $(echo $monos | cut -d' ' -f3)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base03 $(echo $monos | cut -d' ' -f4)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base04 $(echo $monos | cut -d' ' -f5)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base05 $(echo $monos | cut -d' ' -f6)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base06 $(echo $monos | cut -d' ' -f7)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base07 $(echo $monos | cut -d' ' -f8)" >> ~/.xfiles/templer/schemes/$backend.sh
-	
-	echo "base08 $(echo $lcolors | cut -d' ' -f1)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base09 $(echo $lcolors | cut -d' ' -f2)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0A $(echo $lcolors | cut -d' ' -f3)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0B $(echo $lcolors | cut -d' ' -f4)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0C $(echo $lcolors | cut -d' ' -f5)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0D $(echo $lcolors | cut -d' ' -f6)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0E $(echo $lcolors | cut -d' ' -f7)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0F $(echo $lcolors | cut -d' ' -f8)" >> ~/.xfiles/templer/schemes/$backend.sh
-	
-	echo "base08a $(echo $colors | cut -d' ' -f1)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base09a $(echo $colors | cut -d' ' -f2)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0Aa $(echo $colors | cut -d' ' -f3)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0Ba $(echo $colors | cut -d' ' -f4)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0Ca $(echo $colors | cut -d' ' -f5)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0Da $(echo $colors | cut -d' ' -f6)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0Ea $(echo $colors | cut -d' ' -f7)" >> ~/.xfiles/templer/schemes/$backend.sh
-	echo "base0Fa $(echo $colors | cut -d' ' -f8)" >> ~/.xfiles/templer/schemes/$backend.sh
-	
-	convert -size 800x300 xc:none \
-	-fill "$(echo $monos | cut -d' ' -f1)"  -draw "rectangle 0,0 100,100" \
-	-fill "$(echo $monos | cut -d' ' -f2)"  -draw "rectangle 100,0 200,100" \
-	-fill "$(echo $monos | cut -d' ' -f3)"  -draw "rectangle 200,0 300,100" \
-	-fill "$(echo $monos | cut -d' ' -f4)"  -draw "rectangle 300,0 400,100" \
-	-fill "$(echo $monos | cut -d' ' -f5)"  -draw "rectangle 400,0 500,100" \
-	-fill "$(echo $monos | cut -d' ' -f6)"  -draw "rectangle 500,0 600,100" \
-	-fill "$(echo $monos | cut -d' ' -f7)"  -draw "rectangle 600,0 700,100" \
-	-fill "$(echo $monos | cut -d' ' -f8)"  -draw "rectangle 700,0 800,100" \
-	-fill "$(echo $colors | cut -d' ' -f1)" -draw "rectangle 0,100 100,200" \
-	-fill "$(echo $colors | cut -d' ' -f2)" -draw "rectangle 100,100 200,200" \
-	-fill "$(echo $colors | cut -d' ' -f3)" -draw "rectangle 200,100 300,200" \
-	-fill "$(echo $colors | cut -d' ' -f4)" -draw "rectangle 300,100 400,200" \
-	-fill "$(echo $colors | cut -d' ' -f5)" -draw "rectangle 400,100 500,200" \
-	-fill "$(echo $colors | cut -d' ' -f6)" -draw "rectangle 500,100 600,200" \
-	-fill "$(echo $colors | cut -d' ' -f7)" -draw "rectangle 600,100 700,200" \
-	-fill "$(echo $colors | cut -d' ' -f8)" -draw "rectangle 700,100 800,200" \
-	-fill "$(echo $lcolors | cut -d' ' -f1)" -draw "rectangle 0,200 100,300" \
-	-fill "$(echo $lcolors | cut -d' ' -f2)" -draw "rectangle 100,200 200,300" \
-	-fill "$(echo $lcolors | cut -d' ' -f3)" -draw "rectangle 200,200 300,300" \
-	-fill "$(echo $lcolors | cut -d' ' -f4)" -draw "rectangle 300,200 400,300" \
-	-fill "$(echo $lcolors | cut -d' ' -f5)" -draw "rectangle 400,200 500,300" \
-	-fill "$(echo $lcolors | cut -d' ' -f6)" -draw "rectangle 500,200 600,300" \
-	-fill "$(echo $lcolors | cut -d' ' -f7)" -draw "rectangle 600,200 700,300" \
-	-fill "$(echo $lcolors | cut -d' ' -f8)" -draw "rectangle 700,200 800,300" ${HOME}/.xfiles/templer/samples/$backend.png
-}
+XFOLDER=${HOME}/.config/X11/xfiles
 
 
-########################################################################
-createbasecolors() { ###################################################
+########################################
+createbasecolors() { ###################
 
 	fileorpath=$2
 	for f in $fileorpath; do
@@ -92,8 +37,8 @@ createbasecolors() { ###################################################
 }
 
 
-########################################################################
-createdarkcolors() { ###################################################
+########################################
+createdarkcolors() { ###################
 
 	fileorpath=$2
 	for f in $fileorpath; do
@@ -148,50 +93,148 @@ createdarkcolors() { ###################################################
 }
 
 
-########################################################################
-setwallpaper() { #######################################################
+########################################
+setwallpaper() { #######################
 
-	wallpaper=$(sxiv -d -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
+	wallpaper=$(sxiv -d -N wallman -to ${XFOLDER}/background/wallpapers | head -n 1)
 	if [ -z "$wallpaper" ] ;then
 		echo "nothing"
 	else
 		killall gifview 2> /dev/null
-		echo $wallpaper > ${HOME}/.xfiles/templer/wallpaper
-		echo "no gif" > ${HOME}/.xfiles/templer/gif
-		hsetroot -fill $(cat ${HOME}/.xfiles/templer/wallpaper)
-		sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/\.xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
+		echo $wallpaper > ${XFOLDER}/templer/wallpaper
+		echo "no gif" > ${XFOLDER}/templer/gif
+		hsetroot -fill $(cat ${XFOLDER}/templer/wallpaper)
+		sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/.config\/X11\/xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
 		sed -i "s/^corner-radius = .*/corner-radius = 5;/g" ~/.config/picom/picom.conf
 	fi
 }
 
 
-########################################################################
-setxresources() { ######################################################
+########################################
+setxresources() { ######################
 
 	theme=$(ls ${HOME}/.config/mondo/themes | grep "^[^._]" | dmenu -p "theme: ")
 	if [ -z "$theme" ] ;then
 		echo "nothing"
 	else
 		killall gifview 2> /dev/null
-		echo "no gif" > ${HOME}/.xfiles/templer/gif
+		echo "no gif" > ${XFOLDER}/templer/gif
 		mondo -a $theme
-		convert ~/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" -fill "$(xrdb -query|awk '/\*color0:/ {print $2}')" +opaque "#ffffff" ~/.xfiles/background/png-walls/dots8.png
-		#convert ~/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" -fill "$(xrdb -query|awk '/\*color18:/ {print $2}')" +opaque "#ffffff" ~/.xfiles/background/png-walls/dots8.png
-		convert ~/.xfiles/background/png-walls/dots8.png -fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#ffffff" ~/.xfiles/background/png-walls/dots16.png
-		hsetroot -tile ~/.xfiles/background/png-walls/dots16.png
+		# convert ${XFOLDER}/background/bitmap-walls/patterns/dots_wide.xbm \
+		#	-fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" \
+		#	-fill "$(xrdb -query|awk '/\*color18:/ {print $2}')" +opaque "#ffffff" \
+		#	${XFOLDER}/background/png-walls/dots8.png
+		convert ${XFOLDER}/background/bitmap-walls/patterns/dots_wide.xbm \
+			-fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" \
+			-fill "$(xrdb -query|awk '/\*color0:/ {print $2}')" +opaque "#ffffff" \
+			${XFOLDER}/background/png-walls/dots8.png
+		convert ${XFOLDER}/background/png-walls/dots8.png \
+			-fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#ffffff" \
+			${XFOLDER}/background/png-walls/dots16.png
+		hsetroot -tile ${XFOLDER}/background/png-walls/dots16.png
 	
-		#xsetroot -bitmap ~/.xfiles/background/bitmap-walls/patterns/dots_wide.xbm -fg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -bg "$(xrdb -query|awk '/\*color20:/ {print $2}')"
-		#xsetroot -solid "$(xrdb -query|awk '/\*color0:/ {print $2}')"
-		#xsetroot -bitmap ~/.xfiles/background/bitmap-walls/patterns/line_diag8_1.xbm -bg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -fg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
+		# xsetroot -bitmap ${XFOLDER}/background/bitmap-walls/patterns/dots_wide.xbm \
+		#	-fg "$(xrdb -query|awk '/\*color18:/ {print $2}')" \
+		#	-bg "$(xrdb -query|awk '/\*color20:/ {print $2}')"
+		# xsetroot -solid "$(xrdb -query|awk '/\*color0:/ {print $2}')"
+		# xsetroot -bitmap ${XFOLDER}/background/bitmap-walls/patterns/line_diag8_1.xbm \
+		#	-bg "$(xrdb -query|awk '/\*color18:/ {print $2}')" \
+		#	-fg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
 	
-		sed -i "s/^hsetroot -fill.*/hsetroot -tile \${HOME}\/\.xfiles\/background\/png-walls\/dots16\.png/g" ~/.local/bin/dwm-starter
+		sed -i "s/^hsetroot -fill.*/hsetroot -tile \${HOME}\/.config\/X11\/xfiles\/background\/png-walls\/dots16\.png/g" ~/.local/bin/dwm-starter
 		sed -i "s/^corner-radius = .*/corner-radius = 0;/g" ~/.config/picom/picom.conf
 	fi
 }
 
 
-########################################################################
-colorgenerator_1() { ###################################################
+########################################
+generatesample() { #####################
+
+	SCHEMEFILE=${XFOLDER}/templer/schemes/$backend.sh
+
+	echo "base00 $(echo $monos | cut -d' ' -f1)" >> ${SCHEMEFILE}
+	echo "base01 $(echo $monos | cut -d' ' -f2)" >> ${SCHEMEFILE}
+	echo "base02 $(echo $monos | cut -d' ' -f3)" >> ${SCHEMEFILE}
+	echo "base03 $(echo $monos | cut -d' ' -f4)" >> ${SCHEMEFILE}
+	echo "base04 $(echo $monos | cut -d' ' -f5)" >> ${SCHEMEFILE}
+	echo "base05 $(echo $monos | cut -d' ' -f6)" >> ${SCHEMEFILE}
+	echo "base06 $(echo $monos | cut -d' ' -f7)" >> ${SCHEMEFILE}
+	echo "base07 $(echo $monos | cut -d' ' -f8)" >> ${SCHEMEFILE}
+	
+	echo "base08 $(echo $lcolors | cut -d' ' -f1)" >> ${SCHEMEFILE}
+	echo "base09 $(echo $lcolors | cut -d' ' -f2)" >> ${SCHEMEFILE}
+	echo "base0A $(echo $lcolors | cut -d' ' -f3)" >> ${SCHEMEFILE}
+	echo "base0B $(echo $lcolors | cut -d' ' -f4)" >> ${SCHEMEFILE}
+	echo "base0C $(echo $lcolors | cut -d' ' -f5)" >> ${SCHEMEFILE}
+	echo "base0D $(echo $lcolors | cut -d' ' -f6)" >> ${SCHEMEFILE}
+	echo "base0E $(echo $lcolors | cut -d' ' -f7)" >> ${SCHEMEFILE}
+	echo "base0F $(echo $lcolors | cut -d' ' -f8)" >> ${SCHEMEFILE}
+	
+	echo "base08a $(echo $colors | cut -d' ' -f1)" >> ${SCHEMEFILE}
+	echo "base09a $(echo $colors | cut -d' ' -f2)" >> ${SCHEMEFILE}
+	echo "base0Aa $(echo $colors | cut -d' ' -f3)" >> ${SCHEMEFILE}
+	echo "base0Ba $(echo $colors | cut -d' ' -f4)" >> ${SCHEMEFILE}
+	echo "base0Ca $(echo $colors | cut -d' ' -f5)" >> ${SCHEMEFILE}
+	echo "base0Da $(echo $colors | cut -d' ' -f6)" >> ${SCHEMEFILE}
+	echo "base0Ea $(echo $colors | cut -d' ' -f7)" >> ${SCHEMEFILE}
+	echo "base0Fa $(echo $colors | cut -d' ' -f8)" >> ${SCHEMEFILE}
+	
+	convert -size 800x300 xc:none \
+	-fill "$(echo $monos | cut -d' ' -f1)"  -draw "rectangle 0,0 100,100" \
+	-fill "$(echo $monos | cut -d' ' -f2)"  -draw "rectangle 100,0 200,100" \
+	-fill "$(echo $monos | cut -d' ' -f3)"  -draw "rectangle 200,0 300,100" \
+	-fill "$(echo $monos | cut -d' ' -f4)"  -draw "rectangle 300,0 400,100" \
+	-fill "$(echo $monos | cut -d' ' -f5)"  -draw "rectangle 400,0 500,100" \
+	-fill "$(echo $monos | cut -d' ' -f6)"  -draw "rectangle 500,0 600,100" \
+	-fill "$(echo $monos | cut -d' ' -f7)"  -draw "rectangle 600,0 700,100" \
+	-fill "$(echo $monos | cut -d' ' -f8)"  -draw "rectangle 700,0 800,100" \
+	-fill "$(echo $colors | cut -d' ' -f1)" -draw "rectangle 0,100 100,200" \
+	-fill "$(echo $colors | cut -d' ' -f2)" -draw "rectangle 100,100 200,200" \
+	-fill "$(echo $colors | cut -d' ' -f3)" -draw "rectangle 200,100 300,200" \
+	-fill "$(echo $colors | cut -d' ' -f4)" -draw "rectangle 300,100 400,200" \
+	-fill "$(echo $colors | cut -d' ' -f5)" -draw "rectangle 400,100 500,200" \
+	-fill "$(echo $colors | cut -d' ' -f6)" -draw "rectangle 500,100 600,200" \
+	-fill "$(echo $colors | cut -d' ' -f7)" -draw "rectangle 600,100 700,200" \
+	-fill "$(echo $colors | cut -d' ' -f8)" -draw "rectangle 700,100 800,200" \
+	-fill "$(echo $lcolors | cut -d' ' -f1)" -draw "rectangle 0,200 100,300" \
+	-fill "$(echo $lcolors | cut -d' ' -f2)" -draw "rectangle 100,200 200,300" \
+	-fill "$(echo $lcolors | cut -d' ' -f3)" -draw "rectangle 200,200 300,300" \
+	-fill "$(echo $lcolors | cut -d' ' -f4)" -draw "rectangle 300,200 400,300" \
+	-fill "$(echo $lcolors | cut -d' ' -f5)" -draw "rectangle 400,200 500,300" \
+	-fill "$(echo $lcolors | cut -d' ' -f6)" -draw "rectangle 500,200 600,300" \
+	-fill "$(echo $lcolors | cut -d' ' -f7)" -draw "rectangle 600,200 700,300" \
+	-fill "$(echo $lcolors | cut -d' ' -f8)" -draw "rectangle 700,200 800,300" \
+	${XFOLDER}/templer/samples/$backend.png
+}
+
+
+########################################
+colorsplitter() { ######################
+
+	colors=$(echo $scheme | cut -d' ' -f $1)
+	lcolors=$(echo $lscheme | cut -d' ' -f $1)
+	generatesample
+	if [ 'null' = "$2" ]; then
+		return
+	fi
+	backend="$backend""2"
+	colors=$(echo $scheme | rev | cut -d' ' -f $2 | rev)
+	lcolors=$(echo $lscheme | rev | cut -d' ' -f $2 | rev)
+	generatesample
+}
+
+
+########################################
+colorshift() { #########################
+
+	col=$(pastel $1 0.10 $col | pastel format hex)
+	test=$(pastel to-gray $col | pastel format hex)
+	colort -l $2 $test > /dev/null
+}
+
+
+########################################
+colorgenerator_1() { ###################
 
 	if [[ "schemer" == "$1" ]]; then ##  SCHEMER 2  ##
 		echo "schemer does his job"
@@ -254,16 +297,12 @@ colorgenerator_1() { ###################################################
 		colort -l -140 $test > /dev/null
 		while [[ "$?" == "0" ]]
 		do
-			col=$(pastel darken 0.10 $col | pastel format hex)
-			test=$(pastel to-gray $col | pastel format hex)
-			colort -l -140 $test > /dev/null
+			colorshift darken -140
 		done
 		colort -l 170 $test > /dev/null
 		while [[ "$?" == "0" ]]
 		do
-			col=$(pastel lighten 0.10 $col | pastel format hex)
-			test=$(pastel to-gray $col | pastel format hex)
-			colort -l 170 $test > /dev/null
+			colorshift lighten 170
 		done
 		scheme="$scheme $col"
 	done <<< $dark
@@ -272,33 +311,24 @@ colorgenerator_1() { ###################################################
 		colort -l -180 $test > /dev/null
 		while [[ "$?" == "0" ]]
 		do
-			col=$(pastel darken 0.10 $col | pastel format hex)
-			test=$(pastel to-gray $col | pastel format hex)
-			colort -l -180 $test > /dev/null
+			colorshift darken -180
 		done
 		colort -l 140 $test > /dev/null
 		while [[ "$?" == "0" ]]
 		do
-			col=$(pastel lighten 0.10 $col | pastel format hex)
-			test=$(pastel to-gray $col | pastel format hex)
-			colort -l 140 $test > /dev/null
+			colorshift lighten 140
 		done
 		lscheme="$lscheme $col"
 	done <<< $light
 
-	colors=$(echo $scheme | cut -d' ' -f2,4,6,8,10,12,14,16)
-	lcolors=$(echo $lscheme | cut -d' ' -f2,4,6,8,10,12,14,16)
-	generatesample
-
+	colorsplitter "2,4,6,8,10,12,14,16" "null"
 	backend="$backend""2"
-	colors=$(echo $scheme | cut -d' ' -f1,3,5,7,9,11,13,16)
-	lcolors=$(echo $lscheme | cut -d' ' -f1,3,5,7,9,11,13,16)
-	generatesample
+	colorsplitter "1,3,5,7,9,11,13,16" "null"
 }
 
 
-########################################################################
-colorgenerator_2() { ###################################################
+########################################
+colorgenerator_2() { ###################
 
 	if [[ "convert" == "$1" ]]; then ##  CONVERT  ## 
 		echo "convert does his job"
@@ -350,16 +380,12 @@ colorgenerator_2() { ###################################################
 			colort -l -140 $test > /dev/null
 			while [[ "$?" == "0" ]]
 			do
-				col=$(pastel darken 0.10 $col | pastel format hex)
-				test=$(pastel to-gray $col | pastel format hex)
-				colort -l -140 $test > /dev/null
+				colorshift darken -140
 			done
 			colort -l 170 $test > /dev/null
 			while [[ "$?" == "0" ]]
 			do
-				col=$(pastel lighten 0.10 $col | pastel format hex)
-				test=$(pastel to-gray $col | pastel format hex)
-				colort -l 170 $test > /dev/null
+				colorshift lighten 170
 			done
 
 			lscheme="$lscheme $(pastel lighten 0.25 $col | pastel format hex)"
@@ -369,16 +395,12 @@ colorgenerator_2() { ###################################################
 			colort -l -180 $test > /dev/null
 			while [[ "$?" == "0" ]]
 			do
-				col=$(pastel darken 0.10 $col | pastel format hex)
-				test=$(pastel to-gray $col | pastel format hex)
-				colort -l -180 $test > /dev/null
+				colorshift darken -180
 			done
 			colort -l 140 $test > /dev/null
 			while [[ "$?" == "0" ]]
 			do
-				col=$(pastel lighten 0.10 $col | pastel format hex)
-				test=$(pastel to-gray $col | pastel format hex)
-				colort -l 140 $test > /dev/null
+				colorshift lighten 140
 			done
 
 			scheme="$scheme $(pastel darken 0.25 $col | pastel format hex)"
@@ -390,87 +412,37 @@ colorgenerator_2() { ###################################################
 	if [ "$n" -lt 8 ]; then
 		continue
 	elif [ "$n" -eq 8 ]; then
-		colors=$(echo $scheme | cut -d' ' -f 1-8)
-		lcolors=$(echo $lscheme | cut -d' ' -f 1-8)
-		generatesample
+		colorsplitter "1-8" "null"
 	elif [ "$n" -eq 9  ]; then
-		colors=$(echo $scheme | cut -d' ' -f 1-8)
-		lcolors=$(echo $lscheme | cut -d' ' -f 1-8)
-		generatesample
-		backend="$backend""2"
-		colors=$(echo $scheme | rev | cut -d' ' -f 1-8 | rev)
-		lcolors=$(echo $lscheme | rev | cut -d' ' -f 1-8 | rev)
-		generatesample
+		colorsplitter "1-8" "1-8"
 	elif [ "$n" -eq 10  ]; then
-		colors=$(echo $scheme | cut -d' ' -f 1,2,4,5,6,7,8,10)
-		lcolors=$(echo $lscheme | cut -d' ' -f 1,2,4,5,6,7,8,10)
-		generatesample
-		backend="$backend""2"
-		colors=$(echo $scheme | rev | cut -d' ' -f 1,2,4,5,6,7,8,10 | rev)
-		lcolors=$(echo $lscheme | rev | cut -d' ' -f 1,2,4,5,6,7,8,10 | rev)
-		generatesample
+		colorsplitter "1,2,4,5,6,7,8,10" "1,2,4,5,6,7,8,10"
 	elif [ "$n" -eq 11  ]; then
-		colors=$(echo $scheme | cut -d' ' -f 1,2,4,5,6,8,9,11)
-		lcolors=$(echo $lscheme | cut -d' ' -f 1,2,4,5,6,8,9,11)
-		generatesample
-		backend="$backend""2"
-		colors=$(echo $scheme | rev | cut -d' ' -f 1,2,4,5,6,8,9,11 | rev)
-		lcolors=$(echo $lscheme | rev | cut -d' ' -f 1,2,4,5,6,8,9,11 | rev)
-		generatesample
+		colorsplitter "1,2,4,5,6,8,9,11" "1,2,4,5,6,8,9,11"
 	elif [ "$n" -eq 12  ]; then
-		colors=$(echo $scheme | cut -d' ' -f 1,2,4,5,7,9,10,12)
-		lcolors=$(echo $lscheme | cut -d' ' -f 1,2,4,5,7,9,10,12)
-		generatesample
-		backend="$backend""2"
-		colors=$(echo $scheme | rev | cut -d' ' -f 1,2,4,5,7,8,10,12 | rev)
-		lcolors=$(echo $lscheme | rev | cut -d' ' -f 1,2,4,5,7,8,10,12 | rev)
-		generatesample
+		colorsplitter "1,2,4,5,7,9,10,12" "1,2,4,5,7,9,10,12"
 	elif [ "$n" -eq 13  ]; then
-		colors=$(echo $scheme | cut -d' ' -f 1,3,4,6,7,9,10,12)
-		lcolors=$(echo $lscheme | cut -d' ' -f 1,3,4,6,7,9,10,12)
-		generatesample
-		backend="$backend""2"
-		colors=$(echo $scheme | rev | cut -d' ' -f 1,3,4,6,7,9,10,12 | rev)
-		lcolors=$(echo $lscheme | rev | cut -d' ' -f 1,3,4,6,7,9,10,12 | rev)
-		generatesample
+		colorsplitter "1,3,4,6,7,9,10,12" "1,3,4,6,7,9,10,12"
 	elif [ "$n" -eq 14  ]; then
-		colors=$(echo $scheme | cut -d' ' -f 1,2,4,6,8,10,12,14)
-		lcolors=$(echo $lscheme | cut -d' ' -f 1,2,4,6,8,10,12,14)
-		generatesample
-		backend="$backend""2"
-		colors=$(echo $scheme | rev | cut -d' ' -f 1,2,4,6,8,10,12,14 | rev)
-		lcolors=$(echo $lscheme | rev | cut -d' ' -f 1,2,4,6,8,10,12,14 | rev)
-		generatesample
+		colorsplitter "1,2,4,6,8,10,12,14" "1,2,4,6,8,10,12,14"
 	elif [ "$n" -eq 15  ]; then
-		colors=$(echo $scheme | cut -d' ' -f 1,3,5,7,9,11,13,15)
-		lcolors=$(echo $lscheme | cut -d' ' -f 1,3,5,7,9,11,13,15)
-		generatesample
-		backend="$backend""2"
-		colors=$(echo $scheme | rev | cut -d' ' -f 1,2,4,6,8,10,12,14 | rev)
-		lcolors=$(echo $lscheme | rev | cut -d' ' -f 1,2,4,6,8,10,12,14 | rev)
-		generatesample
+		colorsplitter "1,3,5,7,9,11,13,15" "1,2,4,6,8,10,12,14"
 	elif [ "$n" -eq 16  ]; then
-		colors=$(echo $scheme | cut -d' ' -f 1,3,5,7,9,11,13,15)
-		lcolors=$(echo $lscheme | cut -d' ' -f 1,3,5,7,9,11,13,15)
-		generatesample
-		backend="$backend""2"
-		colors=$(echo $scheme | rev | cut -d' ' -f 1,3,5,7,9,11,13,15 | rev)
-		lcolors=$(echo $lscheme | rev | cut -d' ' -f 1,3,5,7,9,11,13,15 | rev)
-		generatesample
+		colorsplitter "1,3,5,7,9,11,13,15" "1,3,5,7,9,11,13,15"
 	fi
 }
 
 
-########################################################################
-setwallpapercolors() { #################################################
+########################################
+setwallpapercolors() { #################
 
-	rm ${HOME}/.xfiles/templer/schemes/* 2> /dev/null
-	rm ${HOME}/.xfiles/templer/samples/* 2> /dev/null
+	rm ${XFOLDER}/templer/schemes/* 2> /dev/null
+	rm ${XFOLDER}/templer/samples/* 2> /dev/null
 
 	if [ '[wallpaper-theme]' = "$1" ]; then
-		wallpaper=$(sxiv -d -N wallman -to ${HOME}/.xfiles/background/wallpapers | head -n 1)
+		wallpaper=$(sxiv -d -N wallman -to ${XFOLDER}/background/wallpapers | head -n 1)
 	else
-		wallpaper=$(sxiv -d -N wallman -to $(find ${HOME}/.xfiles/background/paperview -name "image*") | head -n 1)
+		wallpaper=$(sxiv -d -N wallman -to $(find ${XFOLDER}/background/paperview -name "image*") | head -n 1)
 	fi
 
 	if [ -z "$wallpaper" ] ;then
@@ -497,22 +469,22 @@ setwallpapercolors() { #################################################
 	done
 
 	## choose backend... 
-	backend=$(sxiv -d -N wallman -to ${HOME}/.xfiles/templer/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
+	backend=$(sxiv -d -N wallman -to ${XFOLDER}/templer/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
 	backend="$backend"".sh"
 
 	## connect color-theme to mondo...
 	rm ${HOME}/.config/mondo/themes/templer 2> /dev/null
-	ln -s ${HOME}/.xfiles/templer/schemes/$backend ${HOME}/.config/mondo/themes/templer
+	ln -s ${XFOLDER}/templer/schemes/$backend ${HOME}/.config/mondo/themes/templer
 	mondo -f -g templer
 
 	## set wallpaper
 	killall gifview 2> /dev/null
-	echo $wallpaper > ${HOME}/.xfiles/templer/wallpaper
-	echo $wallpaper | sed "s/\image.jpg$/1366x768.gif/" > ${HOME}/.xfiles/templer/gif
-	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat \${HOME}\/\.xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
-	hsetroot -fill $(cat ${HOME}/.xfiles/templer/wallpaper)
+	echo $wallpaper > ${XFOLDER}/templer/wallpaper
+	echo $wallpaper | sed "s/\image.jpg$/1366x768.gif/" > ${XFOLDER}/templer/gif
+	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat \${HOME}\/.config\/X11\/xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
+	hsetroot -fill $(cat ${XFOLDER}/templer/wallpaper)
 	if [[ "[paperview]" = "$1" ]]; then
-		nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${HOME}/.xfiles/templer/gif) -a &
+		nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${XFOLDER}/templer/gif) -a &
 	fi
 	sed -i "s/^corner-radius = .*/corner-radius = 5;/g" ~/.config/picom/picom.conf
 
@@ -521,8 +493,8 @@ setwallpapercolors() { #################################################
 }
 
 
-########################################################################
-templer_menu() { #######################################################
+########################################
+templer_menu() { #######################
 
 	templer="[wallpaper]\n[wallpaper-theme]\n[paperview]\n[xresources-theme]"
 	template=$(printf "${templer}" | dmenu -p "template: ")

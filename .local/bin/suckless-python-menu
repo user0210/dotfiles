@@ -8,7 +8,7 @@ gi.require_version('AppIndicator3', '0.1')
 from gi.repository import Gtk as gtk, AppIndicator3 as appindicator
 
 def main():
-  iconpath = os.path.join(os.getenv("HOME"), ".xfiles/icons/suckless_logo.svg")
+  iconpath = os.path.join(os.getenv("HOME"), ".config/X11/xfiles/icons/suckless_logo.svg")
   indicator = appindicator.Indicator.new("sucklesstray", iconpath, appindicator.IndicatorCategory.APPLICATION_STATUS)
   indicator.set_status(appindicator.IndicatorStatus.ACTIVE)
   indicator.set_menu(menu())

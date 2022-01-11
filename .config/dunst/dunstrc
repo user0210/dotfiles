@@ -25,19 +25,19 @@
 	foreground =  "#dbdde2"
 	frame_color = "#041233"
 	timeout = 6
-	icon = /home/philipp/.xfiles/icons/low.svg
+	icon = ~/.config/X11/xfiles/icons/low.svg
 [urgency_normal]
 	background =  "#041233"
 	foreground =  "#75a3ce"
 	frame_color = "#041233"
 	timeout = 6
-	icon = /home/philipp/.xfiles/icons/normal.svg
+	icon = ~/.config/X11/xfiles/icons/normal.svg
 [urgency_critical]
 	background =  "#794453"
 	foreground =  "#041233"
 	frame_color = "#794453"
 	timeout = 0
-	icon = /home/philipp/.xfiles/icons/critical.svg
+	icon = ~/.config/X11/xfiles/icons/critical.svg
 
 
 #########################################################################

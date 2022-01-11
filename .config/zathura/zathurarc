@@ -15,6 +15,8 @@ set font "TerminessTTF Nerd Font 12"
 ##### colors
 ####################################################################
 
+# -- MONDO-BEGIN --
+
 ##### templer-colors
 set notification-error-bg	"#041233"	# bg
 set notification-error-fg	"#b98392"	# bright:red
@@ -56,3 +58,1141 @@ set recolor-lightcolor		"#041233"	# bg
 set recolor-darkcolor		"#dbdde2"	# fg
 set recolor					true
 set recolor-keephue			true			# keep original color
+
+# --  MONDO-END --
+
+##### templer-colors
+set notification-error-bg	"#000f27"	# bg
+set notification-error-fg	"#ab7b51"	# bright:red
+set notification-warning-bg	"#000f27"	# bg
+set notification-warning-fg	"#ad8f4f"	# bright:yellow
+set notification-bg			"#000f27"	# bg
+set notification-fg			"#98a977"	# bright:green
+
+set completion-bg			"#495465"	# bg2
+set completion-fg			"#dbdde0"	# fg
+set completion-group-bg		"#243146"	# bg1
+set completion-group-fg		"#9298a2"	# gray
+set completion-highlight-bg	"#4d8d8a"	# bright:blue
+set completion-highlight-fg	"#495465"	# bg2
+
+# Define the color in index mode
+set index-bg				"#495465"	# bg2
+set index-fg				"#dbdde0"	# fg
+set index-active-bg			"#4d8d8a"	# bright:blue
+set index-active-fg			"#495465"	# bg2
+
+set inputbar-bg				"#000f27"	# bg
+set inputbar-fg				"#dbdde0"	# fg
+
+set statusbar-bg			"#495465"	# bg2
+set statusbar-fg			"#dbdde0"	# fg
+
+set highlight-color			"#ad8f4f"	# bright:yellow
+set highlight-active-color	"#ac8758"	# bright:orange
+
+set default-bg				"#000f27"	# bg
+set default-fg				"#dbdde0"	# fg
+set render-loading			true
+set render-loading-bg		"#000f27"	# bg
+set render-loading-fg		"#dbdde0"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#000f27"	# bg
+set recolor-darkcolor		"#dbdde0"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#041233"	# bg
+set notification-error-fg	"#b98392"	# bright:red
+set notification-warning-bg	"#041233"	# bg
+set notification-warning-fg	"#d9a5ac"	# bright:yellow
+set notification-bg			"#041233"	# bg
+set notification-fg			"#75a3ce"	# bright:green
+
+set completion-bg			"#4c566d"	# bg2
+set completion-fg			"#dbdde2"	# fg
+set completion-group-bg		"#283450"	# bg1
+set completion-group-fg		"#9399a8"	# gray
+set completion-highlight-bg	"#b880bd"	# bright:blue
+set completion-highlight-fg	"#4c566d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#4c566d"	# bg2
+set index-fg				"#dbdde2"	# fg
+set index-active-bg			"#b880bd"	# bright:blue
+set index-active-fg			"#4c566d"	# bg2
+
+set inputbar-bg				"#041233"	# bg
+set inputbar-fg				"#dbdde2"	# fg
+
+set statusbar-bg			"#4c566d"	# bg2
+set statusbar-fg			"#dbdde2"	# fg
+
+set highlight-color			"#d9a5ac"	# bright:yellow
+set highlight-active-color	"#c89aa0"	# bright:orange
+
+set default-bg				"#041233"	# bg
+set default-fg				"#dbdde2"	# fg
+set render-loading			true
+set render-loading-bg		"#041233"	# bg
+set render-loading-fg		"#dbdde2"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#041233"	# bg
+set recolor-darkcolor		"#dbdde2"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001b3f"	# bg
+set notification-error-fg	"#d1b4a8"	# bright:red
+set notification-warning-bg	"#001b3f"	# bg
+set notification-warning-fg	"#e0a956"	# bright:yellow
+set notification-bg			"#001b3f"	# bg
+set notification-fg			"#7f8b6e"	# bright:green
+
+set completion-bg			"#495866"	# bg2
+set completion-fg			"#dbd2b3"	# fg
+set completion-group-bg		"#243952"	# bg1
+set completion-group-fg		"#92958c"	# gray
+set completion-highlight-bg	"#97bbbf"	# bright:blue
+set completion-highlight-fg	"#495866"	# bg2
+
+# Define the color in index mode
+set index-bg				"#495866"	# bg2
+set index-fg				"#dbd2b3"	# fg
+set index-active-bg			"#97bbbf"	# bright:blue
+set index-active-fg			"#495866"	# bg2
+
+set inputbar-bg				"#001b3f"	# bg
+set inputbar-fg				"#dbd2b3"	# fg
+
+set statusbar-bg			"#495866"	# bg2
+set statusbar-fg			"#dbd2b3"	# fg
+
+set highlight-color			"#e0a956"	# bright:yellow
+set highlight-active-color	"#a78d73"	# bright:orange
+
+set default-bg				"#001b3f"	# bg
+set default-fg				"#dbd2b3"	# fg
+set render-loading			true
+set render-loading-bg		"#001b3f"	# bg
+set render-loading-fg		"#dbd2b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001b3f"	# bg
+set recolor-darkcolor		"#dbd2b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#041233"	# bg
+set notification-error-fg	"#cfa9b2"	# bright:red
+set notification-warning-bg	"#041233"	# bg
+set notification-warning-fg	"#9e7f79"	# bright:yellow
+set notification-bg			"#041233"	# bg
+set notification-fg			"#9faac8"	# bright:green
+
+set completion-bg			"#4c566d"	# bg2
+set completion-fg			"#dbdde2"	# fg
+set completion-group-bg		"#283450"	# bg1
+set completion-group-fg		"#9399a8"	# gray
+set completion-highlight-bg	"#dab6cf"	# bright:blue
+set completion-highlight-fg	"#4c566d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#4c566d"	# bg2
+set index-fg				"#dbdde2"	# fg
+set index-active-bg			"#dab6cf"	# bright:blue
+set index-active-fg			"#4c566d"	# bg2
+
+set inputbar-bg				"#041233"	# bg
+set inputbar-fg				"#dbdde2"	# fg
+
+set statusbar-bg			"#4c566d"	# bg2
+set statusbar-fg			"#dbdde2"	# fg
+
+set highlight-color			"#9e7f79"	# bright:yellow
+set highlight-active-color	"#d9a5ac"	# bright:orange
+
+set default-bg				"#041233"	# bg
+set default-fg				"#dbdde2"	# fg
+set render-loading			true
+set render-loading-bg		"#041233"	# bg
+set render-loading-fg		"#dbdde2"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#041233"	# bg
+set recolor-darkcolor		"#dbdde2"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#000f27"	# bg
+set notification-error-fg	"#ac7d52"	# bright:red
+set notification-warning-bg	"#000f27"	# bg
+set notification-warning-fg	"#9a8a6f"	# bright:yellow
+set notification-bg			"#000f27"	# bg
+set notification-fg			"#788e70"	# bright:green
+
+set completion-bg			"#495465"	# bg2
+set completion-fg			"#dbdde0"	# fg
+set completion-group-bg		"#243146"	# bg1
+set completion-group-fg		"#9298a2"	# gray
+set completion-highlight-bg	"#4e8c8a"	# bright:blue
+set completion-highlight-fg	"#495465"	# bg2
+
+# Define the color in index mode
+set index-bg				"#495465"	# bg2
+set index-fg				"#dbdde0"	# fg
+set index-active-bg			"#4e8c8a"	# bright:blue
+set index-active-fg			"#495465"	# bg2
+
+set inputbar-bg				"#000f27"	# bg
+set inputbar-fg				"#dbdde0"	# fg
+
+set statusbar-bg			"#495465"	# bg2
+set statusbar-fg			"#dbdde0"	# fg
+
+set highlight-color			"#9a8a6f"	# bright:yellow
+set highlight-active-color	"#aa8f6e"	# bright:orange
+
+set default-bg				"#000f27"	# bg
+set default-fg				"#dbdde0"	# fg
+set render-loading			true
+set render-loading-bg		"#000f27"	# bg
+set render-loading-fg		"#dbdde0"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#000f27"	# bg
+set recolor-darkcolor		"#dbdde0"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001732"	# bg
+set notification-error-fg	"#cdb5a7"	# bright:red
+set notification-warning-bg	"#001732"	# bg
+set notification-warning-fg	"#dea355"	# bright:yellow
+set notification-bg			"#001732"	# bg
+set notification-fg			"#ada47f"	# bright:green
+
+set completion-bg			"#48555d"	# bg2
+set completion-fg			"#d9d2b3"	# fg
+set completion-group-bg		"#243647"	# bg1
+set completion-group-fg		"#919488"	# gray
+set completion-highlight-bg	"#9dbbb9"	# bright:blue
+set completion-highlight-fg	"#48555d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#48555d"	# bg2
+set index-fg				"#d9d2b3"	# fg
+set index-active-bg			"#9dbbb9"	# bright:blue
+set index-active-fg			"#48555d"	# bg2
+
+set inputbar-bg				"#001732"	# bg
+set inputbar-fg				"#d9d2b3"	# fg
+
+set statusbar-bg			"#48555d"	# bg2
+set statusbar-fg			"#d9d2b3"	# fg
+
+set highlight-color			"#dea355"	# bright:yellow
+set highlight-active-color	"#cf9b57"	# bright:orange
+
+set default-bg				"#001732"	# bg
+set default-fg				"#d9d2b3"	# fg
+set render-loading			true
+set render-loading-bg		"#001732"	# bg
+set render-loading-fg		"#d9d2b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001732"	# bg
+set recolor-darkcolor		"#d9d2b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001732"	# bg
+set notification-error-fg	"#cdb5a7"	# bright:red
+set notification-warning-bg	"#001732"	# bg
+set notification-warning-fg	"#dea355"	# bright:yellow
+set notification-bg			"#001732"	# bg
+set notification-fg			"#ada47f"	# bright:green
+
+set completion-bg			"#48555d"	# bg2
+set completion-fg			"#d9d2b3"	# fg
+set completion-group-bg		"#243647"	# bg1
+set completion-group-fg		"#919488"	# gray
+set completion-highlight-bg	"#9dbbb9"	# bright:blue
+set completion-highlight-fg	"#48555d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#48555d"	# bg2
+set index-fg				"#d9d2b3"	# fg
+set index-active-bg			"#9dbbb9"	# bright:blue
+set index-active-fg			"#48555d"	# bg2
+
+set inputbar-bg				"#001732"	# bg
+set inputbar-fg				"#d9d2b3"	# fg
+
+set statusbar-bg			"#48555d"	# bg2
+set statusbar-fg			"#d9d2b3"	# fg
+
+set highlight-color			"#dea355"	# bright:yellow
+set highlight-active-color	"#cf9b57"	# bright:orange
+
+set default-bg				"#001732"	# bg
+set default-fg				"#d9d2b3"	# fg
+set render-loading			true
+set render-loading-bg		"#001732"	# bg
+set render-loading-fg		"#d9d2b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001732"	# bg
+set recolor-darkcolor		"#d9d2b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001732"	# bg
+set notification-error-fg	"#cdb5a7"	# bright:red
+set notification-warning-bg	"#001732"	# bg
+set notification-warning-fg	"#dea355"	# bright:yellow
+set notification-bg			"#001732"	# bg
+set notification-fg			"#ada47f"	# bright:green
+
+set completion-bg			"#48555d"	# bg2
+set completion-fg			"#d9d2b3"	# fg
+set completion-group-bg		"#243647"	# bg1
+set completion-group-fg		"#919488"	# gray
+set completion-highlight-bg	"#9dbbb9"	# bright:blue
+set completion-highlight-fg	"#48555d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#48555d"	# bg2
+set index-fg				"#d9d2b3"	# fg
+set index-active-bg			"#9dbbb9"	# bright:blue
+set index-active-fg			"#48555d"	# bg2
+
+set inputbar-bg				"#001732"	# bg
+set inputbar-fg				"#d9d2b3"	# fg
+
+set statusbar-bg			"#48555d"	# bg2
+set statusbar-fg			"#d9d2b3"	# fg
+
+set highlight-color			"#dea355"	# bright:yellow
+set highlight-active-color	"#cf9b57"	# bright:orange
+
+set default-bg				"#001732"	# bg
+set default-fg				"#d9d2b3"	# fg
+set render-loading			true
+set render-loading-bg		"#001732"	# bg
+set render-loading-fg		"#d9d2b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001732"	# bg
+set recolor-darkcolor		"#d9d2b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#090b10"	# bg
+set notification-error-fg	"#83aeab"	# bright:red
+set notification-warning-bg	"#090b10"	# bg
+set notification-warning-fg	"#8b98c6"	# bright:yellow
+set notification-bg			"#090b10"	# bg
+set notification-fg			"#566cd6"	# bright:green
+
+set completion-bg			"#4f5154"	# bg2
+set completion-fg			"#dcdcdd"	# fg
+set completion-group-bg		"#2c2e32"	# bg1
+set completion-group-fg		"#969699"	# gray
+set completion-highlight-bg	"#ad91ad"	# bright:blue
+set completion-highlight-fg	"#4f5154"	# bg2
+
+# Define the color in index mode
+set index-bg				"#4f5154"	# bg2
+set index-fg				"#dcdcdd"	# fg
+set index-active-bg			"#ad91ad"	# bright:blue
+set index-active-fg			"#4f5154"	# bg2
+
+set inputbar-bg				"#090b10"	# bg
+set inputbar-fg				"#dcdcdd"	# fg
+
+set statusbar-bg			"#4f5154"	# bg2
+set statusbar-fg			"#dcdcdd"	# fg
+
+set highlight-color			"#8b98c6"	# bright:yellow
+set highlight-active-color	"#6396d1"	# bright:orange
+
+set default-bg				"#090b10"	# bg
+set default-fg				"#dcdcdd"	# fg
+set render-loading			true
+set render-loading-bg		"#090b10"	# bg
+set render-loading-fg		"#dcdcdd"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#090b10"	# bg
+set recolor-darkcolor		"#dcdcdd"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001732"	# bg
+set notification-error-fg	"#cdb5a7"	# bright:red
+set notification-warning-bg	"#001732"	# bg
+set notification-warning-fg	"#dea355"	# bright:yellow
+set notification-bg			"#001732"	# bg
+set notification-fg			"#ada47f"	# bright:green
+
+set completion-bg			"#48555d"	# bg2
+set completion-fg			"#d9d2b3"	# fg
+set completion-group-bg		"#243647"	# bg1
+set completion-group-fg		"#919488"	# gray
+set completion-highlight-bg	"#9dbbb9"	# bright:blue
+set completion-highlight-fg	"#48555d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#48555d"	# bg2
+set index-fg				"#d9d2b3"	# fg
+set index-active-bg			"#9dbbb9"	# bright:blue
+set index-active-fg			"#48555d"	# bg2
+
+set inputbar-bg				"#001732"	# bg
+set inputbar-fg				"#d9d2b3"	# fg
+
+set statusbar-bg			"#48555d"	# bg2
+set statusbar-fg			"#d9d2b3"	# fg
+
+set highlight-color			"#dea355"	# bright:yellow
+set highlight-active-color	"#cf9b57"	# bright:orange
+
+set default-bg				"#001732"	# bg
+set default-fg				"#d9d2b3"	# fg
+set render-loading			true
+set render-loading-bg		"#001732"	# bg
+set render-loading-fg		"#d9d2b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001732"	# bg
+set recolor-darkcolor		"#d9d2b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#1d2021"	# bg
+set notification-error-fg	"#fb4934"	# bright:red
+set notification-warning-bg	"#1d2021"	# bg
+set notification-warning-fg	"#fabd2f"	# bright:yellow
+set notification-bg			"#1d2021"	# bg
+set notification-fg			"#b8bb26"	# bright:green
+
+set completion-bg			"#504945"	# bg2
+set completion-fg			"#ebdbb2"	# fg
+set completion-group-bg		"#3c3836"	# bg1
+set completion-group-fg		"#bdae93"	# gray
+set completion-highlight-bg	"#83a598"	# bright:blue
+set completion-highlight-fg	"#504945"	# bg2
+
+# Define the color in index mode
+set index-bg				"#504945"	# bg2
+set index-fg				"#ebdbb2"	# fg
+set index-active-bg			"#83a598"	# bright:blue
+set index-active-fg			"#504945"	# bg2
+
+set inputbar-bg				"#1d2021"	# bg
+set inputbar-fg				"#ebdbb2"	# fg
+
+set statusbar-bg			"#504945"	# bg2
+set statusbar-fg			"#ebdbb2"	# fg
+
+set highlight-color			"#fabd2f"	# bright:yellow
+set highlight-active-color	"#fe8019"	# bright:orange
+
+set default-bg				"#1d2021"	# bg
+set default-fg				"#ebdbb2"	# fg
+set render-loading			true
+set render-loading-bg		"#1d2021"	# bg
+set render-loading-fg		"#ebdbb2"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#1d2021"	# bg
+set recolor-darkcolor		"#ebdbb2"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#1d2021"	# bg
+set notification-error-fg	"#fb4934"	# bright:red
+set notification-warning-bg	"#1d2021"	# bg
+set notification-warning-fg	"#fabd2f"	# bright:yellow
+set notification-bg			"#1d2021"	# bg
+set notification-fg			"#b8bb26"	# bright:green
+
+set completion-bg			"#504945"	# bg2
+set completion-fg			"#ebdbb2"	# fg
+set completion-group-bg		"#3c3836"	# bg1
+set completion-group-fg		"#bdae93"	# gray
+set completion-highlight-bg	"#83a598"	# bright:blue
+set completion-highlight-fg	"#504945"	# bg2
+
+# Define the color in index mode
+set index-bg				"#504945"	# bg2
+set index-fg				"#ebdbb2"	# fg
+set index-active-bg			"#83a598"	# bright:blue
+set index-active-fg			"#504945"	# bg2
+
+set inputbar-bg				"#1d2021"	# bg
+set inputbar-fg				"#ebdbb2"	# fg
+
+set statusbar-bg			"#504945"	# bg2
+set statusbar-fg			"#ebdbb2"	# fg
+
+set highlight-color			"#fabd2f"	# bright:yellow
+set highlight-active-color	"#fe8019"	# bright:orange
+
+set default-bg				"#1d2021"	# bg
+set default-fg				"#ebdbb2"	# fg
+set render-loading			true
+set render-loading-bg		"#1d2021"	# bg
+set render-loading-fg		"#ebdbb2"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#1d2021"	# bg
+set recolor-darkcolor		"#ebdbb2"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001732"	# bg
+set notification-error-fg	"#cdb5a7"	# bright:red
+set notification-warning-bg	"#001732"	# bg
+set notification-warning-fg	"#dea355"	# bright:yellow
+set notification-bg			"#001732"	# bg
+set notification-fg			"#ada47f"	# bright:green
+
+set completion-bg			"#48555d"	# bg2
+set completion-fg			"#d9d2b3"	# fg
+set completion-group-bg		"#243647"	# bg1
+set completion-group-fg		"#919488"	# gray
+set completion-highlight-bg	"#9dbbb9"	# bright:blue
+set completion-highlight-fg	"#48555d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#48555d"	# bg2
+set index-fg				"#d9d2b3"	# fg
+set index-active-bg			"#9dbbb9"	# bright:blue
+set index-active-fg			"#48555d"	# bg2
+
+set inputbar-bg				"#001732"	# bg
+set inputbar-fg				"#d9d2b3"	# fg
+
+set statusbar-bg			"#48555d"	# bg2
+set statusbar-fg			"#d9d2b3"	# fg
+
+set highlight-color			"#dea355"	# bright:yellow
+set highlight-active-color	"#cf9b57"	# bright:orange
+
+set default-bg				"#001732"	# bg
+set default-fg				"#d9d2b3"	# fg
+set render-loading			true
+set render-loading-bg		"#001732"	# bg
+set render-loading-fg		"#d9d2b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001732"	# bg
+set recolor-darkcolor		"#d9d2b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#1d2021"	# bg
+set notification-error-fg	"#fb4934"	# bright:red
+set notification-warning-bg	"#1d2021"	# bg
+set notification-warning-fg	"#fabd2f"	# bright:yellow
+set notification-bg			"#1d2021"	# bg
+set notification-fg			"#b8bb26"	# bright:green
+
+set completion-bg			"#504945"	# bg2
+set completion-fg			"#ebdbb2"	# fg
+set completion-group-bg		"#3c3836"	# bg1
+set completion-group-fg		"#bdae93"	# gray
+set completion-highlight-bg	"#83a598"	# bright:blue
+set completion-highlight-fg	"#504945"	# bg2
+
+# Define the color in index mode
+set index-bg				"#504945"	# bg2
+set index-fg				"#ebdbb2"	# fg
+set index-active-bg			"#83a598"	# bright:blue
+set index-active-fg			"#504945"	# bg2
+
+set inputbar-bg				"#1d2021"	# bg
+set inputbar-fg				"#ebdbb2"	# fg
+
+set statusbar-bg			"#504945"	# bg2
+set statusbar-fg			"#ebdbb2"	# fg
+
+set highlight-color			"#fabd2f"	# bright:yellow
+set highlight-active-color	"#fe8019"	# bright:orange
+
+set default-bg				"#1d2021"	# bg
+set default-fg				"#ebdbb2"	# fg
+set render-loading			true
+set render-loading-bg		"#1d2021"	# bg
+set render-loading-fg		"#ebdbb2"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#1d2021"	# bg
+set recolor-darkcolor		"#ebdbb2"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001329"	# bg
+set notification-error-fg	"#03b071"	# bright:red
+set notification-warning-bg	"#001329"	# bg
+set notification-warning-fg	"#8ebbc3"	# bright:yellow
+set notification-bg			"#001329"	# bg
+set notification-fg			"#41c0df"	# bright:green
+
+set completion-bg			"#3f5162"	# bg2
+set completion-fg			"#beccd3"	# fg
+set completion-group-bg		"#203245"	# bg1
+set completion-group-fg		"#7f8e9a"	# gray
+set completion-highlight-bg	"#89abc7"	# bright:blue
+set completion-highlight-fg	"#3f5162"	# bg2
+
+# Define the color in index mode
+set index-bg				"#3f5162"	# bg2
+set index-fg				"#beccd3"	# fg
+set index-active-bg			"#89abc7"	# bright:blue
+set index-active-fg			"#3f5162"	# bg2
+
+set inputbar-bg				"#001329"	# bg
+set inputbar-fg				"#beccd3"	# fg
+
+set statusbar-bg			"#3f5162"	# bg2
+set statusbar-fg			"#beccd3"	# fg
+
+set highlight-color			"#8ebbc3"	# bright:yellow
+set highlight-active-color	"#40b4c3"	# bright:orange
+
+set default-bg				"#001329"	# bg
+set default-fg				"#beccd3"	# fg
+set render-loading			true
+set render-loading-bg		"#001329"	# bg
+set render-loading-fg		"#beccd3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001329"	# bg
+set recolor-darkcolor		"#beccd3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#090b10"	# bg
+set notification-error-fg	"#c4929a"	# bright:red
+set notification-warning-bg	"#090b10"	# bg
+set notification-warning-fg	"#6699d0"	# bright:yellow
+set notification-bg			"#090b10"	# bg
+set notification-fg			"#9b9bb2"	# bright:green
+
+set completion-bg			"#4f5154"	# bg2
+set completion-fg			"#dcdcdd"	# fg
+set completion-group-bg		"#2c2e32"	# bg1
+set completion-group-fg		"#969699"	# gray
+set completion-highlight-bg	"#b885c6"	# bright:blue
+set completion-highlight-fg	"#4f5154"	# bg2
+
+# Define the color in index mode
+set index-bg				"#4f5154"	# bg2
+set index-fg				"#dcdcdd"	# fg
+set index-active-bg			"#b885c6"	# bright:blue
+set index-active-fg			"#4f5154"	# bg2
+
+set inputbar-bg				"#090b10"	# bg
+set inputbar-fg				"#dcdcdd"	# fg
+
+set statusbar-bg			"#4f5154"	# bg2
+set statusbar-fg			"#dcdcdd"	# fg
+
+set highlight-color			"#6699d0"	# bright:yellow
+set highlight-active-color	"#81a9ae"	# bright:orange
+
+set default-bg				"#090b10"	# bg
+set default-fg				"#dcdcdd"	# fg
+set render-loading			true
+set render-loading-bg		"#090b10"	# bg
+set render-loading-fg		"#dcdcdd"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#090b10"	# bg
+set recolor-darkcolor		"#dcdcdd"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#1d2021"	# bg
+set notification-error-fg	"#fb4934"	# bright:red
+set notification-warning-bg	"#1d2021"	# bg
+set notification-warning-fg	"#fabd2f"	# bright:yellow
+set notification-bg			"#1d2021"	# bg
+set notification-fg			"#b8bb26"	# bright:green
+
+set completion-bg			"#504945"	# bg2
+set completion-fg			"#ebdbb2"	# fg
+set completion-group-bg		"#3c3836"	# bg1
+set completion-group-fg		"#bdae93"	# gray
+set completion-highlight-bg	"#83a598"	# bright:blue
+set completion-highlight-fg	"#504945"	# bg2
+
+# Define the color in index mode
+set index-bg				"#504945"	# bg2
+set index-fg				"#ebdbb2"	# fg
+set index-active-bg			"#83a598"	# bright:blue
+set index-active-fg			"#504945"	# bg2
+
+set inputbar-bg				"#1d2021"	# bg
+set inputbar-fg				"#ebdbb2"	# fg
+
+set statusbar-bg			"#504945"	# bg2
+set statusbar-fg			"#ebdbb2"	# fg
+
+set highlight-color			"#fabd2f"	# bright:yellow
+set highlight-active-color	"#fe8019"	# bright:orange
+
+set default-bg				"#1d2021"	# bg
+set default-fg				"#ebdbb2"	# fg
+set render-loading			true
+set render-loading-bg		"#1d2021"	# bg
+set render-loading-fg		"#ebdbb2"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#1d2021"	# bg
+set recolor-darkcolor		"#ebdbb2"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#000f27"	# bg
+set notification-error-fg	"#ab885f"	# bright:red
+set notification-warning-bg	"#000f27"	# bg
+set notification-warning-fg	"#99a977"	# bright:yellow
+set notification-bg			"#000f27"	# bg
+set notification-fg			"#78a67c"	# bright:green
+
+set completion-bg			"#495465"	# bg2
+set completion-fg			"#dbdde0"	# fg
+set completion-group-bg		"#243146"	# bg1
+set completion-group-fg		"#9298a2"	# gray
+set completion-highlight-bg	"#4f898b"	# bright:blue
+set completion-highlight-fg	"#495465"	# bg2
+
+# Define the color in index mode
+set index-bg				"#495465"	# bg2
+set index-fg				"#dbdde0"	# fg
+set index-active-bg			"#4f898b"	# bright:blue
+set index-active-fg			"#495465"	# bg2
+
+set inputbar-bg				"#000f27"	# bg
+set inputbar-fg				"#dbdde0"	# fg
+
+set statusbar-bg			"#495465"	# bg2
+set statusbar-fg			"#dbdde0"	# fg
+
+set highlight-color			"#99a977"	# bright:yellow
+set highlight-active-color	"#ad8d51"	# bright:orange
+
+set default-bg				"#000f27"	# bg
+set default-fg				"#dbdde0"	# fg
+set render-loading			true
+set render-loading-bg		"#000f27"	# bg
+set render-loading-fg		"#dbdde0"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#000f27"	# bg
+set recolor-darkcolor		"#dbdde0"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#000f27"	# bg
+set notification-error-fg	"#ab8963"	# bright:red
+set notification-warning-bg	"#000f27"	# bg
+set notification-warning-fg	"#988a6f"	# bright:yellow
+set notification-bg			"#000f27"	# bg
+set notification-fg			"#88a87a"	# bright:green
+
+set completion-bg			"#495465"	# bg2
+set completion-fg			"#dbdde0"	# fg
+set completion-group-bg		"#243146"	# bg1
+set completion-group-fg		"#9298a2"	# gray
+set completion-highlight-bg	"#568c89"	# bright:blue
+set completion-highlight-fg	"#495465"	# bg2
+
+# Define the color in index mode
+set index-bg				"#495465"	# bg2
+set index-fg				"#dbdde0"	# fg
+set index-active-bg			"#568c89"	# bright:blue
+set index-active-fg			"#495465"	# bg2
+
+set inputbar-bg				"#000f27"	# bg
+set inputbar-fg				"#dbdde0"	# fg
+
+set statusbar-bg			"#495465"	# bg2
+set statusbar-fg			"#dbdde0"	# fg
+
+set highlight-color			"#988a6f"	# bright:yellow
+set highlight-active-color	"#a9906f"	# bright:orange
+
+set default-bg				"#000f27"	# bg
+set default-fg				"#dbdde0"	# fg
+set render-loading			true
+set render-loading-bg		"#000f27"	# bg
+set render-loading-fg		"#dbdde0"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#000f27"	# bg
+set recolor-darkcolor		"#dbdde0"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001732"	# bg
+set notification-error-fg	"#cdb5a7"	# bright:red
+set notification-warning-bg	"#001732"	# bg
+set notification-warning-fg	"#dea355"	# bright:yellow
+set notification-bg			"#001732"	# bg
+set notification-fg			"#ada47f"	# bright:green
+
+set completion-bg			"#48555d"	# bg2
+set completion-fg			"#d9d2b3"	# fg
+set completion-group-bg		"#243647"	# bg1
+set completion-group-fg		"#919488"	# gray
+set completion-highlight-bg	"#9dbbb9"	# bright:blue
+set completion-highlight-fg	"#48555d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#48555d"	# bg2
+set index-fg				"#d9d2b3"	# fg
+set index-active-bg			"#9dbbb9"	# bright:blue
+set index-active-fg			"#48555d"	# bg2
+
+set inputbar-bg				"#001732"	# bg
+set inputbar-fg				"#d9d2b3"	# fg
+
+set statusbar-bg			"#48555d"	# bg2
+set statusbar-fg			"#d9d2b3"	# fg
+
+set highlight-color			"#dea355"	# bright:yellow
+set highlight-active-color	"#cf9b57"	# bright:orange
+
+set default-bg				"#001732"	# bg
+set default-fg				"#d9d2b3"	# fg
+set render-loading			true
+set render-loading-bg		"#001732"	# bg
+set render-loading-fg		"#d9d2b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001732"	# bg
+set recolor-darkcolor		"#d9d2b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#1d2021"	# bg
+set notification-error-fg	"#fb4934"	# bright:red
+set notification-warning-bg	"#1d2021"	# bg
+set notification-warning-fg	"#fabd2f"	# bright:yellow
+set notification-bg			"#1d2021"	# bg
+set notification-fg			"#b8bb26"	# bright:green
+
+set completion-bg			"#504945"	# bg2
+set completion-fg			"#ebdbb2"	# fg
+set completion-group-bg		"#3c3836"	# bg1
+set completion-group-fg		"#bdae93"	# gray
+set completion-highlight-bg	"#83a598"	# bright:blue
+set completion-highlight-fg	"#504945"	# bg2
+
+# Define the color in index mode
+set index-bg				"#504945"	# bg2
+set index-fg				"#ebdbb2"	# fg
+set index-active-bg			"#83a598"	# bright:blue
+set index-active-fg			"#504945"	# bg2
+
+set inputbar-bg				"#1d2021"	# bg
+set inputbar-fg				"#ebdbb2"	# fg
+
+set statusbar-bg			"#504945"	# bg2
+set statusbar-fg			"#ebdbb2"	# fg
+
+set highlight-color			"#fabd2f"	# bright:yellow
+set highlight-active-color	"#fe8019"	# bright:orange
+
+set default-bg				"#1d2021"	# bg
+set default-fg				"#ebdbb2"	# fg
+set render-loading			true
+set render-loading-bg		"#1d2021"	# bg
+set render-loading-fg		"#ebdbb2"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#1d2021"	# bg
+set recolor-darkcolor		"#ebdbb2"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#00193f"	# bg
+set notification-error-fg	"#be9875"	# bright:red
+set notification-warning-bg	"#00193f"	# bg
+set notification-warning-fg	"#98aa67"	# bright:yellow
+set notification-bg			"#00193f"	# bg
+set notification-fg			"#78af8c"	# bright:green
+
+set completion-bg			"#495666"	# bg2
+set completion-fg			"#dbd1b3"	# fg
+set completion-group-bg		"#243852"	# bg1
+set completion-group-fg		"#92948c"	# gray
+set completion-highlight-bg	"#8cc3c0"	# bright:blue
+set completion-highlight-fg	"#495666"	# bg2
+
+# Define the color in index mode
+set index-bg				"#495666"	# bg2
+set index-fg				"#dbd1b3"	# fg
+set index-active-bg			"#8cc3c0"	# bright:blue
+set index-active-fg			"#495666"	# bg2
+
+set inputbar-bg				"#00193f"	# bg
+set inputbar-fg				"#dbd1b3"	# fg
+
+set statusbar-bg			"#495666"	# bg2
+set statusbar-fg			"#dbd1b3"	# fg
+
+set highlight-color			"#98aa67"	# bright:yellow
+set highlight-active-color	"#dea754"	# bright:orange
+
+set default-bg				"#00193f"	# bg
+set default-fg				"#dbd1b3"	# fg
+set render-loading			true
+set render-loading-bg		"#00193f"	# bg
+set render-loading-fg		"#dbd1b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#00193f"	# bg
+set recolor-darkcolor		"#dbd1b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#08131d"	# bg
+set notification-error-fg	"#5b8e6e"	# bright:red
+set notification-warning-bg	"#08131d"	# bg
+set notification-warning-fg	"#4b8a8a"	# bright:yellow
+set notification-bg			"#08131d"	# bg
+set notification-fg			"#66848c"	# bright:green
+
+set completion-bg			"#495258"	# bg2
+set completion-fg			"#cbcfce"	# fg
+set completion-group-bg		"#29323a"	# bg1
+set completion-group-fg		"#8a9093"	# gray
+set completion-highlight-bg	"#117bb9"	# bright:blue
+set completion-highlight-fg	"#495258"	# bg2
+
+# Define the color in index mode
+set index-bg				"#495258"	# bg2
+set index-fg				"#cbcfce"	# fg
+set index-active-bg			"#117bb9"	# bright:blue
+set index-active-fg			"#495258"	# bg2
+
+set inputbar-bg				"#08131d"	# bg
+set inputbar-fg				"#cbcfce"	# fg
+
+set statusbar-bg			"#495258"	# bg2
+set statusbar-fg			"#cbcfce"	# fg
+
+set highlight-color			"#4b8a8a"	# bright:yellow
+set highlight-active-color	"#348c70"	# bright:orange
+
+set default-bg				"#08131d"	# bg
+set default-fg				"#cbcfce"	# fg
+set render-loading			true
+set render-loading-bg		"#08131d"	# bg
+set render-loading-fg		"#cbcfce"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#08131d"	# bg
+set recolor-darkcolor		"#cbcfce"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001732"	# bg
+set notification-error-fg	"#daaa6f"	# bright:red
+set notification-warning-bg	"#001732"	# bg
+set notification-warning-fg	"#a58e6e"	# bright:yellow
+set notification-bg			"#001732"	# bg
+set notification-fg			"#64b078"	# bright:green
+
+set completion-bg			"#48555d"	# bg2
+set completion-fg			"#d9d2b3"	# fg
+set completion-group-bg		"#243647"	# bg1
+set completion-group-fg		"#919488"	# gray
+set completion-highlight-bg	"#5a9f9b"	# bright:blue
+set completion-highlight-fg	"#48555d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#48555d"	# bg2
+set index-fg				"#d9d2b3"	# fg
+set index-active-bg			"#5a9f9b"	# bright:blue
+set index-active-fg			"#48555d"	# bg2
+
+set inputbar-bg				"#001732"	# bg
+set inputbar-fg				"#d9d2b3"	# fg
+
+set statusbar-bg			"#48555d"	# bg2
+set statusbar-fg			"#d9d2b3"	# fg
+
+set highlight-color			"#a58e6e"	# bright:yellow
+set highlight-active-color	"#dea355"	# bright:orange
+
+set default-bg				"#001732"	# bg
+set default-fg				"#d9d2b3"	# fg
+set render-loading			true
+set render-loading-bg		"#001732"	# bg
+set render-loading-fg		"#d9d2b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001732"	# bg
+set recolor-darkcolor		"#d9d2b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#000f27"	# bg
+set notification-error-fg	"#a78c70"	# bright:red
+set notification-warning-bg	"#000f27"	# bg
+set notification-warning-fg	"#91886f"	# bright:yellow
+set notification-bg			"#000f27"	# bg
+set notification-fg			"#86a87a"	# bright:green
+
+set completion-bg			"#495465"	# bg2
+set completion-fg			"#dbdde0"	# fg
+set completion-group-bg		"#243146"	# bg1
+set completion-group-fg		"#9298a2"	# gray
+set completion-highlight-bg	"#508c8a"	# bright:blue
+set completion-highlight-fg	"#495465"	# bg2
+
+# Define the color in index mode
+set index-bg				"#495465"	# bg2
+set index-fg				"#dbdde0"	# fg
+set index-active-bg			"#508c8a"	# bright:blue
+set index-active-fg			"#495465"	# bg2
+
+set inputbar-bg				"#000f27"	# bg
+set inputbar-fg				"#dbdde0"	# fg
+
+set statusbar-bg			"#495465"	# bg2
+set statusbar-fg			"#dbdde0"	# fg
+
+set highlight-color			"#91886f"	# bright:yellow
+set highlight-active-color	"#ac8556"	# bright:orange
+
+set default-bg				"#000f27"	# bg
+set default-fg				"#dbdde0"	# fg
+set render-loading			true
+set render-loading-bg		"#000f27"	# bg
+set render-loading-fg		"#dbdde0"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#000f27"	# bg
+set recolor-darkcolor		"#dbdde0"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#1d2021"	# bg
+set notification-error-fg	"#fb4934"	# bright:red
+set notification-warning-bg	"#1d2021"	# bg
+set notification-warning-fg	"#fabd2f"	# bright:yellow
+set notification-bg			"#1d2021"	# bg
+set notification-fg			"#b8bb26"	# bright:green
+
+set completion-bg			"#504945"	# bg2
+set completion-fg			"#ebdbb2"	# fg
+set completion-group-bg		"#3c3836"	# bg1
+set completion-group-fg		"#bdae93"	# gray
+set completion-highlight-bg	"#83a598"	# bright:blue
+set completion-highlight-fg	"#504945"	# bg2
+
+# Define the color in index mode
+set index-bg				"#504945"	# bg2
+set index-fg				"#ebdbb2"	# fg
+set index-active-bg			"#83a598"	# bright:blue
+set index-active-fg			"#504945"	# bg2
+
+set inputbar-bg				"#1d2021"	# bg
+set inputbar-fg				"#ebdbb2"	# fg
+
+set statusbar-bg			"#504945"	# bg2
+set statusbar-fg			"#ebdbb2"	# fg
+
+set highlight-color			"#fabd2f"	# bright:yellow
+set highlight-active-color	"#fe8019"	# bright:orange
+
+set default-bg				"#1d2021"	# bg
+set default-fg				"#ebdbb2"	# fg
+set render-loading			true
+set render-loading-bg		"#1d2021"	# bg
+set render-loading-fg		"#ebdbb2"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#1d2021"	# bg
+set recolor-darkcolor		"#ebdbb2"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+##### templer-colors
+set notification-error-bg	"#001732"	# bg
+set notification-error-fg	"#daaa6f"	# bright:red
+set notification-warning-bg	"#001732"	# bg
+set notification-warning-fg	"#a58e6e"	# bright:yellow
+set notification-bg			"#001732"	# bg
+set notification-fg			"#64b078"	# bright:green
+
+set completion-bg			"#48555d"	# bg2
+set completion-fg			"#d9d2b3"	# fg
+set completion-group-bg		"#243647"	# bg1
+set completion-group-fg		"#919488"	# gray
+set completion-highlight-bg	"#5a9f9b"	# bright:blue
+set completion-highlight-fg	"#48555d"	# bg2
+
+# Define the color in index mode
+set index-bg				"#48555d"	# bg2
+set index-fg				"#d9d2b3"	# fg
+set index-active-bg			"#5a9f9b"	# bright:blue
+set index-active-fg			"#48555d"	# bg2
+
+set inputbar-bg				"#001732"	# bg
+set inputbar-fg				"#d9d2b3"	# fg
+
+set statusbar-bg			"#48555d"	# bg2
+set statusbar-fg			"#d9d2b3"	# fg
+
+set highlight-color			"#a58e6e"	# bright:yellow
+set highlight-active-color	"#dea355"	# bright:orange
+
+set default-bg				"#001732"	# bg
+set default-fg				"#d9d2b3"	# fg
+set render-loading			true
+set render-loading-bg		"#001732"	# bg
+set render-loading-fg		"#d9d2b3"	# fg
+
+# Recolor book content's color
+set recolor-lightcolor		"#001732"	# bg
+set recolor-darkcolor		"#d9d2b3"	# fg
+set recolor					true
+set recolor-keephue			true			# keep original color
+
+

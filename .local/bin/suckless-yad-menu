@@ -19,7 +19,7 @@ PcManFM!pcmanfm|\
 Terminal!st " >&3
 
 #Icon des Menübuttons definieren
-echo "icon:${HOME}/.xfiles/icons/suckless_logo.svg" >&3
+echo "icon:${HOME}/.config/X11/xfiles/icons/suckless_logo.svg" >&3
 
 #Name des Menüs definieren
 echo "tooltip:suckless-menu" >&3

@@ -9,7 +9,7 @@ dwm.tag_flo	: base00
 dwm.brd_fg	: base05
 dwm.brd_bg	: base00
 dwm.brd_brd	: base01
-dwm.brd_flo	: base00
+dwm.brd_flo	: base01
 dwm.sel_fg 	: base00
 dwm.sel_bg 	: base04
 dwm.sel_brd	: base03

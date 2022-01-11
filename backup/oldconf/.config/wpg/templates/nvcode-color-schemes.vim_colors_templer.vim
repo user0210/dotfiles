@@ -1,1 +1,0 @@
-/home/philipp/.local/share/nvim/site/pack/packer/opt/nvcode-color-schemes.vim/colors/templer.vim

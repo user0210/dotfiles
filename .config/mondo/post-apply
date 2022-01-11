@@ -18,20 +18,21 @@
 
 select=$(mondo get theme)
 
-##############################################################################################
-##### wallpaper or color-theme ####################################################################################################
-##############################################################################################
+##### wallpaper or color-theme
+####################################################
+
 if [ 'templer' = "$select" ]; then
-  ## set alpha
+	## set alpha
 	sed -i "s/^\*alpha:.*/\*alpha: 0\.85/g" ~/.config/X11/Xresources
 else
-  ## set alpha
+	## set alpha
 	sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" ~/.config/X11/Xresources
 fi
 
-##############################################################################################
-##### reload terminal ####################################################################################################
-##############################################################################################
+
+##### reload terminal
+####################################################
+
   ## source Xresources here not in gnerator for alpha getting loadet
 xrdb -merge -I~/.config/X11 ~/.config/X11/Xresources
 
@@ -42,9 +43,9 @@ pkill -USR2 "^st$" &
 tmux source-file -q ~/.tmux.conf
 
 
-##############################################################################################
-##### set gtk- and icon- theme ###############################################################################################
-##############################################################################################
+##### set gtk- and icon- theme
+####################################################
+
   ## more colors.....
 base02=$(mondo get base02)
 base03=$(mondo get base03)
@@ -59,32 +60,32 @@ base0Ddarker=$(pastel mix "$base0Dmix" "$base02" | pastel format hex)
 base0Ddarkera=$(colort -15 $base0Ddarker)
 base0Ddarkeraa=$(colort -30 $base0Ddarker)
 base0Ddarkeraaa=$(colort -55 $base0Ddarker)
-echo "@define-color base0Ddarker $base0Ddarker;" >> ~/.xfiles/themes/colordef.css
-echo "@define-color base0Ddarkera $base0Ddarkera;" >> ~/.xfiles/themes/colordef.css
-echo "@define-color base0Ddarkeraa $base0Ddarkeraa;" >> ~/.xfiles/themes/colordef.css
-echo "@define-color base0Ddarkeraaa $base0Ddarkeraaa;" >> ~/.xfiles/themes/colordef.css
-sed -i "$ i base0Ddarker:$base0Ddarker" ~/.xfiles/themes/colordef.rc
-sed -i "$ i base0Ddarkera:$base0Ddarkera" ~/.xfiles/themes/colordef.rc
-sed -i "$ i base0Ddarkeraa:$base0Ddarkeraa" ~/.xfiles/themes/colordef.rc
-sed -i "$ i base0Ddarkeraaa:$base0Ddarkeraaa" ~/.xfiles/themes/colordef.rc
+echo "@define-color base0Ddarker $base0Ddarker;" >> ~/.config/X11/xfiles/themes/colordef.css
+echo "@define-color base0Ddarkera $base0Ddarkera;" >> ~/.config/X11/xfiles/themes/colordef.css
+echo "@define-color base0Ddarkeraa $base0Ddarkeraa;" >> ~/.config/X11/xfiles/themes/colordef.css
+echo "@define-color base0Ddarkeraaa $base0Ddarkeraaa;" >> ~/.config/X11/xfiles/themes/colordef.css
+sed -i "$ i base0Ddarker:$base0Ddarker" ~/.config/X11/xfiles/themes/colordef.rc
+sed -i "$ i base0Ddarkera:$base0Ddarkera" ~/.config/X11/xfiles/themes/colordef.rc
+sed -i "$ i base0Ddarkeraa:$base0Ddarkeraa" ~/.config/X11/xfiles/themes/colordef.rc
+sed -i "$ i base0Ddarkeraaa:$base0Ddarkeraaa" ~/.config/X11/xfiles/themes/colordef.rc
 base0Bmix=$(pastel mix "$base0B" "$base0Ba" | pastel format hex)
 base0Bgrey=$(pastel mix "$base0Bmix" "$base05" | pastel format hex)
 base0Bgreya=$(pastel mix "$base0Bmix" "$base04" | pastel format hex)
 base0Bgreyaa=$(pastel mix "$base0Bmix" "$base03" | pastel format hex)
 base0Bgreyaaa=$(pastel mix "$base0Bmix" "$base02" | pastel format hex)
-echo "@define-color base0Bgrey $base0Bgrey;" >> ~/.xfiles/themes/colordef.css
-echo "@define-color base0Bgreya $base0Bgreya;" >> ~/.xfiles/themes/colordef.css
-echo "@define-color base0Bgreyaa $base0Bgreyaa;" >> ~/.xfiles/themes/colordef.css
-echo "@define-color base0Bgreyaaa $base0Bgreyaaa;" >> ~/.xfiles/themes/colordef.css
-sed -i "$ i base0Bgrey:$base0Bgrey" ~/.xfiles/themes/colordef.rc
-sed -i "$ i base0Bgreya:$base0Bgreya" ~/.xfiles/themes/colordef.rc
-sed -i "$ i base0Bgreyaa:$base0Bgreyaa" ~/.xfiles/themes/colordef.rc
-sed -i "$ i base0Bgreyaaa:$base0Bgreyaaa" ~/.xfiles/themes/colordef.rc
+echo "@define-color base0Bgrey $base0Bgrey;" >> ~/.config/X11/xfiles/themes/colordef.css
+echo "@define-color base0Bgreya $base0Bgreya;" >> ~/.config/X11/xfiles/themes/colordef.css
+echo "@define-color base0Bgreyaa $base0Bgreyaa;" >> ~/.config/X11/xfiles/themes/colordef.css
+echo "@define-color base0Bgreyaaa $base0Bgreyaaa;" >> ~/.config/X11/xfiles/themes/colordef.css
+sed -i "$ i base0Bgrey:$base0Bgrey" ~/.config/X11/xfiles/themes/colordef.rc
+sed -i "$ i base0Bgreya:$base0Bgreya" ~/.config/X11/xfiles/themes/colordef.rc
+sed -i "$ i base0Bgreyaa:$base0Bgreyaa" ~/.config/X11/xfiles/themes/colordef.rc
+sed -i "$ i base0Bgreyaaa:$base0Bgreyaaa" ~/.config/X11/xfiles/themes/colordef.rc
 
   ## copy template-icons and set new color
 ICON=$(xrdb -query|awk '/\*color19:/ {print $2}')
 ICONBAR=$(xrdb -query|awk '/\*color3:/ {print $2}')
-cp -rf ~/.xfiles/icons/Templer.template/* ~/.local/share/icons/Templer
+cp -rf ~/.config/X11/xfiles/icons/Templer.template/* ~/.local/share/icons/Templer
 find ~/.local/share/icons/Templer/status/scalable/ -type f -exec sed -i "s/MAINCOLOR/$ICONBAR/g" {} +
 find ~/.local/share/icons/Templer/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
 
@@ -92,15 +93,14 @@ find ~/.local/share/icons/Templer/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {}
 xsettingsd -c ~/.config/X11/xsettingsd &
 pkill -SIGHUP xsettingsd && killall xsettingsd
 
-
   ## set xmenu icons
-convert -size 16x16 -background none ~/.local/share/icons/Templer/apps/scalable/web-browser-symbolic.svg ~/.xfiles/icons/web-browser-symbolic.png
-convert -size 16x16 -background none ~/.local/share/icons/Templer/actions/scalable/sidebar-places-symbolic.svg ~/.xfiles/icons/sidebar-places-symbolic.png
+convert -size 16x16 -background none ~/.local/share/icons/Templer/apps/scalable/web-browser-symbolic.svg ~/.config/X11/xfiles/icons/web-browser-symbolic.png
+convert -size 16x16 -background none ~/.local/share/icons/Templer/actions/scalable/sidebar-places-symbolic.svg ~/.config/X11/xfiles/icons/sidebar-places-symbolic.png
 
 
-##############################################################################################
-##### restart/source applications ############################################################
-##############################################################################################
+##### restart/source applications
+####################################################
+
   ## nm-applet
 killall nm-applet; nm-applet &
 
