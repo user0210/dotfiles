@@ -88,7 +88,7 @@ alias startx='startx ~/.config/X11/xinitrc'
 alias less='less -x4'
 alias nm='nmtui'
 alias mem='sudo ps_mem'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/git/dotfiles/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/src/dotfiles/ --work-tree=$HOME'
 alias pacinstall="pacman -Slq | fzf -m --preview \"cat <(pacman -Si {1}) <(pacman -Fl {1} | awk '{print \$2}')\" | xargs -ro sudo pacman -S"
 alias yayinstall="yay -Slq | fzf -m --preview \"yay -Si {1}\"| xargs -ro yay -S"
 alias yaydelete="yay -Qeq | fzf -m --preview \"yay -Qi {1}\" | xargs -ro yay -Rns"

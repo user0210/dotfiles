@@ -109,7 +109,7 @@ killall polkit-gnome-authentication-agent-1; /usr/lib/polkit-gnome/polkit-gnome-
 
   ## dwmblocks
 killall -9 dwmblocks
-make -C ~/.local/git/dwmblocks
+make -C ~/.local/src/dwmblocks
 dwmblocks &
 
   ## qutebroser (in some way it depends on gtk2-stuff and so on colors defined above... i dont know why...)
