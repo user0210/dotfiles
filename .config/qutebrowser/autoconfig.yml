@@ -29,6 +29,8 @@ settings:
     global: system
   content.register_protocol_handler:
     https://mail.google.com?extsrc=mailto&url=%25s: true
+  qt.force_platformtheme:
+    global: qt5ctl
   scrolling.bar:
     global: overlay
   statusbar.show:

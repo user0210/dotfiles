@@ -68,7 +68,7 @@ export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 export GOPATH="$XDG_DATA_HOME/go"
-export HISTFILE="$XDG_DATA_HOME/bash/history"
+export HISTFILE="$XDG_CACHE_HOME/history"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
 ##### Start graphical server on tty1 if not already running.

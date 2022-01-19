@@ -15,7 +15,7 @@ picom --experimental-backends --blur-method dual_kawase &
 
 ##### startup-screen
 xbanish -a &
-st -g 80x30+350+150 -e cbonsai -plt 0.005 -m " DWM" &
+st -g 80x30+350+150 -e cbonsai -plt 0,005 -m " DWM" &
 sleep 5 && killall cbonsai 2> /dev/null
 killall xbanish
 

@@ -22,21 +22,21 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 <color_scheme name="Templer" format="2.1">
     <window type="key-popup">
-        <color element="border" rgb="#495365" opacity="1.0"/>
+        <color element="border" rgb="#495465" opacity="1.0"/>
     </window>
 
     <icon> <color element="background" rgb="#ffffff" opacity="1.0"/> </icon>
 
-    <layer> <color element="background" rgb="#000e27" opacity="1.0"/> </layer>
+    <layer> <color element="background" rgb="#000f27" opacity="1.0"/> </layer>
     <layer> <color element="background" rgb="#dbdde0" opacity="0.8"/> </layer>
     <layer> <color element="background" rgb="#dbdde0" opacity="0.8"/> </layer>
 
     <key_group>
         <!-- light grey default -->
         <color element="fill"   rgb="#9298a2"/>
-        <color element="stroke" rgb="#000e27"/>
-        <color element="label"  rgb="#243046"/>
-        <color element="dwell-progress"  rgb="#77553a"/>
+        <color element="stroke" rgb="#000f27"/>
+        <color element="label"  rgb="#243146"/>
+        <color element="dwell-progress"  rgb="#775438"/>
         F5.rows_of_six, F6.rows_of_six, F7.rows_of_six, F8.rows_of_six,
         icon1, icon2,
         pause-learning.wordlist, language.wordlist, hide.wordlist
@@ -51,8 +51,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
         <!-- dark keys -->
         <key_group>
-            <color element="fill" rgb="#6d7584"/>
-            <color element="fill" rgb="#495365" active="true"/>
+            <color element="fill" rgb="#6d7684"/>
+            <color element="fill" rgb="#495465" active="true"/>
             icon0, icon3,
             ESC, F5, F6, F7, F8,
             Prnt, Pause, Scroll,

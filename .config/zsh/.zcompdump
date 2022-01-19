@@ -1,4 +1,4 @@
-#files: 930	version: 5.8
+#files: 925	version: 5.8
 
 _comps=(
 '-' '_precommand'
@@ -345,7 +345,6 @@ _comps=(
 'fc' '_fc'
 'fc-list' '_xft_fonts'
 'fc-match' '_xft_fonts'
-'fd' '_fd'
 'feh' '_feh'
 'fetchmail' '_fetchmail'
 'ffind' '_ffind'
@@ -638,7 +637,6 @@ _comps=(
 'iftop' '_iftop'
 'ifup' '_net_interfaces'
 'ijoin' '_ispell'
-'img2sixel' '_img2sixel'
 'import' '_imagemagick'
 'inc' '_mh'
 'includeres' '_psutils'
@@ -1090,7 +1088,6 @@ _comps=(
 'pyhtmlizer' '_twisted'
 'qdbus' '_qdbus'
 'qiv' '_qiv'
-'qpdf' '_qpdf'
 'quilt' '_quilt'
 'r' '_fc'
 'rails' '_rails'
@@ -1135,7 +1132,6 @@ _comps=(
 'restart' '_initctl'
 'retawq' '_webbrowser'
 'rfkill' '_rfkill'
-'rg' '_rg'
 'rgview' '_vim'
 'rgvim' '_vim'
 'ri' '_ri'
@@ -1244,7 +1240,6 @@ _comps=(
 'smbclient' '_samba'
 'smbcontrol' '_samba'
 'smbstatus' '_samba'
-'snap' '_snap'
 'soa' '_hosts'
 'socket' '_socket'
 'sort' '_sort'
@@ -1615,8 +1610,8 @@ _comps=(
 'ypwhich' '_yp'
 'ypxfr' '_yp'
 'ytalk' '_other_accounts'
+'yt-dlp' '_yt-dlp'
 'zargs' '_zargs'
-'zathura' '_zathura'
 'zcalc' '_zcalc'
 '-zcalc-line-' '_zcalc_line'
 'zcash-cli' '_zcash-cli'
@@ -1788,28 +1783,27 @@ autoload -Uz _afew _android _archlinux-java _artisan _atach \
             _console _coredumpctl _cppcheck _curl _dad \
             _debuild _dget _dhcpcd _diana _docpad \
             _drush _ecdsautil _emulator _envdir _exportfs \
-            _fab _fail2ban-client _fd _ffind _fleetctl \
-            _flutter _force _fwupdmgr _gas _ghc \
-            _gist _git-flow _git-journal _git-pulls _git-revise \
-            _git-wtf _glances _golang _google _gpgconf \
-            _gtk-launch _hledger _homestead _hostnamectl _httpie \
-            _ibus _img2sixel _include-what-you-use _inxi _jmeter \
-            _jmeter-plugins _jonas _journalctl _jrnl _kak \
-            _kernel-install _kitchen _knife _language_codes _libinput \
-            _lilypond _localectl _loginctl _lunchy _machinectl \
-            _mc _meson _middleman _mina _mix \
-            _mkinitcpio _mpv _mssh _mussh _mvn \
-            _nano _nanoc _networkctl _nftables _ninja \
-            _node _nvm _openssl _optirun _opustools \
-            _pacman _pastel _patool _perf _periscope \
-            _pgsql_utils _phing _pixz _pkcon _play \
-            _playerctl _pm2 _port _protoc _pulseaudio \
-            _pygmentize _qpdf _rails _ralio _redis-cli \
-            _resolvectl _rfkill _rg _rkt _rslsync \
-            _rspec _rsvm _rubocop _sbt _scala \
-            _scrub _sdd _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes \
-            _sd_unit_files _setcap _setup.py _sfdx _shellcheck \
-            _showoff _snap _srm _stack _subl \
+            _fab _fail2ban-client _ffind _fleetctl _flutter \
+            _force _fwupdmgr _gas _ghc _gist \
+            _git-flow _git-journal _git-pulls _git-revise _git-wtf \
+            _glances _golang _google _gpgconf _gtk-launch \
+            _hledger _homestead _hostnamectl _httpie _ibus \
+            _include-what-you-use _inxi _jmeter _jmeter-plugins _jonas \
+            _journalctl _jrnl _kak _kernel-install _kitchen \
+            _knife _language_codes _libinput _lilypond _localectl \
+            _loginctl _lunchy _machinectl _mc _meson \
+            _middleman _mina _mix _mkinitcpio _mpv \
+            _mssh _mussh _mvn _nano _nanoc \
+            _networkctl _nftables _ninja _node _nvm \
+            _openssl _optirun _opustools _pacman _pastel \
+            _patool _perf _periscope _pgsql_utils _phing \
+            _pixz _pkcon _play _playerctl _pm2 \
+            _port _protoc _pulseaudio _pygmentize _rails \
+            _ralio _redis-cli _resolvectl _rfkill _rkt \
+            _rslsync _rspec _rsvm _rubocop _sbt \
+            _scala _scrub _sdd _sd_hosts_or_user_at_host _sd_machines \
+            _sd_outputmodes _sd_unit_files _setcap _setup.py _sfdx \
+            _shellcheck _showoff _srm _stack _subl \
             _subliminal _supervisorctl _svm _systemctl _systemd \
             _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path \
             _systemd-run _systemd-tmpfiles _tarsnap _teamocil _thor \
@@ -1817,7 +1811,7 @@ autoload -Uz _afew _android _archlinux-java _artisan _atach \
             _trash-list _trash-put _trash-restore _udevadm _udisksctl \
             _ufw _vagrant _virtualbox _vnstat _wemux \
             _wg-quick _xinput _xsel _yaourt _yarn \
-            _yay _youtube-dl _zathura _zcash-cli _cdr \
+            _yay _youtube-dl _yt-dlp _zcash-cli _cdr \
             _all_labels _all_matches _alternative _approximate _arg_compile \
             _arguments _bash_completions _cache_invalid _call_function _combination \
             _complete _complete_debug _complete_help _complete_help_generic _complete_tag \

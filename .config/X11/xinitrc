@@ -47,6 +47,6 @@ xset r rate 200 60
 xrandr --dpi 125.37 &
 
 ##### start clipmenu-service (do not enable, because then xsel cant read DISPLAY on start...)
-systemctl --user start clipmenud
+#systemctl --user start clipmenud
 
 exec dwm-starter

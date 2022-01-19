@@ -1,58 +1,43 @@
 #!/bin/bash
 
-# bash because dash cant hamdle --user somehow...
 # systemctl --user mask .... prevents system to start automaticly
 
+start_pipe () {
+	killall alsamixer
+	systemctl --user start --now pipewire.{socket,service} &&
+	systemctl --user start --now pipewire-pulse.{socket,service}
+	notify-send "pipewire enabled"
+}
+
+start_alsa () {
+	killall pavucontrol
+	systemctl --user stop --now pipewire.{socket,service} &&
+	systemctl --user stop --now pipewire-pulse.{socket,service} &&
+	alsactl restore
+	notify-send "pipewire disabled"
+}
 case "$1" in
-	-s)
+	-s) ## toggle between alsa or pipewire as backend
 		pon=$(pgrep pipewire)
 		if [ -z "$pon" ] ;then
-			killall alsamixer
-			systemctl --user start --now pipewire.{socket,service} &&
-			systemctl --user start --now pipewire-pulse.{socket,service}
-			notify-send "pipewire enabled"
+			start_pipe
 		else
-			killall pavucontrol
-			systemctl --user stop --now pipewire.{socket,service} &&
-			systemctl --user stop --now pipewire-pulse.{socket,service} &&
-			alsactl restore
-			notify-send "pipewire disabled"
+			start_alsa
 		fi
 		kill -35 $(pidof dwmblocks) ;;
-	-o)
-			pon=$(pgrep pipewire)
-			if [ -z "$pon" ] ;then
-				killall alsamixer || xsetroot -name 'dwm:cmd alsam'
-			else
-				killall pavucontrol || xsetroot -name 'dwm:cmd pulsm'
-			fi
-			kill -35 $(pidof dwmblocks) ;;
-	pipe)
-			systemctl --user start --now pipewire.{socket,service} &&
-			systemctl --user start --now pipewire-pulse.{socket,service} ;;
-	alsa)
-			systemctl --user stop --now pipewire.{socket,service} &&
-			systemctl --user stop --now pipewire-pulse.{socket,service} &&
-			alsactl restore ;;
-esac
 
-#	 pulse)
-#	 		systemctl --user unmask pulseaudio.socket && systemctl --user start pulseaudio ;;
-#	 alsa)
-#	 		systemctl --user mask pulseaudio.socket && systemctl --user stop pulseaudio && alsactl restore ;;
-#	 -s)
-#	 		pon=$(pgrep pulseaudio)
-#	 		if [ -z "$pon" ] ;then
-#	 			killall alsamixer; (systemctl --user unmask pulseaudio.socket && systemctl --user start pulseaudio && notify-send "pulseaudio enabled")
-#	 		else
-#	 			killall pavucontrol; (systemctl --user mask pulseaudio.socket && systemctl --user stop pulseaudio && alsactl restore); notify-send "pulseaudio disabled"
-#	 		fi
-#	 		kill -35 $(pidof dwmblocks) ;;
-#	 -o)
-#	 		pon=$(pgrep pulseaudio)
-#	 		if [ -z "$pon" ] ;then
-#	 			killall alsamixer || xsetroot -name 'fsignal:4'
-#	 		else
-#	 			killall pavucontrol || xsetroot -name 'fsignal:5'
-#	 		fi
-#	 		kill -35 $(pidof dwmblocks) ;;
+	-o) ## open alsamixer or pavucontrol depending on backend in dwm
+		pon=$(pgrep pipewire)
+		if [ -z "$pon" ] ;then
+			killall alsamixer || xsetroot -name 'dwm:cmd alsam'
+		else
+			killall pavucontrol || xsetroot -name 'dwm:cmd pulsm'
+		fi
+		kill -35 $(pidof dwmblocks) ;;
+
+	pipe) ## select pipewire as backend
+		start_pipe ;;
+
+	alsa) ## select alsa as backend
+		start_alsa ;;
+esac

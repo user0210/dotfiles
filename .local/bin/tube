@@ -1,19 +1,19 @@
 #!/bin/sh
 
 
+API=$(<~/backup/API.txt)
 audiosel pipe
 
 ##### debugger ############################################
-case "$1" in
-	update)
-youtube-dl --rm-cache-dir
-rm ${HOME}/.config/mps-youtube/cache_py* 2> /dev/null
-if [ -t 0 ] ; then
-    mpsyt set api_key ***REMOVED***
-else
-    st -e mpsyt set api_key ***REMOVED*** &
-fi
-exit 1
+case "$1" in update)
+	youtube-dl --rm-cache-dir
+	rm ${HOME}/.config/mps-youtube/cache_py* 2> /dev/null
+	if [ -t 0 ] ; then
+	    mpsyt set api_key $API
+	else
+	    st -e mpsyt set api_key $API &
+	fi
+	exit 1
 esac
 ############################################################
 
