@@ -60,6 +60,7 @@ export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
 export LESSHISTFILE="$XDG_CONFIG_HOME/lesshst"
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export TREE_SITTER_DIR="$XDG_CONFIG_HOME/tree-sitter"

@@ -22,6 +22,10 @@ vi /etc/ssh/sshd_config
 	GatewayPorts yes
 sudo systemctl reload ssh 
 
+##### pushed a password to github ??? do this:
+put the passord in password.txt, Then
+bfg --replace-text passwords.txt
+
 ##### java
 # list java-versions installed
 archlinux-java status
@@ -40,6 +44,7 @@ mkdir ~/.local/share/zynaddsubfx
 sudo vim /usr/local/bin/zynaddsubfx
 	#!/bin/sh
 	HOME=${XDG_DATA_HOME}/zynaddsubfx /usr/bin/zynaddsubfx "$@"
+sudo chmod +x /usr/local/bin/zynaddsubfx
 
 ##### fix read-only ntfs-partition
 sudo ntfsfix /dev/sdXX
@@ -280,6 +285,9 @@ ln -s ~/.local/src/sxiv/sxiv.desktop ~/.local/share/applications/sxiv.desktop
 
 ## dwmblock-dependencies and settings: see "backlight control" "add program to sudoers to run without passord"
 
+## to switch from https to ssh
+git remote set-url (my)origin git@github.com:user0210/XXXXXXX.git
+
 ##### X11
 sudo pacman -S xorg-server xorg-apps xorg-xinit
 
@@ -304,20 +312,50 @@ dotfiles config --local status.showUntrackedFiles no
 yay -S xwinwrap-git colort-git
 ## theme
 mkdir ~/.local/share/themes/templer
-ln -s ~/.config/X11/xfiles/themes/CDE ~/.local/share/themes/templer ## for the CDE-gtk-theme^
-ln -s ~/.local/share/themes/templer ~/.themes
-sudo ln -s ~/.themes /root/.themes
+	ln -s ~/.config/X11/xfiles/themes/CDE ~/.local/share/themes/templer ## for the CDE-gtk-theme^
+	ln -s ~/.config/X11/xfiles/themes/FlatColor ~/.local/share/themes/templer ## for the FlatColor-gtk-theme^
+ln -s ~/.local/share/themes ~/.themes
+sudo ln -s ~/.local/share/themes /root/.themes
 ## icons
-mkdir -p ~/.local/share/icons/Templer
+mkdir -p ~/.local/share/icons/templer
 sudo ln -s ~/.local/share/icons /root/.icons
 ## root-gtk-theme
 sudo ln -s ~/.gtkrc-2.0 /etc/gtk-2.0/gtkrc
 sudo ln -s ~/.config/gtk-3.0/settings.ini /etc/gtk-3.0/settings.ini
 
+##### new gtk-framework
+# install
+sudo pacman -S bc dart-sass librsvg optipng meson gtk-engine-murrine
+git clone https://github.com/user0210/materia-gtk.git
+cd...
+meson _build -Dprefix="$HOME/.local" -Dcolors=dark -Dsizes=compact
+meson install -C _build
+
 
 ###########################################################
 ##### settings
 ###########################################################
+
+##### snapper
+sudo pacman -S snapper
+yay snapper-gui-git
+snapper -c root create-config /
+svim /etc/snapper/configs/root
+	-->add user 
+	-->set timers
+chmod a+rx /.snapshots 
+
+# to activate automatic snapshots do 
+systemctl enable snapper-timeline.timer
+systemctl enable snapper-cleanup.timer
+
+# grup snapshot-menu
+sudo pacman -S grub-btrfs
+systemctl enable grub-btrfs.path
+
+# snapper commands
+snapper -c root list
+snapper -c root create -c timeline --description AfterInstall
 
 ##### update mirrorlist with reflector
 sudo pacman -S reflector
@@ -378,8 +416,6 @@ yay -S qt5-styleplugins
 	sudo pacman -S qt5ct
 	add to .xinitrc
 		export QT_QPA_PLATFORMTHEME=qt5ct
-## gtk-engines and stuff...
-sudo pacman -S gtk-engine-murrine
 
 ##### backlight control
 ## for terminal TODO removes xorg-backlight !!!
@@ -618,6 +654,7 @@ systemctl enable ttylogin
 
 ##### audio and bluetooth
 sudo pacman -S alsa-utils
+sudo alsactl init
 sudo alsactl store
 "sudo touch /etc/alsa/state-daemon.conf" enables "alsa-state.service"
 "sudo rm /etc/alsa/state-daemon.conf" enables "alsa-restore.service"
@@ -673,10 +710,7 @@ systemctl mask systemd-rfkill.socket
 ##### thinkfan
 sudo pacman -S lm_sensors
 yay thinkfan
-sudo sensors-detect
-sudo modprobe thinkpad_acpi
-systemctl enable thinkfan
-/etc/thinkfan.conf
+sudo vim /etc/thinkfan.conf
     tp_fan /proc/acpi/ibm/fan
     hwmon /sys/class/thermal/thermal_zone0/temp
     
@@ -687,6 +721,14 @@ systemctl enable thinkfan
     (4, 61, 70)
     (5, 64, 71)
     (7, 68, 32767)
+sudo vim /etc/modprobe.d/thinkfan.conf
+	options thinkpad_acpi fan_control=1
+
+sudo sensors-detect
+sudo modprobe thinkpad_acpi
+sudo modprobe -rv thinkpad_acpi
+sudo modprobe -v thinkpad_acpi
+systemctl enable thinkfan
 
 ##### SSD-TRIM
 sudo systemctl enable fstrim.timer

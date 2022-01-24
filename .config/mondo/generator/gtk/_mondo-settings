@@ -20,7 +20,7 @@
 # uncomment the colorformat below to use HEX (00-FF)
 # This is how fully opaque "white" would look like
 # with this format: #FFFFFFFF
-colorformat="%R/%G/%B"
+colorformat="%R%G%B"
 
 # uncomment the colorformat below to use RGB (0-255)
 # This is how fully opaque "white" would look like
@@ -29,4 +29,4 @@ colorformat="%R/%G/%B"
 
 # target can be an (absolute) file path to where
 # the file will be copied when a theme is applied.
-target="~/.config/X11/xfiles/shell"
+target="~/.local/src/materia-gtk/colors"

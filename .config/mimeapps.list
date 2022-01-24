@@ -17,3 +17,4 @@ image/x-xbitmap=nvim.desktop;
 
 [Added Associations]
 inode/directory=ranger.desktop;
+image/svg+xml=nvim.desktop;

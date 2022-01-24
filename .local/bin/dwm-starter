@@ -7,7 +7,7 @@
 #display -size 1366x768 -window root ${HOME}/.config/X11/xfiles/background/bitmap-walls/patterns/dots_wide.xbm
 
 #hsetroot -tile ${HOME}/.config/X11/xfiles/background/png-walls/dots16.png
-hsetroot -fill $(cat ${HOME}/.config/X11/xfiles/templer/wallpaper)
+hsetroot -tile ${HOME}/.config/X11/xfiles/background/png-walls/dots16.png
 nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${HOME}/.config/X11/xfiles/templer/gif) -a 2> /dev/null &
 
 #picom --blur-method kernel &
