@@ -36,7 +36,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
         <color element="fill"   rgb="#919488"/>
         <color element="stroke" rgb="#001732"/>
         <color element="label"  rgb="#243647"/>
-        <color element="dwell-progress"  rgb="#9c7059"/>
+        <color element="dwell-progress"  rgb="#a06b29"/>
         F5.rows_of_six, F6.rows_of_six, F7.rows_of_six, F8.rows_of_six,
         icon1, icon2,
         pause-learning.wordlist, language.wordlist, hide.wordlist

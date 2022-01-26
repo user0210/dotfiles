@@ -30,8 +30,8 @@ def reload(instance):
     nvim = attach('socket', path=instance)
 
     # execute the reload command
-    nvim.command('source ${HOME}/.config/nvim/init.vim')
-    #nvim.command('source ${HOME}/.local/share/lunarvim/lvim/colors/templer.vim')
+    #nvim.command('source ${HOME}/.config/nvim/init.vim')
+    nvim.command('source ${HOME}/.config/nvim/lua/user/base16.lua')
 
 
 def main():

@@ -8,6 +8,7 @@ config.load_autoconfig()
 c.colors.webpage.darkmode.enabled = True
 
 # font
+c.qt.force_platformtheme = 'qt5ctl'
 c.fonts.default_family = 'TerminessTTF Nerd Font'
 c.fonts.default_size = '16px'
 

@@ -1,40 +1,39 @@
 #!/bin/sh
 
-##### background
+ ## wallpaper
 #xsetroot -solid "$(xrdb -query|awk '/\*color0:/ {print $2}')"
 #xsetroot -bitmap ${HOME}/.config/X11/xfiles/background/bitmap-walls/patterns/line_diag8_1.xbm -bg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -fg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
 #display -resize 1366x768\! -window root ${HOME}/.config/X11/xfiles/background/wallpapers/fractals-leaf-caro.jpg
 #display -size 1366x768 -window root ${HOME}/.config/X11/xfiles/background/bitmap-walls/patterns/dots_wide.xbm
-
 #hsetroot -tile ${HOME}/.config/X11/xfiles/background/png-walls/dots16.png
-hsetroot -tile ${HOME}/.config/X11/xfiles/background/png-walls/dots16.png
+hsetroot -fill $(cat ${HOME}/.config/X11/xfiles/templer/wallpaper)
 nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${HOME}/.config/X11/xfiles/templer/gif) -a 2> /dev/null &
 
-#picom --blur-method kernel &
+ ## compositor
 picom --experimental-backends --blur-method dual_kawase &
 
-##### startup-screen
+  ## startup-screen
 xbanish -a &
 st -g 80x30+350+150 -e cbonsai -plt 0,005 -m " DWM" &
 sleep 5 && killall cbonsai 2> /dev/null
 killall xbanish
 
-##### statusbar
+  ## statusbar
 internetav &
 dwmblocks &
-sh -c 'sleep 10 && kill -44 $(pidof dwmblocks)' &
+sh -c 'sleep 10 && kill -44 $(pidof dwmblocks)' & # update-counter
 
-##### polkit authentication agent (erst installieren)
+  ## polkit authentication agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-##### set alsa-audio on startup with pulseaudio (not pipewire)
+  ## set alsa-audio on startup with pulseaudio (not pipewire)
 #audiosel alsa &
 
-##### hide cursor
+  ## hide cursor
 #xbanish -m se -i mod4 &
 xbanish -i mod4 &
 
-##### notification - fondle
+  ## notification
 rm /tmp/notify
 touch /tmp/notify
 tiramisu -o "^c$(mondo get base08)^[#source]^d^ -- #summary -- #body" | while read -r notification; do
@@ -42,20 +41,15 @@ tiramisu -o "^c$(mondo get base08)^[#source]^d^ -- #summary -- #body" | while re
 	xsetroot -name "msg: $notification"
 done &
 
-##### systray-applications
+  ## systray-applications
 #suckless-python-menu 2> /dev/null & sleep 1 && nm-applet &
 suckless-yad-menu 2> /dev/null && sleep 1 && nm-applet &
 
-##### dwm (while loop for autorestart..)
+  ## dwm
 rm ${HOME}/.cache/dwm.log
 while true; do
-    # Log stderror to a file 
+      ## Log stderror to a file 
     dwm 2> ${HOME}/.cache/dwm.log
-    # No error logging
-    #dwm >/dev/null 2>&1
+      ## No error logging
+    # dwm >/dev/null 2>&1
 done
-
-#until dwm \
-#2> ${HOME}/.config/dwm/dwm.log; do
-#	sleep 1
-#done

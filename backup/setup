@@ -26,6 +26,10 @@ sudo systemctl reload ssh
 put the passord in password.txt, Then
 bfg --replace-text passwords.txt
 
+##### neovim treesitter error
+in neovim run
+:TSUpdate
+
 ##### java
 # list java-versions installed
 archlinux-java status
@@ -312,8 +316,6 @@ dotfiles config --local status.showUntrackedFiles no
 yay -S xwinwrap-git colort-git
 ## theme
 mkdir ~/.local/share/themes/templer
-	ln -s ~/.config/X11/xfiles/themes/CDE ~/.local/share/themes/templer ## for the CDE-gtk-theme^
-	ln -s ~/.config/X11/xfiles/themes/FlatColor ~/.local/share/themes/templer ## for the FlatColor-gtk-theme^
 ln -s ~/.local/share/themes ~/.themes
 sudo ln -s ~/.local/share/themes /root/.themes
 ## icons
@@ -323,14 +325,13 @@ sudo ln -s ~/.local/share/icons /root/.icons
 sudo ln -s ~/.gtkrc-2.0 /etc/gtk-2.0/gtkrc
 sudo ln -s ~/.config/gtk-3.0/settings.ini /etc/gtk-3.0/settings.ini
 
-##### new gtk-framework
-# install
+##### new gtk-materia-tepler-theme
 sudo pacman -S bc dart-sass librsvg optipng meson gtk-engine-murrine
 git clone https://github.com/user0210/materia-gtk.git
-cd...
-meson _build -Dprefix="$HOME/.local" -Dcolors=dark -Dsizes=compact
-meson install -C _build
 
+##### vimix icon-theme
+git clone https://github.com/vinceliuice/vimix-icon-theme.git
+./install.sh -n Templer standard
 
 ###########################################################
 ##### settings
@@ -520,10 +521,12 @@ yay dashbinsh
 ##### qutebrowser
 sudo pacman -S qutebrowser python-adblock python-pygments
 mkdir ~/Downloads
-# fix unreadable tooltips:
-:set qt.force_platformtheme qt5ctl	# in qutebrowser
-export QT_QPA_PLATFORMTHEME=qt5ct	# in xinit.rc
-# see archwiki......
+  ## fix unreadable tooltips:
+sudo vim /usr/local/bin/qutebrowser
+	#! /bin/sh
+	/usr/bin/qutebrowser --qt-arg stylesheet ~/.local/share/qutebrowser/stylesheets/fix-tooltips.qss "$@"
+sudo chmod +x /usr/local/bin/qutebrowser
+
 
 ##### pcmanfm
 sudo pacman -S pcmanfm-gtk3 gvfs xarchiver lxmenu-data
@@ -658,6 +661,7 @@ sudo alsactl init
 sudo alsactl store
 "sudo touch /etc/alsa/state-daemon.conf" enables "alsa-state.service"
 "sudo rm /etc/alsa/state-daemon.conf" enables "alsa-restore.service"
+--> use alsa-restore.service, it removes journalctl error
 
 # pipepire
 
@@ -690,8 +694,12 @@ sudo mkinitcpio -p linux
 sudo mkinitcpio -p linux-lts
 
 ##### enable hibernation (maybe not needed ???)
+sudo vim /etc/default/grub
+	--> add GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=XXXXX see fstab XXXXX"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
 svim /etc/mkinitcpio.conf
-    HOOKS=(base udev autodetect modconf block filesystems keyboard resume fsck)
+    --> add "resume" somewhere after "udef"
 sudo mkinitcpio -p linux
 sudo mkinitcpio -p linux-lts
 
@@ -873,7 +881,7 @@ sudo pacman -S picom
 ## clone the newest one from git an install more dependencies ...and install
 sudo pacman -S meson uthash
 
-git clone https://github.com/ibhagwan/picom.git
+git clone https://github.com/yshui/picom.git
 
 git submodule update --init --recursive
 meson --buildtype=release . build
@@ -891,20 +899,21 @@ yay broadcom-bt-firmware-git
 
 
 ###########################################
-# switch to b43 wireless driver
+# switch to b43 wireless driver for x230 
+# ...maybe not needed anymore !!!
 ###########################################
 
 yay b43-firmware
 
-svim /etc/modprobe.d/local-b43.conf
+sudo vim /etc/modprobe.d/local-b43.conf
 	options b43 allhwsupport=1
 
 ##### prevent other modules to load
-svim /etc/modprobe.d/blacklist.conf
+sudo vim /etc/modprobe.d/blacklist.conf
 	blacklist brcmsmac
 	blacklist b43legacy
 
 ##### if it doesnt load on startup... (optonal)
-svim /etc/modules-load.d/b43.conf
+sudo vim /etc/modules-load.d/b43.conf
 	b43
 

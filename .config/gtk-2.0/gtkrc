@@ -1,5 +1,5 @@
-gtk-theme-name="templer"
-gtk-icon-theme-name="templer"
+gtk-theme-name="Templer"
+gtk-icon-theme-name="Templer-dark"
 gtk-font-name="TerminessTTF Nerd Font 16px"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0

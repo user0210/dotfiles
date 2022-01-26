@@ -4,3 +4,50 @@ require('base16-colorscheme').setup({
     base08 = '%%base08%%', base09 = '%%base09%%', base0A = '%%base0A%%', base0B = '%%base0B%%',
     base0C = '%%base0C%%', base0D = '%%base0D%%', base0E = '%%base0E%%', base0F = '%%base0F%%',
 })
+
+vim.cmd [[hi Normal ctermbg=none guibg=none]]
+vim.cmd [[hi NormalNC ctermbg=none guibg=none]]
+vim.cmd [[hi VertSplit guibg=none]]
+
+vim.cmd [[hi ColorColumn guibg=%%base00%%]] --also sets color for selected-tab-line !!!
+vim.cmd [[hi NonText guibg=%%base00%%]]
+vim.cmd [[hi TabLineSel guibg=%%base08a%%]]
+vim.cmd [[hi TabLine guibg=%%base01%%]]
+vim.cmd [[hi CursorLine guibg=%%base00%%]]
+vim.cmd [[hi CursorLineNr guifg=%%base07%% guibg=%%base00%% gui=bold]]
+
+vim.cmd [[hi NvimTreeFolderIcon guifg=%%base0D%%]]
+vim.cmd [[hi NvimTreeIndentMarker guifg=%%base06%%]]
+vim.cmd [[hi NvimTreeNormal guifg=%%base05%% guibg=none]]
+vim.cmd [[hi NvimTreeVertSplit guifg=none guibg=none]]
+vim.cmd [[hi NvimTreeFolderName guifg=%%base0D%% guibg=none]]
+vim.cmd [[hi NvimTreeOpenedFolderName guifg=%%base0D%% guibg=none gui=bold,italic]]
+vim.cmd [[hi NvimTreeEmptyFolderName guifg=%%base04%% guibg=none gui=italic]]
+vim.cmd [[hi NvimTreeGitIgnored guifg=%%base04%% guibg=none gui=italic]]
+vim.cmd [[hi NvimTreeImageFile guifg=%%base05%%]]
+vim.cmd [[hi NvimTreeSpecialFile guifg=%%base09%%]]
+vim.cmd [[hi NvimTreeEndOfBuffer guifg=%%base00%% guibg=none]]
+vim.cmd [[hi NvimTreeCursorLine guibg=%%base01%%]]
+vim.cmd [[hi NvimTreeGitignoreIcon guifg=%%base08a%%]]
+vim.cmd [[hi NvimTreeGitStaged guifg=%%base0C%%]]
+vim.cmd [[hi NvimTreeGitNew guifg=%%base0C%%]]
+vim.cmd [[hi NvimTreeGitRenamed guifg=%%base0C%%]]
+vim.cmd [[hi NvimTreeGitDeleted guifg=%%base08%%]]
+vim.cmd [[hi NvimTreeGitMerge guifg=%%base0A%%]]
+vim.cmd [[hi NvimTreeGitDirty guifg=%%base0A%%]]
+vim.cmd [[hi NvimTreeSymlink guifg=%%base0B%%]]
+vim.cmd [[hi NvimTreeRootFolder guifg=%%base05%% guibg=none gui=bold]]
+vim.cmd [[hi NvimTreeExecFile guifg=%%base0E%%]]
+
+-- dark background hack
+vim.cmd [[let &colorcolumn=join(range(1,100),',').join(range(100,9999),',')]]
+vim.opt.fillchars = {
+  vert = " ",	-- removes vertsepperator line
+  eob = " ",	-- suppress ~ at EndOfBuffer
+  diff = "⣿",	-- alternatives = ⣿ ░ ─ ╱
+--fold = "⠀",
+--msgsep = "‾",
+--foldopen = "▾",
+--foldsep = "│",
+--foldclose = "▸",
+}

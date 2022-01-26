@@ -4,3 +4,50 @@ require('base16-colorscheme').setup({
     base08 = '#FF0086', base09 = '#FD8900', base0A = '#ABA800', base0B = '#00C918',
     base0C = '#1FAAAA', base0D = '#3777E6', base0E = '#AD00A1', base0F = '#CC6633',
 })
+
+vim.cmd [[hi Normal ctermbg=none guibg=none]]
+vim.cmd [[hi NormalNC ctermbg=none guibg=none]]
+vim.cmd [[hi VertSplit guibg=none]]
+
+vim.cmd [[hi ColorColumn guibg=#151515]] --also sets color for selected-tab-line !!!
+vim.cmd [[hi NonText guibg=#151515]]
+vim.cmd [[hi TabLineSel guibg=#DF0066]]
+vim.cmd [[hi TabLine guibg=#202020]]
+vim.cmd [[hi CursorLine guibg=#151515]]
+vim.cmd [[hi CursorLineNr guifg=#FFFFFF guibg=#151515 gui=bold]]
+
+vim.cmd [[hi NvimTreeFolderIcon guifg=#3777E6]]
+vim.cmd [[hi NvimTreeIndentMarker guifg=#E0E0E0]]
+vim.cmd [[hi NvimTreeNormal guifg=#D0D0D0 guibg=none]]
+vim.cmd [[hi NvimTreeVertSplit guifg=none guibg=none]]
+vim.cmd [[hi NvimTreeFolderName guifg=#3777E6 guibg=none]]
+vim.cmd [[hi NvimTreeOpenedFolderName guifg=#3777E6 guibg=none gui=bold,italic]]
+vim.cmd [[hi NvimTreeEmptyFolderName guifg=#B0B0B0 guibg=none gui=italic]]
+vim.cmd [[hi NvimTreeGitIgnored guifg=#B0B0B0 guibg=none gui=italic]]
+vim.cmd [[hi NvimTreeImageFile guifg=#D0D0D0]]
+vim.cmd [[hi NvimTreeSpecialFile guifg=#FD8900]]
+vim.cmd [[hi NvimTreeEndOfBuffer guifg=#151515 guibg=none]]
+vim.cmd [[hi NvimTreeCursorLine guibg=#202020]]
+vim.cmd [[hi NvimTreeGitignoreIcon guifg=#DF0066]]
+vim.cmd [[hi NvimTreeGitStaged guifg=#1FAAAA]]
+vim.cmd [[hi NvimTreeGitNew guifg=#1FAAAA]]
+vim.cmd [[hi NvimTreeGitRenamed guifg=#1FAAAA]]
+vim.cmd [[hi NvimTreeGitDeleted guifg=#FF0086]]
+vim.cmd [[hi NvimTreeGitMerge guifg=#ABA800]]
+vim.cmd [[hi NvimTreeGitDirty guifg=#ABA800]]
+vim.cmd [[hi NvimTreeSymlink guifg=#00C918]]
+vim.cmd [[hi NvimTreeRootFolder guifg=#D0D0D0 guibg=none gui=bold]]
+vim.cmd [[hi NvimTreeExecFile guifg=#AD00A1]]
+
+-- dark background hack
+vim.cmd [[let &colorcolumn=join(range(1,100),',').join(range(100,9999),',')]]
+vim.opt.fillchars = {
+  vert = " ",	-- removes vertsepperator line
+  eob = " ",	-- suppress ~ at EndOfBuffer
+  diff = "⣿",	-- alternatives = ⣿ ░ ─ ╱
+--fold = "⠀",
+--msgsep = "‾",
+--foldopen = "▾",
+--foldsep = "│",
+--foldclose = "▸",
+}
