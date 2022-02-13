@@ -1,53 +1,60 @@
-require('base16-colorscheme').setup({
-    base00 = '#040404', base01 = '#141414', base02 = '#242424', base03 = '#61507A',
-    base04 = '#BFBBBF', base05 = '#DFDBDF', base06 = '#EFEBEF', base07 = '#FFFBFF',
-    base08 = '#B53B50', base09 = '#E4600E', base0A = '#DAE84D', base0B = '#06EA61',
-    base0C = '#7CEDE9', base0D = '#03AEFF', base0E = '#EA5CE2', base0F = '#9D4D0E',
+base16.setup({
+	base00 = "#040404",
+	base01 = "#141414",
+	base02 = "#242424",
+	base03 = "#61507A",
+	base04 = "#BFBBBF",
+	base05 = "#DFDBDF",
+	base06 = "#EFEBEF",
+	base07 = "#FFFBFF",
+	base08 = "#B53B50",
+	base09 = "#E4600E",
+	base0A = "#DAE84D",
+	base0B = "#06EA61",
+	base0C = "#7CEDE9",
+	base0D = "#03AEFF",
+	base0E = "#EA5CE2",
+	base0F = "#9D4D0E",
 })
 
-vim.cmd [[hi Normal ctermbg=none guibg=none]]
-vim.cmd [[hi NormalNC ctermbg=none guibg=none]]
-vim.cmd [[hi VertSplit guibg=none]]
+vim.cmd([[augroup TextGroup]])
+vim.cmd([[hi TextGroup guibg=#040404]])
 
-vim.cmd [[hi ColorColumn guibg=#040404]] --also sets color for selected-tab-line !!!
-vim.cmd [[hi NonText guibg=#040404]]
-vim.cmd [[hi TabLineSel guibg=#951B30]]
-vim.cmd [[hi TabLine guibg=#141414]]
-vim.cmd [[hi CursorLine guibg=#040404]]
-vim.cmd [[hi CursorLineNr guifg=#FFFBFF guibg=#040404 gui=bold]]
+vim.cmd([[hi Normal ctermbg=none guibg=none]])
+vim.cmd([[hi NormalNC ctermbg=none guibg=none]])
+vim.cmd([[hi VertSplit guibg=none]])
 
-vim.cmd [[hi NvimTreeFolderIcon guifg=#03AEFF]]
-vim.cmd [[hi NvimTreeIndentMarker guifg=#EFEBEF]]
-vim.cmd [[hi NvimTreeNormal guifg=#DFDBDF guibg=none]]
-vim.cmd [[hi NvimTreeVertSplit guifg=none guibg=none]]
-vim.cmd [[hi NvimTreeFolderName guifg=#03AEFF guibg=none]]
-vim.cmd [[hi NvimTreeOpenedFolderName guifg=#03AEFF guibg=none gui=bold,italic]]
-vim.cmd [[hi NvimTreeEmptyFolderName guifg=#BFBBBF guibg=none gui=italic]]
-vim.cmd [[hi NvimTreeGitIgnored guifg=#BFBBBF guibg=none gui=italic]]
-vim.cmd [[hi NvimTreeImageFile guifg=#DFDBDF]]
-vim.cmd [[hi NvimTreeSpecialFile guifg=#E4600E]]
-vim.cmd [[hi NvimTreeEndOfBuffer guifg=#040404 guibg=none]]
-vim.cmd [[hi NvimTreeCursorLine guibg=#141414]]
-vim.cmd [[hi NvimTreeGitignoreIcon guifg=#951B30]]
-vim.cmd [[hi NvimTreeGitStaged guifg=#7CEDE9]]
-vim.cmd [[hi NvimTreeGitNew guifg=#7CEDE9]]
-vim.cmd [[hi NvimTreeGitRenamed guifg=#7CEDE9]]
-vim.cmd [[hi NvimTreeGitDeleted guifg=#B53B50]]
-vim.cmd [[hi NvimTreeGitMerge guifg=#DAE84D]]
-vim.cmd [[hi NvimTreeGitDirty guifg=#DAE84D]]
-vim.cmd [[hi NvimTreeSymlink guifg=#06EA61]]
-vim.cmd [[hi NvimTreeRootFolder guifg=#DFDBDF guibg=none gui=bold]]
-vim.cmd [[hi NvimTreeExecFile guifg=#EA5CE2]]
+vim.cmd([[hi! link ColorColumn TextGroup]])
+vim.cmd([[hi! link NonText TextGroup]])
+vim.cmd([[hi! link CursorLine TextGroup]])
+vim.cmd([[hi! link DiagnosticSignError TextGroup]])
+vim.cmd([[hi! link DiagnosticSignWarn TextGroup]])
+vim.cmd([[hi! link DiagnosticSignInfo TextGroup]])
+vim.cmd([[hi! link DiagnosticSignHint TextGroup]])
 
--- dark background hack
-vim.cmd [[let &colorcolumn=join(range(1,100),',').join(range(100,9999),',')]]
-vim.opt.fillchars = {
-  vert = " ",	-- removes vertsepperator line
-  eob = " ",	-- suppress ~ at EndOfBuffer
-  diff = "⣿",	-- alternatives = ⣿ ░ ─ ╱
---fold = "⠀",
---msgsep = "‾",
---foldopen = "▾",
---foldsep = "│",
---foldclose = "▸",
-}
+vim.cmd([[hi TabLineSel guibg=#951B30]])
+vim.cmd([[hi TabLine guibg=#141414]])
+vim.cmd([[hi CursorLineNr guifg=#FFFBFF guibg=#040404 gui=bold]])
+
+vim.cmd([[hi NvimTreeFolderIcon guifg=#03AEFF]])
+vim.cmd([[hi NvimTreeIndentMarker guifg=#EFEBEF]])
+vim.cmd([[hi NvimTreeNormal guifg=#DFDBDF guibg=none]])
+vim.cmd([[hi NvimTreeVertSplit guifg=none guibg=none]])
+vim.cmd([[hi NvimTreeFolderName guifg=#03AEFF guibg=none]])
+vim.cmd([[hi NvimTreeOpenedFolderName guifg=#03AEFF guibg=none gui=bold,italic]])
+vim.cmd([[hi NvimTreeEmptyFolderName guifg=#BFBBBF guibg=none gui=italic]])
+vim.cmd([[hi NvimTreeGitIgnored guifg=#BFBBBF guibg=none gui=italic]])
+vim.cmd([[hi NvimTreeImageFile guifg=#DFDBDF]])
+vim.cmd([[hi NvimTreeSpecialFile guifg=#E4600E]])
+vim.cmd([[hi NvimTreeEndOfBuffer guifg=#040404 guibg=none]])
+vim.cmd([[hi NvimTreeCursorLine guibg=#141414]])
+vim.cmd([[hi NvimTreeGitignoreIcon guifg=#951B30]])
+vim.cmd([[hi NvimTreeGitStaged guifg=#7CEDE9]])
+vim.cmd([[hi NvimTreeGitNew guifg=#7CEDE9]])
+vim.cmd([[hi NvimTreeGitRenamed guifg=#7CEDE9]])
+vim.cmd([[hi NvimTreeGitDeleted guifg=#B53B50]])
+vim.cmd([[hi NvimTreeGitMerge guifg=#DAE84D]])
+vim.cmd([[hi NvimTreeGitDirty guifg=#DAE84D]])
+vim.cmd([[hi NvimTreeSymlink guifg=#06EA61]])
+vim.cmd([[hi NvimTreeRootFolder guifg=#DFDBDF guibg=none gui=bold]])
+vim.cmd([[hi NvimTreeExecFile guifg=#EA5CE2]])

@@ -1,53 +1,63 @@
+  ## INIT FORMAT
+
 set -g status-position top
 set -g status-justify centre
-set -g status-style "fg=Colour0 bg=Colour7"
-set -g window-style ""
 
-set -g status-left "#{prefix_highlight} >_   "
-set -g status-left-style "bold fg=Colour0"
-set -g status-left-length 11
+set -g status-left "#{prefix_highlight}"
+set -g status-left-length 20
 
-set -g status-right "   #S :: #P "
-set -g status-right-style "fg=Colour0"
-set -g status-right-length 20
- 
-set -g window-status-current-style "bold fg=Colour0"
-set -g window-status-style ""
-set -g window-status-format "#T#{?window_zoomed_flag,.Z,}"
-set -g window-status-current-format "#T#{?window_zoomed_flag,.Z,}"
-#set -g window-status-format "#{?#{==:#{window_name},zsh},#{b:pane_current_path},#{?#{==:#{window_name},vim},#T,#W}}#{?window_zoomed_flag,.Z,}"
-#set -g window-status-current-format "#{?#{==:#{window_name},zsh},#{b:pane_current_path},#{?#{==:#{window_name},vim},#T,#W}}#{?window_zoomed_flag,.Z,}"
-set -g window-status-separator "  "
+set -g window-status-current-style "bold"
+set -g window-status-style "nobold"
+set -g window-status-format "#{?window_zoomed_flag,▹ ,⚬ }#T#{?window_zoomed_flag, ◃ ,  }"
+set -g window-status-current-format "#{?window_zoomed_flag,▸ ,⦁ }#T#{?window_zoomed_flag, ◂ ,  }"
+set -g window-status-separator ""
 
-#set -g pane-border-format "#[fg=Colour8][#P]" 
-set -g pane-border-style fg=Colour8,bg=Colour8
-set -g pane-active-border-style fg=Colour7,bg=Colour7
+set -g window-status-activity-style 'bg=default fg=Color1'
+set -g window-status-bell-style 'bg=default'
 
+#set -g pane-border-format "#[fg=Color8][#P]" 
+set -g pane-border-style fg=Color8,bg=Color8
+set -g pane-active-border-style fg=Color20,bg=Color20
+
+
+  ## TWO COLUM SETUP
+
+set -g status on
+bind -n M-b set -g status
+
+
+  ## PREFIX-SETTINGS
+
+set -g @prefix_highlight_fg 'default'
+set -g @prefix_highlight_bg 'Color4'
+set -g @prefix_highlight_prefix_prompt \
+	'#[bold] >_  #[nobold][prefix] #[fg=Color20]░▒▓'
 set -g @prefix_highlight_show_sync_mode 'on'
+set -g @prefix_highlight_sync_mode_attr 'bg=Color3'
+set -g @prefix_highlight_sync_prompt \
+	'#[bold] >_  #[nobold][sync] #[fg=Color20]░▒▓'
 set -g @prefix_highlight_show_copy_mode 'on'
-set -g @prefix_highlight_fg 'Colour0'
-set -g @prefix_highlight_bg 'Colour4'
-set -g @prefix_highlight_prefix_prompt '>_ prefix '
-set -g @prefix_highlight_sync_prompt '>_ sync  '
-set -g @prefix_highlight_copy_prompt '>_ copy  '
-set -g @prefix_highlight_sync_mode_attr "bg=Colour7,fg=black,bold"
-set -g @prefix_highlight_prefix_mode_attr "bg=Colour7,fg=black,bold"
-set -g @prefix_highlight_copy_mode_attr "bg=Colour7,fg=black,bold"
-set -g @prefix_highlight_output_prefix ''
-set -g @prefix_highlight_output_suffix ''
+set -g @prefix_highlight_copy_mode_attr 'bg=Color3'
+set -g @prefix_highlight_copy_prompt \
+	'#[bold] >_  #[nobold][copy] #[fg=Color20]░▒▓'
+set -g @prefix_highlight_empty_has_affixes 'on'
+set -g @prefix_highlight_empty_attr 'bg=Color1'
+set -g @prefix_highlight_empty_prompt \
+	'#[bg=default fg=default bold] >_  '
+set -g @prefix_highlight_output_prefix '#[]'
+set -g @prefix_highlight_output_suffix '#[]'
 
-# change statuscolor on focus-event
-set-hook -g pane-focus-out \
+
+  ## CHANGE STATUSCOLOR ON FOCUS EVENT
+
+set-hook -g client-focus-out \
 "\
-	set -w status-style 'bg=Colour08 fg=Colour00' \;\
-	set -w window-status-current-style 'bold fg=Colour07' \;\
-	set -w status-right-style 'fg=Colour07'\
+	set -w status-style 'bg=Color8 fg=Color00' \;\
+	set -w status-right '#[bold]   #S :: #P   #[fg=Color8 bg=Color0]▓▒░' \
 "
 
-set-hook -g pane-focus-in \
+set-hook -g client-focus-in \
 "\
-	set -w status-style 'bg=Colour07 fg=Colour00' \;\
-	set -w window-status-current-style 'bold fg=Colour00' \;\
-	set -w status-right-style 'fg=Colour00'\
+	set -w status-style 'bg=Color20 fg=Color00' \;\
+	set -w status-right '#[bold]   #S :: #P   #[fg=Color20 bg=Color0]▓▒░' \
 "
-

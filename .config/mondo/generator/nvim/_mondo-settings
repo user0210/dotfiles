@@ -15,7 +15,7 @@
 
 # If inject is set, only replace content between 
 # MONDO-BEGIN and MONDO-END in target.
-# inject=True
+inject=True
 
 # uncomment the colorformat below to use HEX (00-FF)
 # This is how fully opaque "white" would look like

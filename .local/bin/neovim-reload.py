@@ -32,6 +32,7 @@ def reload(instance):
     # execute the reload command
     #nvim.command('source ${HOME}/.config/nvim/init.vim')
     nvim.command('source ${HOME}/.config/nvim/lua/user/base16.lua')
+    nvim.command('source ${HOME}/.config/nvim/lua/user/bufferline.lua')
 
 
 def main():

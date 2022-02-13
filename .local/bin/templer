@@ -258,7 +258,7 @@ colorgenerator_1() { ###################
 		monos=$(colorz --bold 0 --minv 10 --maxv 240 --no-preview -n 8 $wallpaper | cut -d " " -f1)
 	fi
 
-	monos=$(pastel -f desaturate 0.1 $monos | pastel sort-by brightness | pastel format hex)
+	monos=$(pastel -f desaturate 0.25 $monos | pastel sort-by brightness | pastel format hex)
 
 	black=$(echo $monos | cut -d' ' -f1)
 	colort -l -30 $black > /dev/null || black=$(pastel mix $black "#000000" | pastel format hex)
@@ -351,8 +351,8 @@ colorgenerator_2() { ###################
 		fi
 	done <<< $scheme
 
-	black=$(pastel -f desaturate 0.15 $black | pastel format hex)
-	# colort -l -30 $black > /dev/null || black=$(pastel mix $black "#000000" | pastel format hex)
+	black=$(pastel -f desaturate 0.3 $black | pastel format hex)
+	colort -l -30 $black > /dev/null || black=$(pastel mix $black "#000000" | pastel format hex)
 
 	colort -l -40 $black > /dev/null
 	while [[ "$?" == "0" ]]
@@ -446,7 +446,7 @@ setwallpapercolors() { #################
 	fi
 
 	if [ -z "$wallpaper" ] ;then
-		echo "nothing"
+		echo "no wallpaper choosen -> abort"
 		return
 	fi
 	
@@ -470,6 +470,12 @@ setwallpapercolors() { #################
 
 	## choose backend... 
 	backend=$(sxiv -d -N wallman -to ${XFOLDER}/templer/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
+
+	if [ -z "$backend" ] ;then
+		echo "no backend choosen -> abort"
+		return
+	fi
+	
 	backend="$backend"".sh"
 
 	## connect color-theme to mondo...

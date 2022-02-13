@@ -1,13 +1,24 @@
 ###########################################################
-##### usefull
+#						 usefull
 ###########################################################
 
+
+##### TODO
+###############################
+
+	macho-man
+	curl-weather
+	curl-manpage
+	slock
+	pscircle
+	glow (also nvim)
+	croc
+
+
 ##### minecraft-server setup
-	## minecraft server
-# with this a user service can start without login
-loginctl enable-linger USERNAME
-#systemctl set-default multi-user.target
-	## VPS
+#################################
+
+  ## VPS
 # create rsa-key on local machine
 ssh-keygen
 # send key to VPS
@@ -22,167 +33,187 @@ vi /etc/ssh/sshd_config
 	GatewayPorts yes
 sudo systemctl reload ssh 
 
-##### pushed a password to github ??? do this:
+  ## minecraft server
+# with this a user service can start without login
+loginctl enable-linger USERNAME
+# systemctl set-default multi-user.target
+
+
+##### github
+#############################
+
+  ## pushed a password to github ??? do this:
 put the passord in password.txt, Then
 bfg --replace-text passwords.txt
 
-##### neovim treesitter error
+
+##### neovim
+############################
+
+  ## neovim treesitter error
 in neovim run
 :TSUpdate
 
+
 ##### java
-# list java-versions installed
+############################
+
+  ## list java-versions installed
 archlinux-java status
-# change system java
+  ## change system java
 archlinux-java set <JAVA_ENV_NAME>
 
-##### add program to sudoers to run without passord
+
+##### sudo / privileges
+#############################
+
+  ## add program to sudoers to run without passord
 %sudo	ALL=(ALL) ALL
 philipp ALL=(ALL) NOPASSWD: /usr/bin/XXXXX
 
-##### cleanup HOME-directory and move programm files with no xdg-standards
-## example zynaddsubfx
-## /usr/local/bin is before /usr/bin in PATH, where the zynaddsubfx-binary lies
-## so create a wrapper-script in /usr/local/bin and crate a data-folder to store application files...
+  ## fix read-only ntfs-partition
+sudo ntfsfix /dev/sdXX
+
+
+##### cleanup HOME-directory / force xdg-standard
+#####################################################
+
+  ## example zynaddsubfx
+# /usr/local/bin is before /usr/bin in PATH, where the zynaddsubfx-binary lies
+# so create a wrapper-script in /usr/local/bin and crate a data-folder to store application files...
 mkdir ~/.local/share/zynaddsubfx
 sudo vim /usr/local/bin/zynaddsubfx
 	#!/bin/sh
 	HOME=${XDG_DATA_HOME}/zynaddsubfx /usr/bin/zynaddsubfx "$@"
 sudo chmod +x /usr/local/bin/zynaddsubfx
 
-##### fix read-only ntfs-partition
-sudo ntfsfix /dev/sdXX
 
-##### fix firefox sizehints on start
-#https://www.privacy-handbuch.de/handbuch_21v.htm
+##### firefox
+#########################
+
+  ## fix firefox sizehints on start
+# https://www.privacy-handbuch.de/handbuch_21v.htm
 privacy.resistFingerprinting --> true
 
-##### scale gifs
+
+##### templer
+##########################
+
+  ## paperview
+convert -coalesce XXXXXX.gif out.bmp
+
+  ## scale gifs
 gifsicle --resize 1366x768 -i test.gif > 1366x768.gif
 
-##### update st-terminfo
+
+##### suckless
+##########################
+
+  ## update st-terminfo
 tic -sx st.info
 
-##### keycodes.... (example: right-click-menu)
-The keysym to trigger the context menu is called Menu. It can be bound to an arbitrary keycode like this:
+  ## missing dmenu_run suggestions
+rm ~/.cache/dmenu_run
+
+
+##### keyboard
+##########################
+
+  ## keycodes.... (example: right-click-menu)
+# The keysym to trigger the context menu is called Menu. It can be bound to an arbitrary keycode like this:
 $ xmodmap -e 'keycode 68 = Menu'
-Can be manually triggered from the command line like:
+# Can be manually triggered from the command line like:
 $ xdotool key Menu
-And to find out the keycode it is currently bound to one can do:
+# And to find out the keycode it is currently bound to one can do:
 $ xmodmap -pke | grep Menu
-To figure out what keycode a key emits one can use:
+# To figure out what keycode a key emits one can use:
 $ xev
-keycode list
+# keycode list
 $ xmodmap -pke
 
-# change capslock to esc and druck to menu...
+ ## change capslock to esc and druck to menu...
 xmodmap -e "keycode 66 = Escape"
 xmodmap -e "keycode 107 = Menu"
 xmodmap -pke > ~/.config/X11/Xmodmap
 
-##### git rebase
-activate rerere first !!! then you can.....
-
-git rebase -i XXXXXXXX^ --preserve-merges
-...git commit -a (--amend --no-edit)
-git rebase --continue
-...git mergetool ...git commit
-git rebase --continue
-...
-
-
-##### pacman error after bad update (unable to lock database)
-sudo rm /var/lib/pacman/db.lck
-
-##### install python-packages
-best)		sudo pacman -S python-'package'
-okay)		AUR
-least)	pip --user install 'python-package'  ## no sudo !!!
-
-##### TODO
-	macho-man
-	curl-weather
-	curl-manpage
-	slock
-	pscircle
-	
 
 ##### mondo
-	## update mondo generator-themes
+###########################
+
+  ## update mondo generator-themes
 mondo -f -g all
-	## new generator
+  ## new generator
 mondo -t [name] [file]
 
-##### paccache
+
+##### pacman / install packages
+####################################
+
+  ## pacman error after bad update (unable to lock database)
+sudo rm /var/lib/pacman/db.lck
+
+  ## install python-packages
+best )	sudo pacman -S python-'package'
+okay )	AUR
+least)	pip --user install 'python-package'  ## no sudo !!!
+
+  ## paccache
 du -sh /var/cache/pacman/pkg   # Belegung des Cache-Speicherplatzes prüfen
 paccache -h                    # Befehlsübersicht
 paccache -dk2                  # Testdurchlauf; Wieviel Platz kann eingespart werden?
 paccache -vrk2                 # Entfernt Pakete aus dem Cache, behält die jüngsten 2 Versionen
 paccache -ruk0                 # Alle Pakete aus dem Cache entfernen, die nicht (mehr) installiert sind
 
-##### manuell compilierte programme managen..
+  ## manage manuell compiled programs..
+# install to opt, then you can revove the /opt/program for uninstallation 
 ./configure --prefix=/opt/programm
 make
 sudo make install
 
-dann reicht es, wenn ich /opt/programm/ entferne, um das Programm rückstandslos wieder zu entsorgen 
-(nur die Einstellungen in ~/programm sind dann noch da)
-
-##### auf UDEV und KERNEL events achten...
-udevadm monitor --property
-
-##### nützlich um Crash nach Updates zu vermeiden...
-mkinitcpio -p linux
-
-##### find Files with Pacman
+  ## find Files with Pacman
 sudo pacman -Fy
 pacman -F filename
 
-##### systemd-boot refind
+  ## update node.js packages
+sudo pacman -S nodejs npm
+npm update -g
+
+
+##### system stuff
+############################
+
+  ## auf UDEV und KERNEL events achten...
+udevadm monitor --property
+
+  ## nützlich um Crash nach Updates zu vermeiden...
+mkinitcpio -p linux(-lts)
+
+  ## systemd-boot
 sudo bootctl update # update systemd-boot or install systemd-boot-pacman-hook
 bootctl list
 
+  ## refind
 sudo pacman -S refind-efi
 refind-install # install and update refind
 diff refind.conf refind.conf-sample # after update implement changes from new sample file
-
-##### paperview
-convert -coalesce XXXXXX.gif out.bmp
-
-##### missing dmenu_run suggestions
-rm ~/.cache/dmenu_run
 
 ##### youtube-dl problems? try forcing ipv4
 vim ~/.config/youtube-dl/config
 	-4
 
-##### update node.js packages
-npm update -g
+
 
 ###########################################################
-##### Arch setup
+#						 Arch setup
 ###########################################################
 
-##### partitionen einrichten, bootmanager vorbereiten (arch entfernen)
-##### booten (erste option)
-
+  ## german keyboard
 loadkeys de
 loadkeys de-latin1-nodeadkeys
 
-lsblk	## find Linux, Mount and Swap Partition
-mount /dev/sdaLINUX /mnt
-swapon /dev/sdaSWAP
-mkdir /mnt/boot
-mount /dev/sdaEFI /mnt/boot
-
-vim /etc/pacman.d/mirrorlist ## German Up
-
+  ## pacstrap or install after pacstrap
 pacstrap /mnt base base-devel linux linux-firmware man-db man-pages bash-completion intel-ucode
 pacman --root /mnt -S dhcpcd ## or networkmanager for Internet
-
-genfstab -Up /mnt > /mnt/etc/fstab
-
-arch-chroot /mnt
 
 ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc
@@ -200,55 +231,18 @@ nvim /etc/locale.conf
 nvim /etc/vconsole.conf
      KEYMAP=de-latin1-nodeadkeys
 
-nvim /etc/hosts
-	127.0.0.1	localhost
-	::1 localhost      
-	127.0.1.1	PHIL-LIN-PAD.localdomain	PHIL-LIN-PAD
-
-passwd
-
 bootctl install
 
 pacman -S efibootmgr
      ##change Boot Order (dont forget USB)
 
-exit
-umount -R /mnt
-poweroff
-
-
-##### bootpartition setup
-
-##boot to OSX, edit EFI: arch.conf, refind_linux.conf, systemd.png......
-##also :fstab,systemd-services,....
-
-##### Network Setup
-
-## for cable only!!
-systemctl enable dhcpcd
-## for WiFi and both
-pacman -S networkmanager
-systemctl enable NetworkManager
-
-
-##### Benutzer einrichten
-
+  ## user setup
 useradd -m philipp
 passwd philipp
 Usermode -aG wheel,audio,video,optical,storage,power,network philipp
 
 EDITOR=nvim visudo
-     ## uncomment %wheel ALL=(ALL) ALL
-
-##### add ~/.local/bin to PATH
-export PATH=$PATH:/home/philipp/.local/bin
-
-##### add Partitions
-
-sudo mkdir /mnt/Windows
-sudo mkdir /mnt/Daten
-sudo Pacman -S ntfs-3g
-## edit /etc/fstab
+   --> uncomment %wheel ALL=(ALL) ALL
 
 
 ###########################################################
@@ -256,26 +250,25 @@ sudo Pacman -S ntfs-3g
 ###########################################################
 
 ##### suckless stuff
+####################################
+
 sudo pacman -S git dmenu libx11 imlib2 libxft libxinerama slop ## dwm
 sudo pacman -S libexif librsvg ## sxiv
 
-mkdir ~/.local/src && cd ~/.local/src
-
-### !!! if you have your ssh-key thats stored in github use the ssh-locations instead of the http stuff
-
+# !!! if you have your ssh-key thats stored in github use the ssh-locations instead of the http stuff
 git clone http://github.com/user0210/dwm
 git clone http://github.com/user0210/dwmblocks
 git clone http://github.com/user0210/st
 git clone http://github.com/user0210/dmenu
 git clone http://github.com/user0210/sxiv
 
-## bei allen:
+# or download original and then yours:
 git remote add myorigin http://github.com/user0210/XXXXXX.git
 git remote -v
 git fetch myorigin
 git branch -v -a
 
-## checkout!!!, make, sudo make install, replace bin-files with softlinks to git-folders:
+# checkout, make, sudo make install, replace bin-files with softlinks to git-folders:
 sudo ln -s ~/.local/src/dwm/dwm /usr/local/bin/dwm
 sudo ln -s ~/.local/src/st/st /usr/local/bin/st
 sudo ln -s ~/.local/src/dmenu/dmenu /usr/local/bin/dmenu
@@ -287,57 +280,78 @@ sudo ln -s ~/.local/src/sxiv/sxiv /usr/local/bin/sxiv
 sudo ln -s ~/.local/src/sxiv/sxiv.desktop /usr/share/applications/sxiv.desktop
 ln -s ~/.local/src/sxiv/sxiv.desktop ~/.local/share/applications/sxiv.desktop
 
-## dwmblock-dependencies and settings: see "backlight control" "add program to sudoers to run without passord"
+# dwmblock-dependencies and settings: see "backlight control" "add program to sudoers to run without passord"
 
-## to switch from https to ssh
+# to switch from https to ssh
 git remote set-url (my)origin git@github.com:user0210/XXXXXXX.git
 
-##### X11
+
+  ## X11
 sudo pacman -S xorg-server xorg-apps xorg-xinit
 
-sudo nvim /etc/X11/xorg.conf.d/20-keyboard.conf
-Section "InputClass"
-	Identifier "keyboard"
-	MatchIsKeyboard "yes"
-	Option "XkbLayout" "de"
-	Option "XkbVariant" "nodeadkeys"
-EndSection
 
 ##### dotfiles
-## in .bashrc
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/src/dotfiles/ --work-tree=$HOME'
+####################################
 
-mkdir dotfiles... cd...
+nvim ~/.bashrc
+	alias dotfiles='/usr/bin/git --git-dir=$HOME/.local/src/dotfiles/ --work-tree=$HOME'
+
+mkdir ~/.local/src/dotfiles
 git clone --bare --branch thinkpad-x230t http://github.com/user0210/dotfiles.git $HOME/.local/src/dotfiles
 dotfiles checkout
 dotfiles config --local status.showUntrackedFiles no
 
-##### templer stuff
+
+##### theme stuff
+####################################
+
 yay -S xwinwrap-git colort-git
-## theme
+
+# new gtk-materia-tepler-theme
+sudo pacman -S bc dart-sass librsvg optipng meson gtk-engine-murrine
+git clone https://github.com/user0210/materia-gtk.git
+meson _build -Dprefix="$HOME/.local" -Dcolors=default -Dsizes=compact
+meson install -C _build
+mv ~/.local/share/themes/Materia*...... rename it to Templer !!!  
+
+# theme
 mkdir ~/.local/share/themes/templer
 ln -s ~/.local/share/themes ~/.themes
 sudo ln -s ~/.local/share/themes /root/.themes
-## icons
+
+# vimix icon-theme
+git clone https://github.com/vinceliuice/vimix-icon-theme.git
+./install.sh -n Templer standard
+
+# icons
 mkdir -p ~/.local/share/icons/templer
 sudo ln -s ~/.local/share/icons /root/.icons
-## root-gtk-theme
+
+# cursor
+ln -s ~/.config/X11/xfiles/cursor/capitaine-cursors-light ~/.local/share/icons/Cursor
+
+# root-gtk-theme
 sudo ln -s ~/.gtkrc-2.0 /etc/gtk-2.0/gtkrc
 sudo ln -s ~/.config/gtk-3.0/settings.ini /etc/gtk-3.0/settings.ini
 
-##### new gtk-materia-tepler-theme
-sudo pacman -S bc dart-sass librsvg optipng meson gtk-engine-murrine
-git clone https://github.com/user0210/materia-gtk.git
 
-##### vimix icon-theme
-git clone https://github.com/vinceliuice/vimix-icon-theme.git
-./install.sh -n Templer standard
+##### install aur helper
+################################
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
 
 ###########################################################
 ##### settings
 ###########################################################
 
-##### snapper
+  ## color emojis in st
+sudo pacman -S ttf-joypixels
+yay -S libxft-bgra
+
+  ## snapper
 sudo pacman -S snapper
 yay snapper-gui-git
 snapper -c root create-config /
@@ -358,7 +372,8 @@ systemctl enable grub-btrfs.path
 snapper -c root list
 snapper -c root create -c timeline --description AfterInstall
 
-##### update mirrorlist with reflector
+
+  ## update mirrorlist with reflector
 sudo pacman -S reflector
 sudo nvim /etc/xdg/reflector/reflector.conf
     --save /etc/pacman.d/mirrorlist
@@ -367,10 +382,11 @@ sudo nvim /etc/xdg/reflector/reflector.conf
     --latest 10
     --sort age
 
-##### uhrzeit vom internet...
+  ## uhrzeit vom internet...
 sudo pacman -S ntp
 
-##### trackpoint (maybe not needed...)
+  ## input
+# trackpoint (maybe not needed...)
 sudo vim /etc/X11/xorg.conf.d/20-trackpoint.conf
 Section "InputClass"
     Identifier "trackpoint"
@@ -387,7 +403,7 @@ Section "InputClass"
     Option "AccelSpeed" "0.5"
 EndSection
 
-##### tab-click touchpad
+# tab-click touchpad
 sudo nvim /usr/share/X11/xorg.conf.d/40-libinput.conf
 .
 .
@@ -400,33 +416,46 @@ Section "InputClass"
         Driver "libinput"
 EndSection
 
-##### for 3g
+# keyboard setup for X11
+sudo nvim /etc/X11/xorg.conf.d/20-keyboard.conf
+Section "InputClass"
+	Identifier "keyboard"
+	MatchIsKeyboard "yes"
+	Option "XkbLayout" "de"
+	Option "XkbVariant" "nodeadkeys"
+EndSection
+
+
+  ## for 3g
 sudo pacman -S modemmanager
 systemctl enable ModemManager
 
-##### qt-gkt setup
+
+  ## qt-gkt setup
 yay -S qt5-styleplugins
-## share theme with... "gnome"-session
+# share theme with... "gnome"-session
 	sudo pacman -S dconf-editor
 	add to .xinitrc
 		export QT_QPA_PLATFORMTHEME=gtk2
 		export DESKTOP_SESSION=gnome		#or set to xfce for classic ui
 		export XDG_CURRENT_DESKTOP=GNOME	#or set to XFCE for classic ui
 	dconf-editor: org > gnome > desktop > interface --> icon-theme
-## share theme with... "qt"-session
+# share theme with... "qt"-session
 	sudo pacman -S qt5ct
 	add to .xinitrc
 		export QT_QPA_PLATFORMTHEME=qt5ct
 
-##### backlight control
+
+  ## backlight control
 ## for terminal TODO removes xorg-backlight !!!
 # sudo pacman -S acpilight
 # sudo chmod a+w /sys/class/backlight/intel_backlight/brightness ???
 
-## for dwmblocks
+# for dwmblocks
 yay backlight_control
 
-##### share windows fonts
+
+  ## share windows fonts
 sudo ln -s /mnt/windows/Windows/Fonts /usr/share/fonts/WindowsFonts
 fc-cache -f
 
@@ -454,18 +483,18 @@ sudo nvim /etc/fonts/conf.d/30-metric-aliases-free.conf
        </alias>
 </fontconfig>
 
-##### system maintainance
+  ## system maintainance
 sudo pacman -S pacman-contrib
 systemctl enable paccache.timer
 
-##### ssh disable-root-login
+  ## ssh disable-root-login
 sudo nvim /etc/ssh/sshd_config
 	PermitRootLogin no
 
-##### default application setup
+  ## default application setup
 ln -s ~/.config/mimeapps.list ~/.local/share/applications/mimeapps.list
 
-## helper for managing mimetypes
+  ## helper for managing mimetypes
 sudo pacman -S perl-file-mimeinfo
 
 You can use PERL-FILE-MIMEINFO in the extra repository to manage mimetypes.
@@ -483,59 +512,56 @@ and then, at the prompt, enter the application: apvlv.
 ##### programs
 ###########################################################
 
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-## remove yay folder....
+  ## yay
+mondo-generator xbanish thinkpad-scripts xmenu
+timeshift systemd-boot-pacman-hook ytfzf
+cbonsai gtkrc-reload pscircle tiramisu-git chromium-widevine
 
-yay:	mondo-generator xbanish thinkpad-scripts xmenu
-	timeshift systemd-boot-pacman-hook ytfzf
-	cbonsai gtkrc-reload pscircle tiramisu-git chromium-widevine
-pacman: network-manager-applet polkit-gnome fzf youtube-dl mpv xsel usbutils tor figlet tree ncdu htop ps_mem xdotool wget xclip imagemagick hsetroot
-	xdg-utils playerctl calcurse p7zip xsettingsd gifsicle xorg-xclock zip unzip mlocate
+  ## pacman
+network-manager-applet polkit-gnome fzf youtube-dl mpv xsel usbutils tor figlet tree ncdu htop ps_mem xdotool wget xclip imagemagick hsetroot
+xdg-utils playerctl calcurse p7zip xsettingsd gifsicle xorg-xclock zip unzip mlocate ntfs-3g maim
 
-## clipmenu
+  ## clipmenu
 sudo pacman -S clipmenu
 systemctl --user enable clipmenud
 
-## for dmenumount (l.smith)
+  ## for dmenumount (l.smith)
+# get the scripts
 yay simple-mtpfs
 pacman -S x11-ssh-askpass
 vim .profile
 	export SUDO_ASKPASS="/usr/lib/ssh/ssh-askpass"
 
-##### nodjs stuff
-sudo pacman -S nodejs npm
-
-##### color-picker....
+  ## color-picker....
 yay colorz python-colorthief python-haishoku
 pacman -S pastel
 #to update schemer2... then put the schemer2 file to ~bin/
 #sudo pacman -S go
 #go get github.com/thefryscorer/schemer2
 
-##### dash
+  ## dash
 sudo pacman -S dash
 yay dashbinsh
 
-##### qutebrowser
+
+  ## qutebrowser
 sudo pacman -S qutebrowser python-adblock python-pygments
+# download-dir
 mkdir ~/Downloads
-  ## fix unreadable tooltips:
+# fix unreadable tooltips:
 sudo vim /usr/local/bin/qutebrowser
 	#! /bin/sh
 	/usr/bin/qutebrowser --qt-arg stylesheet ~/.local/share/qutebrowser/stylesheets/fix-tooltips.qss "$@"
 sudo chmod +x /usr/local/bin/qutebrowser
+# set adblocker
+:set content.blocking.method both
 
-
-##### pcmanfm
+  ## pcmanfm
 sudo pacman -S pcmanfm-gtk3 gvfs xarchiver lxmenu-data
 terminal --> st -u -e bash --rcfile ~/.config/tmux/shell/stmux/.zshrc
 chmod 640 ~/.config/libfm/libfm.conf ##see archwiki
-
 # to update the menus
 rm -r ~/.cache/menus
-
 # thumbnails
 sudo pacman -S libgsf ffmpegthumbnailer tumbler poppler-glib freetype2 raw-thumbnailer 
 sudo nvim /usr/share/thumbnailers/imagemagick-pdf.thumbnailer
@@ -546,7 +572,6 @@ sudo nvim /usr/share/thumbnailers/imagemagick-pdf.thumbnailer
 sudo nvim /etc/ImageMagick-7/policy.xml
 	comment out this line:
 	<policy domain="delegate" rights="none" pattern="gs" />
-
 # trash management
 sudo pacman -S trash-cli
 	## add trash support for ntfs
@@ -573,49 +598,62 @@ systemctl enable acpid
 	WantedBy=multi-user.target
 systemctl enable setkeycodes
 
-##### neovim
+  ## neovim
 pacman -S neovim
-
+# spell language Installation
+nvim -u none
+:set spelllang=de_de
+# stuff
 sudo pacman -S python-pynvim
 yay neovim-symlinks neovim-remote
-
+# formatters for null-ls
+yay stylua-bin
+sudo pacman -S prettier python-black
 # Neovim node support
 npm i -g neovim
-
 # neovim desktop file setting
 cp /usr/share/applications/nvim.desktop ~/.local/share/applications/nvim.desktop
 nvim ~/.local/share/applications/nvim.desktop
 	Exec=bash -ci "nvim %F"
-
 # get nvim repo
 rm -r ~/.config/nvim
 git clone git@github.com:user0210/nvim.git ~/.config/nvim
-
-## nvim-lsp
-# servers
+# nvim-lsp
 sudo pacman -S clang bash-language-server
-# in neovim
 :LspInstall sumneko_lua pyright clangd bashls
 
-##### zsh
+  ## zsh
 sudo pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
 yay spaceship-prompt
 
-##### tmux
+  ## tmux
 sudo pacman -S tmux
-## plugin-manager
+yay urlview
+# plugin-manager
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
   # then open st (not stmux), launch tmux, "PREFIX + I" to install the plugins... 
+# tmux systemd-daemon  ##ACHTUNG wird nicht aktualisiert durch themeselect....
+/home/philipp/.config/systemd/user/tmux.service
+	[Unit]
+	Description=Start tmux in detached session
+	
+	[Service]
+	Type=forking
+	ExecStart=/usr/bin/tmux new-session -s 1 -d
+	ExecStop=/usr/bin/tmux kill-session -t 1
+	Restart=always
+	
+	[Install]
+	WantedBy=default.target
+# systemctl --user enable tmux  ##ACHTUNG wird nicht aktualisiert durch themeselect....
 
-yay urlview
 
-##### ranger
+
+  ## ranger
 sudo pacman -S ranger atool mediainfo w3m poppler highlight ueberzug
-
-## install devicons
+# install devicons
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-
-## get config from dotfiles or generate new....
+# get config from dotfiles or generate new....
 ranger --copy-config=all
 	# change setting... ueberzug....
 	# make highlight use 4 tab spaces:
@@ -625,7 +663,7 @@ vim ~/.config/ranger/scope.sh
 	    --replace-tabs="4" \	################################### add this line
 	    --out-format="${highlight_format}" \
 
-##### neofetch
+  ## neofetch
 sudo pacman -S neofetch
 /etc/systemd/system/ttylogin.service
 	[Unit]
@@ -639,21 +677,6 @@ sudo pacman -S neofetch
 	[Install]
 	WantedBy=multi-user.target
 systemctl enable ttylogin
-
-##### tmux systemd-daemon
-/home/philipp/.config/systemd/user/tmux.service
-	[Unit]
-	Description=Start tmux in detached session
-	
-	[Service]
-	Type=forking
-	ExecStart=/usr/bin/tmux new-session -s 1 -d
-	ExecStop=/usr/bin/tmux kill-session -t 1
-	Restart=always
-	
-	[Install]
-	WantedBy=default.target
-#systemctl --user enable tmux  ##ACHTUNG wird nicht aktualisiert durch themeselect....
 
 ##### audio and bluetooth
 sudo pacman -S alsa-utils
@@ -678,6 +701,8 @@ rm /etc/alsa/conf.d/99-pipewire-default.conf /usr/share/alsa/alsa.conf.d/99-pipe
 sudo pacman -S (jack2 - replace normal jack) cadence
 sudo pacman -S cadence "or" yay -S patchage
 
+  ## zathura
+sudo pacman -S zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps
 ## bluetooth
 sudo pacman -S  bluez bluez-utils
 systemctl enable bluetooth
@@ -811,6 +836,11 @@ git checkout mps-youtube -- . ## still on empty master-branch but mps-youtube-br
 # use this config with API (do not put on github!)
 tube update
 
+##### imagemagick
+# image too big... resize to 1366 width (x230t)
+convert XXX.jpg -resize 1366x XXX1.jpg
+convert XXX1.jpg -gravity South -extent 1366x768 XXX2.jpg
+
 ##### cava-visualizer
 yay cava
 ((cd .config/cava.... wget https://raw.githubusercontent.com/karlstav/cava/master/example_files/config))
@@ -833,7 +863,6 @@ sudo ln -s /home/philipp/.config/onboard/templer.colors /usr/share/onboard/theme
 ...create templer theme in settings and import it...
 
 ##### fonts
-
 yay ttf-symbola
 
 ##### replicate rc.local on systemd system....

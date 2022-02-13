@@ -3,11 +3,11 @@ xmenu.gap				: 2
 xmenu.width				: 100
 xmenu.height			: 20
 xmenu.borderWidth		: 1
-xmenu.separatorWidth	: 3
+xmenu.separatorWidth	: 7
 
-xmenu.background		: base00
+xmenu.background		: base01
 xmenu.foreground		: base05
-xmenu.selbackground		: base0D
-xmenu.selforeground		: base00
-xmenu.border			: base01
-xmenu.separator			: base01
+xmenu.selbackground		: base03
+xmenu.selforeground		: base05
+xmenu.border			: base00
+xmenu.separator			: base00

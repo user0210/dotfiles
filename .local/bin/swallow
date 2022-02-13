@@ -1,5 +1,11 @@
 #!/bin/sh
 
+## shortest...
+#xdotool windowunmap "$WINDOWID"
+#$@
+#xdotool windowmap "$WINDOWID"
+
+
 dir=$(pwd)
 sess=$(tmux display-message -p '#S')
 group=$(tmux display-message -p '#{session_group}')
@@ -27,6 +33,7 @@ else
 			set-option destroy-unattached \; \
 			rename-session -t sw-$num $sess"
 fi
+
 
 ## with bashisms
 #dir=$(pwd)

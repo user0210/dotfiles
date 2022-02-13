@@ -1,10 +1,10 @@
-base00 #001732
-base01 #243647
-base02 #48555d
-base03 #6c7472
-base04 #919488
-base05 #b5b39d
-base06 #d9d2b3
+base00 #00162b
+base01 #243541
+base02 #485558
+base03 #6c746e
+base04 #919385
+base05 #b5b29b
+base06 #d9d2b2
 base07 #fdf1c8
 base08 #cdb5a7
 base09 #cf9b57
