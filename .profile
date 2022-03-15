@@ -16,7 +16,6 @@ path_prepend() {
         fi
     done
 }
-
 path_append() {
     for arg in "$@"; do
         if [[ ":${PATH}:" != *":${arg}:"* ]]; then
@@ -24,8 +23,22 @@ path_append() {
         fi
     done
 }
-
 path_append $HOME/.local/bin
+
+##### onefetch autostart fot git folders
+LAST_REPO=""
+cd() {
+	builtin cd "$@"
+	git rev-parse --show-toplevel 2>/dev/null
+
+	if [ $? -eq 0 ]; then
+		if [ "$LAST_REPO" != $(basename $(git rev-parse --show-toplevel)) ]; then
+			clear
+			onefetch --no-palette
+			LAST_REPO=$(basename $(git rev-parse --show-toplevel))
+		fi
+	fi
+}
 
 ##### fix pointer with pywal... maybe not needed...
 #PROMPT_COMMAND='printf "\e]112\a"'

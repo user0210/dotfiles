@@ -1,0 +1,33 @@
+ssh-askpass.Dialog.font:					monospace:pixelsize=16
+ssh-askpass.Button.font:					monospace:pixelsize=16
+
+ssh-askpass*foreground:						base05
+ssh-askpass*background:						base01
+ssh-askpass.Indicator.foreground:			base09a
+ssh-askpass.Indicator.background:			base00
+
+ssh-askpass*topShadowColor:					base02
+ssh-askpass*bottomShadowColor:				base00
+
+ssh-askpass.Indicator.topShadowColor:		base02
+ssh-askpass.Indicator.bottomShadowColor:	base01
+
+ssh-askpass*borderColor:					base00
+
+ssh-askpass*shadowThickness:				1
+ssh-askpass.Button.shadowThickness:			1
+ssh-askpass.Indicator.shadowThickness:		1
+
+ssh-askpass*borderWidth:					1
+ssh-askpass.Button.borderWidth:				1
+ssh-askpass.Indicator.borderWidth:			0
+
+ssh-askpass*horizontalSpacing:				8
+ssh-askpass*verticalSpacing:				8
+ssh-askpass.Button.horizontalSpacing:		8
+ssh-askpass.Button.verticalSpacing:			3
+ssh-askpass.Indicator.horizontalSpacing:	4
+ssh-askpass.Indicator.verticalSpacing:		6
+
+ssh-askpass.Indicator.height:				7
+ssh-askpass.Indicator.width:				15

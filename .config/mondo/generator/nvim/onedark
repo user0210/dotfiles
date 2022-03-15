@@ -1,9 +1,9 @@
 base16.setup({
 	base00 = "#282c34",
-	base01 = "#353b45",
-	base02 = "#3e4451",
-	base03 = "#545862",
-	base04 = "#565c64",
+	base01 = "#2C323C",
+	base02 = "#3e4452",
+	base03 = "#4b5263	",
+	base04 = "#979fb0",
 	base05 = "#abb2bf",
 	base06 = "#b6bdca",
 	base07 = "#c8ccd4",
@@ -33,7 +33,7 @@ vim.cmd([[hi! link DiagnosticSignInfo TextGroup]])
 vim.cmd([[hi! link DiagnosticSignHint TextGroup]])
 
 vim.cmd([[hi TabLineSel guibg=#C04C55]])
-vim.cmd([[hi TabLine guibg=#353b45]])
+vim.cmd([[hi TabLine guibg=#2C323C]])
 vim.cmd([[hi CursorLineNr guifg=#c8ccd4 guibg=#282c34 gui=bold]])
 
 vim.cmd([[hi NvimTreeFolderIcon guifg=#61afef]])
@@ -42,12 +42,12 @@ vim.cmd([[hi NvimTreeNormal guifg=#abb2bf guibg=none]])
 vim.cmd([[hi NvimTreeVertSplit guifg=none guibg=none]])
 vim.cmd([[hi NvimTreeFolderName guifg=#61afef guibg=none]])
 vim.cmd([[hi NvimTreeOpenedFolderName guifg=#61afef guibg=none gui=bold,italic]])
-vim.cmd([[hi NvimTreeEmptyFolderName guifg=#565c64 guibg=none gui=italic]])
-vim.cmd([[hi NvimTreeGitIgnored guifg=#565c64 guibg=none gui=italic]])
+vim.cmd([[hi NvimTreeEmptyFolderName guifg=#979fb0 guibg=none gui=italic]])
+vim.cmd([[hi NvimTreeGitIgnored guifg=#979fb0 guibg=none gui=italic]])
 vim.cmd([[hi NvimTreeImageFile guifg=#abb2bf]])
 vim.cmd([[hi NvimTreeSpecialFile guifg=#d19a66]])
 vim.cmd([[hi NvimTreeEndOfBuffer guifg=#282c34 guibg=none]])
-vim.cmd([[hi NvimTreeCursorLine guibg=#353b45]])
+vim.cmd([[hi NvimTreeCursorLine guibg=#2C323C]])
 vim.cmd([[hi NvimTreeGitignoreIcon guifg=#C04C55]])
 vim.cmd([[hi NvimTreeGitStaged guifg=#56b6c2]])
 vim.cmd([[hi NvimTreeGitNew guifg=#56b6c2]])

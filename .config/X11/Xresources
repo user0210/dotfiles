@@ -12,7 +12,7 @@
 ! Xft.dpi: 125.37
 
 ! sets font in sxiv...
-*font: TerminessTTF Nerd Font:pixelsize=16
+*font: monospace:pixelsize=16
 
 ! coursor-theme
 Xcursor.theme: Cursor
@@ -23,13 +23,19 @@ Xcursor.theme: Cursor
 
 *alpha: 0.85
 
-##### main Xres-colors
+! ##### main Xres-colors
 #include "xres-color-def"
 
-##### suckless colors
+! ##### x11-ssh-askpass (before other colors because of bg,fg)
+#include "x11-ssh-askpass"
+
+! ##### suckless colors
+#include "st-color"
 #include "dwm-color"
 #include "dmenu-color"
 #include "xmenu-color"
+
+
 
 !-------------------------------------------------------------------
 ! ---------- usefull stuff -----------------------------------------

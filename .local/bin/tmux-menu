@@ -1,0 +1,22 @@
+#!/bin/sh
+
+menu="\
+[close all terminals]
+[set terminal font]
+[show resources]
+[tmux config]
+"
+
+select=$(printf "${menu}" | tmenu)
+
+if [ '[tmux config]' = "$select" ]; then
+	vim ~/.config/tmux/tmux.conf
+elif [ '[show resources]' = "$select" ]; then
+	tmux send-keys "colortest | less -cR && tput cuu 2" C-m
+elif [ '[close all terminals]' = "$select" ]; then
+	sessions=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | cut -f1 -d':')
+	for s in $sessions
+	do
+	    tmux kill-window -t $s
+	done
+fi

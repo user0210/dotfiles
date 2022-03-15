@@ -7,7 +7,7 @@ XFOLDER=${HOME}/.config/X11/xfiles
 ########################################
 createbasecolors() { ###################
 
-	fileorpath=$2
+	fileorpath=$1
 	for f in $fileorpath; do
 	    col0=$(grep "color0" $2 | grep -o "#......")
 	    col7=$(grep "color7" $2 | grep -o "#......")
@@ -40,7 +40,7 @@ createbasecolors() { ###################
 ########################################
 createdarkcolors() { ###################
 
-	fileorpath=$2
+	fileorpath=$1
 	for f in $fileorpath; do
 	    col0=$(grep "^base00" $f | grep -o "#......")
 	    col8=$(grep "^base08" $f | grep -o "#......")
@@ -71,24 +71,14 @@ createdarkcolors() { ###################
 	        colEa=$(colort -l 32 $colE)
 	        colFa=$(colort -l 32 $colF)
 	    fi
-		# echo...
-	    echo "base8a : $colFa"
-	    echo "base9a : $colEa"
-	    echo "baseAa : $colDa"
-	    echo "baseBa : $colCa"
-	    echo "baseCa : $colBa"
-	    echo "baseDa : $colAa"
-	    echo "baseEa : $col9a"
-	    echo "baseFa : $col8a"
-		# print directly to file...
-	    #sed -i "21i\base0Fa\t$colFa" $f
-	    #sed -i "21i\base0Ea\t$colEa" $f
-	    #sed -i "21i\base0Da\t$colDa" $f
-	    #sed -i "21i\base0Ca\t$colCa" $f
-	    #sed -i "21i\base0Ba\t$colBa" $f
-	    #sed -i "21i\base0Aa\t$colAa" $f
-	    #sed -i "21i\base09a\t$col9a" $f
-	    #sed -i "21i\base08a\t$col8a" $f
+	    echo "base08a : $col8a"
+	    echo "base09a : $col9a"
+	    echo "base0Aa : $colAa"
+	    echo "base0Ba : $colBa"
+	    echo "base0Ca : $colCa"
+	    echo "base0Da : $colDa"
+	    echo "base0Ea : $colEa"
+	    echo "base0Fa : $colFa"
 	done
 }
 
@@ -96,15 +86,13 @@ createdarkcolors() { ###################
 ########################################
 setwallpaper() { #######################
 
-	wallpaper=$(sxiv -d -N wallman -to ${XFOLDER}/background/wallpapers | head -n 1)
+	wallpaper=$(nsxiv -d -N wallman -to ${XFOLDER}/background/wallpapers | head -n 1)
 	if [ -z "$wallpaper" ] ;then
 		echo "nothing"
 	else
-		killall gifview 2> /dev/null
-		echo $wallpaper > ${XFOLDER}/templer/wallpaper
-		echo "no gif" > ${XFOLDER}/templer/gif
-		hsetroot -fill $(cat ${XFOLDER}/templer/wallpaper)
-		sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat ${HOME}\/.config\/X11\/xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
+		cleanup
+		hsetroot -fill $wallpaper
+		sed -i "s|^hsetroot.*|hsetroot -fill $wallpaper|g" ${HOME}/.local/bin/dwm-starter
 		sed -i "s/^corner-radius = .*/corner-radius = 5;/g" ~/.config/picom/picom.conf
 	fi
 }
@@ -117,31 +105,15 @@ setxresources() { ######################
 	if [ -z "$theme" ] ;then
 		echo "nothing"
 	else
-		killall gifview 2> /dev/null
-		echo "no gif" > ${XFOLDER}/templer/gif
+		cleanup
 		mondo -a $theme
-		# convert ${XFOLDER}/background/bitmap-walls/patterns/dots_wide.xbm \
-		#	-fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" \
-		#	-fill "$(xrdb -query|awk '/\*color18:/ {print $2}')" +opaque "#ffffff" \
-		#	${XFOLDER}/background/png-walls/dots8.png
 		convert ${XFOLDER}/background/bitmap-walls/patterns/dots_wide.xbm \
-			-fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#000000" \
-			-fill "$(xrdb -query|awk '/\*color0:/ {print $2}')" +opaque "#ffffff" \
-			${XFOLDER}/background/png-walls/dots8.png
-		convert ${XFOLDER}/background/png-walls/dots8.png \
-			-fill "$(xrdb -query|awk '/\*color20:/ {print $2}')" -opaque "#ffffff" \
-			${XFOLDER}/background/png-walls/dots16.png
-		hsetroot -tile ${XFOLDER}/background/png-walls/dots16.png
+			-fill "$(xrdb -query|awk '/\*color0:/ {print $2}')" -opaque "#000000" \
+			-fill "$(xrdb -query|awk '/\*color8:/ {print $2}')" -opaque "#ffffff" \
+			${XFOLDER}/background/png-walls/xbm.png
+		hsetroot -tile ${XFOLDER}/background/png-walls/xbm.png
 	
-		# xsetroot -bitmap ${XFOLDER}/background/bitmap-walls/patterns/dots_wide.xbm \
-		#	-fg "$(xrdb -query|awk '/\*color18:/ {print $2}')" \
-		#	-bg "$(xrdb -query|awk '/\*color20:/ {print $2}')"
-		# xsetroot -solid "$(xrdb -query|awk '/\*color0:/ {print $2}')"
-		# xsetroot -bitmap ${XFOLDER}/background/bitmap-walls/patterns/line_diag8_1.xbm \
-		#	-bg "$(xrdb -query|awk '/\*color18:/ {print $2}')" \
-		#	-fg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
-	
-		sed -i "s/^hsetroot -fill.*/hsetroot -tile \${HOME}\/.config\/X11\/xfiles\/background\/png-walls\/dots16\.png/g" ~/.local/bin/dwm-starter
+		sed -i "s/^hsetroot -fill.*/hsetroot -tile \${HOME}\/.config\/X11\/xfiles\/background\/png-walls\/xbm\.png/g" ~/.local/bin/dwm-starter
 		sed -i "s/^corner-radius = .*/corner-radius = 0;/g" ~/.config/picom/picom.conf
 	fi
 }
@@ -209,6 +181,17 @@ generatesample() { #####################
 
 
 ########################################
+cleanup() { ############################
+
+	killall gifview 2> /dev/null
+	sed -i '/gifview/ s/^#*/#/' ${HOME}/.local/bin/dwm-starter
+	rm ${XFOLDER}/templer/samples/* 2> /dev/null
+	rm ${XFOLDER}/templer/schemes/* 2> /dev/null
+	rm ${HOME}/.config/mondo/themes/templer 2> /dev/null
+}
+
+
+########################################
 colorsplitter() { ######################
 
 	colors=$(echo $scheme | cut -d' ' -f $1)
@@ -236,6 +219,7 @@ colorshift() { #########################
 ########################################
 colorgenerator_1() { ###################
 
+	simple=0 # TODO: do something with this!
 	if [[ "schemer" == "$1" ]]; then ##  SCHEMER 2  ##
 		echo "schemer does his job"
 		scheme=$(schemer2 --threshold 50 -minBright 70 -maxBright 90 -format img::colors -in $wallpaper)
@@ -410,7 +394,7 @@ colorgenerator_2() { ###################
 	
 	n=$(echo $scheme | wc -w)
 	if [ "$n" -lt 8 ]; then
-		continue
+		return
 	elif [ "$n" -eq 8 ]; then
 		colorsplitter "1-8" "null"
 	elif [ "$n" -eq 9  ]; then
@@ -436,28 +420,28 @@ colorgenerator_2() { ###################
 ########################################
 setwallpapercolors() { #################
 
-	rm ${XFOLDER}/templer/schemes/* 2> /dev/null
-	rm ${XFOLDER}/templer/samples/* 2> /dev/null
+	cleanup
 
 	if [ '[wallpaper-theme]' = "$1" ]; then
-		wallpaper=$(sxiv -d -N wallman -to ${XFOLDER}/background/wallpapers | head -n 1)
+		wallpaper=$(nsxiv -d -N wallman -to ${XFOLDER}/background/wallpapers | head -n 1)
 	else
-		wallpaper=$(sxiv -d -N wallman -to $(find ${XFOLDER}/background/paperview -name "image*") | head -n 1)
+		wallpaper=$(nsxiv -d -N wallman -to $(find ${XFOLDER}/background/paperview -name "image*") | head -n 1)
+		gif=$(sed "s/\image.jpg$/1366x768.gif/" <<<"$wallpaper")
 	fi
 
-	if [ -z "$wallpaper" ] ;then
-		echo "no wallpaper choosen -> abort"
-		return
+	if [ -z "$wallpaper" ]; then
+		echo "no wallpaper choosen -> abort"; return
+	else
+		hsetroot -fill $wallpaper
+	fi
+
+	if [ ! -z "$gif" ]; then
+		sed -i "/gifview/ s|.*|nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $gif -a &|" ${HOME}/.local/bin/dwm-starter
+		nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $gif -a &
 	fi
 	
-	theme="templer"
-	simple=0
-	backendlist="\
-	 schemer\
-	 convert\
-	 colorz\
-	 pigmnts\
-	"
+	## create backend... 
+	backendlist="schemer convert colorz pigmnts" # backends: schemer, convert, colorz, pigmnts
 	echo "$backendlist" | tr ' ' '\n' | while read backend; do
 		if [[ "schemer" == "$backend" ]] || [[ "colorz" == "$backend" ]]; then
 			colorgenerator_1 $backend
@@ -469,33 +453,21 @@ setwallpapercolors() { #################
 	done
 
 	## choose backend... 
-	backend=$(sxiv -d -N wallman -to ${XFOLDER}/templer/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
-
+	backend=$(nsxiv -d -N wallman -to ${XFOLDER}/templer/samples/* | head -n 1 | sed "s/.*\///" | sed "s/\.png$//")
 	if [ -z "$backend" ] ;then
-		echo "no backend choosen -> abort"
-		return
+		echo "no backend choosen -> abort"; return
 	fi
-	
-	backend="$backend"".sh"
 
 	## connect color-theme to mondo...
-	rm ${HOME}/.config/mondo/themes/templer 2> /dev/null
-	ln -s ${XFOLDER}/templer/schemes/$backend ${HOME}/.config/mondo/themes/templer
+	ln -fs ${XFOLDER}/templer/schemes/$backend".sh" ${HOME}/.config/mondo/themes/templer
 	mondo -f -g templer
 
-	## set wallpaper
-	killall gifview 2> /dev/null
-	echo $wallpaper > ${XFOLDER}/templer/wallpaper
-	echo $wallpaper | sed "s/\image.jpg$/1366x768.gif/" > ${XFOLDER}/templer/gif
-	sed -i "s/^hsetroot.*/hsetroot -fill \$\(cat \${HOME}\/.config\/X11\/xfiles\/templer\/wallpaper\)/g" ${HOME}/.local/bin/dwm-starter
-	hsetroot -fill $(cat ${XFOLDER}/templer/wallpaper)
-	if [[ "[paperview]" = "$1" ]]; then
-		nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${XFOLDER}/templer/gif) -a &
-	fi
+	## make wallpaper permanent
+	sed -i "s|^hsetroot.*|hsetroot -fill $wallpaper|g" ${HOME}/.local/bin/dwm-starter
 	sed -i "s/^corner-radius = .*/corner-radius = 5;/g" ~/.config/picom/picom.conf
 
 	## apply theme on templates
-	mondo -a $theme
+	mondo -a templer
 }
 
 
@@ -525,7 +497,7 @@ templer_menu() { #######################
 
 
 case "$1" in
-	color)	createdarkcolors ;;
-	base)	createbasecolors ;;
+	color)	createdarkcolors $2 ;;
+	base)	createbasecolors $2 ;;
 	*)		templer_menu ;;
 esac

@@ -2,8 +2,8 @@
 
 cat <<EOF | xmenu | sh &
 Applications
-	IMG:${HOME}/.config/X11/xfiles/icons/web-browser-symbolic.png		Browser			firefox
-	IMG:${HOME}/.config/X11/xfiles/icons/sidebar-places-symbolic.png	Filemanager		pcmanfm
+	IMG:${HOME}/.local/share/icons/generic/apps/scalable/web-browser-symbolic.svg		Browser			firefox
+	IMG:${HOME}/.local/share/icons/generic/actions/scalable/sidebar-places-symbolic.svg	Filemanager		pcmanfm
 
 Terminal (st)		st
 

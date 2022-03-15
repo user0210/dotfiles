@@ -1,13 +1,8 @@
 #!/bin/sh
 
  ## wallpaper
-#xsetroot -solid "$(xrdb -query|awk '/\*color0:/ {print $2}')"
-#xsetroot -bitmap ${HOME}/.config/X11/xfiles/background/bitmap-walls/patterns/line_diag8_1.xbm -bg "$(xrdb -query|awk '/\*color18:/ {print $2}')" -fg "$(xrdb -query|awk '/\*color8:/ {print $2}')"
-#display -resize 1366x768\! -window root ${HOME}/.config/X11/xfiles/background/wallpapers/fractals-leaf-caro.jpg
-#display -size 1366x768 -window root ${HOME}/.config/X11/xfiles/background/bitmap-walls/patterns/dots_wide.xbm
-#hsetroot -tile ${HOME}/.config/X11/xfiles/background/png-walls/dots16.png
-hsetroot -fill $(cat ${HOME}/.config/X11/xfiles/templer/wallpaper)
-nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${HOME}/.config/X11/xfiles/templer/gif) -a 2> /dev/null &
+hsetroot -fill /home/philipp/.config/X11/xfiles/background/wallpapers/hopper.jpg
+#nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID /home/philipp/.config/X11/xfiles/background/paperview/gif8/1366x768.gif -a #nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${HOME}/.config/X11/xfiles/templer/gif) -a 2> /dev/null &
 
  ## compositor
 picom --experimental-backends --blur-method dual_kawase &

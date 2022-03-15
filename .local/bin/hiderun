@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Move cursor up one line.
+tput cuu 2
+# Save cursor position.
+tput sc
+# Execute the given command.
+"$@"
+# Restore the cursor position.
+tput rc
+# Clear to the end of the screen.
+tput ed

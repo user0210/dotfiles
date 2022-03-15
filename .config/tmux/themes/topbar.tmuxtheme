@@ -4,19 +4,19 @@ set -g status-position top
 set -g status-justify centre
 
 set -g status-left "#{prefix_highlight}"
-set -g status-left-length 20
+set -g status-left-length 15
 
 set -g window-status-current-style "bold"
 set -g window-status-style "nobold"
-set -g window-status-format "#{?window_zoomed_flag,▹ ,⚬ }#T#{?window_zoomed_flag, ◃ ,  }"
-set -g window-status-current-format "#{?window_zoomed_flag,▸ ,⦁ }#T#{?window_zoomed_flag, ◂ ,  }"
-set -g window-status-separator ""
+set -g window-status-format "#{?window_zoomed_flag,▹ ,⚬ }#T#{?window_zoomed_flag, ◃, }"
+set -g window-status-current-format "#{?window_zoomed_flag,▸ ,⦁ }#T#{?window_zoomed_flag, ◂, }"
+set -g window-status-separator "  "
 
 set -g window-status-activity-style 'bg=default fg=Color1'
 set -g window-status-bell-style 'bg=default'
 
-#set -g pane-border-format "#[fg=Color8][#P]" 
-set -g pane-border-style fg=Color8,bg=Color8
+#set -g pane-border-format "#[fg=Color19][#P]" 
+set -g pane-border-style fg=Color19,bg=Color19
 set -g pane-active-border-style fg=Color20,bg=Color20
 
 
@@ -31,19 +31,19 @@ bind -n M-b set -g status
 set -g @prefix_highlight_fg 'default'
 set -g @prefix_highlight_bg 'Color4'
 set -g @prefix_highlight_prefix_prompt \
-	'#[bold] >_  #[nobold][prefix] #[fg=Color20]░▒▓'
+	'#[bold fg=Color7] >_ #[nobold][tmux] #[fg=Color20] ░▒▓'
 set -g @prefix_highlight_show_sync_mode 'on'
-set -g @prefix_highlight_sync_mode_attr 'bg=Color3'
+set -g @prefix_highlight_sync_mode_attr 'bg=Color2 fg=Color7'
 set -g @prefix_highlight_sync_prompt \
-	'#[bold] >_  #[nobold][sync] #[fg=Color20]░▒▓'
+	'#[bold] >_ #[nobold][sync] #[fg=Color20] ░▒▓'
 set -g @prefix_highlight_show_copy_mode 'on'
-set -g @prefix_highlight_copy_mode_attr 'bg=Color3'
+set -g @prefix_highlight_copy_mode_attr 'bg=Color2 fg=Color7'
 set -g @prefix_highlight_copy_prompt \
-	'#[bold] >_  #[nobold][copy] #[fg=Color20]░▒▓'
+	'#[bold] >_ #[nobold][mode] #[fg=Color20] ░▒▓'
 set -g @prefix_highlight_empty_has_affixes 'on'
 set -g @prefix_highlight_empty_attr 'bg=Color1'
 set -g @prefix_highlight_empty_prompt \
-	'#[bg=default fg=default bold] >_  '
+	'#[bg=default bold] >_            '
 set -g @prefix_highlight_output_prefix '#[]'
 set -g @prefix_highlight_output_suffix '#[]'
 
@@ -52,12 +52,12 @@ set -g @prefix_highlight_output_suffix '#[]'
 
 set-hook -g client-focus-out \
 "\
-	set -w status-style 'bg=Color8 fg=Color00' \;\
-	set -w status-right '#[bold]   #S :: #P   #[fg=Color8 bg=Color0]▓▒░' \
+	set -w status-style 'bg=Color19 fg=Color00' \;\
+	set -w status-right '#[nobold]   #S :: #P   #[fg=Color19 bg=Color0]▓▒░' \
 "
 
 set-hook -g client-focus-in \
 "\
 	set -w status-style 'bg=Color20 fg=Color00' \;\
-	set -w status-right '#[bold]   #S :: #P   #[fg=Color20 bg=Color0]▓▒░' \
+	set -w status-right '#[nobold]   #S :: #P   #[fg=Color20 bg=Color0]▓▒░' \
 "

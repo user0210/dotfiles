@@ -1,4 +1,3 @@
-xmenu.font				: TerminessTTF Nerd Font:pixelsize=16
 xmenu.gap				: 2
 xmenu.width				: 100
 xmenu.height			: 20

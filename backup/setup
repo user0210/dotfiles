@@ -253,14 +253,14 @@ EDITOR=nvim visudo
 ####################################
 
 sudo pacman -S git dmenu libx11 imlib2 libxft libxinerama slop ## dwm
-sudo pacman -S libexif librsvg ## sxiv
+sudo pacman -S libexif librsvg ## nsxiv
 
 # !!! if you have your ssh-key thats stored in github use the ssh-locations instead of the http stuff
 git clone http://github.com/user0210/dwm
 git clone http://github.com/user0210/dwmblocks
 git clone http://github.com/user0210/st
 git clone http://github.com/user0210/dmenu
-git clone http://github.com/user0210/sxiv
+git clone http://github.com/user0210/nsxiv
 
 # or download original and then yours:
 git remote add myorigin http://github.com/user0210/XXXXXX.git
@@ -276,9 +276,9 @@ sudo ln -s ~/.local/src/dmenu/dmenu_run /usr/local/bin/dmenu_run
 sudo ln -s ~/.local/src/dmenu/dmenu_path /usr/local/bin/dmenu_path
 sudo ln -s ~/.local/src/dwmblocks/dwmblocks /usr/local/bin/dwmblocks
 sudo ln -s ~/.local/src/dwmblocks/internetav /usr/local/bin/internetav
-sudo ln -s ~/.local/src/sxiv/sxiv /usr/local/bin/sxiv
-sudo ln -s ~/.local/src/sxiv/sxiv.desktop /usr/share/applications/sxiv.desktop
-ln -s ~/.local/src/sxiv/sxiv.desktop ~/.local/share/applications/sxiv.desktop
+sudo ln -s ~/.local/src/nsxiv/nsxiv /usr/local/bin/nsxiv
+sudo ln -s ~/.local/src/nsxiv/nsxiv.desktop /usr/share/applications/nsxiv.desktop
+ln -s ~/.local/src/nsxiv/nsxiv.desktop ~/.local/share/applications/nsxiv.desktop
 
 # dwmblock-dependencies and settings: see "backlight control" "add program to sudoers to run without passord"
 
@@ -502,9 +502,9 @@ Example to open all .pdf files in apvlv:
 /usr/bin/vendor_perl/mimeopen -d $file.pdf
 and then, at the prompt, enter the application: apvlv.
 
--->Example to open all .jpg files in sxiv:
+-->Example to open all .jpg files in nsxiv:
     /usr/bin/vendor_perl/mimeopen -d $file.jpg
-        -->sxiv
+        -->nsxiv
 (new defaults are now also in /home/philipp/.local/share/applications/mimeapps.list)
 
 
@@ -515,22 +515,16 @@ and then, at the prompt, enter the application: apvlv.
   ## yay
 mondo-generator xbanish thinkpad-scripts xmenu
 timeshift systemd-boot-pacman-hook ytfzf
-cbonsai gtkrc-reload pscircle tiramisu-git chromium-widevine
+cbonsai gtkrc-reload pscircle tiramisu-git chromium-widevine libsixel
 
   ## pacman
 network-manager-applet polkit-gnome fzf youtube-dl mpv xsel usbutils tor figlet tree ncdu htop ps_mem xdotool wget xclip imagemagick hsetroot
 xdg-utils playerctl calcurse p7zip xsettingsd gifsicle xorg-xclock zip unzip mlocate ntfs-3g maim
+x11-ssh-askpass onefetch
 
   ## clipmenu
 sudo pacman -S clipmenu
 systemctl --user enable clipmenud
-
-  ## for dmenumount (l.smith)
-# get the scripts
-yay simple-mtpfs
-pacman -S x11-ssh-askpass
-vim .profile
-	export SUDO_ASKPASS="/usr/lib/ssh/ssh-askpass"
 
   ## color-picker....
 yay colorz python-colorthief python-haishoku
@@ -557,7 +551,7 @@ sudo chmod +x /usr/local/bin/qutebrowser
 :set content.blocking.method both
 
   ## pcmanfm
-sudo pacman -S pcmanfm-gtk3 gvfs xarchiver lxmenu-data
+sudo pacman -S pcmanfm-gtk3 gvfs gvfs-mtp xarchiver lxmenu-data
 terminal --> st -u -e bash --rcfile ~/.config/tmux/shell/stmux/.zshrc
 chmod 640 ~/.config/libfm/libfm.conf ##see archwiki
 # to update the menus

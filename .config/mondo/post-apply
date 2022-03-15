@@ -46,13 +46,14 @@ tmux source-file -q ~/.tmux.conf
 ##### set gtk- and icon- theme
 ####################################################
 
-~/.local/src/materia-gtk/change_color.sh -o Templer <(cat ~/.local/src/materia-gtk/colors)
+~/.local/src/materia-gtk/change_color.sh -o Templer <(cat ~/.local/src/materia-gtk/colors) &> /dev/null
 
   ## copy template-icons and set new color
 ICON=$(xrdb -query|awk '/\*color19:/ {print $2}')
 ICONBAR=$(xrdb -query|awk '/\*color3:/ {print $2}')
 
   ## create generic iconset for xmenu and stuff
+mkdir ~/.local/share/icons/generic 2> /dev/null
 cp -rf ~/.config/X11/xfiles/icons/generic/* ~/.local/share/icons/generic
 find ~/.local/share/icons/generic/status/scalable/ -type f -exec sed -i "s/MAINCOLOR/$ICONBAR/g" {} +
 find ~/.local/share/icons/generic/ -type f -exec sed -i "s/MAINCOLOR/$ICON/g" {} +
@@ -68,10 +69,6 @@ else
 fi
 cp -f ~/.config/X11/xfiles/icons/default/* ~/.local/share/icons/Templer/scalable/places
 find ~/.local/share/icons/Templer/scalable/places -type f -name "*.svg" -exec sed -i "s/DEFAULT_COLOUR/$(mondo get base0D)/g" {} +
-
-  ## set xmenu icons
-convert -size 16x16 -background none ~/.local/share/icons/generic/apps/scalable/web-browser-symbolic.svg ~/.config/X11/xfiles/icons/web-browser-symbolic.png
-convert -size 16x16 -background none ~/.local/share/icons/generic/actions/scalable/sidebar-places-symbolic.svg ~/.config/X11/xfiles/icons/sidebar-places-symbolic.png
 
   ## apply gtk-theme on the fly
 xsettingsd -c ~/.config/X11/xsettingsd &

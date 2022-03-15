@@ -3,10 +3,10 @@
 !
 
 #define base00 #282c34
-#define base01 #353b45
-#define base02 #3e4451
-#define base03 #545862
-#define base04 #565c64
+#define base01 #2C323C
+#define base02 #3e4452
+#define base03 #4b5263	
+#define base04 #979fb0
 #define base05 #abb2bf
 #define base06 #b6bdca
 #define base07 #c8ccd4
@@ -29,11 +29,7 @@
 #define base0Fa #9E3026
 
 *foreground:   base05
-#ifdef background_opacity
-*background:   [background_opacity]base00
-#else
 *background:   base00
-#endif
 *cursorColor:  base07
 
 *color0:       base00
