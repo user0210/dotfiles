@@ -15,6 +15,13 @@
 	croc
 
 
+##### tty mouse-cursor
+#################################
+
+sudo pacman -S gpm
+sudo systemctl start gpm.service
+
+
 ##### minecraft-server setup
 #################################
 
@@ -520,7 +527,9 @@ cbonsai gtkrc-reload pscircle tiramisu-git chromium-widevine libsixel
   ## pacman
 network-manager-applet polkit-gnome fzf youtube-dl mpv xsel usbutils tor figlet tree ncdu htop ps_mem xdotool wget xclip imagemagick hsetroot
 xdg-utils playerctl calcurse p7zip xsettingsd gifsicle xorg-xclock zip unzip mlocate ntfs-3g maim
-x11-ssh-askpass onefetch
+x11-ssh-askpass onefetch moreutils broot
+
+pandoc or pandoc-bin (without hascel stuff)
 
   ## clipmenu
 sudo pacman -S clipmenu
@@ -643,8 +652,26 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 
 
+  ## lf 
+yay lf-bin atool
+sudo pacman -S rsync
+# media preview
+yay stpv
+sudo pacman -S perl-image-exiftool
+sudo pacman -S mediainfo poppler highlight
+# fix top padding with tmux-topbar
+sudo vim /usr/bin/stpvimg
+add() {
+	F="$1"; X="$2"; Y="$3"; W="$4"; H="$5"
+	if [ "$(tmux show-option -gv status 2> /dev/null)" = on ]; then
+		Y=$((Y+1))
+		W=$((W-1))
+	fi
+
+
   ## ranger
-sudo pacman -S ranger atool mediainfo w3m poppler highlight ueberzug
+sudo pacman -S ranger mediainfo w3m poppler highlight ueberzug
+yay atool
 # install devicons
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 # get config from dotfiles or generate new....

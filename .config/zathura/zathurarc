@@ -18,43 +18,43 @@ set font "TerminessTTF Nerd Font 12"
 # MONDO-BEGIN
 
 ##### templer-colors
-set notification-error-bg	"#111111"	# bg
-set notification-error-fg	"#c59ba0"	# bright:red
-set notification-warning-bg	"#111111"	# bg
-set notification-warning-fg	"#97b1a6"	# bright:yellow
-set notification-bg			"#111111"	# bg
-set notification-fg			"#76aab1"	# bright:green
+set notification-error-bg	"#131313"	# bg
+set notification-error-fg	"#c8a4ae"	# bright:red
+set notification-warning-bg	"#131313"	# bg
+set notification-warning-fg	"#8eb098"	# bright:yellow
+set notification-bg			"#131313"	# bg
+set notification-fg			"#82abb0"	# bright:green
 
-set completion-bg			"#555555"	# bg2
+set completion-bg			"#565656"	# bg2
 set completion-fg			"#dddddd"	# fg
-set completion-group-bg		"#333333"	# bg1
-set completion-group-fg		"#999999"	# gray
-set completion-highlight-bg	"#8aa8c5"	# bright:blue
-set completion-highlight-fg	"#555555"	# bg2
+set completion-group-bg		"#353535"	# bg1
+set completion-group-fg		"#9a9a9a"	# gray
+set completion-highlight-bg	"#8caac5"	# bright:blue
+set completion-highlight-fg	"#565656"	# bg2
 
 # Define the color in index mode
-set index-bg				"#555555"	# bg2
+set index-bg				"#565656"	# bg2
 set index-fg				"#dddddd"	# fg
-set index-active-bg			"#8aa8c5"	# bright:blue
-set index-active-fg			"#555555"	# bg2
+set index-active-bg			"#8caac5"	# bright:blue
+set index-active-fg			"#565656"	# bg2
 
-set inputbar-bg				"#111111"	# bg
+set inputbar-bg				"#131313"	# bg
 set inputbar-fg				"#dddddd"	# fg
 
-set statusbar-bg			"#555555"	# bg2
+set statusbar-bg			"#565656"	# bg2
 set statusbar-fg			"#dddddd"	# fg
 
-set highlight-color			"#97b1a6"	# bright:yellow
-set highlight-active-color	"#a6ae90"	# bright:orange
+set highlight-color			"#8eb098"	# bright:yellow
+set highlight-active-color	"#afaa82"	# bright:orange
 
-set default-bg				"#111111"	# bg
+set default-bg				"#131313"	# bg
 set default-fg				"#dddddd"	# fg
 set render-loading			true
-set render-loading-bg		"#111111"	# bg
+set render-loading-bg		"#131313"	# bg
 set render-loading-fg		"#dddddd"	# fg
 
 # Recolor book content's color
-set recolor-lightcolor		"#111111"	# bg
+set recolor-lightcolor		"#131313"	# bg
 set recolor-darkcolor		"#dddddd"	# fg
 set recolor					true
 set recolor-keephue			true			# keep original color

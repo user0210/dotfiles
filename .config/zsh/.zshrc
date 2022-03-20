@@ -15,6 +15,7 @@ source ~/.profile
 
   ## allow comments in the shell
 setopt interactive_comments
+PROMPT_EOL_MARK=''
 
   ## remove acationally % at end of line
 unsetopt prompt_cr prompt_sp

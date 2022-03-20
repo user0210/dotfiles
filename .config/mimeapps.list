@@ -23,3 +23,6 @@ image/x-xpixmap=nsxiv.desktop;
 image/webp=nsxiv.desktop;
 image/svg+xml=nsxiv.desktop;
 inode/directory=ranger.desktop;
+
+[Added Associations]
+text/plain=nvim.desktop;

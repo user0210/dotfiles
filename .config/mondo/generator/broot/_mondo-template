@@ -1,0 +1,67 @@
+	skin: {
+		# default: %%base06%% none / %%base04%% none
+		default: %%base06%% none / %%base04%% %%base00%%
+	    tree: %%base04%% None / %%base03%% None
+	    parent: %%base06%% none / %%base04%% none Italic
+	    file: None None / None  None Italic
+	    directory: %%base0D%% None Bold / %%base0D%% None
+	    exe: %%base0B%% None
+	    link: %%base0Ca%% None
+	    pruning: %%base03%% None Italic
+	    perm__: None None
+	    perm_r: %%base0Aa%% None
+	    perm_w: %%base08a%% None
+	    perm_x: %%base0Ba%% None
+	    owner: %%base0Aa%% None Bold
+	    group: %%base0Aa%% None
+	    count: %%base0Da%% %%base01%%
+	    dates: %%base04%% None
+	    sparse: %%base0A%% None
+	    content_extract: ansi(29) None Italic
+	    content_match: ansi(34) None Bold
+	    git_branch: %%base07%% None
+	    git_insertions: %%base0Ba%% None
+	    git_deletions: %%base0Fa%% None
+	    git_status_current: %%base01%% None
+	    git_status_modified: %%base0Ba%% None
+	    git_status_new: %%base0B%% None Bold
+	    git_status_ignored: %%base05%% None
+	    git_status_conflicted: %%base08a%% None
+	    git_status_other: %%base08a%% None
+	    selected_line: None %%base01%% / None %%base02%%
+	    char_match: %%base0A%% None
+	    file_error: %%base08%% None
+	    flag_label: %%base04%% None
+	    flag_value: %%base0E%% None Bold
+	    input: %%base07%% None / %%base04%% None Italic
+	    status_error: %%base05%% %%base08a%%
+	    status_job: %%base0A%% %%base01%%
+	    status_normal: None %%base00%% / None None
+	    status_italic: %%base0E%% %%base00%% Italic / None None
+	    status_bold: %%base0E%% %%base00%% Bold / None None
+	    status_code: %%base07%% %%base00%% / None None
+	    status_ellipsis: %%base07%% %%base00%%  Bold / None None
+	    purpose_normal: None None
+	    purpose_italic: %%base0Ea%% None Italic
+	    purpose_bold: %%base0Ea%% None Bold
+	    purpose_ellipsis: None None
+	    scrollbar_track: %%base02%% None / %%base01%% None
+	    scrollbar_thumb: %%base05%% None / %%base03%% None
+	    help_paragraph: None None
+	    help_bold: %%base0F%% None Bold
+	    help_italic: %%base0E%% None Italic
+	    help_code: %%base0C%% %%base01%%
+	    help_headers: %%base09%% None Bold
+	    help_table_border: %%base02%% None
+	    preview_title: %%base06%% %%base00%% / %%base04%% %%base00%%
+	    preview: %%base06%% %%base00%% / %%base06%% %%base00%%
+	    preview_line_number: %%base03%% None / %%base03%% %%base00%%
+	    preview_match: None ansi(29) Bold
+	    hex_null: %%base04%% None
+	    hex_ascii_graphic: %%base05%% None
+	    hex_ascii_whitespace: %%base0Ba%% None
+	    hex_ascii_other: %%base09%% None
+	    hex_non_ascii: %%base0F%% None
+	    staging_area_title: %%base06%% %%base00%% / %%base04%% %%base00%%
+	    mode_command_mark: gray(5) ansi(204) Bold
+	}

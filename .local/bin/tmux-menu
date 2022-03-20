@@ -10,13 +10,14 @@ menu="\
 select=$(printf "${menu}" | tmenu)
 
 if [ '[tmux config]' = "$select" ]; then
-	vim ~/.config/tmux/tmux.conf
+	tmux send-keys "tput sc && vim ~/.config/tmux/tmux.conf && tput rc && tput cuu 2" C-m
 elif [ '[show resources]' = "$select" ]; then
-	tmux send-keys "colortest | less -cR && tput cuu 2" C-m
+	tmux send-keys "tput sc && colortest | less -cR && tput rc && tput cuu 2" C-m
 elif [ '[close all terminals]' = "$select" ]; then
 	sessions=$(tmux ls 2> /dev/null | grep '^[1-9]\+:' | cut -f1 -d':')
 	for s in $sessions
 	do
+		tmux detach-client -P -s $s
 	    tmux kill-window -t $s
 	done
 fi

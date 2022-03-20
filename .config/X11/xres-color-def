@@ -2,31 +2,31 @@
 ! Xresources color definitions
 !
 
-#define base00 #111111
-#define base01 #333333
-#define base02 #555555
-#define base03 #777777
-#define base04 #999999
-#define base05 #bbbbbb
+#define base00 #131313
+#define base01 #353535
+#define base02 #565656
+#define base03 #787878
+#define base04 #9a9a9a
+#define base05 #bcbcbc
 #define base06 #dddddd
 #define base07 #ffffff
-#define base08 #c59ba0
-#define base09 #a6ae90
-#define base0A #97b1a6
-#define base0B #76aab1
-#define base0C #87a6b2
-#define base0D #8aa8c5
+#define base08 #c8a4ae
+#define base09 #afaa82
+#define base0A #8eb098
+#define base0B #82abb0
+#define base0C #95adb4
+#define base0D #8caac5
 #define base0E #8698c8
-#define base0F #b3949f
+#define base0F #c6abb7
 
-#define base08a #ab6973
-#define base09a #808d66
-#define base0Aa #6c8f83
-#define base0Ba #4f838d
-#define base0Ca #6b8694
-#define base0Da #5681ac
+#define base08a #aa767f
+#define base09a #8b865a
+#define base0Aa #638e71
+#define base0Ba #59878d
+#define base0Ca #6a8793
+#define base0Da #5a85ac
 #define base0Ea #41568d
-#define base0Fa #92697b
+#define base0Fa #a87e8f
 
 *foreground:   base05
 *background:   base00

@@ -8,6 +8,7 @@
 
 ##### Settings
 ##################################################################
+
 ##### add ~/.local/bin to PATH
 path_prepend() {
     for arg in "$@"; do
@@ -39,6 +40,12 @@ cd() {
 		fi
 	fi
 }
+
+##### set lf icons
+[ -f "$HOME/.config/lf/icons" ] && source "$HOME/.config/lf/icons"
+
+##### broot
+source "$HOME/.config/broot/launcher/shell/br"
 
 ##### fix pointer with pywal... maybe not needed...
 #PROMPT_COMMAND='printf "\e]112\a"'
@@ -113,7 +120,8 @@ alias xclip="xclip -b"
 alias multimc="multimc --platformtheme qt5ct"
 alias mimeopen="mimeopen -d"
 alias dosbox="dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf"
-alias yt='ytfzf -ft'
+alias yt="ytfzf -ft"
+alias mc="tmux splitw -l 58% -h bash -ic 'lf -config ~/.config/lf/mc1'; lf -config ~/.config/lf/mc2 && tmux lastp -Z 2> /dev/null \; resize-pane -Z"
 ## pkexec as gksudo replacement
 alias pkexec="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY"
 # enable color support of ls and also add handy aliases
