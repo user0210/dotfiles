@@ -271,70 +271,70 @@
 
 	# MONDO-BEGIN
 	skin: {
-		# default: rgb(221, 221, 221) none / rgb(154, 154, 154) none
-		default: rgb(221, 221, 221) none / rgb(154, 154, 154) rgb(19, 19, 19)
-	    tree: rgb(154, 154, 154) None / rgb(120, 120, 120) None
-	    parent: rgb(221, 221, 221) none / rgb(154, 154, 154) none Italic
+		# default: rgb(221, 221, 221) none / rgb(152, 152, 152) none
+		default: rgb(221, 221, 221) none / rgb(152, 152, 152) rgb(15, 15, 15)
+	    tree: rgb(152, 152, 152) None / rgb(118, 118, 118) None
+	    parent: rgb(221, 221, 221) none / rgb(152, 152, 152) none Italic
 	    file: None None / None  None Italic
-	    directory: rgb(140, 170, 197) None Bold / rgb(140, 170, 197) None
-	    exe: rgb(130, 171, 176) None
-	    link: rgb(106, 135, 147) None
-	    pruning: rgb(120, 120, 120) None Italic
+	    directory: rgb(83, 169, 208) None Bold / rgb(83, 169, 208) None
+	    exe: rgb(129, 170, 179) None
+	    link: rgb(51, 142, 175) None
+	    pruning: rgb(118, 118, 118) None Italic
 	    perm__: None None
-	    perm_r: rgb(99, 142, 113) None
-	    perm_w: rgb(170, 118, 127) None
-	    perm_x: rgb(89, 135, 141) None
-	    owner: rgb(99, 142, 113) None Bold
-	    group: rgb(99, 142, 113) None
-	    count: rgb(90, 133, 172) rgb(53, 53, 53)
-	    dates: rgb(154, 154, 154) None
-	    sparse: rgb(142, 176, 152) None
+	    perm_r: rgb(70, 98, 83) None
+	    perm_w: rgb(190, 88, 51) None
+	    perm_x: rgb(68, 105, 113) None
+	    owner: rgb(70, 98, 83) None Bold
+	    group: rgb(70, 98, 83) None
+	    count: rgb(35, 99, 129) rgb(49, 49, 49)
+	    dates: rgb(152, 152, 152) None
+	    sparse: rgb(130, 166, 147) None
 	    content_extract: ansi(29) None Italic
 	    content_match: ansi(34) None Bold
 	    git_branch: rgb(255, 255, 255) None
-	    git_insertions: rgb(89, 135, 141) None
-	    git_deletions: rgb(168, 126, 143) None
-	    git_status_current: rgb(53, 53, 53) None
-	    git_status_modified: rgb(89, 135, 141) None
-	    git_status_new: rgb(130, 171, 176) None Bold
-	    git_status_ignored: rgb(188, 188, 188) None
-	    git_status_conflicted: rgb(170, 118, 127) None
-	    git_status_other: rgb(170, 118, 127) None
-	    selected_line: None rgb(53, 53, 53) / None rgb(86, 86, 86)
-	    char_match: rgb(142, 176, 152) None
-	    file_error: rgb(200, 164, 174) None
-	    flag_label: rgb(154, 154, 154) None
-	    flag_value: rgb(134, 152, 200) None Bold
-	    input: rgb(255, 255, 255) None / rgb(154, 154, 154) None Italic
-	    status_error: rgb(188, 188, 188) rgb(170, 118, 127)
-	    status_job: rgb(142, 176, 152) rgb(53, 53, 53)
-	    status_normal: None rgb(19, 19, 19) / None None
-	    status_italic: rgb(134, 152, 200) rgb(19, 19, 19) Italic / None None
-	    status_bold: rgb(134, 152, 200) rgb(19, 19, 19) Bold / None None
-	    status_code: rgb(255, 255, 255) rgb(19, 19, 19) / None None
-	    status_ellipsis: rgb(255, 255, 255) rgb(19, 19, 19)  Bold / None None
+	    git_insertions: rgb(68, 105, 113) None
+	    git_deletions: rgb(58, 103, 166) None
+	    git_status_current: rgb(49, 49, 49) None
+	    git_status_modified: rgb(68, 105, 113) None
+	    git_status_new: rgb(129, 170, 179) None Bold
+	    git_status_ignored: rgb(186, 186, 186) None
+	    git_status_conflicted: rgb(190, 88, 51) None
+	    git_status_other: rgb(190, 88, 51) None
+	    selected_line: None rgb(49, 49, 49) / None rgb(84, 84, 84)
+	    char_match: rgb(130, 166, 147) None
+	    file_error: rgb(225, 165, 143) None
+	    flag_label: rgb(152, 152, 152) None
+	    flag_value: rgb(111, 163, 212) None Bold
+	    input: rgb(255, 255, 255) None / rgb(152, 152, 152) None Italic
+	    status_error: rgb(186, 186, 186) rgb(190, 88, 51)
+	    status_job: rgb(130, 166, 147) rgb(49, 49, 49)
+	    status_normal: None rgb(15, 15, 15) / None None
+	    status_italic: rgb(111, 163, 212) rgb(15, 15, 15) Italic / None None
+	    status_bold: rgb(111, 163, 212) rgb(15, 15, 15) Bold / None None
+	    status_code: rgb(255, 255, 255) rgb(15, 15, 15) / None None
+	    status_ellipsis: rgb(255, 255, 255) rgb(15, 15, 15)  Bold / None None
 	    purpose_normal: None None
-	    purpose_italic: rgb(65, 86, 141) None Italic
-	    purpose_bold: rgb(65, 86, 141) None Bold
+	    purpose_italic: rgb(45, 99, 150) None Italic
+	    purpose_bold: rgb(45, 99, 150) None Bold
 	    purpose_ellipsis: None None
-	    scrollbar_track: rgb(86, 86, 86) None / rgb(53, 53, 53) None
-	    scrollbar_thumb: rgb(188, 188, 188) None / rgb(120, 120, 120) None
+	    scrollbar_track: rgb(84, 84, 84) None / rgb(49, 49, 49) None
+	    scrollbar_thumb: rgb(186, 186, 186) None / rgb(118, 118, 118) None
 	    help_paragraph: None None
-	    help_bold: rgb(198, 171, 183) None Bold
-	    help_italic: rgb(134, 152, 200) None Italic
-	    help_code: rgb(149, 173, 180) rgb(53, 53, 53)
-	    help_headers: rgb(175, 170, 130) None Bold
-	    help_table_border: rgb(86, 86, 86) None
-	    preview_title: rgb(221, 221, 221) rgb(19, 19, 19) / rgb(154, 154, 154) rgb(19, 19, 19)
-	    preview: rgb(221, 221, 221) rgb(19, 19, 19) / rgb(221, 221, 221) rgb(19, 19, 19)
-	    preview_line_number: rgb(120, 120, 120) None / rgb(120, 120, 120) rgb(19, 19, 19)
+	    help_bold: rgb(137, 169, 214) None Bold
+	    help_italic: rgb(111, 163, 212) None Italic
+	    help_code: rgb(134, 197, 220) rgb(49, 49, 49)
+	    help_headers: rgb(102, 162, 86) None Bold
+	    help_table_border: rgb(84, 84, 84) None
+	    preview_title: rgb(221, 221, 221) rgb(15, 15, 15) / rgb(152, 152, 152) rgb(15, 15, 15)
+	    preview: rgb(221, 221, 221) rgb(15, 15, 15) / rgb(221, 221, 221) rgb(15, 15, 15)
+	    preview_line_number: rgb(118, 118, 118) None / rgb(118, 118, 118) rgb(15, 15, 15)
 	    preview_match: None ansi(29) Bold
-	    hex_null: rgb(154, 154, 154) None
-	    hex_ascii_graphic: rgb(188, 188, 188) None
-	    hex_ascii_whitespace: rgb(89, 135, 141) None
-	    hex_ascii_other: rgb(175, 170, 130) None
-	    hex_non_ascii: rgb(198, 171, 183) None
-	    staging_area_title: rgb(221, 221, 221) rgb(19, 19, 19) / rgb(154, 154, 154) rgb(19, 19, 19)
+	    hex_null: rgb(152, 152, 152) None
+	    hex_ascii_graphic: rgb(186, 186, 186) None
+	    hex_ascii_whitespace: rgb(68, 105, 113) None
+	    hex_ascii_other: rgb(102, 162, 86) None
+	    hex_non_ascii: rgb(137, 169, 214) None
+	    staging_area_title: rgb(221, 221, 221) rgb(15, 15, 15) / rgb(152, 152, 152) rgb(15, 15, 15)
 	    mode_command_mark: gray(5) ansi(204) Bold
 	}
 	# MONDO-END

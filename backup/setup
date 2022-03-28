@@ -122,6 +122,12 @@ tic -sx st.info
   ## missing dmenu_run suggestions
 rm ~/.cache/dmenu_run
 
+  ## update suckless git repos (ex st)
+git fetch suckless
+git checkout st-base
+git merge suckless/master 
+git checkout st-build
+git rebase st-base st-build
 
 ##### keyboard
 ##########################
@@ -163,6 +169,11 @@ sudo rm /var/lib/pacman/db.lck
 best )	sudo pacman -S python-'package'
 okay )	AUR
 least)	pip --user install 'python-package'  ## no sudo !!!
+
+  ## enable multilib repo for 32bit software
+sudo vim /etc/pacman.conf
+	[multilib]
+	Include = /etc/pacman.d/mirrorlist
 
   ## paccache
 du -sh /var/cache/pacman/pkg   # Belegung des Cache-Speicherplatzes prüfen
@@ -523,6 +534,7 @@ and then, at the prompt, enter the application: apvlv.
 mondo-generator xbanish thinkpad-scripts xmenu
 timeshift systemd-boot-pacman-hook ytfzf
 cbonsai gtkrc-reload pscircle tiramisu-git chromium-widevine libsixel
+ncpamixer
 
   ## pacman
 network-manager-applet polkit-gnome fzf youtube-dl mpv xsel usbutils tor figlet tree ncdu htop ps_mem xdotool wget xclip imagemagick hsetroot
@@ -655,11 +667,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
   ## lf 
 yay lf-bin atool
 sudo pacman -S rsync
+# drag and drop 
+yay dragon-drop
 # media preview
-yay stpv
 sudo pacman -S perl-image-exiftool
 sudo pacman -S mediainfo poppler highlight
-# fix top padding with tmux-topbar
+yay stpv
+# fix top padding with stpv and tmux-topbar
 sudo vim /usr/bin/stpvimg
 add() {
 	F="$1"; X="$2"; Y="$3"; W="$4"; H="$5"
@@ -699,7 +713,10 @@ sudo pacman -S neofetch
 	WantedBy=multi-user.target
 systemctl enable ttylogin
 
-##### audio and bluetooth
+
+  ## audio
+
+# alsa
 sudo pacman -S alsa-utils
 sudo alsactl init
 sudo alsactl store
@@ -708,8 +725,6 @@ sudo alsactl store
 --> use alsa-restore.service, it removes journalctl error
 
 # pipepire
-
-## pipewire..
 sudo pacman -S pipewire pipewire-pulse pipewire-jack # choose wireplumber as session manager
 # for only pipewire (no alsa) also install
 sudo pacman -S pipewire-alsa
@@ -719,14 +734,22 @@ systemctl --user disable --now pipewire-pulse.{socket,service}
 # delete this, but then alsa is not piped anymore... only when pipewire-alsa was installed
 rm /etc/alsa/conf.d/99-pipewire-default.conf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf
 # audiosoftware..
-sudo pacman -S (jack2 - replace normal jack) cadence
-sudo pacman -S cadence "or" yay -S patchage
+sudo pacman -S qjackctl
+# or... sudo pacman -S helvum "or" patchage
+
+  ## bluetooth
+
+sudo pacman -S  bluez bluez-utils
+systemctl enable bluetooth
+
+# setting (optional?!)
+sudo vim /etc/bluetooth/main.conf
+	AutoEnable=true
+	ReconnectAttempts=5
+	FastConnectable = true # causes audio issues ?
 
   ## zathura
 sudo pacman -S zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps
-## bluetooth
-sudo pacman -S  bluez bluez-utils
-systemctl enable bluetooth
 
 ##### LTS
 
@@ -831,10 +854,14 @@ sudo pacman -S libappindicator-gtk3
 svim /etc/updatedb.conf
     PRUNEPATHS=".......... /timeshift"
 
-##### baudline
+  ## baudline
+# downloaded...
 sudo pacman -S libxp xorg-fonts-misc xorg-fonts-75dpi xorg-fonts-100dpi 
 ...download baudline from website and put it in ~/.local/share/baudline/
 --> reboot !
+# from aur...
+yay baudline-bin
+sudo ln -s ~/.local/bin/baudline /usr/local/bin/baudline
 
 ##### mps-youtube
 sudo pacman -S mpv youtube-dl python-pyperclip
@@ -966,4 +993,3 @@ sudo vim /etc/modprobe.d/blacklist.conf
 ##### if it doesnt load on startup... (optonal)
 sudo vim /etc/modules-load.d/b43.conf
 	b43
-

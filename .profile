@@ -121,7 +121,7 @@ alias multimc="multimc --platformtheme qt5ct"
 alias mimeopen="mimeopen -d"
 alias dosbox="dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf"
 alias yt="ytfzf -ft"
-alias mc="tmux splitw -l 58% -h bash -ic 'lf -config ~/.config/lf/mc1'; lf -config ~/.config/lf/mc2 && tmux lastp -Z 2> /dev/null \; resize-pane -Z"
+alias mc="tmux splitw -l 58% -hb lf -config ~/.config/lf/mc1; lf -config ~/.config/lf/mc2 && tmux lastp -Z 2> /dev/null \; resize-pane -Z"
 ## pkexec as gksudo replacement
 alias pkexec="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY"
 # enable color support of ls and also add handy aliases

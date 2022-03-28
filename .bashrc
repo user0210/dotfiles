@@ -5,7 +5,7 @@
 # |_.__/ \__,_|___/_| |_|_|  \___|
  
  
-source /home/philipp/.profile
+source ~/.profile
 
 ##### settings
 # If not running interactively, don't do anything

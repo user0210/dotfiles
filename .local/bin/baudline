@@ -2,8 +2,21 @@
 
 # baudline executable is in ~/.local/share/baudline
 
-case $1 in
-	jack) HOME=${XDG_DATA_HOME}/baudline ${XDG_DATA_HOME}/baudline/baudline_jack ;;
-	"") HOME=${XDG_DATA_HOME}/baudline ${XDG_DATA_HOME}/baudline/baudline ;;
-esac
+HOME=${XDG_DATA_HOME}/baudline
 
+case $1 in
+	jack)
+		shift;
+		# ${XDG_DATA_HOME}/baudline/baudline_jack $@
+		/usr/bin/baudline_jack $@
+		;;
+	parec)
+		shift;
+		# parec --raw --channels=1 --latency-msec=5 | ${XDG_DATA_HOME}/baudline/baudline -stdin $@
+		parec --raw --channels=1 --latency-msec=5 | /usr/bin/baudline -stdin $@
+		;;
+	*)
+		# ${XDG_DATA_HOME}/baudline/baudline $@
+		/usr/bin/baudline $@
+		;;
+esac

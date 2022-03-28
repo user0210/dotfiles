@@ -21,7 +21,7 @@ cmd on-quit $stpvimg --end $id
   ## commands
 
 cmd on-cd &{{
-    printf "\033]0;[$(pwd | sed "s|$HOME|~|")] - lf\007" > /dev/tty
+    printf "\033]0;Lf[$(pwd | sed "s|$HOME|~|")]\007" > /dev/tty
 }}
 on-cd
 
@@ -39,6 +39,7 @@ cmd paste &{{
     case "$mode" in
         copy)
 			tmux split-window -fv -l 3 " \
+				tput setab 19; tput ed
             	rsync -av --ignore-existing --progress -- \"$@\" . && sleep 2"
             ;;
         move) mv -n -- "$@" .;;
@@ -47,40 +48,43 @@ cmd paste &{{
     lf -remote "send clear"
 }}
 cmd delete ${{
-	lines=$(($(echo "$fx" | wc -w)+1))
+	lines=$(($(echo "$fx" | wc -w)+2))
 	files="${fx//$'\n'/ }"
 	tmux split-window -fv -l ${lines} " \
+		tput setab 20; tput setaf 0; tput ed
 		printf \"$fx\n\"
 		tput setaf 0; tput setab 1; tput bold
-		printf \" delete [y/n] \" 
+		printf \"\n delete [y/n] \" 
 		read; tput sgr0; tput ed
 		[ \$REPLY = "y" ] && trash-put $files
 		lf -remote 'send reload'"
 }}
 cmd extract ${{
-	lines=$(($(echo "$fx" | wc -w)+1))
+	lines=$(($(echo "$fx" | wc -w)+2))
 	files="${fx//$'\n'/ }"
 	tmux split-window -fv -l ${lines} " \
+		tput setab 19; tput ed
 		printf \"%s\n\t\" \"$fx\"
 		tput setaf 0; tput setab 1; tput bold
-		printf \" extract [y/N] \"
+		printf \"\n extract [y/N] \"
 		read; tput sgr0; tput ed
 		[ \$REPLY = "y" ] && aunpack $files
 		lf -remote 'send reload'"
 }}
 cmd chmod ${{
-	lines=$(($(echo "$fx" | wc -w)+1))
+	lines=$(($(echo "$fx" | wc -w)+2))
 	files="${fx//$'\n'/ }"
 	tmux split-window -fv -l ${lines} " \
+		tput setab 19; tput ed
 		printf \"$fx\n\"
 		tput setaf 0; tput setab 1; tput bold
-		printf \"Mode Bits: \"
+		printf \"\n Mode Bits: \"
 		read; tput sgr0; tput ed
 		for file in $files; do chmod \$REPLY \$file; done
 		lf -remote 'send reload'"
 }}
 cmd goto ${{
-	tmux split-window -fv -l 20% ' \
+	tmux split-window -fv -l 8 ' \
 		find . | fzf --reverse --header='\''jump to location'\'' | read && \
 		if [ -f "$REPLY" ]; then
 			cmd="select"
@@ -88,6 +92,16 @@ cmd goto ${{
 			cmd="cd"
 		fi
 		lf -remote "send $id $cmd $REPLY"'
+}}
+cmd broot ${{
+  f=$(mktemp)
+  res="$(broot --outcmd $f && cat $f | sed 's/cd //')"
+  rm -f "$f"
+  if [ -f "$res" ]; then
+  	lf -remote "send $id select \"$res\""
+  elif [ -d "$res" ]; then
+  	lf -remote "send $id cd \"$res\""
+  fi
 }}
 cmd tar ${{
     set -f
@@ -132,3 +146,9 @@ map y
 map yy copy
 map yp $printf "%s" "$fx" | xclip -i -selection clipboard
 map yn $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+
+map f
+map f goto
+
+map F
+map F broot
