@@ -1,0 +1,49 @@
+-- Copyright (c) 2020-2021 shadmansaleh
+-- MIT license, see LICENSE for more details.
+-- Credit: Zoltan Dalmadi(lightline)
+-- LuaFormatter off
+local colors = {
+  blue   = '#36a166',
+  green  = '#7d9726',
+  purple = '#5f9182',
+  red1   = '#ba6236',
+  yellow = '#a5980d',
+  orange = '#ae7313',
+  fg     = '#5f5e4e',
+  bg     = '#56C186',
+  black  = '#f4f3ec',
+  gray1  = '#878573',
+  gray2  = '#e7e6df',
+  gray3  = '#929181',
+}
+-- LuaFormatter on
+return {
+  normal = {
+    a = {fg = colors.fg, bg = colors.bg, gui = 'bold'},
+    b = {fg = colors.fg, bg = colors.bg},
+    c = {fg = colors.fg, bg = colors.bg},
+    z = {fg = colors.black, bg = colors.bg}
+  },
+  insert = {
+	a = {fg = colors.fg, bg = colors.bg, gui = 'bold'},
+    z = {fg = colors.black, bg = colors.bg}
+  },
+  visual = {
+	a = {fg = colors.fg, bg = colors.bg, gui = 'bold'},
+    z = {fg = colors.black, bg = colors.bg}
+  },
+  command = {
+	a = {fg = colors.fg, bg = colors.bg, gui = 'bold'},
+    z = {fg = colors.black, bg = colors.bg}
+  },
+  replace = {
+	a = {fg = colors.fg, bg = colors.bg, gui = 'bold'},
+    z = {fg = colors.black, bg = colors.bg}
+  },
+  inactive = {
+    a = {fg = colors.fg, bg = colors.bg},
+    b = {fg = colors.fg, bg = colors.bg},
+    c = {fg = colors.fg, bg = colors.bg},
+    z = {fg = colors.black, bg = colors.bg}
+  }
+}

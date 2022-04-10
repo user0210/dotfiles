@@ -1,43 +1,43 @@
 
 ##### templer-colors
-set notification-error-bg	"#1B2B34"	# bg
-set notification-error-fg	"#EC5f67"	# bright:red
-set notification-warning-bg	"#1B2B34"	# bg
-set notification-warning-fg	"#FAC863"	# bright:yellow
-set notification-bg			"#1B2B34"	# bg
-set notification-fg			"#99C794"	# bright:green
+set notification-error-bg	"#1B2B34"
+set notification-error-fg	"#EC5f67"
+set notification-warning-bg	"#1B2B34"
+set notification-warning-fg	"#FAC863"
+set notification-bg			"#1B2B34"
+set notification-fg			"#99C794"
 
-set completion-bg			"#4F5B66"	# bg2
-set completion-fg			"#CDD3DE"	# fg
-set completion-group-bg		"#343D46"	# bg1
-set completion-group-fg		"#A7ADBA"	# gray
-set completion-highlight-bg	"#6699CC"	# bright:blue
-set completion-highlight-fg	"#4F5B66"	# bg2
+set completion-bg			"#4F5B66"
+set completion-fg			"#CDD3DE"
+set completion-group-bg		"#343D46"
+set completion-group-fg		"#A7ADBA"
+set completion-highlight-bg	"#6699CC"
+set completion-highlight-fg	"#4F5B66"
 
 # Define the color in index mode
-set index-bg				"#4F5B66"	# bg2
-set index-fg				"#CDD3DE"	# fg
-set index-active-bg			"#6699CC"	# bright:blue
-set index-active-fg			"#4F5B66"	# bg2
+set index-bg				"#4F5B66"
+set index-fg				"#CDD3DE"
+set index-active-bg			"#6699CC"
+set index-active-fg			"#4F5B66"
 
-set inputbar-bg				"#1B2B34"	# bg
-set inputbar-fg				"#CDD3DE"	# fg
+set inputbar-bg				"#1B2B34"
+set inputbar-fg				"#CDD3DE"
 
-set statusbar-bg			"#4F5B66"	# bg2
-set statusbar-fg			"#CDD3DE"	# fg
+set statusbar-bg			"#4F5B66"
+set statusbar-fg			"#CDD3DE"
 
-set highlight-color			"#FAC863"	# bright:yellow
-set highlight-active-color	"#F99157"	# bright:orange
+set highlight-color			"#FAC863"
+set highlight-active-color	"#F99157"
 
-set default-bg				"#1B2B34"	# bg
-set default-fg				"#CDD3DE"	# fg
+set default-bg				"#1B2B34"
+set default-fg				"#CDD3DE"
 set render-loading			true
-set render-loading-bg		"#1B2B34"	# bg
-set render-loading-fg		"#CDD3DE"	# fg
+set render-loading-bg		"#1B2B34"
+set render-loading-fg		"#CDD3DE"
 
 # Recolor book content's color
-set recolor-lightcolor		"#1B2B34"	# bg
-set recolor-darkcolor		"#CDD3DE"	# fg
+set recolor-lightcolor		"#1B2B34"
+set recolor-darkcolor		"#CDD3DE"
 set recolor					true
-set recolor-keephue			true			# keep original color
+set recolor-keephue			true
 

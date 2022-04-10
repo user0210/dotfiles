@@ -1,43 +1,43 @@
 
 ##### templer-colors
-set notification-error-bg	"%%base00%%"	# bg
-set notification-error-fg	"%%base08%%"	# bright:red
-set notification-warning-bg	"%%base00%%"	# bg
-set notification-warning-fg	"%%base0A%%"	# bright:yellow
-set notification-bg			"%%base00%%"	# bg
-set notification-fg			"%%base0B%%"	# bright:green
+set notification-error-bg	"%%base00%%"
+set notification-error-fg	"%%base08%%"
+set notification-warning-bg	"%%base00%%"
+set notification-warning-fg	"%%base0A%%"
+set notification-bg			"%%base00%%"
+set notification-fg			"%%base0B%%"
 
-set completion-bg			"%%base02%%"	# bg2
-set completion-fg			"%%base06%%"	# fg
-set completion-group-bg		"%%base01%%"	# bg1
-set completion-group-fg		"%%base04%%"	# gray
-set completion-highlight-bg	"%%base0D%%"	# bright:blue
-set completion-highlight-fg	"%%base02%%"	# bg2
+set completion-bg			"%%base02%%"
+set completion-fg			"%%base06%%"
+set completion-group-bg		"%%base01%%"
+set completion-group-fg		"%%base04%%"
+set completion-highlight-bg	"%%base0D%%"
+set completion-highlight-fg	"%%base02%%"
 
 # Define the color in index mode
-set index-bg				"%%base02%%"	# bg2
-set index-fg				"%%base06%%"	# fg
-set index-active-bg			"%%base0D%%"	# bright:blue
-set index-active-fg			"%%base02%%"	# bg2
+set index-bg				"%%base02%%"
+set index-fg				"%%base06%%"
+set index-active-bg			"%%base0D%%"
+set index-active-fg			"%%base02%%"
 
-set inputbar-bg				"%%base00%%"	# bg
-set inputbar-fg				"%%base06%%"	# fg
+set inputbar-bg				"%%base00%%"
+set inputbar-fg				"%%base06%%"
 
-set statusbar-bg			"%%base02%%"	# bg2
-set statusbar-fg			"%%base06%%"	# fg
+set statusbar-bg			"%%base02%%"
+set statusbar-fg			"%%base06%%"
 
-set highlight-color			"%%base0A%%"	# bright:yellow
-set highlight-active-color	"%%base09%%"	# bright:orange
+set highlight-color			"%%base0A%%"
+set highlight-active-color	"%%base09%%"
 
-set default-bg				"%%base00%%"	# bg
-set default-fg				"%%base06%%"	# fg
+set default-bg				"%%base00%%"
+set default-fg				"%%base06%%"
 set render-loading			true
-set render-loading-bg		"%%base00%%"	# bg
-set render-loading-fg		"%%base06%%"	# fg
+set render-loading-bg		"%%base00%%"
+set render-loading-fg		"%%base06%%"
 
 # Recolor book content's color
-set recolor-lightcolor		"%%base00%%"	# bg
-set recolor-darkcolor		"%%base06%%"	# fg
+set recolor-lightcolor		"%%base00%%"
+set recolor-darkcolor		"%%base06%%"
 set recolor					true
-set recolor-keephue			true			# keep original color
+set recolor-keephue			true
 

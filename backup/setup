@@ -539,7 +539,7 @@ ncpamixer
   ## pacman
 network-manager-applet polkit-gnome fzf youtube-dl mpv xsel usbutils tor figlet tree ncdu htop ps_mem xdotool wget xclip imagemagick hsetroot
 xdg-utils playerctl calcurse p7zip xsettingsd gifsicle xorg-xclock zip unzip mlocate ntfs-3g maim
-x11-ssh-askpass onefetch moreutils broot
+x11-ssh-askpass onefetch moreutils broot lsd
 
 pandoc or pandoc-bin (without hascel stuff)
 

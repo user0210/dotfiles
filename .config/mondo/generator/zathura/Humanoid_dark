@@ -1,43 +1,43 @@
 
 ##### templer-colors
-set notification-error-bg	"#232629"	# bg
-set notification-error-fg	"#f11235"	# bright:red
-set notification-warning-bg	"#232629"	# bg
-set notification-warning-fg	"#ffb627"	# bright:yellow
-set notification-bg			"#232629"	# bg
-set notification-fg			"#02d849"	# bright:green
+set notification-error-bg	"#232629"
+set notification-error-fg	"#f11235"
+set notification-warning-bg	"#232629"
+set notification-warning-fg	"#ffb627"
+set notification-bg			"#232629"
+set notification-fg			"#02d849"
 
-set completion-bg			"#484e54"	# bg2
-set completion-fg			"#fcfcf6"	# fg
-set completion-group-bg		"#333b3d"	# bg1
-set completion-group-fg		"#c0c0bd"	# gray
-set completion-highlight-bg	"#00a6fb"	# bright:blue
-set completion-highlight-fg	"#484e54"	# bg2
+set completion-bg			"#484e54"
+set completion-fg			"#fcfcf6"
+set completion-group-bg		"#333b3d"
+set completion-group-fg		"#c0c0bd"
+set completion-highlight-bg	"#00a6fb"
+set completion-highlight-fg	"#484e54"
 
 # Define the color in index mode
-set index-bg				"#484e54"	# bg2
-set index-fg				"#fcfcf6"	# fg
-set index-active-bg			"#00a6fb"	# bright:blue
-set index-active-fg			"#484e54"	# bg2
+set index-bg				"#484e54"
+set index-fg				"#fcfcf6"
+set index-active-bg			"#00a6fb"
+set index-active-fg			"#484e54"
 
-set inputbar-bg				"#232629"	# bg
-set inputbar-fg				"#fcfcf6"	# fg
+set inputbar-bg				"#232629"
+set inputbar-fg				"#fcfcf6"
 
-set statusbar-bg			"#484e54"	# bg2
-set statusbar-fg			"#fcfcf6"	# fg
+set statusbar-bg			"#484e54"
+set statusbar-fg			"#fcfcf6"
 
-set highlight-color			"#ffb627"	# bright:yellow
-set highlight-active-color	"#ff9505"	# bright:orange
+set highlight-color			"#ffb627"
+set highlight-active-color	"#ff9505"
 
-set default-bg				"#232629"	# bg
-set default-fg				"#fcfcf6"	# fg
+set default-bg				"#232629"
+set default-fg				"#fcfcf6"
 set render-loading			true
-set render-loading-bg		"#232629"	# bg
-set render-loading-fg		"#fcfcf6"	# fg
+set render-loading-bg		"#232629"
+set render-loading-fg		"#fcfcf6"
 
 # Recolor book content's color
-set recolor-lightcolor		"#232629"	# bg
-set recolor-darkcolor		"#fcfcf6"	# fg
+set recolor-lightcolor		"#232629"
+set recolor-darkcolor		"#fcfcf6"
 set recolor					true
-set recolor-keephue			true			# keep original color
+set recolor-keephue			true
 

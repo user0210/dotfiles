@@ -4,12 +4,14 @@ set shell bash
 set shellopts '-eu'
 set ifs "\n"
 
+set autoquit
 set scrolloff 10
 set hidden true
 set ignorecase true
 set icons true
 set drawbox
 set period 1
+set errorfmt "\033[1;37;41m%s\033[0m"
 
 set previewer stpv
 set cleaner stpvimgclr
@@ -126,7 +128,8 @@ cmd mkfile ${{
     $EDITOR $(pwd)/"$*"
 }}
 cmd bulkrename $vidir
-
+cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+cmd yank-basename $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
 
 
   ## keymaps
@@ -144,8 +147,8 @@ map D delete
 
 map y
 map yy copy
-map yp $printf "%s" "$fx" | xclip -i -selection clipboard
-map yn $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+map yp yank-path
+map yn yank-basename
 
 map f
 map f goto

@@ -9,3 +9,5 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[url "https://"]
+	insteadOf = git://
