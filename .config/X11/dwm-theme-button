@@ -1,0 +1,147 @@
+
+dwm.seppad 			: 5
+!------------------------ top and bottom padding of seperator (if "> bh" = dot or "< 0" dotradius)
+dwm.statussep		: 2
+!------------------------ 0 = off, 1 = on, 2 = hide on focus
+dwm.tabbarsep		: 2
+!------------------------ 0 = off, 1 = on, 2 = hide on focus
+dwm.barborder		: 4
+!------------------------ size of barborders
+dwm.barsep			: 1
+!------------------------ size of barseperator
+
+
+dwm.statustheme		: 1
+!------------------------ 0 = classic, 1 = button-theme, 2 = float-theme
+dwm.tabbartheme		: 1
+!------------------------ 0 = classic, 1 = button-theme, 2 = float-theme
+dwm.tagtheme		: 1
+!------------------------ 0 = classic, 1 = button-theme, 2 = float-theme
+
+
+dwm.iconpad			: 2
+!------------------------ icon padding to barborders
+dwm.iconspacing		: 5
+!------------------------ space between icon and title
+dwm.oneclientdimmer	: 1
+!------------------------ 1 makes tab for one client in unfocused color...
+
+
+dwm.tagborderpx		: 1
+!------------------------ border pixel of tagpreview
+dwm.scalepreview	: 4
+!------------------------ tagpreview scaling
+
+
+dwm.statuscenter	: 0
+!------------------------ center status elements
+dwm.titlecenter		: 0
+!------------------------ 1 - center title, 2 center title with icon
+
+
+dwm.tileswitch		: 0
+!------------------------ gapps <= tileswitch = resizehints off
+dwm.tileswitchcolor	: 1
+!------------------------ switch to alt-colors on tileswich
+dwm.borderswitch	: 0
+!------------------------ 1: switch border on/off with tileswitch
+
+
+
+
+dwm.bar_fg_a		: 1.0
+dwm.bar_fg			: base05
+!----------------------------- bar-font
+dwm.bar_bg_a		: 1.0
+dwm.bar_bg			: base00
+!----------------------------- bar-bg
+dwm.bar_brd_a		: 1.0
+dwm.bar_brd			: base00
+!----------------------------- bar-border
+dwm.bar_flo_a		: 1.0
+dwm.bar_flo			: base01
+!----------------------------- separator
+
+
+dwm.brd_fg_a		: 1.0
+dwm.brd_fg			: base05
+!----------------------------- focuse-border
+dwm.brd_bg_a		: 1.0
+dwm.brd_bg			: base00
+!----------------------------- tileswitch-border
+dwm.brd_brd_a		: 1.0
+dwm.brd_brd			: base01
+!----------------------------- unfocus-border
+dwm.brd_flo_a		: 1.0
+dwm.brd_flo			: base01
+!----------------------------- float-border
+
+
+dwm.sel_fg_a		: 1.0
+dwm.sel_fg			: base00
+!----------------------------- selected-font
+dwm.sel_bg_a		: 1.0
+dwm.sel_bg			: base04
+!----------------------------- selected-bg
+dwm.sel_brd_a		: 1.0
+dwm.sel_brd			: base00
+!----------------------------- selected-border (down-right)
+dwm.sel_flo_a		: 1.0
+dwm.sel_flo			: base03
+!----------------------------- selected-border (up-left)
+
+
+dwm.foc_fg_a		: 1.0
+dwm.foc_fg 			: base06
+!----------------------------- focused-font
+dwm.foc_bg_a		: 1.0
+dwm.foc_bg 			: base03
+!----------------------------- focused-bg
+dwm.foc_brd_a		: 1.0
+dwm.foc_brd			: base00
+!----------------------------- focused-border (down-right)
+dwm.foc_flo_a		: 1.0
+dwm.foc_flo			: base04
+!----------------------------- focused-border (up-left)
+
+
+dwm.unf_fg_a		: 1.0
+dwm.unf_fg			: base05
+!----------------------------- unfocused-font
+dwm.unf_bg_a		: 1.0
+dwm.unf_bg			: base02
+!----------------------------- unfocused-bg
+dwm.unf_brd_a		: 1.0
+dwm.unf_brd			: base00
+!----------------------------- unfocused-border (down-right)
+dwm.unf_flo_a		: 1.0
+dwm.unf_flo			: base03
+!----------------------------- unfocused-border (up-left)
+
+
+dwm.alt_fg_a		: 1.0
+dwm.alt_fg			: base02
+!----------------------------- alternative unf_bg
+dwm.alt_bg_a		: 1.0
+dwm.alt_bg			: base01
+!----------------------------- alternative bar_bg
+dwm.alt_brd_a		: 1.0
+dwm.alt_brd			: base01
+!----------------------------- alternative bar_brd
+dwm.alt_flo_a		: 1.0
+dwm.alt_flo			: base00
+!----------------------------- alternative bar_flo
+
+
+dwm.tag_fg_a		: 1.0
+dwm.tag_fg			: base0D
+!----------------------------- 
+dwm.tag_bg_a		: 1.0
+dwm.tag_bg			: base04
+!----------------------------- 
+dwm.tag_brd_a		: 1.0
+dwm.tag_brd			: base00
+!----------------------------- 
+dwm.tag_flo_a		: 1.0
+dwm.tag_flo			: base00
+!----------------------------- 

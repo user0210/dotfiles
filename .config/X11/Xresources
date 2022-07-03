@@ -5,33 +5,35 @@
 ! /_/\_\_|  \___||___/\___/ \__,_|_|  \___\___||___/
 
 
+
 !-------------------------------------------------------------------
 ! ---------- settings ----------------------------------------------
 !-------------------------------------------------------------------
 
 ! Xft.dpi: 125.37
 
-! sets font in sxiv...
-*font: monospace:pixelsize=16
-
 ! coursor-theme
 Xcursor.theme: Cursor
 
-!-------------------------------------------------------------------
-! ---------- colors ------------------------------------------------
-!-------------------------------------------------------------------
+! font (nsxiv, dwm, st...)
+*font: monospace:pixelsize=16
 
-*alpha: 0.85
+! transparency
+#define transparency 0.85
+*alpha: transparency
 
-! ##### main Xres-colors
+! color definitions
 #include "xres-color-def"
 
-! ##### x11-ssh-askpass (before other colors because of bg,fg)
+! x11-ssh-askpass settings (before other colors because of bg,fg)
 #include "x11-ssh-askpass"
 
-! ##### suckless colors
-#include "st-color"
-#include "dwm-color"
+! suckless settings
+#include "dwm-settings"
+#include "st-settings"
+
+! suckless colors
+#include "dwm-theme-edge"
 #include "dmenu-color"
 #include "xmenu-color"
 

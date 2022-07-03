@@ -23,6 +23,9 @@ image/x-xpixmap=nsxiv.desktop;
 image/webp=nsxiv.desktop;
 image/svg+xml=nsxiv.desktop;
 inode/directory=ranger.desktop;
+text/html=balena-etcher-electron.desktop
+x-scheme-handler/etcher=balena-etcher-electron.desktop
 
 [Added Associations]
 text/plain=nvim.desktop;
+application/x-cd-image=xarchiver.desktop;

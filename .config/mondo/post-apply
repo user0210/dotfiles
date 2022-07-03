@@ -23,10 +23,10 @@ select=$(mondo get theme)
 
 if [ 'templer' = "$select" ]; then
 	## set alpha
-	sed -i "s/^\*alpha:.*/\*alpha: 0\.85/g" ~/.config/X11/Xresources
+	sed -i "s/^#define transparency.*/#define transparency 0\.85/g" ~/.config/X11/Xresources
 else
 	## set alpha
-	sed -i "s/^\*alpha:.*/\*alpha: 1\.0/g" ~/.config/X11/Xresources
+	sed -i "s/^#define transparency.*/#define transparency 1\.0/g" ~/.config/X11/Xresources
 fi
 
 

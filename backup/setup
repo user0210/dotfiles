@@ -15,6 +15,14 @@
 	croc
 
 
+##### skulls - coreboot
+#################################
+  ## remove acpi errors in tty
+svim /etc/default/grub
+	...
+	GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 ...
+	...
+
 ##### tty mouse-cursor
 #################################
 
@@ -450,7 +458,7 @@ systemctl enable ModemManager
 
 
   ## qt-gkt setup
-yay -S qt5-styleplugins
+yay -S qt5-styleplugins qt6gtk2
 # share theme with... "gnome"-session
 	sudo pacman -S dconf-editor
 	add to .xinitrc
@@ -534,12 +542,12 @@ and then, at the prompt, enter the application: apvlv.
 mondo-generator xbanish thinkpad-scripts xmenu
 timeshift systemd-boot-pacman-hook ytfzf
 cbonsai gtkrc-reload pscircle tiramisu-git chromium-widevine libsixel
-ncpamixer
+ncpamixer tuir
 
   ## pacman
 network-manager-applet polkit-gnome fzf youtube-dl mpv xsel usbutils tor figlet tree ncdu htop ps_mem xdotool wget xclip imagemagick hsetroot
 xdg-utils playerctl calcurse p7zip xsettingsd gifsicle xorg-xclock zip unzip mlocate ntfs-3g maim
-x11-ssh-askpass onefetch moreutils broot lsd
+x11-ssh-askpass onefetch moreutils broot lsd github-cli
 
 pandoc or pandoc-bin (without hascel stuff)
 
@@ -622,8 +630,9 @@ nvim -u none
 sudo pacman -S python-pynvim
 yay neovim-symlinks neovim-remote
 # formatters for null-ls
-yay stylua-bin
-sudo pacman -S prettier python-black
+sudo pacman -S prettier python-black stylua
+# for telescope
+sudo pacman -S ripgrep
 # Neovim node support
 npm i -g neovim
 # neovim desktop file setting
@@ -890,6 +899,7 @@ convert XXX.jpg -resize 1366x XXX1.jpg
 convert XXX1.jpg -gravity South -extent 1366x768 XXX2.jpg
 
 ##### cava-visualizer
+yay xxd-standalone # because it needs xxd, but xxd needs vim not neovim... maybe not needet!!!
 yay cava
 ((cd .config/cava.... wget https://raw.githubusercontent.com/karlstav/cava/master/example_files/config))
 

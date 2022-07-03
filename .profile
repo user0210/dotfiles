@@ -9,7 +9,7 @@
 ##### Settings
 ##################################################################
 
-##### add ~/.local/bin to PATH
+  ## add ~/.local/bin to PATH
 path_prepend() {
     for arg in "$@"; do
         if [[ ":${PATH}:" != *":${arg}:"* ]]; then
@@ -26,7 +26,7 @@ path_append() {
 }
 path_append $HOME/.local/bin
 
-##### onefetch autostart fot git folders
+  ## onefetch autostart fot git folders
 LAST_REPO=""
 cd() {
 	builtin cd "$@"
@@ -41,30 +41,28 @@ cd() {
 	fi
 }
 
-##### set lf icons
+  ## set lf icons
 [ -f "$HOME/.config/lf/icons" ] && source "$HOME/.config/lf/icons"
 
-##### broot
+  ## broot
 source "$HOME/.config/broot/launcher/shell/br"
 
-##### fix pointer with pywal... maybe not needed...
-#PROMPT_COMMAND='printf "\e]112\a"'
-
-##### tab-spaces
+  ## tab-spaces
 tabs -4
 export HIGHLIGHT_OPTIONS="replace-tabs=4"
 
-##### for apps to know the colorspace
+  ## for apps to know the colorspace
 export COLORTERM=truecolor
 
-##### colored GCC warnings and errors
+  ## colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-##### set askpass... (for dmenumount)
+  ## set askpass... (for dmenumount)
 export SUDO_ASKPASS="/usr/lib/ssh/ssh-askpass"
 
 ##### Default programs:
 ##################################################################
+
 export EDITOR="vim"
 export BROWSER="qutebrowser"
 export READER="zathura"
@@ -72,6 +70,7 @@ export FILE="ranger"
 
 ##### clean home
 ##################################################################
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -92,10 +91,10 @@ export GOPATH="$XDG_DATA_HOME/go"
 export HISTFILE="$XDG_CACHE_HOME/history"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
-##### Start graphical server on tty1 if not already running.
+  ## Start graphical server on tty1 if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx ~/.config/X11/xinitrc
 
-##### source color-scheme (not in use because of alpha issue)
+  ## source color-scheme (not in use because of alpha issue)
 ## check if display-server is available:
 #if xhost >& /dev/null ; then
 #	# check if shell is interactive:
@@ -105,6 +104,7 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
 ##### Aliases
 ##################################################################
+
 alias startx='startx ~/.config/X11/xinitrc'
 alias less='less -x4'
 alias nm='nmtui'
@@ -119,10 +119,10 @@ alias xclip="xclip -selection c"
 alias xclip="xclip -b"
 alias multimc="multimc --platformtheme qt5ct"
 alias mimeopen="mimeopen -d"
-alias dosbox="dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf"
+alias dosbox="dosbox -conf $XDG_CONFIG_HOME/dosbox/dosbox.conf"
 alias yt="ytfzf -ft"
-alias mc="tmux splitw -l 58% -hb lf -config ~/.config/lf/mc-left; lf -config ~/.config/lf/mc-right && tmux lastp -Z 2> /dev/null \; resize-pane -Z"
-## pkexec as gksudo replacement
+alias mc="tmux splitw -l 58% -hb lf -config ~/.config/lf/mc-right; lf -config ~/.config/lf/mc-left && tmux lastp -Z 2> /dev/null \; resize-pane -Z"
+# pkexec as gksudo replacement
 alias pkexec="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY"
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

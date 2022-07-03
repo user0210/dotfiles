@@ -40,9 +40,11 @@ cmd paste &{{
     shift
     case "$mode" in
         copy)
-			tmux split-window -fv -l 3 " \
-				tput setab 19; tput ed
-            	rsync -av --ignore-existing --progress -- \"$@\" . && sleep 2"
+            rsync -av --ignore-existing --progress -- "$@" . |
+            stdbuf -i0 -o0 -e0 tr '\r' '\n' |
+            while IFS= read -r line; do
+                lf -remote "send $id echo $line"
+            done
             ;;
         move) mv -n -- "$@" .;;
     esac
@@ -127,7 +129,7 @@ cmd mkdir %{{
 cmd mkfile ${{
     $EDITOR $(pwd)/"$*"
 }}
-cmd bulkrename $vidir
+cmd bulkrename $printf '%s\n' $fx | vidir -
 cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
 cmd yank-basename $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
 

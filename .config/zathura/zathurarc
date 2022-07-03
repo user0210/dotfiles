@@ -18,44 +18,44 @@ set font "TerminessTTF Nerd Font 12"
 # MONDO-BEGIN
 
 ##### templer-colors
-set notification-error-bg	"#0f0f0f"
-set notification-error-fg	"#e1a58f"
-set notification-warning-bg	"#0f0f0f"
-set notification-warning-fg	"#82a693"
-set notification-bg			"#0f0f0f"
-set notification-fg			"#81aab3"
+set notification-error-bg	"#1c1c1c"
+set notification-error-fg	"#ab755e"
+set notification-warning-bg	"#1c1c1c"
+set notification-warning-fg	"#5f8e6d"
+set notification-bg			"#1c1c1c"
+set notification-fg			"#59898d"
 
-set completion-bg			"#545454"
-set completion-fg			"#dddddd"
-set completion-group-bg		"#313131"
-set completion-group-fg		"#989898"
-set completion-highlight-bg	"#53a9d0"
-set completion-highlight-fg	"#545454"
+set completion-bg			"#5d5d5d"
+set completion-fg			"#dfdfdf"
+set completion-group-bg		"#3c3c3c"
+set completion-group-fg		"#9e9e9e"
+set completion-highlight-bg	"#5194ac"
+set completion-highlight-fg	"#5d5d5d"
 
 # Define the color in index mode
-set index-bg				"#545454"
-set index-fg				"#dddddd"
-set index-active-bg			"#53a9d0"
-set index-active-fg			"#545454"
+set index-bg				"#5d5d5d"
+set index-fg				"#dfdfdf"
+set index-active-bg			"#5194ac"
+set index-active-fg			"#5d5d5d"
 
-set inputbar-bg				"#0f0f0f"
-set inputbar-fg				"#dddddd"
+set inputbar-bg				"#1c1c1c"
+set inputbar-fg				"#dfdfdf"
 
-set statusbar-bg			"#545454"
-set statusbar-fg			"#dddddd"
+set statusbar-bg			"#5d5d5d"
+set statusbar-fg			"#dfdfdf"
 
-set highlight-color			"#82a693"
-set highlight-active-color	"#66a256"
+set highlight-color			"#5f8e6d"
+set highlight-active-color	"#8b865f"
 
-set default-bg				"#0f0f0f"
-set default-fg				"#dddddd"
+set default-bg				"#1c1c1c"
+set default-fg				"#dfdfdf"
 set render-loading			true
-set render-loading-bg		"#0f0f0f"
-set render-loading-fg		"#dddddd"
+set render-loading-bg		"#1c1c1c"
+set render-loading-fg		"#dfdfdf"
 
 # Recolor book content's color
-set recolor-lightcolor		"#0f0f0f"
-set recolor-darkcolor		"#dddddd"
+set recolor-lightcolor		"#1c1c1c"
+set recolor-darkcolor		"#dfdfdf"
 set recolor					true
 set recolor-keephue			true
 

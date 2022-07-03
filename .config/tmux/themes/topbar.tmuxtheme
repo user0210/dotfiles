@@ -6,8 +6,8 @@ set -g status-justify centre
 set -g status-left "#{prefix_highlight}"
 set -g status-left-length 15
 
-set -g window-status-current-style "bold"
-set -g window-status-style "nobold"
+set -g window-status-current-style bold,fg=Color0
+set -g window-status-style nobold,fg=Color18
 set -g window-status-format "#{?window_zoomed_flag,▹ ,⚬ }#T#{?window_zoomed_flag, ◃, }"
 set -g window-status-current-format "#{?window_zoomed_flag,▸ ,⦁ }#T#{?window_zoomed_flag, ◂, }"
 set -g window-status-separator "  "
@@ -19,7 +19,6 @@ set -g pane-border-lines heavy
 #set -g pane-border-format "#[fg=Color19][#P]"
 set -g pane-border-style bg=Color19,fg=Color19
 set -g pane-active-border-style bg=Color19,fg=Color20
-
 
   ## TWO COLUM SETUP
 
@@ -53,12 +52,12 @@ set -g @prefix_highlight_output_suffix '#[]'
 
 set-hook -g client-focus-out \
 "\
-	set -w status-style 'bg=Color19 fg=Color00' \;\
+	set -w status-style 'bg=Color19 fg=Color0' \;\
 	set -w status-right '#[nobold]   #S :: #P   #[fg=Color19 bg=Color0]▓▒░' \
 "
 
 set-hook -g client-focus-in \
 "\
-	set -w status-style 'bg=Color20 fg=Color00' \;\
+	set -w status-style 'bg=Color20 fg=Color0' \;\
 	set -w status-right '#[nobold]   #S :: #P   #[fg=Color20 bg=Color0]▓▒░' \
 "
