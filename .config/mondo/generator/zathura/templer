@@ -1,43 +1,43 @@
 
 ##### templer-colors
-set notification-error-bg	"#1c1c1c"
-set notification-error-fg	"#ab755e"
-set notification-warning-bg	"#1c1c1c"
-set notification-warning-fg	"#5f8e6d"
-set notification-bg			"#1c1c1c"
-set notification-fg			"#59898d"
+set notification-error-bg	"#0f0f0f"
+set notification-error-fg	"#c58791"
+set notification-warning-bg	"#0f0f0f"
+set notification-warning-fg	"#83a290"
+set notification-bg			"#0f0f0f"
+set notification-fg			"#91b7bb"
 
-set completion-bg			"#5d5d5d"
-set completion-fg			"#dfdfdf"
-set completion-group-bg		"#3c3c3c"
-set completion-group-fg		"#9e9e9e"
-set completion-highlight-bg	"#5194ac"
-set completion-highlight-fg	"#5d5d5d"
+set completion-bg			"#545454"
+set completion-fg			"#dddddd"
+set completion-group-bg		"#313131"
+set completion-group-fg		"#989898"
+set completion-highlight-bg	"#98aed1"
+set completion-highlight-fg	"#545454"
 
 # Define the color in index mode
-set index-bg				"#5d5d5d"
-set index-fg				"#dfdfdf"
-set index-active-bg			"#5194ac"
-set index-active-fg			"#5d5d5d"
+set index-bg				"#545454"
+set index-fg				"#dddddd"
+set index-active-bg			"#98aed1"
+set index-active-fg			"#545454"
 
-set inputbar-bg				"#1c1c1c"
-set inputbar-fg				"#dfdfdf"
+set inputbar-bg				"#0f0f0f"
+set inputbar-fg				"#dddddd"
 
-set statusbar-bg			"#5d5d5d"
-set statusbar-fg			"#dfdfdf"
+set statusbar-bg			"#545454"
+set statusbar-fg			"#dddddd"
 
-set highlight-color			"#5f8e6d"
-set highlight-active-color	"#8b865f"
+set highlight-color			"#83a290"
+set highlight-active-color	"#978953"
 
-set default-bg				"#1c1c1c"
-set default-fg				"#dfdfdf"
+set default-bg				"#0f0f0f"
+set default-fg				"#dddddd"
 set render-loading			true
-set render-loading-bg		"#1c1c1c"
-set render-loading-fg		"#dfdfdf"
+set render-loading-bg		"#0f0f0f"
+set render-loading-fg		"#dddddd"
 
 # Recolor book content's color
-set recolor-lightcolor		"#1c1c1c"
-set recolor-darkcolor		"#dfdfdf"
+set recolor-lightcolor		"#0f0f0f"
+set recolor-darkcolor		"#dddddd"
 set recolor					true
 set recolor-keephue			true
 

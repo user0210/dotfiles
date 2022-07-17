@@ -26,10 +26,9 @@ base16.setup({
 })
 
 vim.cmd([[augroup CodeGroup]])
+vim.cmd([[augroup CollumnGroup]])
 vim.cmd([[hi CodeGroup guibg=#000000]])
-
-vim.cmd([[hi TabLineSel guibg=#3F6767]])
-vim.cmd([[hi TabLine guibg=#121212]])
+vim.cmd([[hi CollumnGroup guibg=#121212]])
 
 vim.cmd([[hi CursorLine guibg=#121212 gui=bold]])
 vim.cmd([[hi CursorLineNr guibg=#121212 gui=bold]])

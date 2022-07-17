@@ -33,34 +33,34 @@ end
 local function setup(colors)
   local theme = {
     normal = {
-      a = { fg = colors.base00, bg = colors.base0Da },
-      b = { fg = colors.base07, bg = colors.base0Da },
-      c = { fg = colors.base07, bg = colors.base0Da },
+      a = { fg = colors.base06, bg = colors.base0Da },
+      b = { fg = colors.base06, bg = colors.base0Da },
+      c = { fg = colors.base06, bg = colors.base0Da },
       z = { fg = colors.base00, bg = colors.base0Da },
     },
     replace = {
       a = { fg = colors.base00, bg = colors.base09a },
-      b = { fg = colors.base07, bg = colors.base0Da },
-      c = { fg = colors.base07, bg = colors.base0Da },
+      b = { fg = colors.base06, bg = colors.base0Da },
+      c = { fg = colors.base06, bg = colors.base0Da },
       z = { fg = colors.base00, bg = colors.base0Da },
     },
     insert = {
-      a = { fg = colors.base00, bg = colors.base0Ba },
-      b = { fg = colors.base07, bg = colors.base0Da },
-      c = { fg = colors.base07, bg = colors.base0Da },
+      a = { fg = colors.base00, bg = colors.base0D },
+      b = { fg = colors.base06, bg = colors.base0Da },
+      c = { fg = colors.base06, bg = colors.base0Da },
       z = { fg = colors.base00, bg = colors.base0Da },
     },
     visual = {
-      a = { fg = colors.base00, bg = colors.base0Ea },
-      b = { fg = colors.base07, bg = colors.base0Da },
-      c = { fg = colors.base07, bg = colors.base0Da },
+      a = { fg = colors.base00, bg = colors.base0E },
+      b = { fg = colors.base06, bg = colors.base0Da },
+      c = { fg = colors.base06, bg = colors.base0Da },
       z = { fg = colors.base00, bg = colors.base0Da },
     },
     inactive = {
-      a = { fg = colors.base00, bg = colors.base0Da },
-      b = { fg = colors.base07, bg = colors.base0Da },
-      c = { fg = colors.base07, bg = colors.base0Da },
-      z = { fg = colors.base00, bg = colors.base0Da },
+      a = { fg = colors.base06, bg = colors.base01 },
+      b = { fg = colors.base06, bg = colors.base01 },
+      c = { fg = colors.base06, bg = colors.base01 },
+      z = { fg = colors.base00, bg = colors.base01 },
     },
   }
 
@@ -155,7 +155,7 @@ end
 
 return setup_base16() or setup_default()
 
-EOF ###############################################################################################
+EOF
 ###################################################################################################
 
 
