@@ -33,7 +33,7 @@ Xcursor.theme: Cursor
 #include "st-settings"
 
 ! suckless colors
-#include "dwm-theme-edge"
+#include "dwm-theme-button"
 #include "dmenu-color"
 #include "xmenu-color"
 

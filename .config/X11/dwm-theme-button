@@ -5,9 +5,9 @@ dwm.statussep		: 2
 !------------------------ 0 = off, 1 = on, 2 = hide on focus
 dwm.tabbarsep		: 2
 !------------------------ 0 = off, 1 = on, 2 = hide on focus
-dwm.barborder		: 4
+dwm.barborder		: 2
 !------------------------ size of barborders
-dwm.barsep			: 1
+dwm.barsep			: 0
 !------------------------ size of barseperator
 
 
@@ -50,13 +50,13 @@ dwm.borderswitch	: 0
 
 
 dwm.bar_fg_a		: 1.0
-dwm.bar_fg			: base05
+dwm.bar_fg			: base04
 !----------------------------- bar-font
 dwm.bar_bg_a		: 1.0
-dwm.bar_bg			: base00
+dwm.bar_bg			: base01
 !----------------------------- bar-bg
 dwm.bar_brd_a		: 1.0
-dwm.bar_brd			: base00
+dwm.bar_brd			: base01
 !----------------------------- bar-border
 dwm.bar_flo_a		: 1.0
 dwm.bar_flo			: base01
@@ -84,7 +84,7 @@ dwm.sel_bg_a		: 1.0
 dwm.sel_bg			: base04
 !----------------------------- selected-bg
 dwm.sel_brd_a		: 1.0
-dwm.sel_brd			: base00
+dwm.sel_brd			: base05
 !----------------------------- selected-border (down-right)
 dwm.sel_flo_a		: 1.0
 dwm.sel_flo			: base03
@@ -92,44 +92,44 @@ dwm.sel_flo			: base03
 
 
 dwm.foc_fg_a		: 1.0
-dwm.foc_fg 			: base06
+dwm.foc_fg 			: base05
 !----------------------------- focused-font
 dwm.foc_bg_a		: 1.0
-dwm.foc_bg 			: base03
+dwm.foc_bg 			: base02
 !----------------------------- focused-bg
 dwm.foc_brd_a		: 1.0
 dwm.foc_brd			: base00
 !----------------------------- focused-border (down-right)
 dwm.foc_flo_a		: 1.0
-dwm.foc_flo			: base04
+dwm.foc_flo			: base03
 !----------------------------- focused-border (up-left)
 
 
 dwm.unf_fg_a		: 1.0
-dwm.unf_fg			: base05
+dwm.unf_fg			: base04
 !----------------------------- unfocused-font
 dwm.unf_bg_a		: 1.0
-dwm.unf_bg			: base02
+dwm.unf_bg			: base01
 !----------------------------- unfocused-bg
 dwm.unf_brd_a		: 1.0
 dwm.unf_brd			: base00
 !----------------------------- unfocused-border (down-right)
 dwm.unf_flo_a		: 1.0
-dwm.unf_flo			: base03
+dwm.unf_flo			: base02
 !----------------------------- unfocused-border (up-left)
 
 
 dwm.alt_fg_a		: 1.0
-dwm.alt_fg			: base02
+dwm.alt_fg			: base01
 !----------------------------- alternative unf_bg
 dwm.alt_bg_a		: 1.0
-dwm.alt_bg			: base01
+dwm.alt_bg			: base00
 !----------------------------- alternative bar_bg
 dwm.alt_brd_a		: 1.0
-dwm.alt_brd			: base01
+dwm.alt_brd			: base00
 !----------------------------- alternative bar_brd
 dwm.alt_flo_a		: 1.0
-dwm.alt_flo			: base00
+dwm.alt_flo			: base02
 !----------------------------- alternative bar_flo
 
 

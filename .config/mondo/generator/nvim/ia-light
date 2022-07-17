@@ -15,26 +15,24 @@ base16.setup({
 	base0D = "#48bac2",
 	base0E = "#a94598",
 	base0F = "#8b6c37",
+	base08a = "#BC7A22",
+	base09a = "#E45E38",
+	base0Aa = "#E4A238",
+	base0Ba = "#58983C",
+	base0Ca = "#4D8BD1",
+	base0Da = "#68DAE2",
+	base0Ea = "#C965B8",
+	base0Fa = "#AB8C57",
 })
 
-vim.cmd([[augroup TextGroup]])
-vim.cmd([[hi TextGroup guibg=#f6f6f6]])
-
-vim.cmd([[hi Normal ctermbg=none guibg=none]])
-vim.cmd([[hi NormalNC ctermbg=none guibg=none]])
-vim.cmd([[hi VertSplit guibg=none]])
-
-vim.cmd([[hi! link ColorColumn TextGroup]])
-vim.cmd([[hi! link NonText TextGroup]])
-vim.cmd([[hi! link CursorLine TextGroup]])
-vim.cmd([[hi! link DiagnosticSignError TextGroup]])
-vim.cmd([[hi! link DiagnosticSignWarn TextGroup]])
-vim.cmd([[hi! link DiagnosticSignInfo TextGroup]])
-vim.cmd([[hi! link DiagnosticSignHint TextGroup]])
+vim.cmd([[augroup CodeGroup]])
+vim.cmd([[hi CodeGroup guibg=#f6f6f6]])
 
 vim.cmd([[hi TabLineSel guibg=#BC7A22]])
 vim.cmd([[hi TabLine guibg=#dedede]])
-vim.cmd([[hi CursorLineNr guifg=#f8f8f8 guibg=#f6f6f6 gui=bold]])
+
+vim.cmd([[hi CursorLine guibg=#dedede gui=bold]])
+vim.cmd([[hi CursorLineNr guibg=#dedede gui=bold]])
 
 vim.cmd([[hi NvimTreeFolderIcon guifg=#48bac2]])
 vim.cmd([[hi NvimTreeIndentMarker guifg=#e8e8e8]])

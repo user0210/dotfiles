@@ -757,6 +757,17 @@ sudo vim /etc/bluetooth/main.conf
 	ReconnectAttempts=5
 	FastConnectable = true # causes audio issues ?
 
+# troubleshoot (pairing but not connecting?)
+sudo vim /etc/bluetooth/main.conf
+	...
+	ControllerMode = bredr
+	...
+
+# create bluetooth-thether connection
+  # pair and connect android-phone (enable bluetooth-thether) get phone-id from bluetoothctl -> replace XX...
+dbus-send --system --type=method_call --dest=org.bluez /org/bluez/hci0/dev_XX_XX_XX_XX_XX_XX org.bluez.Network1.Connect string:'nap'
+  # connection is now availeble in networkmanager
+
   ## zathura
 sudo pacman -S zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps
 

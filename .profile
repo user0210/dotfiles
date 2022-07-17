@@ -75,11 +75,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
-export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
+export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
+export PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
 export LESSHISTFILE="$XDG_CONFIG_HOME/lesshst"
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export TREE_SITTER_DIR="$XDG_CONFIG_HOME/tree-sitter"

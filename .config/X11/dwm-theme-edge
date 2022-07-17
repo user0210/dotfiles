@@ -98,7 +98,7 @@ dwm.foc_bg_a		: 1.0
 dwm.foc_bg 			: base00
 !----------------------------- focused-bg
 dwm.foc_brd_a		: 1.0
-dwm.foc_brd			: base04
+dwm.foc_brd			: base05
 !----------------------------- focused-border (down-right)
 dwm.foc_flo_a		: 1.0
 dwm.foc_flo			: base00
