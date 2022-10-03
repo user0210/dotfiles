@@ -23,7 +23,9 @@ image/x-xpixmap=nsxiv.desktop;
 image/webp=nsxiv.desktop;
 image/svg+xml=nsxiv.desktop;
 inode/directory=ranger.desktop;
+x-scheme-handler/eclipse+command=_opt_WireframeSketcher_.desktop
 
 [Added Associations]
 text/plain=nvim.desktop;
 application/x-cd-image=xarchiver.desktop;
+application/octet-stream=nvim.desktop;

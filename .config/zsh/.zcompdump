@@ -1,4 +1,4 @@
-#files: 969	version: 5.9
+#files: 974	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -93,6 +93,8 @@ _comps=(
 'bindkey' '_bindkey'
 'bison' '_bison'
 'bitcoin-cli' '_bitcoin-cli'
+'black' '_black'
+'blackd' '_blackd'
 'bluetoothctl' '_bluetoothctl'
 'bmake' '_make'
 'bogofilter' '_bogofilter'
@@ -164,7 +166,6 @@ _comps=(
 'chattr' '_chattr'
 'chcon' '_chcon'
 'chdir' '_cd'
-'cheat' '_cheat'
 'checkupdates' '_checkupdates'
 'chfn' '_users'
 'chgrp' '_chown'
@@ -464,7 +465,6 @@ _comps=(
 'ggetopt' '_getopt'
 'ggrep' '_grep'
 'ggv' '_gnome-gv'
-'_gh' '_gh'
 'gh' '_gh'
 'ghc' '_ghc'
 'ghci' '_ghc'
@@ -628,6 +628,7 @@ _comps=(
 'hd' '_hexdump'
 'head' '_head'
 'heat' '_openstack'
+'hello' '_hello'
 'help' '_sccs'
 'hexdump' '_hexdump'
 'hilite' '_precommand'
@@ -957,6 +958,7 @@ _comps=(
 'oomctl' '_oomctl'
 'openssl' '_openssl'
 'openstack' '_openstack'
+'openvpn3' '_openvpn3'
 'opera' '_webbrowser'
 'opera-next' '_webbrowser'
 'opkg' '_opkg'
@@ -1124,6 +1126,7 @@ _comps=(
 'pyhtmlizer' '_twisted'
 'qdbus' '_qdbus'
 'qiv' '_qiv'
+'qmk' '_qmk'
 'quilt' '_quilt'
 'r' '_fc'
 'rails' '_rails'
@@ -1184,6 +1187,8 @@ _comps=(
 'rmic' '_java'
 'rmid' '_java'
 'rmiregistry' '_java'
+'rmlint' '_rmlint'
+'rmlint.sh' '_rmlint'
 'rmm' '_mh'
 'rmmod' '_modutils'
 'route' '_route'
@@ -1412,7 +1417,7 @@ _comps=(
 'traceroute' '_hosts'
 'transmission-remote' '_transmission'
 'trap' '_trap'
-'trash' '_trash-put'
+'trash' '_trash'
 'trash-empty' '_trash-empty'
 'trash-list' '_trash-list'
 'trash-put' '_trash-put'
@@ -1481,7 +1486,6 @@ _comps=(
 'userdel' '_users'
 'usermod' '_user_admin'
 'vacuumdb' '_pgsql_utils'
-'vagrant' '_vagrant'
 'val' '_sccs'
 'valgrind' '_valgrind'
 '-value-' '_value'
@@ -1539,6 +1543,7 @@ _comps=(
 '-vared-' '_in_vared'
 'vared' '_vared'
 'VBoxHeadless' '_virtualbox'
+'vboxmanage' '_virtualbox'
 'VBoxManage' '_virtualbox'
 'vcs_info_hookadd' '_vcs_info'
 'vcs_info_hookdel' '_vcs_info'
@@ -1750,6 +1755,7 @@ _services=(
 'tunes2pod.pl' 'tunes2pod'
 'unlzma' 'unxz'
 'VBoxHeadless' 'vboxheadless'
+'vboxmanage' 'vboxmanage'
 'VBoxManage' 'vboxmanage'
 'xelatex' 'latex'
 'xetex' 'tex'
@@ -1776,6 +1782,7 @@ _postpatcomps=(
 'pydoc[0-9.]#' '_pydoc'
 'python[0-9.]#' '_python'
 'qemu(|-system-*)' '_qemu'
+'rmlint.*.sh' '_rmlint'
 '(ruby|[ei]rb)[0-9.]#' '_ruby'
 'shasum(|5).*' '_shasum'
 '(texi(2*|ndex))' '_texi'
@@ -1829,34 +1836,35 @@ bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
 autoload -Uz _afew _android _archlinux-java _artisan _atach \
-            _bitcoin-cli _bluetoothctl _bootctl _bower _bundle \
-            _busctl _bwrap _caffeinate _cap _cask \
-            _ccache _cf _cheat _checkupdates _choc \
-            _chromium _cmake _code _code-oss _coffee \
-            _composer _conan _concourse _console _coredumpctl \
-            _cppcheck _curl _dad _debuild _dget \
-            _dhcpcd _diana _docpad _drush _ecdsautil \
-            _emulator _envdir _exportfs _fab _fail2ban-client \
-            _ffind _flatpak _fleetctl _flutter _force \
-            _fwupdmgr _gas _gh _ghc _gist \
-            _git-flow _git-journal _git-pulls _git-revise _git-wtf \
-            _glances _golang _google _gpgconf _gtk-launch \
-            _hledger _homestead _hostnamectl _httpie _ibus \
-            _img2sixel _include-what-you-use _inxi _jmeter _jmeter-plugins \
-            _jonas _journalctl _jrnl _kak _kernel-install \
-            _kitchen _knife _language_codes _libinput _lilypond \
-            _localectl _loginctl _lsd _lunchy _machinectl \
-            _mc _meson _middleman _mina _mix \
-            _mkinitcpio _mpv _mssh _mussh _mvn \
-            _nano _nanoc _networkctl _nftables _ninja \
-            _node _nvm _oomctl _openssl _optirun \
-            _opustools _paccache _pacdiff _paclist _paclog-pkglist \
-            _pacman _pacscripts _pacsearch _pacsort _pactree \
-            _parallel _pastel _patool _perf _periscope \
-            _pgsql_utils _phing _pixz _pkcon _play \
-            _playerctl _pm2 _port _protoc _pulseaudio \
-            _pygmentize _rails _ralio _rankmirrors _redis-cli \
-            _resolvectl _rfkill _rg _rkt _rslsync \
+            _bitcoin-cli _black _blackd _bluetoothctl _bootctl \
+            _bower _bundle _busctl _bwrap _caffeinate \
+            _cap _cask _ccache _cf _checkupdates \
+            _choc _chromium _cmake _code _code-oss \
+            _coffee _composer _conan _concourse _console \
+            _coredumpctl _cppcheck _curl _dad _debuild \
+            _dget _dhcpcd _diana _docpad _drush \
+            _ecdsautil _emulator _envdir _exportfs _fab \
+            _fail2ban-client _ffind _flatpak _fleetctl _flutter \
+            _force _fwupdmgr _gas _gh _ghc \
+            _gist _git-flow _git-journal _git-pulls _git-revise \
+            _git-wtf _glances _golang _google _gpgconf \
+            _gtk-launch _hello _hledger _homestead _hostnamectl \
+            _httpie _ibus _img2sixel _include-what-you-use _inxi \
+            _jmeter _jmeter-plugins _jonas _journalctl _jrnl \
+            _kak _kernel-install _kitchen _knife _language_codes \
+            _libinput _lilypond _localectl _loginctl _lsd \
+            _lunchy _machinectl _mc _meson _middleman \
+            _mina _mix _mkinitcpio _mpv _mssh \
+            _mussh _mvn _nano _nanoc _networkctl \
+            _nftables _ninja _node _nvm _oomctl \
+            _openssl _openvpn3 _optirun _opustools _paccache \
+            _pacdiff _paclist _paclog-pkglist _pacman _pacscripts \
+            _pacsearch _pacsort _pactree _parallel _pastel \
+            _patool _perf _periscope _pgsql_utils _phing \
+            _pixz _pkcon _play _playerctl _pm2 \
+            _port _protoc _pulseaudio _pygmentize _qmk \
+            _rails _ralio _rankmirrors _redis-cli _resolvectl \
+            _rfkill _rg _rkt _rmlint _rslsync \
             _rspec _rsvm _rubocop _sbt _scala \
             _scrub _sdd _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes \
             _sd_unit_files _setcap _setup.py _sfdx _shellcheck \
@@ -1864,9 +1872,9 @@ autoload -Uz _afew _android _archlinux-java _artisan _atach \
             _supervisorctl _svm _systemctl _systemd _systemd-analyze \
             _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run \
             _systemd-tmpfiles _tarsnap _teamocil _thor _timedatectl \
-            _tmuxinator _tmuxp _tox _trash-empty _trash-list \
-            _trash-put _trash-restore _udevadm _udisksctl _ufw \
-            _updpkgsums _vagrant _virtualbox _vnstat _wemux \
+            _tmuxinator _tmuxp _tox _trash _trash-empty \
+            _trash-list _trash-put _trash-restore _udevadm _udisksctl \
+            _ufw _updpkgsums _virtualbox _vnstat _wemux \
             _wg-quick _xinput _xsel _yaourt _yarn \
             _yay _youtube-dl _yt-dlp _zathura _zcash-cli \
             _cdr _all_labels _all_matches _alternative _approximate \

@@ -23,35 +23,6 @@ base16.setup({
 	base0Da = "#276C70",
 	base0Ea = "#35657B",
 	base0Fa = "#665449",
+	base00a = "#131715",
+	base01a = "#1D231F",
 })
-
-vim.cmd([[augroup CodeGroup]])
-vim.cmd([[augroup CollumnGroup]])
-vim.cmd([[hi CodeGroup guibg=#171c19]])
-vim.cmd([[hi CollumnGroup guibg=#232a25]])
-
-vim.cmd([[hi CursorLine guibg=#232a25 gui=bold]])
-vim.cmd([[hi CursorLineNr guibg=#232a25 gui=bold]])
-
-vim.cmd([[hi NvimTreeFolderIcon guifg=#478c90]])
-vim.cmd([[hi NvimTreeIndentMarker guifg=#dfe7e2]])
-vim.cmd([[hi NvimTreeNormal guifg=#87928a guibg=none]])
-vim.cmd([[hi NvimTreeVertSplit guifg=none guibg=none]])
-vim.cmd([[hi NvimTreeFolderName guifg=#478c90 guibg=none]])
-vim.cmd([[hi NvimTreeOpenedFolderName guifg=#478c90 guibg=none gui=bold,italic]])
-vim.cmd([[hi NvimTreeEmptyFolderName guifg=#78877d guibg=none gui=italic]])
-vim.cmd([[hi NvimTreeGitIgnored guifg=#78877d guibg=none gui=italic]])
-vim.cmd([[hi NvimTreeImageFile guifg=#87928a]])
-vim.cmd([[hi NvimTreeSpecialFile guifg=#9f713c]])
-vim.cmd([[hi NvimTreeEndOfBuffer guifg=#171c19 guibg=none]])
-vim.cmd([[hi NvimTreeCursorLine guibg=#232a25]])
-vim.cmd([[hi NvimTreeGitignoreIcon guifg=#914119]])
-vim.cmd([[hi NvimTreeGitStaged guifg=#1c9aa0]])
-vim.cmd([[hi NvimTreeGitNew guifg=#1c9aa0]])
-vim.cmd([[hi NvimTreeGitRenamed guifg=#1c9aa0]])
-vim.cmd([[hi NvimTreeGitDeleted guifg=#b16139]])
-vim.cmd([[hi NvimTreeGitMerge guifg=#a07e3b]])
-vim.cmd([[hi NvimTreeGitDirty guifg=#a07e3b]])
-vim.cmd([[hi NvimTreeSymlink guifg=#489963]])
-vim.cmd([[hi NvimTreeRootFolder guifg=#87928a guibg=none gui=bold]])
-vim.cmd([[hi NvimTreeExecFile guifg=#55859b]])

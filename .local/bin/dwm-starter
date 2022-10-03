@@ -1,7 +1,7 @@
 #!/bin/sh
 
  ## wallpaper
-hsetroot -fill /home/philipp/.config/X11/xfiles/background/wallpapers/hopper.jpg
+hsetroot -fill /home/philipp/.config/X11/xfiles/background/wallpapers/city.jpg
 #nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID /home/philipp/.config/X11/xfiles/background/paperview/pixels11/1366x768.gif -a #nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID /home/philipp/.config/X11/xfiles/background/paperview/pixels12/1366x768.gif -a #nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID /home/philipp/.config/X11/xfiles/background/paperview/pixels13/1366x768.gif -a #nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID /home/philipp/.config/X11/xfiles/background/paperview/gif8/1366x768.gif -a #nice -n 15 xwinwrap -b -s -fs -st -sp -un -nf -ov -fdt -- gifview -w WID $(cat ${HOME}/.config/X11/xfiles/templer/gif) -a 2> /dev/null &
 
  ## compositor

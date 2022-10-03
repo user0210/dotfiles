@@ -369,13 +369,18 @@ cd yay
 makepkg -si
 
 
+##### maybe fix usb issue
+################################
+  ## WARNING: Possibly missing firmware for module: xhci_pci (not on fallback!!)
+yay upd72020x-fw
+
+
 ###########################################################
 ##### settings
 ###########################################################
 
   ## color emojis in st
 sudo pacman -S ttf-joypixels
-yay -S libxft-bgra
 
   ## snapper
 sudo pacman -S snapper
@@ -630,7 +635,7 @@ nvim -u none
 sudo pacman -S python-pynvim
 yay neovim-symlinks neovim-remote
 # formatters for null-ls
-sudo pacman -S prettier python-black stylua
+sudo pacman -S prettier flake8 python-black stylua google-java-format
 # for telescope
 sudo pacman -S ripgrep
 # Neovim node support
@@ -644,6 +649,7 @@ rm -r ~/.config/nvim
 git clone git@github.com:user0210/nvim.git ~/.config/nvim
 # nvim-lsp
 sudo pacman -S clang bash-language-server
+sudo yay vscode-langservers-extracted
 :LspInstall sumneko_lua pyright clangd bashls
 
   ## zsh
@@ -681,15 +687,16 @@ yay dragon-drop
 # media preview
 sudo pacman -S perl-image-exiftool
 sudo pacman -S mediainfo poppler highlight
+
 yay stpv
 # fix top padding with stpv and tmux-topbar
 sudo vim /usr/bin/stpvimg
 add() {
 	F="$1"; X="$2"; Y="$3"; W="$4"; H="$5"
-	if [ "$(tmux show-option -gv status 2> /dev/null)" = on ]; then
-		Y=$((Y+1))
-		W=$((W-1))
-	fi
+    W=$((W-2)) # right space for line-sparators
+    if [ "$(tmux show-option -gv status 2> /dev/null)" = on ]; then
+        Y=$((Y+1))
+    fi
 
 
   ## ranger
@@ -709,6 +716,7 @@ vim ~/.config/ranger/scope.sh
 
   ## neofetch
 sudo pacman -S neofetch
+# neofetch on tty-login
 /etc/systemd/system/ttylogin.service
 	[Unit]
 	Description=tty-logo
@@ -721,6 +729,12 @@ sudo pacman -S neofetch
 	[Install]
 	WantedBy=multi-user.target
 systemctl enable ttylogin
+
+  ## ly
+# get rep
+# make 
+# make install installsystemd
+# systemctl enable ly
 
 
   ## audio
@@ -883,6 +897,16 @@ sudo pacman -S libxp xorg-fonts-misc xorg-fonts-75dpi xorg-fonts-100dpi
 yay baudline-bin
 sudo ln -s ~/.local/bin/baudline /usr/local/bin/baudline
 
+  ## wireframescetcher
+yay ...
+# clean home...
+svim /opt/WireframeSketcher/WireframeSketcher.ini
+	...
+	-Dosgi.configuration.area=@user.home/.local/share/wireframesketcher/eclipse
+svim /opt/WireframeSketcher/configuration/config.ini # change:
+	osgi.instance.area=@user.home/.local/share/wireframesketcher/WireframeSketcher
+	osgi.instance.area.default=@user.home/.local/share/wireframesketcher/WireframeSketcher
+	
 ##### mps-youtube
 sudo pacman -S mpv youtube-dl python-pyperclip
 

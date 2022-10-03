@@ -1,4 +1,4 @@
-record
+pause
 memory 42
 fftsize 2048
 slidesize 384
@@ -11,10 +11,10 @@ average.geometry 1364x410-1-1
 average.zoom 1x1+0+0
 histogram.geometry 512x256-1-1
 histogram.zoom 7x1+0+0
-spectro.geometry 1024x635+24+86
+spectro.geometry 1316x689+4+50
 spectro.zoom 1x1+0+0
 waveform.geometry 1364x180-1-1
-waveform.zoom 1x1+0+0
+waveform.zoom 1x1+222038+0
 playdeck.lpf 768
 playdeck.hpf 256
 file.open.lines 15
@@ -51,18 +51,18 @@ color.b 2
 color.0.0.0 0
 color.0.0.1 0
 color.0.0.2 0
-color.0.1.0 512
-color.0.1.1 512
-color.0.1.2 512
+color.0.1.0 511
+color.0.1.1 511
+color.0.1.2 511
 color.0.ops 0
 color.0.map 0
 color.0.palette 9
 color.1.0.0 80
 color.1.0.1 0
 color.1.0.2 -40
-color.1.1.0 512
+color.1.1.0 511
 color.1.1.1 340
-color.1.1.2 512
+color.1.1.2 511
 color.1.ops 0
 color.1.map 0
 color.1.palette 0
