@@ -35,7 +35,7 @@ cd() {
 	if [ $? -eq 0 ]; then
 		if [ "$LAST_REPO" != $(basename $(git rev-parse --show-toplevel)) ]; then
 			clear
-			onefetch --no-palette
+			onefetch --no-color-palette
 			LAST_REPO=$(basename $(git rev-parse --show-toplevel))
 		fi
 	fi

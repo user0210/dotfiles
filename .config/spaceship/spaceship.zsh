@@ -21,9 +21,12 @@ SPACESHIP_GIT_SUFFIX="]"
 SPACESHIP_EXEC_TIME_PREFIX="["
 SPACESHIP_EXEC_TIME_SUFFIX="]"
 SPACESHIP_EXEC_TIME_ELAPSED=1
+SPACESHIP_PROMPT_ASYNC=true
+
 
   ## sections
 SPACESHIP_PROMPT_ORDER=(
+	async			# Async jobs indicator
 	time			# Time stamps section
 	user			# Username section
 	dir				# Current directory section

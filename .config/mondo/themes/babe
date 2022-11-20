@@ -1,0 +1,45 @@
+!! Theme:    babe
+!! Author:   philipp
+!! Created:  2020-02-20
+base00	#1D130E
+base01	#311D18
+base02	#46281D
+base03	#553224
+base04	#BB9C74
+base05	#CAAF85
+base06	#DDBDA4
+base07	#E5C9B0
+base08	#CE9091
+base09	#D19E73
+base0A	#B08C72
+base0B	#BB8C76
+base0C	#9E7C57
+base0D	#616F84
+base0E	#B29186
+base0F	#79441F
+
+base08a	#B14542
+base09a	#9E504B
+base0Aa	#8A5654
+base0Ba	#986350
+base0Ca	#6F4A32
+base0Da	#343A47
+base0Ea	#825B47
+base0Fa	#3E2319
+
+!! base00	# ----
+!! base01	# ---
+!! base02	# --
+!! base03	# -
+!! base04	# +
+!! base05	# ++
+!! base06	# +++
+!! base07	# ++++
+!! base08	# red
+!! base09	# orange
+!! base0A	# yellow
+!! base0B	# green
+!! base0C	# aqua/cyan
+!! base0D	# blue
+!! base0E	# purple
+!! base0F	# brown    
