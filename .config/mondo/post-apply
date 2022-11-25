@@ -40,7 +40,7 @@ xrdb -merge -I~/.config/X11 ~/.config/X11/Xresources
 pkill -USR2 "^st$" &
 
   ## source theme to tmux
-tmux source-file -q ~/.tmux.conf
+tmux source-file -q ~/.config/tmux/tmux.conf
 
 
 ##### set gtk- and icon- theme
