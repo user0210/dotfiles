@@ -10,3 +10,6 @@
 [submodule ".config/zsh/zsh-syntax-highlighting"]
 	path = .config/zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:user0210/nvim.git
