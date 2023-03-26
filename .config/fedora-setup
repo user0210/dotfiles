@@ -1,0 +1,25 @@
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+
+sudo dnf groupupdate sound-and-video
+sudo dnf group install "C Development Tools and Libraries" "Development Tools"
+
+sudo vim /etc/wsl.conf
+
+    --> systemd boot
+
+
+source /etc/os-release && sudo dnf copr enable wslutilities/wslu ${ID_LIKE}-${VERSION_ID}-$(uname -m)
+source /etc/os-release && sudo dnf copr enable agriffis/neovim-nightly ${ID_LIKE}-${VERSION_ID}-$(uname -m)
+sudo dnf install zsh git ranger tmux npm neovim wslu python3-neovim fzf pip jq 
+git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.config/zsh/spaceship"
+sudo dnf install cargo
+cargo install --locked code-minimap
+
+sudo lchsh $USER
+
+
+sudo dnf group install standard
+
+ranger --copy-config=all
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons

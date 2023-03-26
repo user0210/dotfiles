@@ -1,0 +1,109 @@
+								##### usefull
+
+sudo zypper install-new-recommends
+
+								##### setup
+
+ ## stuff
+sudo zypper in --recommends -t pattern wsl_gui wsl_systemd wsl_base
+sudo zypper in --recommends -t pattern devel_C_C++ devel_basis devel_python3
+
+ ## fonts
+sudo nvim /etc/fonts/local.conf
+	<fontconfig>
+		<dir>/mnt/c/Windows/Fonts</dir>
+	</fontconfig>
+
+sudo zypper in --recommends -t pattern fonts
+sudo zypper in libfreetype6
+
+ ## packman-repo
+sudo zypper addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/' packman
+sudo zypper refresh
+sudo zypper dist-upgrade --from packman --allow-vendor-change
+sudo zypper install --from packman ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec-full
+
+ ## wslu
+sudo zypper addrepo https://download.opensuse.org/repositories/home:/wslutilities/openSUSE_Tumbleweed/home:wslutilities.repo
+sudo zypper ref
+sudo zypper in wslu
+pip install wslpy
+
+ ## ytfzf
+sudo zypper addrepo https://download.opensuse.org/repositories/home:sebross/openSUSE_Tumbleweed/home:sebross.repo
+sudo zypper refresh
+sudo zypper install ytfzf yt-dlp youtube-dl chafa
+
+ ## neovim
+sudo zypper rm -u vim
+sudo zypper install neovim python3-neovim python3-neovim-remote git npm gcc-c++
+
+ ## shell
+sudo zypper install fzf-zsh-completion fzf onefetch
+
+ ## firefox and audio and video
+sudo zypper in firefox pipewire-pulseaudio  pipewire-alsa mpv
+
+ ## theming
+sudo zypper addrepo https://download.opensuse.org/repositories/home:expeehaa/openSUSE_Tumbleweed/home:expeehaa.repo
+sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:python/openSUSE_Tumbleweed/devel:languages:python.repo
+sudo zypper refresh
+sudo zypper install gradience adw-gtk3 adw-gtk3-dark
+sudo zypper in python3-gobject-Gdk
+curl -s -o- https://raw.githubusercontent.com/rafaelmardojai/firefox-gnome-theme/master/scripts/install-by-curl.sh | bash
+sudo zypper install gsettings-desktop-schemas
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+sudo zypper in QGnomePlatform-qt5 QGnomePlatform-qt6
+--> export QT_QPA_PLATFORMTHEME=gnome
+sudo zypper in qt6-platformtheme-gtk3 libqt5-qtstyleplugins qt5ct qt6ct
+--> export QT_QPA_PLATFORMTHEME=qt5ct # qt6ct
+sudo zypper in libqt5-qtwayland qt6-wayland libQt6Svg6
+sudo zypper in breeze dconf-editor
+
+ ## zathura
+sudo zypper install zathura zathura-plugin-pdf-poppler zathura-zsh-completion
+sudo zypper install xdg-utils (at-spi2-core)
+xdg-mime default org.pwmt.zathura.desktop application/pdf
+
+ ## nautilus
+sudo zypper in nautilus python3-nautilus nautilus-file-roller evince-plugin-pdfdocument tracker udisks2 gvfs gvfs-fuse
+sudo zypper in gdk-pixbuf-thumbnailer ffmpegthumbnailer rsvg-thumbnailer raw-thumbnailer gsf-office-thumbnailer tumbler-webp-thumbnailer
+
+ ## cursor
+sudo zypper install breeze5-cursors
+gsettings set org.gnome.desktop.interface cursor-theme Breeze_Snow
+
+ ## tmux
+sudo zypper install tmux terminfo
+
+ ## lf
+sudo zypper addrepo https://download.opensuse.org/repositories/home:our-obo-ros/openSUSE_Tumbleweed/home:our-obo-ros.repo
+sudo zypper refresh
+sudo zypper install trash-cli
+suddo zypper in rsync
+
+ ## Appimage
+sudo zypper install fuse libfuse2
+
+ ## /etc/wsl.conf
+[boot]
+systemd=true
+
+[automount]
+enabled = true
+options = "metadata,uid=1000,gid=1000,umask=22,fmask=11,case=off"
+mountFsTab = true
+
+[network]
+generateHosts = true
+generateResolvConf = true
+hostname = opensuse
+
+[user]
+default=philipp
+
+ ## /mnt/wsl/resolv.conf
+# [network]
+# generateResolvConf = false
+nameserver 172.28.64.1

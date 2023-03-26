@@ -1,0 +1,15 @@
+[Default Applications]
+inode/directory=org.gnome.Nautilus.desktop
+inode/x-empty=nvim.desktop
+text/plain=nvim.desktop
+text/html=nvim.desktop
+text/x-script.python=nvim.desktop
+text/x-shellscript=nvim.desktop
+application/zip=org.gnome.FileRoller.desktop
+application/pdf=org.pwmt.zathura.desktop
+application/xml=nvim.desktop
+image/x-xbitmap=nvim.desktop
+video/mp4=mpv_win.desktop
+
+[Added Associations]
+video/mp4=mpv.desktop;mpv_win.desktop

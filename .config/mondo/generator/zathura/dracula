@@ -1,0 +1,43 @@
+
+##### templer-colors
+set notification-error-bg	"#282936"
+set notification-error-fg	"#ea51b2"
+set notification-warning-bg	"#282936"
+set notification-warning-fg	"#00f769"
+set notification-bg			"#282936"
+set notification-fg			"#ebff87"
+
+set completion-bg			"#4d4f68"
+set completion-fg			"#f1f2f8"
+set completion-group-bg		"#3a3c4e"
+set completion-group-fg		"#62d6e8"
+set completion-highlight-bg	"#62d6e8"
+set completion-highlight-fg	"#4d4f68"
+
+# Define the color in index mode
+set index-bg				"#4d4f68"
+set index-fg				"#f1f2f8"
+set index-active-bg			"#62d6e8"
+set index-active-fg			"#4d4f68"
+
+set inputbar-bg				"#282936"
+set inputbar-fg				"#f1f2f8"
+
+set statusbar-bg			"#4d4f68"
+set statusbar-fg			"#f1f2f8"
+
+set highlight-color			"#00f769"
+set highlight-active-color	"#b45bcf"
+
+set default-bg				"#282936"
+set default-fg				"#f1f2f8"
+set render-loading			true
+set render-loading-bg		"#282936"
+set render-loading-fg		"#f1f2f8"
+
+# Recolor book content's color
+set recolor-lightcolor		"#282936"
+set recolor-darkcolor		"#f1f2f8"
+set recolor					true
+set recolor-keephue			true
+

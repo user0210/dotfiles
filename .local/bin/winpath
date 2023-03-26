@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ -n "${IS_WSL+x}" ] || [ -n "${WSL_DISTRO_NAME+x}" ]; then
+  wslpath "$@"
+elif [ -n "${MSYSTEM+x}" ]; then
+  cygpath "$@"
+else 
+  echo "$@"
+fi

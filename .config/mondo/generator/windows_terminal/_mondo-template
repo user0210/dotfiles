@@ -1,0 +1,45 @@
+#!/bin/bash
+# This script is executed every time a theme is applied.
+# Each generator can have it's own _mondo-apply script.
+
+# The default syntax is bash, but by changing the shebang,
+# one could use another language (f.i. perl or python).
+
+# $1 is equal to: $MONOD_DIR/generator/TYPE/THEME[.extensions]
+
+# If this script is not needed, this file can safely be removed.
+# (removing the file, will improve execution speed)
+
+# MONDO_DIR="${1%%/generator*}"
+# THIS_DIR="${1%/*}"
+# THIS_GENERATOR="${THIS_DIR##*/}"
+# THIS_FILE="${1##*/}"
+# THIS_THEME="${THIS_FILE%.*}"
+
+# To source the settings file one could use this:
+# source "${THIS_DIR}/_mondo-settings"
+
+theme="/mnt/c/Users/PhilippScheibe/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+
+cat $theme | jq ' (.schemes | .[] | select(.name=="Templer").background) |= "%%base00%%"
+				| (.schemes | .[] | select(.name=="Templer").black) |= "%%base01%%"
+				| (.schemes | .[] | select(.name=="Templer").blue) |= "%%base0D%%"
+				| (.schemes | .[] | select(.name=="Templer").brightBlack) |= "%%base03%%"
+				| (.schemes | .[] | select(.name=="Templer").brightBlue) |= "%%base0D%%"
+				| (.schemes | .[] | select(.name=="Templer").brightCyan) |= "%%base0C%%"
+				| (.schemes | .[] | select(.name=="Templer").brightGreen) |= "%%base0B%%"
+				| (.schemes | .[] | select(.name=="Templer").brightPurple) |= "%%base0E%%"
+				| (.schemes | .[] | select(.name=="Templer").brightRed) |= "%%base08%%"
+				| (.schemes | .[] | select(.name=="Templer").brightWhite) |= "%%base07%%"
+				| (.schemes | .[] | select(.name=="Templer").brightYellow) |= "%%base0A%%"
+				| (.schemes | .[] | select(.name=="Templer").cursorColor) |= "%%base07%%"
+				| (.schemes | .[] | select(.name=="Templer").cyan) |= "%%base0Ca%%"
+				| (.schemes | .[] | select(.name=="Templer").foreground) |= "%%base05%%"
+				| (.schemes | .[] | select(.name=="Templer").green) |= "%%base0Ba%%"
+				| (.schemes | .[] | select(.name=="Templer").purple) |= "%%base0Ea%%"
+				| (.schemes | .[] | select(.name=="Templer").red) |= "%%base08a%%"
+				| (.schemes | .[] | select(.name=="Templer").selectionBackground) |= "%%base02%%"
+				| (.schemes | .[] | select(.name=="Templer").white) |= "%%base05%%"
+				| (.schemes | .[] | select(.name=="Templer").yellow) |= "%%base0Aa%%"' > /tmp/settings.json
+
+mv /tmp/settings.json "$theme"

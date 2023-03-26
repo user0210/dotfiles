@@ -1,0 +1,40 @@
+colors:
+  # Default colors
+  primary:
+    background: '0x303030'
+    foreground: '0x8d938d'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x303030'
+    cursor: '0x8d938d'
+
+  # Normal colors
+  normal:
+    black:   '0x303030'
+    red:     '0xF4867D'
+    green:   '0x81A56E'
+    yellow:  '0xD5A920'
+    blue:    '0x6CA3CD'
+    magenta: '0xA979C8'
+    cyan:    '0x5EB9BF'
+    white:   '0x8d938d'
+
+  # Bright colors
+  bright:
+    black:   '0x445e67'
+    red:     '0xF4867D'
+    green:   '0x81A56E'
+    yellow:  '0xD5A920'
+    blue:    '0x6CA3CD'
+    magenta: '0xA979C8'
+    cyan:    '0x5EB9BF'
+    white:   '0xbabaa9'
+
+  indexed_colors:
+    - { index: 16, color: '0xEC9853' }
+    - { index: 17, color: '0xD182A6' }
+    - { index: 18, color: '0x3f3f3f' }
+    - { index: 19, color: '0x4b575a' }
+    - { index: 20, color: '0x6e776e' }
+    - { index: 21, color: '0xa4a493' }

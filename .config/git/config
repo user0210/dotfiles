@@ -1,0 +1,8 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = philipp
+	email = scheibe.philipp@gmail.com
+[core]
+	pager = less -x1,5
+	filemode = false

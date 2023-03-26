@@ -1,0 +1,45 @@
+!! Theme:    nord
+!! Author:   philipp
+!! Created:  2020-03-23
+base00	#2E3440
+base01	#3B4252
+base02	#434C5E
+base03	#4C566A
+base04	#D8DEE9
+base05	#E5E9F0
+base06	#ECEFF4
+base07	#8FBCBB
+base08	#88C0D0
+base09	#81A1C1
+base0A	#5E81AC
+base0B	#BF616A
+base0C	#D08770
+base0D	#EBCB8B
+base0E	#A3BE8C
+base0F	#B48EAD
+
+base08a	#68A0B0
+base09a	#6181A1
+base0Aa	#3E618C
+base0Ba	#9F414A
+base0Ca	#B06750
+base0Da	#CBAB6B
+base0Ea	#839E6C
+base0Fa	#946E8D
+
+!! base00	# ----
+!! base01	# ---
+!! base02	# --
+!! base03	# -
+!! base04	# +
+!! base05	# ++
+!! base06	# +++
+!! base07	# ++++
+!! base08	# red
+!! base09	# orange
+!! base0A	# yellow
+!! base0B	# green
+!! base0C	# aqua/cyan
+!! base0D	# blue
+!! base0E	# purple
+!! base0F	# brown    

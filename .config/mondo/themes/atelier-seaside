@@ -1,0 +1,45 @@
+!! Theme:    atelier-seaside
+!! Author:   philipp
+!! Created:  2020-03-23
+base00	#131513
+base01	#242924
+base02	#5e6e5e
+base03	#687d68
+base04	#809980
+base05	#8ca68c
+base06	#cfe8cf
+base07	#f4fbf4
+base08	#e6193c
+base09	#87711d
+base0A	#98981b
+base0B	#29a329
+base0C	#1999b3
+base0D	#3d62f5
+base0E	#ad2bee
+base0F	#e619c3
+
+base08a	#C6001C
+base09a	#675100
+base0Aa	#787800
+base0Ba	#098309
+base0Ca	#007993
+base0Da	#1D42D5
+base0Ea	#8D0BCE
+base0Fa	#C600A3
+
+!! base00	# ----
+!! base01	# ---
+!! base02	# --
+!! base03	# -
+!! base04	# +
+!! base05	# ++
+!! base06	# +++
+!! base07	# ++++
+!! base08	# red
+!! base09	# orange
+!! base0A	# yellow
+!! base0B	# green
+!! base0C	# aqua/cyan
+!! base0D	# blue
+!! base0E	# purple
+!! base0F	# brown    
